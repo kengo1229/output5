@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use \Illuminate\Auth\Passwords\PasswordBroker;
+use \Illuminate\Support\Facades\Password;
 
 class ResetPasswordController extends Controller
 {
@@ -36,4 +38,12 @@ class ResetPasswordController extends Controller
     {
         $this->middleware('guest');
     }
+    // パスワードリセットのバリデーションでPasswordBrokerを返す前にvalidatorを呼ぶように変更
+    public function broker()
+    {
+        $broker = Password::broker();
+        $broker->validator(function(array $credentials) { return true; });
+        return $broker;
+    }
+
 }
