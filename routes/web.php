@@ -14,7 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+// 認証関係のルーティング
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+// step新規登録時のルーティング
+Route::get('/steps/new', 'StepsController@new')->name('steps.new');
