@@ -32,9 +32,10 @@
 
                                 <div class="col-md-6">
                                     <select id="category_name" type="text" class="form-control @error('category_name') is-invalid @enderror" name="category_name" value="{{ old('category_name') }}" autocomplete="category_name" autofocus>
-                                      <option value="サンプル1">サンプル1</option>
-                                      <option value="サンプル2">サンプル2</option>
-                                      <option value="サンプル3">サンプル3</option>
+                                      <option selected="selected" value="">選択してください</option>
+                                      @foreach($categories as $category)
+                                      <option value='{{ $category->id }}'>{{ $category->category_name}}</option>
+                                      @endforeach
                                     </select>
 
 
