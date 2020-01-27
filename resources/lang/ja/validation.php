@@ -94,7 +94,7 @@ return [
     'numeric'              => ':attributeには、数字を指定してください。',
     'present'              => ':attributeが存在していません。',
     'regex'                => ':attributeに正しい形式を指定してください。',
-    'required'             => ':attributeは必ず入力してください。',
+    'required'             => '入力必須です。',
     'required_if'          => ':otherが:valueの場合、:attributeも指定してください。',
     'required_unless'      => ':otherが:valuesでない場合、:attributeを指定してください。',
     'required_with'        => ':valuesを指定する場合は、:attributeも指定してください。',
@@ -146,8 +146,11 @@ return [
     'attributes' => [
       'email'          => 'メールアドレス',
       'password'       => 'パスワード',
-      'category_name' => 'カテゴリー',
+      'category_id' => 'カテゴリー',
       "title"=>"タイトル",
+      "goal_time"=>"目標時間",
+      "description"=>"説明",
+      "pic"=>"画像",
 
     ],
 

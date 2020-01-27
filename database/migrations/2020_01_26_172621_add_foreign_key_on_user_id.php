@@ -4,8 +4,8 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-// テーブル作成
-class CreatechildStepTable extends Migration
+// 外部キーの設定
+class AddForeignKeyOnUserId extends Migration
 {
     /**
      * Run the migrations.
@@ -14,12 +14,8 @@ class CreatechildStepTable extends Migration
      */
     public function up()
     {
-        Schema::create('child_step', function (Blueprint $table) {
-          $table->bigIncrements('id');
-          $table->string('title',255);
-          $table->text('description');
-          $table->integer('parent_step_id');
-          $table->timestamps();
+        Schema::table('parent_steps', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -30,6 +26,8 @@ class CreatechildStepTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('child_step');
+        Schema::table('parent_steps', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
+        });
     }
 }
