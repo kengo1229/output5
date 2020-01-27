@@ -31,9 +31,14 @@
 
                                 <div class="col-md-6">
                                     <select id="category_id" type="text" class="form-control @error('category_id') is-invalid @enderror" name="category_id"  autocomplete="category_id" autofocus>
-                                      <option  value="0">選択してください</option>
-                                      @foreach($categories as $category)
-                                      <option value="{{ old('category_id', $step_info->category_id) }}">{{ $category->category_name}}</option>
+                                      @foreach($categories as $category )
+                                      @if($category->id == $step_info->category_id )
+                                      <option value="{{ $category->id }}"  selected = "selcted" > {{ $category->category_name}} </option>
+                                      @elseif(old('category_id') == $category->id )
+                                      <option value="{{$category->id}}" selected = "selcted"> {{ $category->category_name}} </option>
+                                      @else
+                                      <option value="{{$category->id}}"> {{ $category->category_name}} </option>
+                                      @endif
                                       @endforeach
                                     </select>
 
