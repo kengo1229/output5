@@ -18,7 +18,14 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-// step新規登録画面表示のルーティング
-Route::get('/steps/new', 'StepsController@new')->name('steps.new');
-// step新規登録データ保存のルーティング
-Route::post('/steps/create', 'StepsController@create')->name('steps.create');
+
+// ログインしていないと機能しないルーティング
+Route::group(['middleware' => 'auth'], function() {
+  // step新規登録画面表示のルーティング
+  Route::get('/steps/new', 'StepsController@new')->name('steps.new');
+  // step新規登録データ保存のルーティング
+  Route::post('/steps/create', 'StepsController@create')->name('steps.create');
+  // step編集登録画面表示のルーティング
+  Route::get('/steps/{id}/edit', 'StepsController@edit')->name('steps.edit');
+
+});

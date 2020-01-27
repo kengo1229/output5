@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">STEP新規登録</div>
+                    <div class="card-header">STEP編集</div>
 
 
                     <div class="card-body">
@@ -16,7 +16,7 @@
                                 <label for="title" class="col-md-4 col-form-label text-md-right">タイトル(40文字以内)</label>
 
                                 <div class="col-md-6">
-                                    <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}" autocomplete="title" autofocus>
+                                    <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title', $step_info->title) }}" autocomplete="title" autofocus>
 
                                     @error('title')
                                     <span class="invalid-feedback" role="alert">
@@ -32,12 +32,8 @@
                                 <div class="col-md-6">
                                     <select id="category_id" type="text" class="form-control @error('category_id') is-invalid @enderror" name="category_id"  autocomplete="category_id" autofocus>
                                       <option  value="0">選択してください</option>
-                                      @foreach($categories as $category )
-                                      @if(old('category_id') == $category->id )
-                                      <option value="{{ $category->id }}"  selected = "selcted" > {{ $category->category_name}} </option>
-                                      @else
-                                      <option value="{{$category->id}}"> {{ $category->category_name}} </option>
-                                      @endif
+                                      @foreach($categories as $category)
+                                      <option value="{{ old('category_id', $step_info->category_id) }}">{{ $category->category_name}}</option>
                                       @endforeach
                                     </select>
 
@@ -54,7 +50,7 @@
                                 <label for="goal_time" class="col-md-4 col-form-label text-md-right">目標達成時間</label>
 
                                 <div class="col-md-6">
-                                    <input id="goal_time" type="text" class="form-control @error('goal_time') is-invalid @enderror" name="goal_time" value="{{ old('goal_time') }}" autocomplete="goal_time" autofocus>
+                                    <input id="goal_time" type="text" class="form-control @error('goal_time') is-invalid @enderror" name="goal_time" value="{{ old('goal_time', $step_info->goal_time) }}" autocomplete="goal_time" autofocus>
 
                                     @error('goal_time')
                                     <span class="invalid-feedback" role="alert">
@@ -68,7 +64,7 @@
                                 <label for="description" class="col-md-4 col-form-label text-md-right">説明(200文字以内)</label>
 
                                 <div class="col-md-6">
-                                    <input id="description" type="textarea" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" autocomplete="description" autofocus>
+                                    <input id="description" type="textarea" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description', $step_info->description) }}" autocomplete="description" autofocus>
 
                                     @error('description')
                                     <span class="invalid-feedback" role="alert">
@@ -84,7 +80,7 @@
                                 <label for="step0" class="col-md-4 col-form-label text-md-right">{{ __('STEP').$i }} @if ($i !== 1) :任意@endif</label>
 
                                 <div class="col-md-6">
-                                  <input id="step{{$i - 1}}" type="text" class="form-control  @error('step'.($i - 1)) is-invalid @enderror" name="step{{$i - 1}}" value="{{ old('step'.($i - 1)) }}" autocomplete="step{{$i - 1}}" autofocus>
+                                  <input id="step{{$i - 1}}" type="text" class="form-control  @error('step'.($i - 1)) is-invalid @enderror" name="step{{$i - 1}}" value="{{ old('step'.($i - 1), $step_info['step'.($i - 1)]) }} " autocomplete="step{{$i - 1}}" autofocus>
 
                                   @error('step'.($i - 1))
                                   <span class="invalid-feedback" role="alert">
@@ -96,7 +92,7 @@
                                 <label for="todo0" class="col-md-4 col-form-label text-md-right">やること(100文字以内) @if ($i !== 1) :任意@endif</label>
 
                                 <div class="col-md-6">
-                                    <input id="todo{{$i - 1}}" type="textarea" class="form-control @error('todo'.($i - 1)) is-invalid @enderror" name="todo{{$i - 1}}" value="{{ old('todo'.($i - 1)) }} " autocomplete="todo{{$i - 1}}" autofocus>
+                                    <input id="todo{{$i - 1}}" type="textarea" class="form-control @error('todo'.($i - 1)) is-invalid @enderror" name="todo{{$i - 1}}" value="{{ old('todo'.($i - 1), $step_info['todo'.($i - 1)]) }}" autocomplete="todo{{$i - 1}}" autofocus>
 
                                     @error('todo'.($i - 1))
                                     <span class="invalid-feedback" role="alert">
@@ -117,7 +113,8 @@
 
                                 <div class="col-md-6">
 
-                                    <input id="pic" type="file" class="form-control @error('category_name') is-invalid @enderror" name="pic" value="{{ old('pic') }}" autocomplete="pic" autofocus>
+                                    <img src="{{ $step_info->pic }}" alt="">
+                                    <input id="pic" type="file" class="form-control @error('pic') is-invalid @enderror" name="pic" value="{{ old('pic') }}" autocomplete="pic" autofocus>
 
                                     @error('pic')
                                     <span class="invalid-feedback" role="alert">
@@ -132,7 +129,7 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        登録
+                                        編集
                                     </button>
                                 </div>
                             </div>
