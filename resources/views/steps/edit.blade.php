@@ -55,7 +55,7 @@
                                 <label for="goal_time" class="col-md-4 col-form-label text-md-right">目標達成時間</label>
 
                                 <div class="col-md-6">
-                                    <input id="goal_time" type="text" class="form-control @error('goal_time') is-invalid @enderror" name="goal_time" value="{{ old('goal_time', $step_info->goal_time) }}" autocomplete="goal_time" autofocus>
+                                    <input id="goal_time" type="text" class="form-control @error('goal_time') is-invalid @enderror" name="goal_time" value="{{ old('goal_time', $step_info->goal_time) }}" autocomplete="goal_time" autofocus>時間
 
                                     @error('goal_time')
                                     <span class="invalid-feedback" role="alert">
@@ -110,15 +110,28 @@
 
                             @endfor
 
+                            <div class="form-group row">
+                                <label for="pic" class="col-md-4 col-form-label text-md-right">登録した画像</label>
 
+                                <div class="col-md-6">
 
+                                  @if(($step_info->pic) !== "")
+                                    <div>
+                                      <img src="/{{ $step_info->pic }}" alt="ステップ画像" width="200" height="130">
+                                    </div>
+                                  @else
+                                    <div>
+                                      <img src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし" width="200" height="130">
+                                    </div>
+                                  @endif
+                                </div>
+                            </div>
 
                             <div class="form-group row">
                                 <label for="pic" class="col-md-4 col-form-label text-md-right">画像:任意</label>
 
                                 <div class="col-md-6">
 
-                                    <img src="{{ $step_info->pic }}" alt="">
                                     <input id="pic" type="file" class="form-control @error('pic') is-invalid @enderror" name="pic" value="{{ old('pic') }}" autocomplete="pic" autofocus>
 
                                     @error('pic')

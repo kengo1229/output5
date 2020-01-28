@@ -18,24 +18,29 @@ class StepsController extends Controller
   // categoryテーブルの全ての値を取得して、ビューに渡す
     $categories = Category::get();
 
-    return view('steps.new', ['categories' => $categories]);
+    return view('steps.new', compact('categories'));
   }
 
 // フォームに入力された値のDB保存機能
   public function create(StepRequest $request)
   {
-    // フォームに入力された値をparent_stepsに登録する
+
     $parent_step = new ParentStep;
     // ログインしているユーザーのidを格納する
     $parent_step->user_id = Auth::user()->id;
+    //アップロードされた画像をstoreAsメソッドで保存場所とファイル名を指定して保存
+    $time = date("Ymdhis");
+    $parent_step->pic = $request->pic->storeAs('public/step_images', $time.'_'.Auth::user()->id . '.jpg');
+    // フォームに入力された値をparent_stepsに登録する
     $parent_step->fill($request->all())->save();
 
     // 最新のparent_stepsテーブルのidを変数に格納
     $parent_step_id = ParentStep::latest('id')->first()->id;
 
-    // フォームに入力された値をchild_stepsに登録する
+    // child_stepsテーブルのparent_step_idカラムに$parent_step_idを格納
     $child_step = new ChildStep;
     $child_step->parent_step_id = $parent_step_id;
+    // フォームに入力された値をchild_stepsに登録する
     $child_step->fill($request->all())->save();
 
     // stepの登録が完了したらホーム画面に飛ばす
@@ -52,6 +57,9 @@ class StepsController extends Controller
 
     $categories = Category::get();
     $step_info = ParentStep::find($id);
+    $step_info->pic = str_replace('public/', 'storage/', $step_info->pic);
+    dump($step_info->pic);
+
     // parent_stepsとchild_stepに登録されているデータをparents_stepsテーブルのidをもとにひっぱってくる
     // $step_info = Auth::user()->parent_steps()->find($id)->with('child_steps')->get();
 

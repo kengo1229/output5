@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class ParentStep extends Model
 {
     protected $table = 'parent_steps';
-    protected $fillable = ['title', 'category_id', 'goal_time', 'description', 'pic','user_id'];
+    // 画像のパスを変更して保存するためpicは含めない
+    protected $fillable = ['title', 'category_id', 'goal_time', 'description'];
 
     //child_stepテーブルとのリレーション
     public function child_step()

@@ -54,7 +54,7 @@
                                 <label for="goal_time" class="col-md-4 col-form-label text-md-right">目標達成時間</label>
 
                                 <div class="col-md-6">
-                                    <input id="goal_time" type="text" class="form-control @error('goal_time') is-invalid @enderror" name="goal_time" value="{{ old('goal_time') }}" autocomplete="goal_time" autofocus>
+                                    <input id="goal_time" type="text" class="form-control @error('goal_time') is-invalid @enderror" name="goal_time" value="{{ old('goal_time') }}" autocomplete="goal_time" autofocus>時間
 
                                     @error('goal_time')
                                     <span class="invalid-feedback" role="alert">
