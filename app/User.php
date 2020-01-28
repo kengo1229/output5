@@ -43,7 +43,7 @@ class User extends Authenticatable
         $this->notify(new ResetPasswordNotification($token));
     }
     // parent_stepsテーブルとのリレーション
-    public function paret_steps()
+    public function parent_steps()
     {
         return $this->hasMany('App\ParentStep');
     }

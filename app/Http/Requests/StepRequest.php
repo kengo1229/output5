@@ -31,14 +31,14 @@ class StepRequest extends FormRequest
             'description' => 'required|string|max:200',
             'step0' => 'required|string|max:40',
             'todo0' => 'required|string|max:100',
-            'step1' => 'nullable|string|max:40',
-            'todo1' => 'nullable|string|max:100',
-            'step2' => 'nullable|string|max:40',
-            'todo2' => 'nullable|string|max:100',
-            'step3' => 'nullable|string|max:40',
-            'todo3' => 'nullable|string|max:100',
-            'step4' => 'nullable|string|max:40',
-            'todo4' => 'nullable|string|max:100',
+            'step1' => 'required|string|max:40',
+            'todo1' => 'required|string|max:100',
+            'step2' => 'required|string|max:40',
+            'todo2' => 'required|string|max:100',
+            'step3' => 'required|string|max:40',
+            'todo3' => 'required|string|max:100',
+            'step4' => 'required|string|max:40',
+            'todo4' => 'required|string|max:100',
             'pic' => 'file|image|mimes:jpeg,png,jpg,gif|max:2048'
         ];
     }

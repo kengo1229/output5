@@ -15,4 +15,10 @@ class ParentStep extends Model
         {
             return $this->hasOne('App\ChildStep');
         }
+
+    //categoriesテーブルとのリレーション
+    public function category()
+        {
+            return $this->belongsTo('App\Category');
+        }
 }
