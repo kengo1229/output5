@@ -52,7 +52,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="goal_time" class="col-md-4 col-form-label text-md-right">目標達成時間</label>
+                                <label for="goal_time" class="col-md-4 col-form-label text-md-right">達成目安時間</label>
 
                                 <div class="col-md-6">
                                     <input id="goal_time" type="text" class="form-control @error('goal_time') is-invalid @enderror" name="goal_time" value="{{ old('goal_time', $parent_step_info->goal_time) }}" autocomplete="goal_time" autofocus>時間
@@ -82,7 +82,7 @@
                             @for ($i = 1; $i <= 5; $i++)
                               <div class="form-group row">
 
-                                <label for="step0" class="col-md-4 col-form-label text-md-right">{{ __('STEP').$i }} @if ($i !== 1) :任意@endif</label>
+                                <label for="step{{$i - 1}}" class="col-md-4 col-form-label text-md-right">{{ __('STEP').$i }} @if ($i !== 1) :任意@endif</label>
 
                                 <div class="col-md-6">
                                   <input id="step{{$i - 1}}" type="text" class="form-control  @error('step'.($i - 1)) is-invalid @enderror" name="step{{$i - 1}}" value="{{ old('step'.($i - 1), $child_step_info['step'.($i - 1)]) }} " autocomplete="step{{$i - 1}}" autofocus>
@@ -115,7 +115,7 @@
 
                                 <div class="col-md-6">
 
-                                  @if(($parent_step_info->pic) !== "")
+                                  @if(($parent_step_info->pic) !== null)
                                     <div>
                                       <img src="/{{ $parent_step_info->pic }}" alt="ステップ画像" width="200" height="130">
                                     </div>

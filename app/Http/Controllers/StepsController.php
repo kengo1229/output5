@@ -54,11 +54,9 @@ class StepsController extends Controller
     if(!ctype_digit($id)){
         return redirect('/steps/new')->with('flash_message', __('不正な操作が行われました。'));
     }
-
     $categories = Category::get();
     // $idを元にparent_stepテーブルに登録されたデータを格納
     $parent_step_info = Auth::user()->parent_steps()->find($id);
-    $parent_step_info->pic = str_replace('public/', 'storage/', $parent_step_info->pic);
 
     // $idを元にchild_stepテーブルに登録されたデータを格納
     $child_step_info  = ChildStep::where('parent_step_id', $id)->first();
@@ -92,7 +90,30 @@ class StepsController extends Controller
 
     // STEP一覧表示機能
     public function index() {
-      $index_step_info = ParentStep::with('category')->get();;
+      // リレーションを貼ったcategoryテーブルとparent_stepsのデータを1ページ20件ごとに格納
+      $index_step_info = ParentStep::with('category')->paginate(20);
+
       return view('steps.index',compact('index_step_info'));
     }
+
+    // STEP詳細表示機能
+    public function show($id)
+    {
+      if(!ctype_digit($id)){
+        return redirect('/steps/index')->with('flash_message', __('不正な操作が行われました。'));
+      }
+
+      $parent_step = ParentStep::with('category')->find($id);
+
+      // ログイン済みユーザーとstepを登録したユーザーが同じ場合、編集画面に飛ばす
+      if(($parent_step->user_id) === Auth::id()){
+        return redirect()->route('steps.edit', ['id' => $parent_step->id]);
+      }
+
+      $child_step  = ChildStep::where('parent_step_id', $id)->first();
+
+      return view('steps.show', compact('parent_step', 'child_step'));
+    }
+
+
 }
