@@ -21,4 +21,10 @@ class ParentStep extends Model
         {
             return $this->belongsTo('App\Category');
         }
+    // usersテーブルとのリレーション
+        public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+
 }

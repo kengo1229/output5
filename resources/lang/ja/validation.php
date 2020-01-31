@@ -161,7 +161,8 @@ return [
       "todo3"=>"やること",
       "step4"=>"STEP5",
       "todo4"=>"やること",
-
+      "username"=>"ユーザー名",
+      "introduction"=>"自己紹介",
     ],
 
 ];

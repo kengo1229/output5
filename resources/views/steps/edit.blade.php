@@ -82,7 +82,7 @@
                             @for ($i = 1; $i <= 5; $i++)
                               <div class="form-group row">
 
-                                <label for="step{{$i - 1}}" class="col-md-4 col-form-label text-md-right">{{ __('STEP').$i }} @if ($i !== 1) :任意@endif</label>
+                                <label for="step{{$i - 1}}" class="col-md-4 col-form-label text-md-right">{{ __('子STEP').$i }} </label>
 
                                 <div class="col-md-6">
                                   <input id="step{{$i - 1}}" type="text" class="form-control  @error('step'.($i - 1)) is-invalid @enderror" name="step{{$i - 1}}" value="{{ old('step'.($i - 1), $child_step_info['step'.($i - 1)]) }} " autocomplete="step{{$i - 1}}" autofocus>
@@ -94,7 +94,7 @@
                                   @enderror
                                 </div>
 
-                                <label for="todo0" class="col-md-4 col-form-label text-md-right">やること(100文字以内) @if ($i !== 1) :任意@endif</label>
+                                <label for="todo0" class="col-md-4 col-form-label text-md-right">やること(100文字以内) </label>
 
                                 <div class="col-md-6">
                                     <input id="todo{{$i - 1}}" type="textarea" class="form-control @error('todo'.($i - 1)) is-invalid @enderror" name="todo{{$i - 1}}" value="{{ old('todo'.($i - 1), $child_step_info['todo'.($i - 1)]) }}" autocomplete="todo{{$i - 1}}" autofocus>
@@ -111,11 +111,11 @@
                             @endfor
 
                             <div class="form-group row">
-                                <label for="pic" class="col-md-4 col-form-label text-md-right">登録した画像</label>
+                                <p  class="col-md-4 col-form-label text-md-right">登録した画像</p>
 
                                 <div class="col-md-6">
 
-                                  @if(($parent_step_info->pic) !== null)
+                                  @if(($parent_step_info->pic) != null)
                                     <div>
                                       <img src="/{{ $parent_step_info->pic }}" alt="ステップ画像" width="200" height="130">
                                     </div>
@@ -128,7 +128,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="pic" class="col-md-4 col-form-label text-md-right">画像:任意</label>
+                                <label for="pic" class="col-md-4 col-form-label text-md-right">新しい画像</label>
 
                                 <div class="col-md-6">
 

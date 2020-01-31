@@ -21,23 +21,31 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // ログインしていないと機能しないルーティング
 Route::group(['middleware' => 'auth'], function() {
-  // step新規登録画面表示のルーティング
+  // step登録画面表示のルーティング
   Route::get('/steps/new', 'StepsController@new')->name('steps.new');
-  // step新規登録機能のルーティング
+  // step登録機能のルーティング
   Route::post('/steps/create', 'StepsController@create')->name('steps.create');
   // step編集画面表示のルーティング
   Route::get('/steps/{id}/edit', 'StepsController@edit')->name('steps.edit');
   // step編集機能のルーティング
   Route::post('/steps/{id}', 'StepsController@update')->name('steps.update');
-  // プロフィル新規登録画面表示のルーティング
-  Route::get('/profiele/new', 'ProfieleController@new')->name('profiele.new');
-  // step新規登録機能のルーティング
-  Route::post('/profiele/create', 'ProfieleController@create')->name('profiele.create');
-
+  // プロフィール登録画面表示のルーティング
+  Route::get('/profile/{id}/new', 'ProfileController@new')->name('profile.new');
+  // プロフィール登録機能のルーティング
+  Route::post('/profile/{id}/create', 'ProfileController@create')->name('profile.create');
+  // プロフィール編集画面表示のルーティング
+  Route::get('/profile/{id}/edit', 'ProfileController@edit')->name('profile.edit');
+  // プロフィール編集機能のルーティング
+  Route::post('/profile/{id}', 'ProfileController@update')->name('profile.update');
+  // STEPチャレンジページ表示のルーティング
+  Route::get('/challenge/{id}/new', 'ChallengeController@new')->name('challenge.new');
 });
 
-// STEP一覧機能のルーティング
+// STEP一覧表示機能のルーティング
 Route::get('/steps', 'StepsController@index')->name('steps');
 
-// STEP詳細機能のルーティング
+// 親STEP詳細表示機能のルーティング
 Route::get('/steps/{id}', 'StepsController@show')->name('steps.show');
+
+// 子STEP詳細表示機能のルーティング
+Route::get('/detail/{id}', 'StepsController@detail')->name('steps.detail');
