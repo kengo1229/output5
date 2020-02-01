@@ -34,7 +34,7 @@
                     </a>
                     @for ($i = 1; $i <= 5; $i++)
                     <div class="card-body text-center">
-                      <p>子STEP{{ $i }}：{{ $child_step['step'.($i - 1)] }}</p>
+                      <p>子STEP{{ $i }}：{{ $child_step[$i - 1]['step']}}</p>
                     </div>
                     @endfor
 

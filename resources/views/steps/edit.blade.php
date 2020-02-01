@@ -85,7 +85,7 @@
                                 <label for="step{{$i - 1}}" class="col-md-4 col-form-label text-md-right">{{ __('子STEP').$i }} </label>
 
                                 <div class="col-md-6">
-                                  <input id="step{{$i - 1}}" type="text" class="form-control  @error('step'.($i - 1)) is-invalid @enderror" name="step{{$i - 1}}" value="{{ old('step'.($i - 1), $child_step_info['step'.($i - 1)]) }} " autocomplete="step{{$i - 1}}" autofocus>
+                                  <input id="step{{$i - 1}}" type="text" class="form-control  @error('step'.($i - 1)) is-invalid @enderror" name="step{{$i - 1}}" value="{{ old('step'.($i - 1), $child_step_info[$i - 1]['step']) }} " autocomplete="step{{$i - 1}}" autofocus>
 
                                   @error('step'.($i - 1))
                                   <span class="invalid-feedback" role="alert">
@@ -94,10 +94,10 @@
                                   @enderror
                                 </div>
 
-                                <label for="todo0" class="col-md-4 col-form-label text-md-right">やること(100文字以内) </label>
+                                <label for="todo{{$i - 1}}" class="col-md-4 col-form-label text-md-right">やること(100文字以内) </label>
 
                                 <div class="col-md-6">
-                                    <input id="todo{{$i - 1}}" type="textarea" class="form-control @error('todo'.($i - 1)) is-invalid @enderror" name="todo{{$i - 1}}" value="{{ old('todo'.($i - 1), $child_step_info['todo'.($i - 1)]) }}" autocomplete="todo{{$i - 1}}" autofocus>
+                                    <input id="todo{{$i - 1}}" type="textarea" class="form-control @error('todo'.($i - 1)) is-invalid @enderror" name="todo{{$i - 1}}" value="{{ old('todo'.($i - 1), $child_step_info[$i - 1]['todo']) }}" autocomplete="todo{{$i - 1}}" autofocus>
 
                                     @error('todo'.($i - 1))
                                     <span class="invalid-feedback" role="alert">

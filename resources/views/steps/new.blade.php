@@ -93,7 +93,7 @@
                                       @enderror
                                     </div>
 
-                                    <label for="todo0" class="col-md-4 col-form-label text-md-right">やること(100文字以内) </label>
+                                    <label for="todo{{$i - 1}}" class="col-md-4 col-form-label text-md-right">やること(100文字以内) </label>
 
                                     <div class="col-md-6">
                                         <input id="todo{{$i - 1}}" type="textarea" class="form-control @error('todo'.($i - 1)) is-invalid @enderror" name="todo{{$i - 1}}" value="{{ old('todo'.($i - 1)) }}" autocomplete="todo{{$i - 1}}" autofocus>
