@@ -163,6 +163,7 @@ return [
       "todo4"=>"やること",
       "username"=>"ユーザー名",
       "introduction"=>"自己紹介",
+      "passed_time"=>"かかった時間",
     ],
 
 ];

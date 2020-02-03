@@ -23,7 +23,7 @@
                 <h3 class="card-title">タイトル：{{ $one_step->title }}</h3>
               </a>
                 <h3 class="card-title">カテゴリー：{{ $one_step->category->category_name }}</h3>
-                <h3 class="card-title">目標時間：{{ $one_step->goal_time }}時間</h3>
+                <h3 class="card-title">達成目安時間：{{ $one_step->goal_time }}時間</h3>
             </div>
           </div>
         </div>

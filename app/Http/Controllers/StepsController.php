@@ -44,7 +44,7 @@ class StepsController extends Controller
 
     // child_stepsテーブルにフォームに入力された情報とparent_step_idを登録する
     // 各stepとtodoに入力された値を配列形式で一気に登録する
-    ChildSteps::insert([
+    ChildStep::insert([
     ['parent_step_id' => $parent_step->id,  'step' => $request->step0, 'todo' =>  $request->todo0 ],
     ['parent_step_id' => $parent_step->id,  'step' => $request->step1, 'todo' =>  $request->todo1 ],
     ['parent_step_id' => $parent_step->id,  'step' => $request->step2, 'todo' =>  $request->todo2 ],
@@ -135,7 +135,7 @@ class StepsController extends Controller
 
       // 親STEPに紐づいた子STEPのデータを格納
       $child_step  = ChildStep::where('parent_step_id', $id)->get();
-      \Log::info($child_step);
+
       return view('steps.show', compact('parent_step', 'child_step', 'user'));
     }
 

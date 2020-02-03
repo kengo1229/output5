@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddPassedTimeToChallengeChildStepsTable extends Migration
+class AddTotalTimeToChallengeParentStepsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddPassedTimeToChallengeChildStepsTable extends Migration
      */
     public function up()
     {
-        Schema::table('challenge_child_steps', function (Blueprint $table) {
-            $table->string('passed_time')->nullable(false)->default(false);
+        Schema::table('challenge_parent_steps', function (Blueprint $table) {
+          $table->integer('total_time')->nullable(false)->default(0);
         });
     }
 
@@ -25,8 +25,8 @@ class AddPassedTimeToChallengeChildStepsTable extends Migration
      */
     public function down()
     {
-        Schema::table('challenge_child_steps', function (Blueprint $table) {
-            $table->dropColumn('passed_time');
+        Schema::table('challenge_parent_steps', function (Blueprint $table) {
+          $table->dropColumn('total_time');
         });
     }
 }

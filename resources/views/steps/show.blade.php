@@ -40,7 +40,7 @@
 
                     <div class="form-group row mb-0">
                         <div class="col-md-6 offset-md-4">
-                          <a href="{{ action('ChallengeController@new', $parent_step->id) }}">
+                          <a href="{{ action('ChallengeController@create', $parent_step->id) }}">
                             <button type="submit" class="btn btn-primary">
                                 チャレンジ
                             </button>

@@ -37,8 +37,15 @@ Route::group(['middleware' => 'auth'], function() {
   Route::get('/profile/{id}/edit', 'ProfileController@edit')->name('profile.edit');
   // プロフィール編集機能のルーティング
   Route::post('/profile/{id}', 'ProfileController@update')->name('profile.update');
-  // STEPチャレンジページ表示のルーティング
-  Route::get('/challenge/{id}/new', 'ChallengeController@new')->name('challenge.new');
+  // STEPチャレンジ登録機能のルーティング
+  Route::get('/challenge/{id}/create', 'ChallengeController@create')->name('challenge.create');
+  // STEPチャレンジ画面表示のルーティング
+  Route::get('/challenge/{id}/show', 'ChallengeController@show')->name('challenge.show');
+  // STEPクリア機能のルーティング
+  Route::post('/challenge/{id}/clear', 'ChallengeController@clear')->name('challenge.clear');
+  // STEPチャレンジ画面表示のルーティング
+  Route::get('/mypage/{id}', 'MypageController@index')->name('mypage');
+
 });
 
 // STEP一覧表示機能のルーティング

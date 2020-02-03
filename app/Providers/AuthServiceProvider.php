@@ -13,7 +13,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        // 'App\Model' => 'App\Policies\ModelPolicy',
+      'App\ChallengeParentStep' => 'App\Policies\ChallengeParentStepPolicy',
     ];
 
     /**
@@ -27,4 +27,6 @@ class AuthServiceProvider extends ServiceProvider
 
         //
     }
+
+
 }
