@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use \Illuminate\Auth\Passwords\PasswordBroker;
 use \Illuminate\Support\Facades\Password;
+use Illuminate\Http\Request;
 
 class ResetPasswordController extends Controller
 {
@@ -27,7 +28,7 @@ class ResetPasswordController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/top';
 
     /**
      * Create a new controller instance.
@@ -38,6 +39,16 @@ class ResetPasswordController extends Controller
     {
         $this->middleware('guest');
     }
+    
+    // パスワード再設定完了後にメッセージを表示したいので、sendResetResponseメソッドをオーバーライド
+    protected function sendResetResponse(Request $request, $response)
+    {
+        // リダイレクト先でフラッシュメッセージを表示する
+        return redirect($this->redirectPath())
+                            ->with('flash_message', trans($response));
+    }
+
+
     // パスワードリセットのバリデーションでPasswordBrokerを返す前にvalidatorを呼ぶように変更
     public function broker()
     {

@@ -56,6 +56,7 @@
               </a>
                 <h3 class="card-title">カテゴリー：{{ $my_challenge_step->parentStep->category['category_name'] }}</h3>
                 <h3 class="card-title">達成目安時間：{{ $my_challenge_step->parentStep['goal_time'] }}時間</h3>
+                <h3 class="card-title">かかった時間：{{ $my_challenge_step['total_time'] }}時間</h3>
                 <h3 class="card-title">進捗状況：<br>全5ステップ中{{$my_challenge_step['num_clear_child_step']}}ステップクリア！</h3>
             </div>
           </div>
@@ -76,7 +77,7 @@
             <div class="card-body">
               @if(($my_finish_step->parentStep['pic']) != null)
                 <div>
-                  <img src="/{{ str_replace('public', 'storage', $my_challenge_step->parentStep['pic']) }}" alt="ステップ画像" width="200" height="130">
+                  <img src="/{{ str_replace('public', 'storage', $my_finish_step->parentStep['pic']) }}" alt="ステップ画像" width="200" height="130">
                 </div>
               @else
                 <div>

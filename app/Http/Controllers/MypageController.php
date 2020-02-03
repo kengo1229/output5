@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Category;
 use App\ParentStep;
 use App\ChildStep;
@@ -11,8 +12,15 @@ use App\ChallengeChildStep;
 
 class MypageController extends Controller
 {
+
   // マイページ表示機能
   public function index($id) {
+
+    // ログインユーザーのidがGETパラメーターの数字と一致する場合のみマイページを表示する
+    if($id != Auth::id()){
+        return redirect('/top')->with('flash_message', __('不正な操作が行われました。'));
+    }
+
     // 自分が登録したSTEPを最新のものから順に取得する
     $my_create_steps = ParentStep::with('category')->where('user_id', $id)->latest()->get();
 

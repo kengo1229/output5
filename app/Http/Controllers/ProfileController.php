@@ -7,6 +7,7 @@ use App\Http\Requests\ProfileRequest;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Profile;
+use App\ParentStep;
 
 class ProfileController extends Controller
 {
@@ -15,10 +16,14 @@ class ProfileController extends Controller
   {
     // GETパラメータがログインユーザーのidと同一かチェックする
     if($id != Auth::id()){
-        return redirect('/steps')->with('flash_message', __('不正な操作が行われました。'));
+        return redirect('/top')->with('flash_message', __('不正な操作が行われました。'));
     }
 
+    // 新規登録後、次の画面でプロフィールも登録済みの場合、編集画面に飛ばす
     $user = Auth::user();
+    if(!empty($user->username)){
+      return redirect('profile/' . $id . '/edit');
+    }
 
     return view('profile.new', compact('user'));
   }
@@ -28,7 +33,7 @@ class ProfileController extends Controller
   {
     // GETパラメータがログインユーザーのidと同一かチェックする
     if($id != Auth::id()){
-        return redirect('/steps')->with('flash_message', __('不正な操作が行われました。'));
+        return redirect('/top')->with('flash_message', __('不正な操作が行われました。'));
     }
 
     $user =  Auth::user();
@@ -45,7 +50,7 @@ class ProfileController extends Controller
 
 
     // プロフィールの登録が完了したらマイページに飛ばす
-    return redirect('/home')->with('flash_message', 'プロフィールの登録が完了しました!');
+    return redirect()->route('mypage.index', ['id' => Auth::id()])->with('flash_message', 'プロフィールの登録が完了しました!');
   }
 
   // プロフィール編集画面の表示機能
@@ -53,12 +58,12 @@ class ProfileController extends Controller
   {
     // GETパラメータがログインユーザーのidと同一かチェックする
     if($id != Auth::id()){
-        return redirect('/steps')->with('flash_message', __('不正な操作が行われました。'));
+        return redirect('/top')->with('flash_message', __('不正な操作が行われました。'));
     }
 
     $user = Auth::user();
 
-    // ユーザー名がない＝プロフィール未登録の場合、登録画面に飛ばす
+    // 入力必須のユーザー名がない＝プロフィール未登録の場合、登録画面に飛ばす
     if(empty($user->username)){
       return redirect('profile/' . $id . '/new');
     }
@@ -74,7 +79,7 @@ class ProfileController extends Controller
   {
 
     if($id != Auth::id()){
-        return redirect('/steps')->with('flash_message', __('不正な操作が行われました。'));
+        return redirect('/top')->with('flash_message', __('不正な操作が行われました。'));
     }
 
     $user =  Auth::user();
@@ -90,7 +95,26 @@ class ProfileController extends Controller
 
 
     // プロフィールの登録が完了したらマイページに飛ばす
-    return redirect('/home')->with('flash_message', 'プロフィールの登録が完了しました!');
+    return redirect()->route('mypage.index', ['id' => Auth::id()])->with('flash_message', 'プロフィールの編集が完了しました!');
+  }
+
+  // プロフィール表示機能
+  public function show($id)
+  {
+
+    // GETパラメータが数字かどうかをチェックする
+    if(!ctype_digit($id)){
+      return redirect('/top')->with('flash_message', __('不正な操作が行われました。'));
+    }
+    // パラメーターから渡ってきた$idを元にしてユーザー情報の取得
+    // 中に入っているのは親STEP詳細画面から渡ってきたSTEP投稿者のユーザーid
+    $user =  User::find($id);
+
+    // 自分が登録したSTEPを最新のものから順に取得する
+    $my_create_steps = ParentStep::with('category')->where('user_id', $id)->latest()->get();
+
+    // プロフィールの登録が完了したらマイページに飛ばす
+    return view('profile.show', compact('user','my_create_steps'));
   }
 
 }

@@ -19,7 +19,7 @@ class ChallengeController extends Controller
   {
     // GETパラメータが数字かどうかをチェックする
     if(!ctype_digit($id)){
-      return redirect('/steps')->with('flash_message', __('不正な操作が行われました。'));
+      return redirect('/top')->with('flash_message', __('不正な操作が行われました。'));
     }
 
     $parent_step = ParentStep::with('category')->find($id);
@@ -49,7 +49,9 @@ class ChallengeController extends Controller
     ]);
 
   // 登録が完了したら、challenge_parent_stepのidを渡してチャレンジ画面に飛ばす
-  return redirect()->route('challenge.show', ['id' => $challenge_parent_step_id]);
+  return redirect()->route('challenge.show', ['id' => $challenge_parent_step_id])
+  ->with('flash_message', 'チャレンジスタート！');;
+
   }
 
   // チャレンジ画面の表示
@@ -58,7 +60,7 @@ class ChallengeController extends Controller
 
       // GETパラメータが数字かどうかをチェックする
       if(!ctype_digit($id)){
-        return redirect('/steps')->with('flash_message', __('不正な操作が行われました。'));
+        return redirect('/top')->with('flash_message', __('不正な操作が行われました。'));
       }
 
 
@@ -83,7 +85,7 @@ class ChallengeController extends Controller
           $challenge_parent_step->save();
 
           // 全てクリアしたら最後にマイページへ飛ばす
-          return redirect('/steps');
+          return redirect()->route('mypage.index', ['id' => Auth::id()])->with('flash_message', 'おめでとうございます！全STEPクリアです！');
         }
 
         //チャレンジの親STEP情報に紐づくまだクリアしていない子STEP情報を取得(クリアの判定は'end_flgでつける)
@@ -105,7 +107,7 @@ class ChallengeController extends Controller
   {
     // GETパラメータが数字かどうかをチェックする
     if(!ctype_digit($id)){
-      return redirect('/steps')->with('flash_message', __('不正な操作が行われました。'));
+      return redirect('/top')->with('flash_message', __('不正な操作が行われました。'));
     }
 
     // challenge_child_stepから$idを元に該当のレコードを検索する
@@ -124,7 +126,7 @@ class ChallengeController extends Controller
     $challenge_parent_step = ChallengeParentStep::find($challenge_parent_step_id);
     $challenge_parent_step->num_clear_child_step = $challenge_child_step->num_child_step;
     // challenge_parent_stepsテーブルのtotal_timeに子ステップクリアにかかった時間を加えていく
-    $challenge_parent_step->total_time = ($challenge_parent_step->total_timez) + ($challenge_child_step->passed_time);
+    $challenge_parent_step->total_time = ($challenge_parent_step->total_time) + ($challenge_child_step->passed_time);
 
     $challenge_parent_step->save();
 

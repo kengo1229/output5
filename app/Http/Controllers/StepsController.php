@@ -52,7 +52,7 @@ class StepsController extends Controller
     ['parent_step_id' => $parent_step->id,  'step' => $request->step4, 'todo' =>  $request->todo4 ]
 ]);
 
-    return redirect('/home')->with('flash_message', '登録が完了しました!');
+    return redirect('/steps')->with('flash_message', '登録が完了しました!');
   }
 
   // step編集画面表示機能
@@ -60,7 +60,7 @@ class StepsController extends Controller
   {
     // GETパラメータが数字かどうかをチェックする
     if(!ctype_digit($id)){
-        return redirect('/steps/new')->with('flash_message', __('不正な操作が行われました。'));
+        return redirect('/steps')->with('flash_message', __('不正な操作が行われました。'));
     }
     $categories = Category::get();
     // $idを元にparent_stepテーブルに登録されたデータを格納
@@ -80,7 +80,7 @@ class StepsController extends Controller
     {
       // GETパラメータが数字かどうかをチェックする
       if(!ctype_digit($id)){
-        return redirect('/steps/new')->with('flash_message', __('不正な操作が行われました。'));
+        return redirect('/steps')->with('flash_message', __('不正な操作が行われました。'));
       }
 
       // parent_stepsテーブルの更新
@@ -104,7 +104,7 @@ class StepsController extends Controller
        $child_step->save();
    }
 
-      return redirect('/steps/new')->with('flash_message', __('編集が完了しました!'));
+      return redirect('/steps')->with('flash_message', __('編集が完了しました!'));
     }
 
     // STEP一覧表示機能

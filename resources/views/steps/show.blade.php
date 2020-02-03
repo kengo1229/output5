@@ -10,9 +10,13 @@
 
                     <p>
                       @if(($user->username)  != null)
-                        投稿者：{{$user->username}}
+                        <a href="{{ action('ProfileController@show', $user->id) }}">
+                          投稿者：{{$user->username}}
+                        </a>
                       @else
-                        投稿者：[ユーザー名未設定]
+                        <a href="{{ action('ProfileController@show', $user->id) }}">
+                          投稿者：[ユーザー名未設定]
+                        </a>
                       @endif
                       @if(($user->pic) != null)
                         <div>

@@ -91,12 +91,12 @@ return [
     | they have less time to be guessed. You may change this as needed.
     |
     */
-
+// パスワード再設定メールの有効期限を30分に変更
     'passwords' => [
         'users' => [
             'provider' => 'users',
             'table' => 'password_resets',
-            'expire' => 60,
+            'expire' => 30,
         ],
     ],
 

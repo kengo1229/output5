@@ -44,15 +44,17 @@ Route::group(['middleware' => 'auth'], function() {
   // STEPクリア機能のルーティング
   Route::post('/challenge/{id}/clear', 'ChallengeController@clear')->name('challenge.clear');
   // STEPチャレンジ画面表示のルーティング
-  Route::get('/mypage/{id}', 'MypageController@index')->name('mypage');
+  Route::get('/mypage/{id}', 'MypageController@index')->name('mypage.index');
 
 });
 
+// トップページ表示のルーティング
+Route::get('/top', 'TopController@index')->name('top');
 // STEP一覧表示機能のルーティング
 Route::get('/steps', 'StepsController@index')->name('steps');
-
 // 親STEP詳細表示機能のルーティング
 Route::get('/steps/{id}', 'StepsController@show')->name('steps.show');
-
 // 子STEP詳細表示機能のルーティング
 Route::get('/detail/{id}', 'StepsController@detail')->name('steps.detail');
+// プロフィール画面表示のルーティング
+Route::get('/profile/{id}/show', 'ProfileController@show')->name('profile.show');

@@ -42,8 +42,10 @@ class ResetPasswordNotification extends Notification
     {
         return (new MailMessage)
         ->from('admin@example.com', config('app.name'))
-        ->subject('パスワード再発行')
+        ->subject('パスワード再設定｜STEP')
         ->line('パスワード再発行リクエストがありましたので、メッセージを送信しました。')
+        ->line('下記の「パスワード再設定」ボタンもしくはURLをクリックいただくと、パスワード再設定ページに移ります。')
+        ->line('※有効期限は30分となります')
         ->action('パスワード再設定', url('http://localhost:8000'.route('password.reset', $this->token, false)))
         ->line('もし心当たりがない場合は、本メッセージは破棄してください。');
     }

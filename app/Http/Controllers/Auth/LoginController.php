@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -25,7 +27,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/top';
 
     /**
      * Create a new controller instance.
@@ -35,5 +37,24 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+    // ログイン後のリダイレクト先の変更とフラッシュメッセージの表示
+    protected function authenticated(Request $request, $user)
+    {
+        // ログインしたら、ユーザー自身のプロフィールページへ移動
+        return redirect('/top')->with('flash_message', __('ログインしました。'));
+    }
+
+    // ログアウト後の遷移先をトップ画面に変更
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $this->guard()->logout();
+
+        $request->session()->invalidate();
+
+        // /homeに変更
+        return $this->loggedOut($request) ?: redirect('/top')->with('flash_message', __('ログアウトしました。'));
     }
 }

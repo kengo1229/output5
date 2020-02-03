@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use App\Rules\AlphaNumHalf;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -30,7 +31,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/top';
 
     /**
      * Create a new controller instance.
@@ -50,9 +51,10 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+      // パスワードに半角英数字用のバリデーション追加
         return Validator::make($data, [
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:6','max:20', 'confirmed'],
+            'password' => ['required', 'string', new AlphaNumHalf, 'min:6','max:20', 'confirmed'],
         ]);
     }
 

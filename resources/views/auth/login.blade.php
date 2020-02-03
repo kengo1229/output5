@@ -15,7 +15,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">メールアドレス</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"  autofocus>
+                                <input id="email" type="inout" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"  autofocus>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -26,7 +26,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">パスワード(6文字以上20文字以下)</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right">パスワード(半角英数字6文字以上20文字以下)</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password">
