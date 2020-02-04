@@ -19,7 +19,7 @@ class ProfileController extends Controller
         return redirect('/top')->with('flash_message', __('不正な操作が行われました。'));
     }
 
-    // 新規登録後、次の画面でプロフィールも登録済みの場合、編集画面に飛ばす
+    // プロフィールが既に登録済みの場合、編集画面に飛ばす
     $user = Auth::user();
     if(!empty($user->username)){
       return redirect('profile/' . $id . '/edit');

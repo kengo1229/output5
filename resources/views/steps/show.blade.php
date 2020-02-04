@@ -9,15 +9,6 @@
                     <div class="card-header">{{ __('STEP詳細') }}</div>
 
                     <p>
-                      @if(($user->username)  != null)
-                        <a href="{{ action('ProfileController@show', $user->id) }}">
-                          投稿者：{{$user->username}}
-                        </a>
-                      @else
-                        <a href="{{ action('ProfileController@show', $user->id) }}">
-                          投稿者：[ユーザー名未設定]
-                        </a>
-                      @endif
                       @if(($user->pic) != null)
                         <div>
                           <img src="/{{ str_replace('public/', 'storage/', $user->pic) }}" alt="アイコン画像" width="200" height="130">
@@ -27,7 +18,17 @@
                           <img src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし" width="200" height="130">
                         </div>
                       @endif
+                      @if(($user->username)  != null)
+                        <a href="{{ action('ProfileController@show', $user->id) }}">
+                          投稿者：{{$user->username}}
+                        </a>
+                      @else
+                        <a href="{{ action('ProfileController@show', $user->id) }}">
+                          投稿者：[ユーザー名未設定]
+                        </a>
+                      @endif
                     </p>
+                    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                     <p>タイトル：{{ $parent_step->title }}</p>
                     <p>カテゴリー：{{ $parent_step->category->category_name }}</p>
                     <p>達成目安時間：{{ $parent_step->goal_time }}時間</p>

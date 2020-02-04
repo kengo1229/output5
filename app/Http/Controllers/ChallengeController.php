@@ -32,6 +32,17 @@ class ChallengeController extends Controller
       return redirect()->route('steps.edit', ['id' => $parent_step->id]);
     }
 
+    // 既にチャレンジ中のSTEPにチャレンジした場合、新しくチャレンジ画面が作成されるのではなくチャレンジ中の画面に飛ばされる
+    $new_challenge_flg = ChallengeParentStep::where('user_id', Auth::id())->where('parent_step_id', $id)
+    ->where('end_flg', 0)->first();
+
+    if(isset($new_challenge_flg)){
+      return redirect()->route('challenge.show', ['id' => $new_challenge_flg->id])
+      ->with('flash_message', 'このSTEPは既にチャレンジ中です。');;
+    }
+
+
+
     // challenge_parent_stepsテーブルにチャレンジするユーザーと親STEPの情報を登録する
     ChallengeParentStep::create(['user_id' => Auth::id(), 'parent_step_id' => $parent_step->id]);
     // challenge_parent_stepsテーブルから最新のidを変数に格納
@@ -64,10 +75,10 @@ class ChallengeController extends Controller
       }
 
 
-      // ログインしているユーザーが親STEPの挑戦者と一致する場合、画面表示処理に入る
-      // $user = auth()->user();
-      //
-      // if($user->id === ChallengeParentStep::where('id', $id)->select('user_id')->first()){
+      // ログインしているユーザーが親STEPの挑戦者と一致する場合、画面表示処理に入る(他人のSTEP進捗をいじれないようにする)
+      $user = auth()->user();
+
+      if($user->id === ChallengeParentStep::where('id', $id)->select('user_id')->first()['user_id']){
         // チャレンジ中の親STEPのparent_step_idを取得
         $parent_step_id = ChallengeParentStep::where('id', $id)->select('parent_step_id')->first();
 
@@ -95,10 +106,9 @@ class ChallengeController extends Controller
       //チャレンジ画面に飛ばす
       return view('challenge.show', compact('parent_step_info', 'challenge_child_step_info'));
 
-      // }else{
-      //   \Log::info('残念');
-      //   return redirect('/steps')->with('flash_message', __('このSTEPはチャレンジ中ではありません。'));
-      // }
+      }else{
+        return redirect('/steps')->with('flash_message', __('このSTEPにチャレンジしていません。'));
+      }
 
     }
 

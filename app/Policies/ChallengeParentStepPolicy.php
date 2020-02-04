@@ -21,7 +21,6 @@ class ChallengeParentStepPolicy
     public function show(User $user, ChallengeParentStep $challengeParentStep)
     {
         return $user->id == $challengeParentStep->user_id;
-        \Log::info('ログ出力テスト');
     }
 
 

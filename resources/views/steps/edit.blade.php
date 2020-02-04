@@ -7,6 +7,26 @@
                 <div class="card">
                     <div class="card-header">STEP編集</div>
 
+                    <p>
+                      @if(($user->pic) != null)
+                        <div>
+                          <img src="/{{ str_replace('public/', 'storage/', $user->pic) }}" alt="アイコン画像" width="200" height="130">
+                        </div>
+                      @else
+                        <div>
+                          <img src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし" width="200" height="130">
+                        </div>
+                      @endif
+                      @if(($user->username)  != null)
+                        <a href="{{ action('ProfileController@show', $user->id) }}">
+                          投稿者：{{$user->username}}
+                        </a>
+                      @else
+                        <a href="{{ action('ProfileController@show', $user->id) }}">
+                          投稿者：[ユーザー名未設定]
+                        </a>
+                      @endif
+                    </p>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('steps.update', $parent_step_info->id) }}" enctype="multipart/form-data">

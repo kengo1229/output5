@@ -18,8 +18,11 @@ class MypageController extends Controller
 
     // ログインユーザーのidがGETパラメーターの数字と一致する場合のみマイページを表示する
     if($id != Auth::id()){
+      \Log::info('ログ出力テスト'.Auth::id());
         return redirect('/top')->with('flash_message', __('不正な操作が行われました。'));
     }
+    // ログインユーザーの情報取得
+    $user = Auth::user();
 
     // 自分が登録したSTEPを最新のものから順に取得する
     $my_create_steps = ParentStep::with('category')->where('user_id', $id)->latest()->get();
@@ -33,7 +36,7 @@ class MypageController extends Controller
     $my_finish_steps = ChallengeParentStep::with(['parentStep' => function($query){
       $query->with('category');}])->where('user_id', $id)->where('end_flg', 1)->latest()->get();
 
-    return view('mypage.index',compact('my_create_steps', 'my_challenge_steps', 'my_finish_steps'));
+    return view('mypage.index',compact('user', 'my_create_steps', 'my_challenge_steps', 'my_finish_steps'));
   }
 
 }

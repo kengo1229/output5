@@ -43,7 +43,7 @@ Route::group(['middleware' => 'auth'], function() {
   Route::get('/challenge/{id}/show', 'ChallengeController@show')->name('challenge.show');
   // STEPクリア機能のルーティング
   Route::post('/challenge/{id}/clear', 'ChallengeController@clear')->name('challenge.clear');
-  // STEPチャレンジ画面表示のルーティング
+  // マイページ画面表示のルーティング
   Route::get('/mypage/{id}', 'MypageController@index')->name('mypage.index');
 
 });

@@ -62,16 +62,18 @@ class StepsController extends Controller
     if(!ctype_digit($id)){
         return redirect('/steps')->with('flash_message', __('不正な操作が行われました。'));
     }
+    
+    $user = Auth::user();
     $categories = Category::get();
     // $idを元にparent_stepテーブルに登録されたデータを格納
-    $parent_step_info = Auth::user()->parent_steps()->find($id);
+    $parent_step_info = $user->parent_steps()->find($id);
     // 登録された画像を表示するためにパスを変更する
     $parent_step_info->pic = str_replace( 'public' , 'storage' , $parent_step_info->pic);
     // $idを元にchild_stepテーブルに登録されたデータを格納
     $child_step_info  = ChildStep::where('parent_step_id', $id)->get();
 
 
-    return view('steps.edit', compact('parent_step_info', 'child_step_info', 'categories'));
+    return view('steps.edit', compact('user', 'parent_step_info', 'child_step_info', 'categories'));
 
     }
 

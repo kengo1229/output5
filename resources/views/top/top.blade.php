@@ -3,7 +3,7 @@
 @section('content')
 <p>トップ画像</p>
 
-<h2>登録したSTEP一覧</h2>
+<h2>新着STEP一覧</h2>
 <div class="row">
 
   @foreach ($latest_parent_steps as $latest_parent_step)
