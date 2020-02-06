@@ -62,7 +62,7 @@ class StepsController extends Controller
     if(!ctype_digit($id)){
         return redirect('/steps')->with('flash_message', __('不正な操作が行われました。'));
     }
-    
+
     $user = Auth::user();
     $categories = Category::get();
     // $idを元にparent_stepテーブルに登録されたデータを格納
@@ -112,9 +112,8 @@ class StepsController extends Controller
     // STEP一覧表示機能
     public function index() {
       // リレーションを貼ったcategoryテーブルとparent_stepsのデータを1ページ20件ごとに格納
-      $index_steps = ParentStep::with('category')->paginate(20);
 
-      return view('steps.index',compact('index_steps'));
+      return view('steps.index');
     }
 
     // 親STEP詳細表示機能

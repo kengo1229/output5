@@ -52,6 +52,8 @@ Route::group(['middleware' => 'auth'], function() {
 Route::get('/top', 'TopController@index')->name('top');
 // STEP一覧表示機能のルーティング
 Route::get('/steps', 'StepsController@index')->name('steps');
+// ajaxでjsonにアクセスするためのルーティング
+Route::get('/ajax/steps', 'Ajax\ParentStepController@index')->name('ajax.show');
 // 親STEP詳細表示機能のルーティング
 Route::get('/steps/{id}', 'StepsController@show')->name('steps.show');
 // 子STEP詳細表示機能のルーティング

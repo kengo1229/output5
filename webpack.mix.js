@@ -15,9 +15,14 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .browserSync({
     proxy: {
-        target: "http://127.0.0.1:8000",
+        target: "http://localhost:8000",
     },
     files: [
+        './**/*.css',
+        './app/**/*',
         'resources/views/**/*.blade.php',
+        'public/**/*.*',
+        './config/**/*',
+        './routes/**/*'
     ],
 });
