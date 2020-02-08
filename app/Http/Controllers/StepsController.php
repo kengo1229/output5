@@ -111,7 +111,6 @@ class StepsController extends Controller
 
     // STEP一覧表示機能
     public function index() {
-      // リレーションを貼ったcategoryテーブルとparent_stepsのデータを1ページ20件ごとに格納
 
       return view('steps.index');
     }
