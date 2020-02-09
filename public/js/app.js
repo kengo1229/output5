@@ -49713,6 +49713,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
  */
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
+// コンポーネントの登録
 
 Vue.component('parent-steps-component', __webpack_require__(/*! ./components/ParentStepsComponent.vue */ "./resources/js/components/ParentStepsComponent.vue")["default"]);
 Vue.component('steps-pagination-component', __webpack_require__(/*! ./components/StepsPaginationComponent.vue */ "./resources/js/components/StepsPaginationComponent.vue")["default"]);
@@ -49721,6 +49722,7 @@ Vue.component('steps-pagination-component', __webpack_require__(/*! ./components
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+//vueのインスタンス化
 
 var app = new Vue({
   el: '#app'

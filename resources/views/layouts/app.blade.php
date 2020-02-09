@@ -12,27 +12,21 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar   bg-white shadow-sm">
             <div class="container">
+
                 <a class="navbar-brand" href="{{ url('/top') }}">
                     {{ config('app.name') }}
                 </a>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
 
-                    </ul>
+                    <ul class="navbar-nav">
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">ログイン</a>
@@ -56,19 +50,20 @@
                               <li class="nav-item">
                                   <a class="nav-link" href="/mypage/{{ Auth::id()}}">マイページ</a>
                               </li>
-                                    <a class="nav-link" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        ログアウト
-                                    </a>
+                              <li class="nav-item">
+                                  <a class="nav-link" href="{{ route('logout') }}"
+                                     onclick="event.preventDefault();
+                                                   document.getElementById('logout-form').submit();">
+                                      ログアウト
+                                  </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
+                                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                      @csrf
+                                  </form>
+                                  </li>
                             </li>
                         @endguest
                     </ul>
-                </div>
             </div>
         </nav>
 
@@ -78,10 +73,16 @@
           </div>
         @endif
 
-        <main class="py-4">
+        <main class="main">
             @yield('content')
         </main>
-    </div>
+
+    <!-- footer -->
+        <footer class="footer">
+          <div class="container">
+            <span class="text-muted">Copyright 2020 STEP. All Rights Reserved.</span>
+          </div>
+        </footer>
     <script src="{{ asset('js/app.js') }}" defer></script>
 </body>
 </html>

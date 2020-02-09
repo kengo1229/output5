@@ -19,6 +19,7 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
+// コンポーネントの登録
 Vue.component('parent-steps-component', require('./components/ParentStepsComponent.vue').default);
 Vue.component('steps-pagination-component', require('./components/StepsPaginationComponent.vue').default);
 
@@ -28,6 +29,7 @@ Vue.component('steps-pagination-component', require('./components/StepsPaginatio
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+//vueのインスタンス化
 const app = new Vue({
     el: '#app',
 });
