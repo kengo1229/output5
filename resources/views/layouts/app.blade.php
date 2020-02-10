@@ -20,50 +20,54 @@
         <nav class="navbar   bg-white shadow-sm">
             <div class="container">
 
-                <a class="navbar-brand" href="{{ url('/top') }}">
-                    {{ config('app.name') }}
-                </a>
+              <div class="navbar-left">
 
+                <img class="navbar-left-img"  src="{{ asset('/img/navbar_image.jpg') }}" alt="アイコン画像">
+                  <a class="navbar-brand" href="{{ url('/top') }}">
+                      {{ config('app.name') }}
+                  </a>
 
-                    <ul class="navbar-nav">
+              </div>
 
-                        @guest
+                <ul class="navbar-nav">
+
+                    @guest
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">ログイン</a>
+                        </li>
+                        @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">ログイン</a>
+                                <a class="nav-link" href="{{ route('register') }}">新規登録</a>
                             </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">新規登録</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                              <li class="nav-item">
-                                  <a class="nav-link" href="/steps/new">STEP登録</a>
-                              </li>
-                              <li class="nav-item">
-                                  <a class="nav-link" href="/steps">チャレンジ</a>
-                              </li>
-                              <li class="nav-item">
-                                  <a class="nav-link" href="/profile/{{ Auth::id()}}/new">プロフィール登録(編集)</a>
-                              </li>
-                              <li class="nav-item">
-                                  <a class="nav-link" href="/mypage/{{ Auth::id()}}">マイページ</a>
-                              </li>
-                              <li class="nav-item">
-                                  <a class="nav-link" href="{{ route('logout') }}"
-                                     onclick="event.preventDefault();
-                                                   document.getElementById('logout-form').submit();">
-                                      ログアウト
-                                  </a>
+                        @endif
+                    @else
+                        <li class="nav-item dropdown">
+                          <li class="nav-item">
+                              <a class="nav-link" href="/steps/new">STEP登録</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="/steps">STEP一覧</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="/profile/{{ Auth::id()}}/new">プロフィール登録(編集)</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="/mypage/{{ Auth::id()}}">マイページ</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="{{ route('logout') }}"
+                                 onclick="event.preventDefault();
+                                               document.getElementById('logout-form').submit();">
+                                  ログアウト
+                              </a>
 
-                                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                      @csrf
-                                  </form>
-                                  </li>
-                            </li>
-                        @endguest
-                    </ul>
+                              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                  @csrf
+                              </form>
+                              </li>
+                        </li>
+                    @endguest
+                </ul>
             </div>
         </nav>
 
@@ -73,6 +77,8 @@
           </div>
         @endif
 
+        @yield('top')
+        
         <main class="main">
             @yield('content')
         </main>

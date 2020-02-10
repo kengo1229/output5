@@ -1,21 +1,21 @@
 <template>
-  <div class="card">
-    <div class="card-body" v-for="step in steps" >
-        <div v-if="step.pic != null">
-          <img :src="step.pic.replace('public/', 'storage/')" alt="ステップ画像" width="200" height="130">
-        </div>
-        <div v-else>
-          <img src="/img/no_image.jpg" alt="登録画像なし" width="200" height="130">
-        </div>
+  <div class="step-group">
 
-        <h3 class="card-title">タイトル：
-          <a :href="'/steps/' + step.id">
-            {{step.title}}
-          </a>
-        </h3>
-        <h3 class="card-title">カテゴリー：{{step.category.category_name}}</h3>
-        <h3 class="card-title">達成目安時間：{{step.goal_time}}時間</h3>
+    <div class="step  bg-white border-default margin-bottom-space_l" v-for="step in steps" >
+      <a class="step-link" :href="'/steps/' + step.id">
+          <img v-if="step.pic != null" class="step-img" :src="step.pic.replace('public/', 'storage/')" alt="ステップ画像" width="200" height="130">
+          <img v-else class="step-img" src="/img/no_image.jpg" alt="登録画像なし" width="200" height="130">
+        <div class="step-body">
+          <span class="underline-thin">タイトル</span>
+          <p>{{step.title}}</p>
+          <span class="underline-thin">カテゴリー</span>
+          <p>{{step.category.category_name}}</p>
+          <span class="underline-thin">達成目安時間</span>
+          <p>{{step.goal_time}}時間</p>
+        </div>
+      </a>
     </div>
+
   </div>
 
 </template>

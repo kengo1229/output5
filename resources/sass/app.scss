@@ -131,7 +131,7 @@ input {
 
 textarea {
   overflow: auto; /* Internet Explorer 11+ */
-  resize: vertical; /* Specify textarea resizability */
+  resize: none; /* Specify textarea resizability */
 }
 
 button,
@@ -198,11 +198,6 @@ textarea {
   border-style: none;
 }
 
-/* Style select like a standard input */
-select {
-  -moz-appearance: none; /* Firefox 36+ */
-  -webkit-appearance: none; /* Chrome 41+ */
-}
 
 select::-ms-expand {
   display: none; /* Internet Explorer 11+ */
@@ -285,6 +280,7 @@ $border-color_default: #43424826;
 $link-color_default: #3490dc;
 $link-hover-color_default: #1d68a7;
 $card-header-bg-color: #00000008;
+$card-footer-bg-color: #00000008;
 $navbar-color: #00000080;
 $navbar-hover-color: #000000b3;
 $text-muted-color: #fff;
@@ -376,7 +372,7 @@ a{
   }
 }
 
-input[type="text"],[type="password"],[type="file"],textarea:focus {
+input[type="text"],[type="password"],[type="file"],select ,textarea:focus {
   outline: 0;
 }
 
@@ -391,6 +387,39 @@ input[type="text"],[type="password"],[type="file"],textarea:focus {
 		opacity:0;
 	}
 }
+//=======================
+//post-user
+//=======================
+.post-user{
+  display: flex;
+  align-items:flex-end;
+  &-img{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-right: $space_s;
+  }
+}
+
+// ==================================
+// hero
+// ==================================
+.hero {
+  background-image: url('/img/top-page_image.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &-title {
+    font-size: 55px;
+    color: #fff;
+    text-shadow: 0 0 20px rgba(227, 123, 137, .4), 0 0 50px rgba(0, 0, 0, .8);
+  }
+}
 
 //=======================
 //nav
@@ -399,7 +428,7 @@ input[type="text"],[type="password"],[type="file"],textarea:focus {
   .container{
     display: flex;
     flex-direction: row;
-    padding: $space_s 0;
+    padding: $space_m 0;
     width: $navbar-width;
     .navbar-brand{
       color: $font-color_default;
@@ -419,6 +448,15 @@ input[type="text"],[type="password"],[type="file"],textarea:focus {
     justify-content: space-around;
     align-items: center;
   }
+  &-left{
+    display: flex;
+    align-items: center;
+    &-img{
+      width: 40px;
+      height: 40px;
+      margin-right: $space_m;
+    }
+  }
 }
 
 .nav-item{
@@ -436,9 +474,23 @@ input[type="text"],[type="password"],[type="file"],textarea:focus {
 //=======================
 //card
 //=======================
+/*
+.cardのクラスがついたdivの中身が画面の高さを超える場合、card-overの方を適用させて
+中身がナビメニューとフッターにまではみ出ないようにする
+*/
 
 .card{
   width: 60%;
+  &-container{
+    width: 40%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-font-smoothing: none;
+    -webkit-font-smoothing: antialiased;
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
   &-header {
       padding: $space_m $space_xxl;
       margin-bottom: 0;
@@ -451,6 +503,14 @@ input[type="text"],[type="password"],[type="file"],textarea:focus {
     flex: 1 1 auto;
     min-height: 1px;
     padding: $space_xxl;
+  }
+  &-footer{
+    padding: $space_m $space_xxl;
+    margin-bottom: 0;
+    background-color: $card-footer-bg-color;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    font-size: $font-size_m;
+
   }
 }
 
@@ -491,8 +551,59 @@ input[type="text"],[type="password"],[type="file"],textarea:focus {
     &-textarea{
       height: 100px;
     }
+    &-category{
+      width: 30%;
+      padding: 0;
+      padding-left: $space_m;
+    }
+    &-time{
+      width: 30%;
+      margin-right: $space_s;
+    }
   }
 }
+
+//=======================
+//show
+//=======================
+.badge {
+  display: inline-block;
+  padding: $space_m $space_s;
+  margin-left: 5px;
+  font-size: $font-size_default;
+  font-weight: bold;
+  line-height: 0;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: top;
+  border-radius: 3px;
+  &-secondary{
+    background-color: #4fc353;
+    color: white;
+  }
+  }
+
+
+//=======================
+//show
+//=======================
+.show{
+
+  &-group{
+    margin-bottom: $space_l;
+    text-align: left;
+    overflow: hidden;
+  }
+  &-control{
+    width: 100%;
+    background-clip: padding-box;
+    padding: $space_s 0;
+    border-radius: 0.25rem;
+    -webkit-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+}
+
 
 //=======================
 //container
@@ -532,6 +643,39 @@ input[type="text"],[type="password"],[type="file"],textarea:focus {
   }
 }
 
+//=======================
+//step
+//=======================
+.step{
+  margin: 0 $space_s;
+  width: 23%;
+  transition: 1s;
+  -webkit-transition: 1s;
+  min-height: 370px;
+  &:hover{
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+  &-group{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  &-img{
+    width: 100%;
+  }
+  &-body{
+    padding-left: $space_m;
+  }
+  &-link{
+    color: $font-color_default;
+    &:hover{
+      color: $font-color_default;
+      text-decoration: none;
+
+    }
+  }
+}
 //=======================
 //button
 //=======================
@@ -592,6 +736,8 @@ input[type="text"],[type="password"],[type="file"],textarea:focus {
 .invalid-feedback{
   color: red;
   font-size: $font-size_s;
+  display: block;
+
 }
 
 .is-invalid{
@@ -604,5 +750,37 @@ input[type="text"],[type="password"],[type="file"],textarea:focus {
 }
 
 .text-center{
+  text-align: center;
+}
+
+.margin-bottom-space_l{
+  margin-bottom: $space_l;
+}
+
+.margin-bottom-space_m{
+  margin-bottom: $space_m;
+}
+
+.content-center{
+  width: 40%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-font-smoothing: none;
+  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.underline-thin{
+  border-bottom: solid thin #ced4da;
+  display: inline-block;
+}
+
+.underline-bold{
+  border-bottom: groove 5px #ced4da;
+}
+
+.secondary-title{
   text-align: center;
 }

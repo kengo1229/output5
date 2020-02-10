@@ -2,12 +2,10 @@
 
 @section('content')
     <div class="container">
-      <h2>STEP一覧</h2>
       <div id="app" class="row">
-          <div class="col-sm-6">
+        <h2 class="secondary-title margin-bottom-space_l">STEP一覧</h2>
             <parent-steps-component></parent-steps-component>
-          </div>
-          <steps-pagination-component></steps-pagination-component>
+
       </div>
     </div>
 @endsection

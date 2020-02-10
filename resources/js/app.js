@@ -33,3 +33,13 @@ Vue.component('steps-pagination-component', require('./components/StepsPaginatio
 const app = new Vue({
     el: '#app',
 });
+
+// 入力フォームの文字数カウンター
+$(function(){
+    $('.js-count1, .js-count2, .js-count3, .js-count4, .js-count5, .js-count6, .js-count7, .js-count8, .js-count9, .js-count10, .js-count11, .js-count12').bind('keyup',function() {
+        for ( num=1; num<=12; num++ ) {
+            let thisValueLength = $(".js-count" + num).val().replace(/\s+/g,'').length;
+            $(".js-show" + num).html(thisValueLength);
+        }
+    });
+});

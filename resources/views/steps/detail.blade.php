@@ -2,26 +2,27 @@
 
 @section('content')
 
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('子STEP詳細') }}</div>
+    <div id="app" class="container">
+        <div class="card bg-white border-default">
+            <div class="card-header">{{ __('子STEP詳細') }}</div>
 
-                    @for ($i = 1; $i <= 5; $i++)
-                    <div class="card-body text-center">
-                      <p>子STEP{{ $i }}：{{ $child_step[$i - 1]['step'] }}</p>
-                    </div>
-                    <div class="card-body text-center">
-                      <p>やること：{{ $child_step[$i - 1]['todo'] }}</p>
-                    </div>
-                    @endfor
-                    <!-- 親STEPに紐づいた子STEPのparent_step_idは全て同一なので0番目の配列から取得 -->
-                    <a href="{{ action('StepsController@show', $child_step[0]->parent_step_id) }}">
-                      STEP詳細に戻る
-                    </a>
+            <div class="card-body">
 
+              @for ($i = 1; $i <= 5; $i++)
+                <div class="show-group row  underline-bold">
+                    <div class="col-md-6">
+                      <span class="underline-thin">子STEP{{ $i }}</span>
+                        <div class="show-control">{{ $child_step[$i - 1]['step']}}</div>
+                      <span class="underline-thin">やること</span>
+                        <div class="show-control">{{ $child_step[$i - 1]['todo']}}</div>
+                    </div>
                 </div>
+              @endfor
+
+              <!-- 親STEPに紐づいた子STEPのparent_step_idは全て同一なので0番目の配列から取得 -->
+              <a href="{{ action('StepsController@show', $child_step[0]->parent_step_id) }}">
+                STEP詳細に戻る
+              </a>
             </div>
         </div>
     </div>
