@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'パスワード再設定メール送信')
+
 @section('content')
 <div class="container">
     <div class="card content-center bg-white border-default">

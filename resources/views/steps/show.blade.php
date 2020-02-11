@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'STEP詳細')
+
 @section('content')
     <div class="container">
           <div id="app" class="card bg-white border-default">

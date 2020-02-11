@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'パスワード再設定')
+
 @section('content')
 <div id="app" class="container">
         <div class="card content-center bg-white border-default">

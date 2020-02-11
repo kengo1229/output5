@@ -1,118 +1,136 @@
 @extends('layouts.app')
 
+@section('title', 'マイページ')
+
 @section('content')
-  <h1>マイページ</h1>
-    <div class="container">
+
+
+<div class="user margin-bottom-space_l">
+
       @if(($user->pic) != null)
-        <div>
-          <img src="/{{ str_replace('public/', 'storage/', $user->pic) }}" alt="アイコン画像" width="200" height="130">
-        </div>
+          <img class="user-img" src="/{{ str_replace('public/', 'storage/', $user->pic) }}" alt="アイコン画像">
       @else
-        <div>
-          <img src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし" width="200" height="130">
-        </div>
+          <img class="user-img" src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし">
       @endif
-    </p>
-    <p>
-      @if(($user->username)  != null)
-          {{$user->username}}
-      @else
-          [ユーザー名未設定]
-      @endif
-    <p>
-      <h2>登録したSTEP一覧</h2>
-      <div class="row">
+</div>
 
-        @foreach ($my_create_steps as $my_create_step)
+<div id="app" class="container">
+    <div   class="row">
 
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              @if(($my_create_step->pic) != null)
-                <div>
-                  <img src="/{{ str_replace('public', 'storage', $my_create_step->pic) }}" alt="ステップ画像" width="200" height="130">
-                </div>
-              @else
-                <div>
-                  <img src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし" width="200" height="130">
-                </div>
-              @endif
-              <a href="{{ action('StepsController@show', $my_create_step->id) }}">
-                <h3 class="card-title">タイトル：{{ $my_create_step->title }}</h3>
-              </a>
-                <h3 class="card-title">カテゴリー：{{ $my_create_step->category->category_name }}</h3>
-                <h3 class="card-title">達成目安時間：{{ $my_create_step->goal_time }}</h3>
-            </div>
-          </div>
-        </div>
+      <h1 class="secondary-title margin-bottom-space_l">
 
-        @endforeach
-
-      </div>
-
-      <h2>チャレンジ中のSTEP一覧</h2>
-      <div class="row">
-        <!-- 渡された$my_challenge_stepsが空の時は何も表示しない -->
-        @if(isset($my_challenge_steps[0]))
-        @foreach ($my_challenge_steps as $my_challenge_step)
-
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              @if(($my_challenge_step->parentStep['pic']) != null)
-                <div>
-                  <img src="/{{ str_replace('public', 'storage', $my_challenge_step->parentStep['pic']) }}" alt="ステップ画像" width="200" height="130">
-                </div>
-              @else
-                <div>
-                  <img src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし" width="200" height="130">
-                </div>
-              @endif
-              <a href="{{ action('ChallengeController@show', $my_challenge_step->id) }}">
-                <h3 class="card-title">タイトル：{{ $my_challenge_step->parentStep['title']}}</h3>
-              </a>
-                <h3 class="card-title">カテゴリー：{{ $my_challenge_step->parentStep->category['category_name'] }}</h3>
-                <h3 class="card-title">達成目安時間：{{ $my_challenge_step->parentStep['goal_time'] }}時間</h3>
-                <h3 class="card-title">かかった時間：{{ $my_challenge_step['total_time'] }}時間</h3>
-                <h3 class="card-title">進捗状況：<br>全5ステップ中{{$my_challenge_step['num_clear_child_step']}}ステップクリア！</h3>
-            </div>
-          </div>
-        </div>
-
-        @endforeach
+        @if(($user->username)  != null)
+            {{$user->username}}さんのマイページ
+        @else
+            [ユーザー名未設定]さんのマイページ
         @endif
-      </div>
 
-      <h2>クリアしたSTEP一覧</h2>
-      <div class="row">
-        <!-- 渡された$my_finish_stepsが空の時は何も表示しない -->
-        @if(isset($my_finish_steps[0]))
-        @foreach ($my_finish_steps as $my_finish_step)
+      </h1>
 
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              @if(($my_finish_step->parentStep['pic']) != null)
-                <div>
-                  <img src="/{{ str_replace('public', 'storage', $my_finish_step->parentStep['pic']) }}" alt="ステップ画像" width="200" height="130">
-                </div>
-              @else
-                <div>
-                  <img src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし" width="200" height="130">
-                </div>
-              @endif
-                <h3 class="card-title">タイトル：{{ $my_finish_step->parentStep['title']}}</h3>
-                <h3 class="card-title">カテゴリー：{{ $my_finish_step->parentStep->category['category_name'] }}</h3>
-                <h3 class="card-title">達成目安時間：{{ $my_finish_step->parentStep['goal_time'] }}時間</h3>
-                <h3 class="card-title">かかった時間：{{ $my_finish_step['total_time'] }}時間</h3>
-            </div>
-          </div>
+      <h2 class="secondary-title margin-bottom-space_l">登録したSTEP一覧</h2>
+        <div class="individual-step-group">
+
+            @foreach ($my_create_steps as $my_create_step)
+
+                  <div class="individual-step margin-bottom-space_l bg-white border-default">
+                      <a class="step-link" href="{{ action('StepsController@show', $my_create_step->id) }}">
+                        @if(($my_create_step->pic) != null)
+                          <div>
+                            <img class="step-img" src="/{{ str_replace('public', 'storage', $my_create_step->pic) }}" alt="ステップ画像">
+                          </div>
+                        @else
+                          <div>
+                            <img class="step-img" src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし">
+                          </div>
+                        @endif
+                        <div class="step-body">
+                            <span class="underline-thin">タイトル</span>
+                            <p>{{ $my_create_step->title }}</p>
+                            <span class="underline-thin">カテゴリー</span>
+                            <p>{{ $my_create_step->category->category_name }}</p>
+                            <span class="underline-thin">達成目安時間</span>
+                            <p>{{ $my_create_step->goal_time }}時間</p>
+                        </div>
+                      </a>
+                  </div>
+
+
+              @endforeach
         </div>
 
-        @endforeach
-        @endif
-      </div>
+        <h2 class="secondary-title margin-bottom-space_l ">チャレンジ中のSTEP一覧</h2>
 
-    </div>
+        <div class="individual-step-group">
+          @if(isset($my_challenge_steps[0]))
+            @foreach ($my_challenge_steps as $my_challenge_step)
+
+              <div class="individual-step margin-bottom-space_l bg-white border-default">
+                  <a class="step-link" href="{{ action('ChallengeController@show', $my_challenge_step->id) }}">
+                    @if(($my_challenge_step->parentStep['pic']) != null)
+                      <div>
+                        <img class="step-img" src="/{{ str_replace('public', 'storage', $my_challenge_step->parentStep['pic']) }}" alt="ステップ画像">
+                      </div>
+                    @else
+                      <div>
+                        <img class="step-img" src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし">
+                      </div>
+                    @endif
+                    <div class="step-body-challenging">
+                        <span class="underline-thin">タイトル</span>
+                        <p>{{ $my_challenge_step->parentStep['title']}}</p>
+                        <span class="underline-thin">カテゴリー</span>
+                        <p>{{ $my_challenge_step->parentStep->category['category_name'] }}</p>
+                        <span class="underline-thin">達成目安時間</span>
+                        <p>{{ $my_challenge_step->parentStep['goal_time'] }}時間</p>
+                        <span class="underline-thin">かかった時間</span>
+                        <p>{{ $my_challenge_step['total_time'] }}時間</p>
+                        <span class="underline-thin">進捗状況</span>
+                        <p>全5STEP中{{$my_challenge_step['num_clear_child_step']}}STEPクリア！</p>
+                    </div>
+                  </a>
+              </div>
+
+            @endforeach
+          @endif
+
+        </div>
+
+        <h2 class="secondary-title margin-bottom-space_l">クリアしたSTEP一覧</h2>
+
+        <div class="individual-step-group">
+          @if(isset($my_finish_steps[0]))
+            @foreach ($my_finish_steps as $my_finish_step)
+
+              <div class="individual-step  margin-bottom-space_l bg-white border-default">
+                <a class="step-link" href="{{ action('StepsController@show', $my_challenge_step->parent_step_id) }}">
+                    @if(($my_finish_step->parentStep['pic']) != null)
+                      <div>
+                        <img class="step-img" src="/{{ str_replace('public', 'storage', $my_finish_step->parentStep['pic']) }}" alt="ステップ画像">
+                      </div>
+                    @else
+                      <div>
+                        <img class="step-img" src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし">
+                      </div>
+                    @endif
+                    <div class="step-body-cleared">
+                        <span class="underline-thin">タイトル</span>
+                        <p>{{ $my_finish_step->parentStep['title']}}</p>
+                        <span class="underline-thin">カテゴリー</span>
+                        <p>{{ $my_finish_step->parentStep->category['category_name'] }}</p>
+                        <span class="underline-thin">達成目安時間</span>
+                        <p>{{ $my_finish_step->parentStep['goal_time'] }}時間</p>
+                        <span class="underline-thin">かかった時間</span>
+                        <p>{{ $my_finish_step['total_time'] }}時間</p>
+                    </div>
+                </a>
+              </div>
+
+            @endforeach
+          @endif
+
+        </div>
+
+      </div>
+</div>
 
 @endsection

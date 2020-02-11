@@ -18,7 +18,6 @@ class MypageController extends Controller
 
     // ログインユーザーのidがGETパラメーターの数字と一致する場合のみマイページを表示する
     if($id != Auth::id()){
-      \Log::info('ログ出力テスト'.Auth::id());
         return redirect('/top')->with('flash_message', __('不正な操作が行われました。'));
     }
     // ログインユーザーの情報取得

@@ -1929,7 +1929,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -37413,19 +37412,12 @@ var render = function() {
                     staticClass: "step-img",
                     attrs: {
                       src: step.pic.replace("public/", "storage/"),
-                      alt: "ステップ画像",
-                      width: "200",
-                      height: "130"
+                      alt: "ステップ画像"
                     }
                   })
                 : _c("img", {
                     staticClass: "step-img",
-                    attrs: {
-                      src: "/img/no_image.jpg",
-                      alt: "登録画像なし",
-                      width: "200",
-                      height: "130"
-                    }
+                    attrs: { src: "/img/no_image.jpg", alt: "登録画像なし" }
                   }),
               _vm._v(" "),
               _c("div", { staticClass: "step-body" }, [

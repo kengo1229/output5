@@ -1,55 +1,68 @@
 @extends('layouts.app')
 
+@section('title', 'プロフィール')
+
 @section('content')
-  <p>
-    @if(($user->pic) != null)
-      <div>
-        <img src="/{{ str_replace('public/', 'storage/', $user->pic) }}" alt="アイコン画像" width="200" height="130">
-      </div>
-    @else
-      <div>
-        <img src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし" width="200" height="130">
-      </div>
-    @endif
-  </p>
-  <p>
-    @if(($user->username)  != null)
-        {{$user->username}}さんのプロフィール
-    @else
-        [ユーザー名未設定]さんのプロフィール
-    @endif
-  <p>
-  自己紹介
-  <p>{{$user->introduction}}</p>
-    <div class="container">
-      <h2>登録したSTEP一覧</h2>
-      <div class="row">
+<h1 class="secondary-title margin-bottom-space_l">
 
-        @foreach ($my_create_steps as $my_create_step)
+  @if(($user->username)  != null)
+      {{$user->username}}さんのプロフィール
+  @else
+      [ユーザー名未設定]さんのプロフィール
+  @endif
 
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              @if(($my_create_step->pic) != null)
-                <div>
-                  <img src="/{{ str_replace('public', 'storage', $my_create_step->pic) }}" alt="ステップ画像" width="200" height="130">
-                </div>
-              @else
-                <div>
-                  <img src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし" width="200" height="130">
-                </div>
-              @endif
-              <a href="{{ action('StepsController@show', $my_create_step->id) }}">
-                <h3 class="card-title">タイトル：{{ $my_create_step->title }}</h3>
-              </a>
-                <h3 class="card-title">カテゴリー：{{ $my_create_step->category->category_name }}</h3>
-                <h3 class="card-title">達成目安時間：{{ $my_create_step->goal_time }}</h3>
-            </div>
-          </div>
+</h1>
+
+<div class="user margin-bottom-space_l">
+
+      @if(($user->pic) != null)
+          <img class="user-img margin-bottom-space_l" src="/{{ str_replace('public/', 'storage/', $user->pic) }}" alt="アイコン画像">
+      @else
+          <img class="user-img margin-bottom-space_l" src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし">
+      @endif
+
+      <h2 class="margin-bottom-space_l">自己紹介</h2>
+      <p class="user-introduction bg-white">{{$user->introduction}}</p>
+
+</div>
+
+<div id="app" class="container">
+    <div   class="row">
+
+      <h2 class="secondary-title margin-bottom-space_l">登録したSTEP一覧</h2>
+        <div class="individual-step-group">
+
+            @foreach ($my_create_steps as $my_create_step)
+
+                  <div class="individual-step margin-bottom-space_l  bg-white border-default">
+                      <a class="step-link" href="{{ action('StepsController@show', $my_create_step->id) }}">
+                        @if(($my_create_step->pic) != null)
+                          <div>
+                            <img class="step-img" src="/{{ str_replace('public', 'storage', $my_create_step->pic) }}" alt="ステップ画像">
+                          </div>
+                        @else
+                          <div>
+                            <img class="step-img" src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし">
+                          </div>
+                        @endif
+                        <div class="step-body">
+                            <span class="underline-thin">タイトル</span>
+                            <p>{{ $my_create_step->title }}</p>
+                            <span class="underline-thin">カテゴリー</span>
+                            <p>{{ $my_create_step->category->category_name }}</p>
+                            <span class="underline-thin">達成目安時間</span>
+                            <p>{{ $my_create_step->goal_time }}時間</p>
+                        </div>
+                      </a>
+                  </div>
+
+
+              @endforeach
         </div>
 
-        @endforeach
-      </div>
 
+        </div>
+
+      </div>
 
 @endsection
