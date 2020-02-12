@@ -957,6 +957,9 @@ STEPに適用させるスタイル
     transition: 1s;
     -webkit-transition: 1s;
     margin: 0 $space_m;
+    @include lg() {
+        margin: 0 $space_s;
+    }
     @include md() {
         width: 48%;
         margin: 0 0 $space_l;
@@ -966,22 +969,13 @@ STEPに適用させるスタイル
         width: 80%;
     }
 
-    &:first-of-type {
-        margin-left: $space_s;
-        margin-right: $space_m;
-        @include md() {
-            margin: 0 0 $space_l;
-        }
-        @include sm() {
-            margin-left: 0;
-            margin-right: 0;
-            margin-bottom: $space_l;
-        }
-    }
-
     &:nth-of-type(4n) {
         margin-left: $space_m;
         margin-right: $space_s;
+        @include lg() {
+            margin-left: $space_s;
+            margin-right: $space_m;
+        }
         @include md() {
             margin: 0 0 $space_l;
         }
@@ -995,6 +989,10 @@ STEPに適用させるスタイル
     &:nth-of-type(4n+1) {
         margin-left: $space_s;
         margin-right: $space_m;
+        @include lg() {
+          margin-right: $space_s;
+          margin-left: $space_xl;
+        }
         @include md() {
             margin: 0 0 $space_l;
         }
@@ -1056,6 +1054,12 @@ STEPに適用させるスタイル
 
 .row {
     width: 100%;
+    @include lg() {
+      width: 90%;
+    }
+    @include md() {
+      width: 100%;
+    }
 }
 //=======================
 //button
@@ -1188,7 +1192,7 @@ STEPに適用させるスタイル
 .secondary-title {
     margin-bottom: $space_l;
     text-align: center;
-    @include sm() {
+    @include lg() {
         margin-top: $space_l;
     }
 }

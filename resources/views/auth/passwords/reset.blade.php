@@ -13,7 +13,7 @@
 
                     <input type="hidden" name="token" value="{{ $token }}">
 
-                    <div class="form-group row">
+                    <div class="form-">
                         <label for="email" class="col-md-4">登録したメールアドレス<span class="badge badge-secondary">必須</span></label>
 
                         <div class="col-md-6">
@@ -27,7 +27,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
+                    <div class="form-group">
                         <label for="password" class="col-md-4  ">新パスワード(半角英数字6文字以上20文字以内)<span class="badge badge-secondary">必須</span></label>
 
                         <div class="col-md-6">
@@ -42,7 +42,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
+                    <div class="form-group">
                         <label for="password-confirm" class="col-md-4  ">新パスワード(確認用)<span class="badge badge-secondary">必須</span></label>
 
                         <div class="col-md-6">
@@ -50,7 +50,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
+                    <div class="form-group">
                         <div class="col-md-6 offset-md-4">
                             <button type="submit" class="btn btn-primary  float-right">
                                 再登録

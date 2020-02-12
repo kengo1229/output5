@@ -12,7 +12,7 @@
                 <form method="POST" action="{{ route('steps.create') }}" enctype="multipart/form-data">
                     @csrf
 
-                    <div class="form-group row">
+                    <div class="form-group">
                         <label for="title" class="col-md-4">タイトル(40文字以内)<span class="badge badge-secondary">必須</span></label>
 
                         <div class="col-md-6">
@@ -27,7 +27,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
+                    <div class="form-group">
                         <label  for="category_id" class="col-md-4">カテゴリー<span class="badge badge-secondary">必須</span></label>
 
                         <div class="col-md-6">
@@ -51,7 +51,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
+                    <div class="form-group">
                         <label for="goal_time" class="col-md-4">達成目安時間<span class="badge badge-secondary">必須</span></label>
 
                         <div class="col-md-6">
@@ -65,7 +65,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
+                    <div class="form-group">
                         <label for="description" class="col-md-4">説明(200文字以内)<span class="badge badge-secondary">必須</span></label>
 
                         <div class="col-md-6">
@@ -81,7 +81,7 @@
                     </div>
 
                   @for ($i = 1; $i <= 5; $i++)
-                    <div class="form-group row">
+                    <div class="form-group">
 
                       <label for="step{{$i - 1}}" class="col-md-4">{{ __('子STEP').$i }}(40文字以内)<span class="badge badge-secondary">必須</span></label>
 
@@ -97,7 +97,7 @@
                       </div>
                     </div>
 
-                    <div class="form-group row">
+                    <div class="form-group">
 
                       <label for="todo{{$i - 1}}" class="col-md-4">やること(100文字以内)<span class="badge badge-secondary">必須</span></label>
 
@@ -116,7 +116,7 @@
 
                   @endfor
 
-                    <div class="form-group row">
+                    <div class="form-group">
                         <label for="pic" class="col-md-4">画像<span class="badge badge-secondary">任意</span></label>
 
                         <div class="col-md-6">
@@ -133,7 +133,7 @@
 
 
 
-                    <div class="form-group row">
+                    <div class="form-group">
                         <div class="col-md-6 offset-md-4">
                             <button type="submit" class="btn btn-primary  float-right">
                                 登録

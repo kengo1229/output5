@@ -83,7 +83,7 @@ $(window).on('load resize', function(){
   const smallWidth = 414;
   const middleWidth = 768;
   const largeWidth = 1024;
-
+  console.log(center);
   if (smallWidth < winWidth  && winWidth <= largeWidth ) {
     center.addClass('content-center');
   } else {

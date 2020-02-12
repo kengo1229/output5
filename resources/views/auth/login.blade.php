@@ -11,7 +11,7 @@
           <form method="POST" action="{{ route('login') }}">
               @csrf
 
-              <div class="form-group row">
+              <div class="form-group">
                   <label for="email" class="col-md-4">メールアドレス</label>
 
                   <div class="col-md-6">
@@ -25,7 +25,7 @@
                   </div>
               </div>
 
-              <div class="form-group row">
+              <div class="form-group">
                   <label for="password" class="col-md-4">パスワード<br>(半角英数字6文字以上20文字以下)</label>
 
                   <div class="col-md-6">
@@ -39,7 +39,7 @@
                   </div>
               </div>
 
-              <div class="form-group row">
+              <div class="form-group">
                   <div class="col-md-6 offset-md-4">
                     @if (Route::has('password.request'))
                         <a class="btn btn-link" href="{{ route('password.request') }}">
@@ -60,7 +60,7 @@
 
               </div>
 
-              <div class="form-group row mb-0">
+              <div class="form-group">
                   <div class="col-md-8 offset-md-4">
                       <button type="submit" class="btn btn-primary float-right">
                           ログイン

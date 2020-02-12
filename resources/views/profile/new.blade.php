@@ -11,7 +11,7 @@
                 <form method="POST" action="{{ route('profile.create', $user->id) }}" enctype="multipart/form-data">
                     @csrf
 
-                    <div class="form-group row">
+                    <div class="form-group">
                         <label for="username" class="col-md-4">ユーザー名(20文字以内)<span class="badge badge-secondary">必須</span></label>
 
                         <div class="col-md-6">
@@ -26,7 +26,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
+                    <div class="form-group">
                         <label for="email" class="col-md-4">メールアドレス<span class="badge badge-secondary">必須</span></label>
 
                         <div class="col-md-6">
@@ -40,7 +40,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
+                    <div class="form-group">
                         <label for="introduction" class="col-md-4">自己紹介(200文字以内)<span class="badge badge-secondary">必須</span></label>
 
                         <div class="col-md-6">
@@ -56,7 +56,7 @@
                     </div>
 
 
-                    <div class="form-group row">
+                    <div class="form-group">
                         <label for="pic" class="col-md-4  ">アイコン画像<span class="badge badge-secondary">任意</span></label>
 
                         <div class="col-md-6">
@@ -73,7 +73,7 @@
 
 
 
-                    <div class="form-group row mb-0">
+                    <div class="form-group mb-0">
                         <div class="col-md-6 offset-md-4">
                             <button type="submit" class="btn btn-primary float-right">
                                 登録

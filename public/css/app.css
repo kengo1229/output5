@@ -1025,6 +1025,12 @@ STEPに適用させるスタイル
   margin: 0 10px;
 }
 
+@media screen and (max-width: 1024px) {
+  .individual-step {
+    margin: 0 5px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .individual-step {
     width: 48%;
@@ -1039,28 +1045,16 @@ STEPに適用させるスタイル
   }
 }
 
-.individual-step:first-of-type {
-  margin-left: 5px;
-  margin-right: 10px;
-}
-
-@media screen and (max-width: 768px) {
-  .individual-step:first-of-type {
-    margin: 0 0 15px;
-  }
-}
-
-@media screen and (max-width: 414px) {
-  .individual-step:first-of-type {
-    margin-left: 0;
-    margin-right: 0;
-    margin-bottom: 15px;
-  }
-}
-
 .individual-step:nth-of-type(4n) {
   margin-left: 10px;
   margin-right: 5px;
+}
+
+@media screen and (max-width: 1024px) {
+  .individual-step:nth-of-type(4n) {
+    margin-left: 5px;
+    margin-right: 10px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -1080,6 +1074,13 @@ STEPに適用させるスタイル
 .individual-step:nth-of-type(4n+1) {
   margin-left: 5px;
   margin-right: 10px;
+}
+
+@media screen and (max-width: 1024px) {
+  .individual-step:nth-of-type(4n+1) {
+    margin-right: 5px;
+    margin-left: 20px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -1155,6 +1156,18 @@ STEPに適用させるスタイル
 
 .row {
   width: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+  .row {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .row {
+    width: 100%;
+  }
 }
 
 .btn {
@@ -1299,7 +1312,7 @@ STEPに適用させるスタイル
   text-align: center;
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 1024px) {
   .secondary-title {
     margin-top: 15px;
   }

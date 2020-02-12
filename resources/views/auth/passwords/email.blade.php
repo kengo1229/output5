@@ -11,7 +11,7 @@
             <form method="POST" action="{{ route('password.email') }}">
                 @csrf
 
-                <div class="form-group row">
+                <div class="form-group">
                     <label for="email" class="col-md-4">登録したメールアドレス<span class="badge badge-secondary">必須</span></label>
 
                     <div class="col-md-6">
@@ -25,7 +25,7 @@
                     </div>
                 </div>
 
-                <div class="form-group row">
+                <div class="form-group">
                     <div class="col-md-6 offset-md-4">
                         <button type="submit" class="btn btn-primary float-right">
                             送信
