@@ -418,17 +418,28 @@ br {
   margin-top: 68px;
 }
 
+@media screen and (max-width: 1024px) {
+  .hero {
+    height: 550px;
+    background-attachment: scroll;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero {
+    height: 500px;
+  }
+}
+
 @media screen and (max-width: 414px) {
   .hero {
     height: 350px;
-    background-attachment: scroll;
   }
 }
 
 @media screen and (max-width: 414px) {
   .hero {
     height: 280px;
-    background-attachment: scroll;
   }
 }
 
@@ -437,6 +448,18 @@ br {
   font-size: 55px;
   color: #fff;
   text-shadow: 0 0 20px rgba(227, 123, 137, 0.4), 0 0 50px rgba(0, 0, 0, 0.8);
+}
+
+@media screen and (max-width: 1024px) {
+  .hero-title {
+    font-size: 45px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero-title {
+    font-size: 38px;
+  }
 }
 
 @media screen and (max-width: 414px) {
@@ -534,7 +557,7 @@ br {
   text-decoration: none;
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 768px) {
   .nav-menu {
     display: block;
     position: absolute;
@@ -561,18 +584,18 @@ br {
   display: inherit;
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 768px) {
   .menu {
     display: -webkit-box;
     display: flex;
-    font-size: 30px;
+    font-size: 50px;
     display: block;
   }
+}
 
-  .menu-item {
-    text-align: center;
-    padding-right: 0;
-    margin: 50px 0;
+@media screen and (max-width: 414px) {
+  .menu {
+    font-size: 30px;
   }
 }
 
@@ -580,7 +603,23 @@ br {
   .menu {
     font-size: 24px;
   }
+}
 
+@media screen and (max-width: 768px) {
+  .menu-item {
+    margin: 60px 0;
+    text-align: center;
+    padding-right: 0;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .menu-item {
+    margin: 50px 0;
+  }
+}
+
+@media screen and (max-width: 320px) {
   .menu-item {
     margin: 40px 0;
   }
@@ -596,7 +635,7 @@ br {
   z-index: 3;
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 768px) {
   .menu-trigger {
     display: inline-block;
     margin-top: 8px;
@@ -641,13 +680,20 @@ br {
           transform: translateY(-15px) rotate(45deg);
 }
 
-/*
-.cardのクラスがついたdivの中身が画面の高さを超える場合、card-overの方を適用させて
-中身がナビメニューとフッターにまではみ出ないようにする
-*/
-
 .card {
   width: 60%;
+}
+
+@media screen and (max-width: 1024px) {
+  .card {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 414px) {
@@ -815,6 +861,12 @@ br {
   }
 }
 
+@media screen and (max-width: 320px) {
+  .container {
+    width: 90%;
+  }
+}
+
 .footer {
   background-color: #000000b3;
   padding: 15px;
@@ -856,9 +908,20 @@ br {
   -webkit-transition: 1s;
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 1024px) {
   .step {
     margin: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .step {
+    width: 45%;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .step {
     width: 80%;
   }
 }
@@ -888,24 +951,54 @@ br {
 
 .step-body {
   padding: 10px;
-  min-height: 180px;
+  min-height: 250px;
+}
+
+@media screen and (max-width: 768px) {
+  .step-body {
+    margin: 0;
+    min-height: 225px;
+  }
 }
 
 @media screen and (max-width: 414px) {
   .step-body {
-    margin: 0;
     min-height: 200px;
   }
 }
 
 .step-body-challenging {
   padding: 10px;
-  min-height: 290px;
+  min-height: 350px;
+}
+
+@media screen and (max-width: 768px) {
+  .step-body-challenging {
+    min-height: 325px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .step-body-challenging {
+    min-height: 290px;
+  }
 }
 
 .step-body-cleared {
   padding: 10px;
-  min-height: 245px;
+  min-height: 300px;
+}
+
+@media screen and (max-width: 768px) {
+  .step-body-cleared {
+    min-height: 280px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .step-body-cleared {
+    min-height: 245px;
+  }
 }
 
 .step-link {
@@ -932,6 +1025,13 @@ STEPに適用させるスタイル
   margin: 0 10px;
 }
 
+@media screen and (max-width: 768px) {
+  .individual-step {
+    width: 48%;
+    margin: 0 0 15px;
+  }
+}
+
 @media screen and (max-width: 414px) {
   .individual-step {
     margin: 0;
@@ -942,6 +1042,12 @@ STEPに適用させるスタイル
 .individual-step:first-of-type {
   margin-left: 5px;
   margin-right: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .individual-step:first-of-type {
+    margin: 0 0 15px;
+  }
 }
 
 @media screen and (max-width: 414px) {
@@ -957,6 +1063,12 @@ STEPに適用させるスタイル
   margin-right: 5px;
 }
 
+@media screen and (max-width: 768px) {
+  .individual-step:nth-of-type(4n) {
+    margin: 0 0 15px;
+  }
+}
+
 @media screen and (max-width: 414px) {
   .individual-step:nth-of-type(4n) {
     margin-left: 0;
@@ -968,6 +1080,12 @@ STEPに適用させるスタイル
 .individual-step:nth-of-type(4n+1) {
   margin-left: 5px;
   margin-right: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .individual-step:nth-of-type(4n+1) {
+    margin: 0 0 15px;
+  }
 }
 
 @media screen and (max-width: 414px) {
@@ -988,12 +1106,16 @@ STEPに適用させるスタイル
   text-align: center;
 }
 
+@media screen and (max-width: 768px) {
+  .individual-step-group {
+    -webkit-box-pack: justify;
+            justify-content: space-between;
+  }
+}
+
 @media screen and (max-width: 414px) {
   .individual-step-group {
     font-size: 14px;
-    display: -webkit-box;
-    display: flex;
-    flex-wrap: wrap;
     justify-content: space-around;
   }
 }
@@ -1005,7 +1127,7 @@ STEPに適用させるスタイル
   margin: 0 auto;
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 768px) {
   .user {
     width: 100%;
   }
@@ -1118,12 +1240,12 @@ STEPに適用させるスタイル
   margin-bottom: 15px;
 }
 
-.margin-right-space_m {
-  margin-right: 10px;
-}
-
 .margin-bottom-space_m {
   margin-bottom: 10px;
+}
+
+.margin-right-space_m {
+  margin-right: 10px;
 }
 
 .content-center {
@@ -1138,15 +1260,21 @@ STEPに適用させるスタイル
   -webkit-font-smoothing: subpixel-antialiased;
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 1024px) {
   .content-center {
-    width: 80%;
+    width: 70%;
   }
 }
 
 @media screen and (max-width: 768px) {
   .content-center {
-    width: 60%;
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .content-center {
+    width: 80%;
   }
 }
 

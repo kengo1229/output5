@@ -5,7 +5,7 @@
 @section('content')
 
     <div id="app" class="container js-height-hold">
-        <div class="card bg-white border-default">
+        <div class="card bg-white border-default content-center">
             <div class="card-header">{{ __('子STEP詳細') }}</div>
 
             <div class="card-body">

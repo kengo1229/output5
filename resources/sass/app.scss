@@ -311,8 +311,8 @@ $font-size_default: 16px;
 $font-size_m: 18px;
 $font-size_l: 24px;
 $font-size_xl: 30px;
-$font-size_xxl: 38px;
-$font-size_3l: 40px; // 余白
+$font-size_xxl: 40px;
+$font-size_3l: 50px; // 余白
 $space_s: 5px;
 $space_m: 10px;
 $space_l: 15px;
@@ -369,7 +369,6 @@ html {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-
 }
 
 a {
@@ -411,10 +410,11 @@ textarea:focus {
 .post-user {
     display: flex;
     align-items: flex-end;
-    @include sm(){
-      align-items: center;
-      font-size: $font-size_s;
+    @include sm() {
+        align-items: center;
+        font-size: $font-size_s;
     }
+
     &-img {
         border-radius: 50%;
         width: 50px;
@@ -423,11 +423,11 @@ textarea:focus {
     }
 }
 
-br{
-  display:none;
-  @include sm(){
-    display: block;
-  }
+br {
+    display: none;
+    @include sm() {
+        display: block;
+    }
 }
 // ==================================
 // hero
@@ -444,13 +444,18 @@ br{
     justify-content: center;
     align-items: center;
     margin-top: 68px;
-    @include sm(){
-      height: 350px;
-      background-attachment: scroll;
+    @include lg() {
+        height: 550px;
+        background-attachment: scroll;
     }
-    @include sm(){
-      height: 280px;
-      background-attachment: scroll;
+    @include md() {
+        height: 500px;
+    }
+    @include sm() {
+        height: 350px;
+    }
+    @include sm() {
+        height: 280px;
     }
 
     &-title {
@@ -458,11 +463,17 @@ br{
         font-size: 55px;
         color: #fff;
         text-shadow: 0 0 20px rgba(227, 123, 137, .4), 0 0 50px rgba(0, 0, 0, .8);
-        @include sm(){
-          font-size: 35px;
+        @include lg() {
+            font-size: 45px;
         }
-        @include xs(){
-          font-size: 25px;
+        @include md() {
+            font-size: 38px;
+        }
+        @include sm() {
+            font-size: 35px;
+        }
+        @include xs() {
+            font-size: 25px;
         }
     }
 }
@@ -471,18 +482,20 @@ br{
 //=======================
 
 .navbar {
-  position: fixed;
-  width: 100%;
-  z-index: 2;
-  height: 68px;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+    height: 68px;
+
     .container {
         display: flex;
         flex-direction: row;
         padding: $space_m 0;
         width: 90%;
-        @include sm(){
-          width: 90%
+        @include sm() {
+            width: 90%;
         }
+
         .navbar-brand {
             color: $font-color_default;
             font-size: $font-size_xl;
@@ -495,9 +508,10 @@ br{
             }
         }
     }
-    &.float-active{
-      transition: .3s;
-      background: rgba(255, 255, 255, 0.9);
+
+    &.float-active {
+        transition: 0.3s;
+        background: rgba(255, 255, 255, 0.9);
     }
 
     &-nav {
@@ -522,116 +536,137 @@ br{
 .nav-item {
     list-style: none;
     padding-right: $space_l;
-      &:last-of-type{
+
+    &:last-of-type {
         padding-right: 0;
     }
+
     .nav-link {
         color: $navbar-color;
+
         &:hover {
             color: $navbar-hover-color;
             text-decoration: none;
         }
     }
-
 }
-
 // ==================================
 // menu（スマホ用ナビメニュー）
 // ==================================
-  .nav-menu {
-  @include sm() {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: -100%;
-    background: rgba(255, 255, 255, .85);
-    width: 100%;
-    height: 100vh;
-    padding-top: 50px;
-    transition: .5s;
-    &.active {
-      transition: .5s;
-      transform: translateX(-100%);
-      z-index: 2;
+
+.nav-menu {
+    @include md() {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: -100%;
+        background: rgba(255, 255, 255, .85);
+        width: 100%;
+        height: 100vh;
+        padding-top: 50px;
+        transition: 0.5s;
+
+        &.active {
+            transition: 0.5s;
+            transform: translateX(-100%);
+            z-index: 2;
+        }
     }
-  }
 }
 
 .menu {
-  display: inherit;
-  @include sm() {
-    display: flex;
-    font-size: $font-size_xl;
-    display: block;
-    &-item {
-      text-align: center;
-      padding-right: 0;
-      margin: 50px 0;
+    display: inherit;
+    @include md() {
+        display: flex;
+        font-size: $font-size_3l;
+        display: block;
     }
-  }
-  @include xs() {
-    font-size: $font-size_l;
-    &-item {
-      margin: 40px 0;
+    @include sm() {
+        font-size: $font-size_xl;
     }
-  }
+    @include xs() {
+        font-size: $font-size_l;
+    }
+
+    &-item {
+        @include md() {
+            margin: 60px 0;
+            text-align: center;
+            padding-right: 0;
+        }
+        @include sm() {
+            margin: 50px 0;
+        }
+        @include xs() {
+            margin: 40px 0;
+        }
+    }
 }
 
 .menu-trigger {
-  display: none;
-  @include sm() {
-    display: inline-block;
-    margin-top: 8px;
-  }
-  transition: all .4s;
-  position: relative;
-  width: 40px;
-  height: 32px;
-  z-index: 3;
+    display: none;
+    @include md() {
+        display: inline-block;
+        margin-top: 8px;
+    }
+    transition: all 0.4s;
+    position: relative;
+    width: 40px;
+    height: 32px;
+    z-index: 3;
 
-  span {
-    display: inline-block;
-    transition: all .4s;
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background-color: $font-color_default;
-    border-radius: 4px;
-    &:nth-of-type(1) {
-      top: 0;
+    span {
+        display: inline-block;
+        transition: all 0.4s;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background-color: $font-color_default;
+        border-radius: 4px;
+
+        &:nth-of-type(1) {
+            top: 0;
+        }
+
+        &:nth-of-type(2) {
+            top: 14px;
+        }
+
+        &:nth-of-type(3) {
+            bottom: 0;
+        }
     }
-    &:nth-of-type(2) {
-      top: 14px;
+
+    &.active span {
+        &:nth-of-type(1) {
+            transform: translateY(12px) rotate(-45deg);
+        }
+
+        &:nth-of-type(2) {
+            opacity: 0;
+        }
+
+        &:nth-of-type(3) {
+            transform: translateY(-15px) rotate(45deg);
+        }
     }
-    &:nth-of-type(3) {
-      bottom: 0;
-    }
-  }
-  &.active span {
-    &:nth-of-type(1) {
-      transform: translateY(12px) rotate(-45deg);
-    }
-    &:nth-of-type(2) {
-      opacity: 0;
-    }
-    &:nth-of-type(3) {
-      transform: translateY(-15px) rotate(45deg);
-    }
-  }
 }
 //=======================
 //card
 //=======================
-/*
-.cardのクラスがついたdivの中身が画面の高さを超える場合、card-overの方を適用させて
-中身がナビメニューとフッターにまではみ出ないようにする
-*/
 .card {
     width: 60%;
-    @include sm(){
-      width: 90%;
+    @include lg() {
+        width: 80%;
     }
+    @include md() {
+        width: 100%;
+    }
+    @include sm() {
+        width: 90%;
+    }
+
     &-container {
         width: 40%;
         position: fixed;
@@ -649,10 +684,9 @@ br{
         background-color: $card-header-bg-color;
         border-bottom: 1px solid rgba(0, 0, 0, 0.125);
         font-size: $font-size_m;
-        @include xs(){
-          padding: $space_m;
+        @include xs() {
+            padding: $space_m;
         }
-
     }
 
     &-body {
@@ -660,8 +694,8 @@ br{
         flex: 1 1 auto;
         min-height: 1px;
         padding: $space_xxl;
-        @include xs(){
-          padding: $space_m;
+        @include xs() {
+            padding: $space_m;
         }
     }
 
@@ -678,10 +712,11 @@ br{
 //=======================
 
 .main {
-  padding: 70px 0;
-    @include sm(){
-      padding: 35px 0;
+    padding: 70px 0;
+    @include sm() {
+        padding: 35px 0;
     }
+
     .container {
         display: flex;
         justify-content: center;
@@ -696,8 +731,9 @@ br{
     &-group {
         margin-bottom: $space_l;
         overflow: hidden;
-        &:last-of-type{
-          margin-bottom: 0;
+
+        &:last-of-type {
+            margin-bottom: 0;
         }
     }
 
@@ -722,8 +758,8 @@ br{
         &-category {
             width: 30%;
             padding: 0 0 0 $space_m;
-            @include sm(){
-              width: 60%;
+            @include sm() {
+                width: 60%;
             }
         }
 
@@ -782,10 +818,13 @@ br{
     width: $content-width;
     margin: 0 auto;
     justify-content: space-between;
-    @include md(){
-      width: 80%;
-      margin: 0 auto;
-      justify-content: space-between;
+    @include md() {
+        width: 80%;
+        margin: 0 auto;
+        justify-content: space-between;
+    }
+    @include xs(){
+      width: 90%;
     }
 }
 //=======================
@@ -798,10 +837,9 @@ br{
     text-align: center;
     width: 100%;
     margin-top: auto;
-    @include sm(){
-      font-size: $font-size_xs;
+    @include sm() {
+        font-size: $font-size_xs;
     }
-
 }
 //=======================
 //alert
@@ -835,10 +873,16 @@ br{
     width: 23%;
     transition: 1s;
     -webkit-transition: 1s;
-    @include sm(){
-      margin: 0;
-      width: 80%;
+    @include lg() {
+        margin: 0;
     }
+    @include md() {
+        width: 45%;
+    }
+    @include sm() {
+        width: 80%;
+    }
+
     &:hover {
         opacity: 0.7;
     }
@@ -848,10 +892,9 @@ br{
         flex-wrap: wrap;
         justify-content: space-around;
         text-align: center;
-        @include sm(){
-          font-size: $font-size_s;
+        @include sm() {
+            font-size: $font-size_s;
         }
-
     }
 
     &-img {
@@ -861,18 +904,35 @@ br{
 
     &-body {
         padding: $space_m;
-        min-height: 180px;
-        @include sm(){
-          margin: 0;
-          min-height: 200px;
+        min-height: 250px;
+        @include md() {
+            margin: 0;
+            min-height: 225px;
         }
-        &-challenging{
-          padding: $space_m;
-          min-height: 290px;
+        @include sm() {
+            min-height: 200px;
         }
-        &-cleared{
-          padding: $space_m;
-          min-height: 245px;
+
+        &-challenging {
+            padding: $space_m;
+            min-height: 350px;
+            @include md() {
+                min-height: 325px;
+            }
+            @include sm() {
+                min-height: 290px;
+            }
+        }
+
+        &-cleared {
+            padding: $space_m;
+            min-height: 300px;
+            @include md() {
+                min-height: 280px;
+            }
+            @include sm() {
+                min-height: 245px;
+            }
         }
     }
 
@@ -885,7 +945,6 @@ br{
         }
     }
 }
-
 /*/
 =======================
 individual
@@ -893,61 +952,74 @@ individual
 STEPに適用させるスタイル
 =======================
 /*/
-.individual-step{
-  width: 23%;
-  transition: 1s;
-  -webkit-transition: 1s;
-  margin: 0 $space_m ;
-  @include sm(){
-    margin: 0;
-    width: 80%;
-  }
-  &:first-of-type{
-    margin-left: $space_s;
-    margin-right: $space_m;
-    @include sm(){
-      margin-left: 0;
-      margin-right: 0;
-      margin-bottom: $space_l;
+.individual-step {
+    width: 23%;
+    transition: 1s;
+    -webkit-transition: 1s;
+    margin: 0 $space_m;
+    @include md() {
+        width: 48%;
+        margin: 0 0 $space_l;
     }
-  }
-  &:nth-of-type(4n){
-    margin-left: $space_m;
-    margin-right: $space_s;
-    @include sm(){
-      margin-left: 0;
-      margin-right: 0;
-      margin-bottom: $space_l;
-    }
-  }
-
-  &:nth-of-type(4n+1){
-    margin-left: $space_s;
-    margin-right: $space_m;
-    @include sm(){
-      margin-left: 0;
-      margin-right: 0;
-      margin-bottom: $space_l;
-    }
-  }
-
-  &-group{
-    display: flex;
-    min-height: 200px;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    text-align: center;
-    @include sm(){
-      font-size: $font-size_s;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
+    @include sm() {
+        margin: 0;
+        width: 80%;
     }
 
-  }
+    &:first-of-type {
+        margin-left: $space_s;
+        margin-right: $space_m;
+        @include md() {
+            margin: 0 0 $space_l;
+        }
+        @include sm() {
+            margin-left: 0;
+            margin-right: 0;
+            margin-bottom: $space_l;
+        }
+    }
+
+    &:nth-of-type(4n) {
+        margin-left: $space_m;
+        margin-right: $space_s;
+        @include md() {
+            margin: 0 0 $space_l;
+        }
+        @include sm() {
+            margin-left: 0;
+            margin-right: 0;
+            margin-bottom: $space_l;
+        }
+    }
+
+    &:nth-of-type(4n+1) {
+        margin-left: $space_s;
+        margin-right: $space_m;
+        @include md() {
+            margin: 0 0 $space_l;
+        }
+        @include sm() {
+            margin-left: 0;
+            margin-right: 0;
+            margin-bottom: $space_l;
+        }
+    }
+
+    &-group {
+        display: flex;
+        min-height: 200px;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        text-align: center;
+        @include md() {
+            justify-content: space-between;
+        }
+        @include sm() {
+            font-size: $font-size_s;
+            justify-content: space-around;
+        }
+    }
 }
-
-
 //=======================
 //user
 //=======================
@@ -957,9 +1029,10 @@ STEPに適用させるスタイル
     margin-bottom: $space_l;
     width: $content-width;
     margin: 0 auto;
-    @include sm(){
-      width: 100%;
+    @include md() {
+        width: 100%;
     }
+
     &-img {
         height: 200px;
         width: 200px;
@@ -972,12 +1045,11 @@ STEPに適用させるスタイル
         padding: $space_m;
         border-radius: 3px;
         width: 100%;
-        @include sm(){
-          width: 100%;
+        @include sm() {
+            width: 100%;
         }
     }
 }
-
 //=======================
 //row
 //=======================
@@ -1050,8 +1122,8 @@ STEPに適用させるスタイル
     color: red;
     font-size: $font-size_s;
     display: block;
-    @include sm(){
-      font-size: $font-size_xs;
+    @include sm() {
+        font-size: $font-size_xs;
     }
 }
 
@@ -1072,12 +1144,12 @@ STEPに適用させるスタイル
     margin-bottom: $space_l;
 }
 
-.margin-right-space_m {
-    margin-right: $space_m;
-}
-
 .margin-bottom-space_m {
     margin-bottom: $space_m;
+}
+
+.margin-right-space_m {
+    margin-right: $space_m;
 }
 
 .content-center {
@@ -1089,15 +1161,18 @@ STEPに適用させるスタイル
     -webkit-font-smoothing: none;
     -webkit-font-smoothing: antialiased;
     -webkit-font-smoothing: subpixel-antialiased;
-    @include sm(){
-      width: 80%;
+    @include lg() {
+        width: 70%;
     }
-    @include md(){
-      width: 60%;
+    @include md() {
+        width: 70%;
     }
-    @include xs(){
-      top: 52%;
-      width: 90%;
+    @include sm() {
+        width: 80%;
+    }
+    @include xs() {
+        top: 52%;
+        width: 90%;
     }
 }
 
@@ -1106,7 +1181,6 @@ STEPに適用させるスタイル
     display: inline-block;
 }
 
-
 .underline-bold {
     border-bottom: groove 5px #3490dc;
 }
@@ -1114,7 +1188,7 @@ STEPに適用させるスタイル
 .secondary-title {
     margin-bottom: $space_l;
     text-align: center;
-    @include sm(){
-      margin-top: $space_l;
+    @include sm() {
+        margin-top: $space_l;
     }
 }

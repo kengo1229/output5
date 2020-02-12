@@ -58,7 +58,7 @@
               @endforeach
         </div>
 
-        <h2 class="secondary-title margin-bottom-space_l ">チャレンジ中のSTEP一覧</h2>
+        <h2 class="secondary-title margin-bottom-space_l ">チャレンジ中STEP一覧</h2>
 
         <div class="individual-step-group">
           @if(isset($my_challenge_steps[0]))

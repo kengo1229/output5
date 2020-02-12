@@ -69,5 +69,35 @@ $(function () {
 */
 $(function() {
     var height=$(".js-height-target").height();
-    $(".js-height-hold").css("margin-top", height );//10pxだけ余裕をもたせる
+    $(".js-height-hold").css("margin-top", height );
+});
+
+/*
+画面の横幅が414px〜768pxとの場合、一部ページのフォームやコンテンツが上下中央寄せに
+ならないため画面の横幅に応じて上下中央寄せのクラスを付け外しする。
+*/
+$(window).on('load resize', function(){
+  let winWidth = $(window).width();
+
+  let center = $('.js-content-center-target');
+  const smallWidth = 414;
+  const middleWidth = 768;
+  const largeWidth = 1024;
+
+  if (smallWidth < winWidth  && winWidth <= largeWidth ) {
+    center.addClass('content-center');
+  } else {
+    center.removeClass('content-center');
+  }
+
+/*
+画面の横幅が768より広く、1024ピクセル以下の時に
+余白を足してコンテンツを真ん中に持ってくる
+*/
+  if (middleWidth < winWidth  && winWidth <= largeWidth ){
+
+    $(".js-margin-top-target").css("margin-top", 120 );
+
+  }
+
 });

@@ -3,8 +3,8 @@
 @section('title', 'プロフィール登録')
 
 @section('content')
-    <div id="app" class="container js-height-hold">
-        <div class="card bg-white border-default">
+    <div id="app" class="container  js-height-hold">
+        <div class="card  bg-white border-default js-content-center-target">
             <div class="card-header">プロフィール登録</div>
 
             <div class="card-body">

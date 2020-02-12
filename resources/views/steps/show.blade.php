@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="container js-height-hold">
-          <div id="app" class="card bg-white border-default">
+          <div  class="card bg-white border-default js-margin-top-target">
               <div class="card-header">{{ __('STEP詳細') }}</div>
 
 
