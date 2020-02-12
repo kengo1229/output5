@@ -26,7 +26,7 @@
               </div>
 
               <div class="form-group  row">
-                  <label for="password" class="col-md-4">パスワード(半角英数字6文字以上20文字以内)<span class="badge badge-secondary">必須</span></label>
+                  <label for="password" class="col-md-4">パスワード<br>(半角英数字6文字以上20文字以内)<span class="badge badge-secondary">必須</span></label>
 
                   <div class="col-md-6">
                       <input id="password" type="password" class="form-control js-count1 @error('password') is-invalid @enderror" name="password"  autocomplete="new-password">

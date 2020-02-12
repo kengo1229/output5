@@ -3,7 +3,7 @@
 @section('title', 'チャレンジ')
 
 @section('content')
-    <div id="app" class="container">
+    <div id="app" class="container js-height-hold">
 
                 <div class="card bg-white border-default">
 
@@ -55,11 +55,11 @@
 
                       <div class="card-footer">
                         親STEP情報
-                        <p>タイトル：{{ $parent_step_info->title }}</p>
-                        <p>カテゴリー：{{ $parent_step_info->category->category_name }}</p>
-                        <p>投稿者：{{ $parent_step_info->user->username }}</p>
-                        <p>達成目標時間：{{ $parent_step_info->goal_time }}</p>
-                        <p>内容：{{ $parent_step_info->description }}</p>
+                        <p><span class="underline-thin">タイトル</span>：{{ $parent_step_info->title }}</p>
+                        <p><span class="underline-thin">カテゴリー</span>：{{ $parent_step_info->category->category_name }}</p>
+                        <p><span class="underline-thin">投稿者</span>：{{ $parent_step_info->user->username }}</p>
+                        <p><span class="underline-thin">達成目標時間</span>：{{ $parent_step_info->goal_time }}</p>
+                        <p><span class="underline-thin">内容</span>：{{ $parent_step_info->description }}</p>
 
                       </div>
 

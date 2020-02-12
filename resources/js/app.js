@@ -38,8 +38,36 @@ const app = new Vue({
 $(function(){
     $('.js-count1, .js-count2, .js-count3, .js-count4, .js-count5, .js-count6, .js-count7, .js-count8, .js-count9, .js-count10, .js-count11, .js-count12').bind('keyup',function() {
         for ( num=1; num<=12; num++ ) {
-            let thisValueLength = $(".js-count" + num).val().replace(/\s+/g,'').length;
-            $(".js-show" + num).html(thisValueLength);
+            if($((".js-count" + num).length) !== undefined){
+              console.log($((".js-count" + num)[num - 1].length));
+              let thisValueLength = $(".js-count" + num).val().replace(/\s+/g,'').length;
+              $(".js-show" + num).html(thisValueLength);
+            }
         }
     });
+});
+
+// ナビメニュー
+$(function () {
+
+  // フロートヘッダーメニュー
+  var targetHeight = $('.js-float-menu-target').height();
+  $(window).on('scroll', function() {
+    $('.js-float-menu').toggleClass('float-active', $(this).scrollTop() > targetHeight);
+  });
+
+  // SPメニュー
+  $('.js-toggle-sp-menu').on('click', function () {
+    $(this).toggleClass('active');
+    $('.js-toggle-sp-menu-target').toggleClass('active');
+  });
+});
+
+/*
+ナビメニューにfixedを適用したことで、ナビメニューの高さ分下部のコンテンツが上がって
+きしまっている。その高さ分をmargin-topで相殺する。
+*/
+$(function() {
+    var height=$(".js-height-target").height();
+    $(".js-height-hold").css("margin-top", height );//10pxだけ余裕をもたせる
 });

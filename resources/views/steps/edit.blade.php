@@ -3,7 +3,7 @@
 @section('title', 'STEP編集')
 
 @section('content')
-    <div class="container">
+    <div class="container js-height-hold">
         <div class="card bg-white border-default">
             <div class="card-header">STEP編集</div>
 

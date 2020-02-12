@@ -5,7 +5,7 @@
 @section('content')
 
 
-<div class="user margin-bottom-space_l">
+<div class="user margin-bottom-space_l js-height-hold">
 
       @if(($user->pic) != null)
           <img class="user-img" src="/{{ str_replace('public/', 'storage/', $user->pic) }}" alt="アイコン画像">
@@ -17,7 +17,7 @@
 <div id="app" class="container">
     <div   class="row">
 
-      <h1 class="secondary-title margin-bottom-space_l">
+      <h2 class="secondary-title margin-bottom-space_l">
 
         @if(($user->username)  != null)
             {{$user->username}}さんのマイページ
@@ -25,7 +25,7 @@
             [ユーザー名未設定]さんのマイページ
         @endif
 
-      </h1>
+      </h2>
 
       <h2 class="secondary-title margin-bottom-space_l">登録したSTEP一覧</h2>
         <div class="individual-step-group">
@@ -102,7 +102,8 @@
             @foreach ($my_finish_steps as $my_finish_step)
 
               <div class="individual-step  margin-bottom-space_l bg-white border-default">
-                <a class="step-link" href="{{ action('StepsController@show', $my_challenge_step->parent_step_id) }}">
+                <a class="step-link" href="{{ action('StepsController@show', $my_finish_step->parent_step_id) }}">
+
                     @if(($my_finish_step->parentStep['pic']) != null)
                       <div>
                         <img class="step-img" src="/{{ str_replace('public', 'storage', $my_finish_step->parentStep['pic']) }}" alt="ステップ画像">

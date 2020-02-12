@@ -305,6 +305,7 @@ $text-muted-color: #fff;
 $footer-color: #000000b3; // 横幅
 $content-width: 980px;
 $navbar-width: 1080px; // 文字サイズ
+$font-size_xs: 12px;
 $font-size_s: 14px;
 $font-size_default: 16px;
 $font-size_m: 18px;
@@ -320,18 +321,24 @@ $space_xxl: 30px;
 $space_3l: 40px; // フォントスタイル
 $font-step: 'Anton', sans-serif; // 画面幅
 $breakpoints: (
+    'xs': 'screen and (max-width: 320px)',
     'sm': 'screen and (max-width: 414px)',
     'md': 'screen and (max-width: 768px)',
     'lg': 'screen and (max-width: 1024px)',
     'xl': 'screen and (max-width: 1200px)',
 )
 !default;
+@mixin xs($breakpoint: xs) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+        @content;
+    }
+}
 @mixin sm($breakpoint: sm) {
     @media #{map-get($breakpoints, $breakpoint)} {
         @content;
     }
 }
-@mixin mp($breakpoint: md) {
+@mixin md($breakpoint: md) {
     @media #{map-get($breakpoints, $breakpoint)} {
         @content;
     }
@@ -380,6 +387,7 @@ input[type="text"],
 [type="password"],
 [type="file"],
 select,
+button,
 textarea:focus {
     outline: 0;
 }
@@ -403,13 +411,23 @@ textarea:focus {
 .post-user {
     display: flex;
     align-items: flex-end;
-
+    @include sm(){
+      align-items: center;
+      font-size: $font-size_s;
+    }
     &-img {
         border-radius: 50%;
         width: 50px;
         height: 50px;
         margin-right: $space_s;
     }
+}
+
+br{
+  display:none;
+  @include sm(){
+    display: block;
+  }
 }
 // ==================================
 // hero
@@ -425,11 +443,27 @@ textarea:focus {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 68px;
+    @include sm(){
+      height: 350px;
+      background-attachment: scroll;
+    }
+    @include sm(){
+      height: 280px;
+      background-attachment: scroll;
+    }
 
     &-title {
+        text-align: center;
         font-size: 55px;
         color: #fff;
         text-shadow: 0 0 20px rgba(227, 123, 137, .4), 0 0 50px rgba(0, 0, 0, .8);
+        @include sm(){
+          font-size: 35px;
+        }
+        @include xs(){
+          font-size: 25px;
+        }
     }
 }
 //=======================
@@ -437,12 +471,18 @@ textarea:focus {
 //=======================
 
 .navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+  height: 68px;
     .container {
         display: flex;
         flex-direction: row;
         padding: $space_m 0;
-        width: 80%;
-
+        width: 90%;
+        @include sm(){
+          width: 90%
+        }
         .navbar-brand {
             color: $font-color_default;
             font-size: $font-size_xl;
@@ -454,6 +494,10 @@ textarea:focus {
                 text-decoration: none;
             }
         }
+    }
+    &.float-active{
+      transition: .3s;
+      background: rgba(255, 255, 255, 0.9);
     }
 
     &-nav {
@@ -478,15 +522,103 @@ textarea:focus {
 .nav-item {
     list-style: none;
     padding-right: $space_l;
-
+      &:last-of-type{
+        padding-right: 0;
+    }
     .nav-link {
         color: $navbar-color;
-
         &:hover {
             color: $navbar-hover-color;
             text-decoration: none;
         }
     }
+
+}
+
+// ==================================
+// menu（スマホ用ナビメニュー）
+// ==================================
+  .nav-menu {
+  @include sm() {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -100%;
+    background: rgba(255, 255, 255, .85);
+    width: 100%;
+    height: 100vh;
+    padding-top: 50px;
+    transition: .5s;
+    &.active {
+      transition: .5s;
+      transform: translateX(-100%);
+      z-index: 2;
+    }
+  }
+}
+
+.menu {
+  display: inherit;
+  @include sm() {
+    display: flex;
+    font-size: $font-size_xl;
+    display: block;
+    &-item {
+      text-align: center;
+      padding-right: 0;
+      margin: 50px 0;
+    }
+  }
+  @include xs() {
+    font-size: $font-size_l;
+    &-item {
+      margin: 40px 0;
+    }
+  }
+}
+
+.menu-trigger {
+  display: none;
+  @include sm() {
+    display: inline-block;
+    margin-top: 8px;
+  }
+  transition: all .4s;
+  position: relative;
+  width: 40px;
+  height: 32px;
+  z-index: 3;
+
+  span {
+    display: inline-block;
+    transition: all .4s;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: $font-color_default;
+    border-radius: 4px;
+    &:nth-of-type(1) {
+      top: 0;
+    }
+    &:nth-of-type(2) {
+      top: 14px;
+    }
+    &:nth-of-type(3) {
+      bottom: 0;
+    }
+  }
+  &.active span {
+    &:nth-of-type(1) {
+      transform: translateY(12px) rotate(-45deg);
+    }
+    &:nth-of-type(2) {
+      opacity: 0;
+    }
+    &:nth-of-type(3) {
+      transform: translateY(-15px) rotate(45deg);
+    }
+  }
 }
 //=======================
 //card
@@ -497,7 +629,9 @@ textarea:focus {
 */
 .card {
     width: 60%;
-
+    @include sm(){
+      width: 90%;
+    }
     &-container {
         width: 40%;
         position: fixed;
@@ -515,6 +649,10 @@ textarea:focus {
         background-color: $card-header-bg-color;
         border-bottom: 1px solid rgba(0, 0, 0, 0.125);
         font-size: $font-size_m;
+        @include xs(){
+          padding: $space_m;
+        }
+
     }
 
     &-body {
@@ -522,6 +660,9 @@ textarea:focus {
         flex: 1 1 auto;
         min-height: 1px;
         padding: $space_xxl;
+        @include xs(){
+          padding: $space_m;
+        }
     }
 
     &-footer {
@@ -537,8 +678,10 @@ textarea:focus {
 //=======================
 
 .main {
-    padding: $space_3l;
-
+  padding: 70px 0;
+    @include sm(){
+      padding: 35px 0;
+    }
     .container {
         display: flex;
         justify-content: center;
@@ -553,6 +696,9 @@ textarea:focus {
     &-group {
         margin-bottom: $space_l;
         overflow: hidden;
+        &:last-of-type{
+          margin-bottom: 0;
+        }
     }
 
     &-control {
@@ -576,6 +722,9 @@ textarea:focus {
         &-category {
             width: 30%;
             padding: 0 0 0 $space_m;
+            @include sm(){
+              width: 60%;
+            }
         }
 
         &-time {
@@ -633,6 +782,11 @@ textarea:focus {
     width: $content-width;
     margin: 0 auto;
     justify-content: space-between;
+    @include md(){
+      width: 80%;
+      margin: 0 auto;
+      justify-content: space-between;
+    }
 }
 //=======================
 //footer
@@ -644,6 +798,10 @@ textarea:focus {
     text-align: center;
     width: 100%;
     margin-top: auto;
+    @include sm(){
+      font-size: $font-size_xs;
+    }
+
 }
 //=======================
 //alert
@@ -677,7 +835,10 @@ textarea:focus {
     width: 23%;
     transition: 1s;
     -webkit-transition: 1s;
-
+    @include sm(){
+      margin: 0;
+      width: 80%;
+    }
     &:hover {
         opacity: 0.7;
     }
@@ -686,6 +847,11 @@ textarea:focus {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
+        text-align: center;
+        @include sm(){
+          font-size: $font-size_s;
+        }
+
     }
 
     &-img {
@@ -695,14 +861,18 @@ textarea:focus {
 
     &-body {
         padding: $space_m;
-        min-height: 250px;
+        min-height: 180px;
+        @include sm(){
+          margin: 0;
+          min-height: 200px;
+        }
         &-challenging{
           padding: $space_m;
-          min-height: 340px;
+          min-height: 290px;
         }
         &-cleared{
           padding: $space_m;
-          min-height: 300px;
+          min-height: 245px;
         }
     }
 
@@ -713,30 +883,6 @@ textarea:focus {
             color: $font-color_default;
             text-decoration: none;
         }
-    }
-}
-//=======================
-//user
-//=======================
-
-.user {
-    text-align: center;
-    margin-bottom: $space_l;
-    width: $content-width;
-    margin: 0 auto;
-
-    &-img {
-        height: 200px;
-        width: 200px;
-        border-radius: 100px;
-    }
-
-    &-introduction {
-        display: inline-block;
-        text-align: left;
-        padding: $space_m;
-        border-radius: 3px;
-        width: 80%;
     }
 }
 
@@ -752,18 +898,37 @@ STEPに適用させるスタイル
   transition: 1s;
   -webkit-transition: 1s;
   margin: 0 $space_m ;
+  @include sm(){
+    margin: 0;
+    width: 80%;
+  }
   &:first-of-type{
     margin-left: $space_s;
     margin-right: $space_m;
+    @include sm(){
+      margin-left: 0;
+      margin-right: 0;
+      margin-bottom: $space_l;
+    }
   }
   &:nth-of-type(4n){
     margin-left: $space_m;
     margin-right: $space_s;
+    @include sm(){
+      margin-left: 0;
+      margin-right: 0;
+      margin-bottom: $space_l;
+    }
   }
 
   &:nth-of-type(4n+1){
     margin-left: $space_s;
     margin-right: $space_m;
+    @include sm(){
+      margin-left: 0;
+      margin-right: 0;
+      margin-bottom: $space_l;
+    }
   }
 
   &-group{
@@ -771,8 +936,46 @@ STEPに適用させるスタイル
     min-height: 200px;
     justify-content: flex-start;
     flex-wrap: wrap;
+    text-align: center;
+    @include sm(){
+      font-size: $font-size_s;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
 
   }
+}
+
+
+//=======================
+//user
+//=======================
+
+.user {
+    text-align: center;
+    margin-bottom: $space_l;
+    width: $content-width;
+    margin: 0 auto;
+    @include sm(){
+      width: 100%;
+    }
+    &-img {
+        height: 200px;
+        width: 200px;
+        border-radius: 100px;
+    }
+
+    &-introduction {
+        display: inline-block;
+        text-align: left;
+        padding: $space_m;
+        border-radius: 3px;
+        width: 100%;
+        @include sm(){
+          width: 100%;
+        }
+    }
 }
 
 //=======================
@@ -847,6 +1050,9 @@ STEPに適用させるスタイル
     color: red;
     font-size: $font-size_s;
     display: block;
+    @include sm(){
+      font-size: $font-size_xs;
+    }
 }
 
 .is-invalid {
@@ -883,17 +1089,32 @@ STEPに適用させるスタイル
     -webkit-font-smoothing: none;
     -webkit-font-smoothing: antialiased;
     -webkit-font-smoothing: subpixel-antialiased;
+    @include sm(){
+      width: 80%;
+    }
+    @include md(){
+      width: 60%;
+    }
+    @include xs(){
+      top: 52%;
+      width: 90%;
+    }
 }
 
 .underline-thin {
-    border-bottom: solid thin #ced4da;
+    border-bottom: solid thin #3490dc;
     display: inline-block;
 }
 
+
 .underline-bold {
-    border-bottom: groove 5px #ced4da;
+    border-bottom: groove 5px #3490dc;
 }
 
 .secondary-title {
+    margin-bottom: $space_l;
     text-align: center;
+    @include sm(){
+      margin-top: $space_l;
+    }
 }

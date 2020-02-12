@@ -351,6 +351,7 @@ input[type=text],
 [type=password],
 [type=file],
 select,
+button,
 textarea:focus {
   outline: 0;
 }
@@ -376,11 +377,29 @@ textarea:focus {
           align-items: flex-end;
 }
 
+@media screen and (max-width: 414px) {
+  .post-user {
+    -webkit-box-align: center;
+            align-items: center;
+    font-size: 14px;
+  }
+}
+
 .post-user-img {
   border-radius: 50%;
   width: 50px;
   height: 50px;
   margin-right: 5px;
+}
+
+br {
+  display: none;
+}
+
+@media screen and (max-width: 414px) {
+  br {
+    display: block;
+  }
 }
 
 .hero {
@@ -396,12 +415,47 @@ textarea:focus {
           justify-content: center;
   -webkit-box-align: center;
           align-items: center;
+  margin-top: 68px;
+}
+
+@media screen and (max-width: 414px) {
+  .hero {
+    height: 350px;
+    background-attachment: scroll;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .hero {
+    height: 280px;
+    background-attachment: scroll;
+  }
 }
 
 .hero-title {
+  text-align: center;
   font-size: 55px;
   color: #fff;
   text-shadow: 0 0 20px rgba(227, 123, 137, 0.4), 0 0 50px rgba(0, 0, 0, 0.8);
+}
+
+@media screen and (max-width: 414px) {
+  .hero-title {
+    font-size: 35px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .hero-title {
+    font-size: 25px;
+  }
+}
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+  height: 68px;
 }
 
 .navbar .container {
@@ -411,7 +465,13 @@ textarea:focus {
   -webkit-box-direction: normal;
           flex-direction: row;
   padding: 10px 0;
-  width: 80%;
+  width: 90%;
+}
+
+@media screen and (max-width: 414px) {
+  .navbar .container {
+    width: 90%;
+  }
 }
 
 .navbar .container .navbar-brand {
@@ -424,6 +484,12 @@ textarea:focus {
 .navbar .container .navbar-brand:hover {
   color: #000000e6;
   text-decoration: none;
+}
+
+.navbar.float-active {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .navbar-nav {
@@ -455,6 +521,10 @@ textarea:focus {
   padding-right: 15px;
 }
 
+.nav-item:last-of-type {
+  padding-right: 0;
+}
+
 .nav-item .nav-link {
   color: #00000080;
 }
@@ -464,6 +534,113 @@ textarea:focus {
   text-decoration: none;
 }
 
+@media screen and (max-width: 414px) {
+  .nav-menu {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -100%;
+    background: rgba(255, 255, 255, 0.85);
+    width: 100%;
+    height: 100vh;
+    padding-top: 50px;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  }
+
+  .nav-menu.active {
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+    z-index: 2;
+  }
+}
+
+.menu {
+  display: inherit;
+}
+
+@media screen and (max-width: 414px) {
+  .menu {
+    display: -webkit-box;
+    display: flex;
+    font-size: 30px;
+    display: block;
+  }
+
+  .menu-item {
+    text-align: center;
+    padding-right: 0;
+    margin: 50px 0;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .menu {
+    font-size: 24px;
+  }
+
+  .menu-item {
+    margin: 40px 0;
+  }
+}
+
+.menu-trigger {
+  display: none;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  position: relative;
+  width: 40px;
+  height: 32px;
+  z-index: 3;
+}
+
+@media screen and (max-width: 414px) {
+  .menu-trigger {
+    display: inline-block;
+    margin-top: 8px;
+  }
+}
+
+.menu-trigger span {
+  display: inline-block;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #000000e6;
+  border-radius: 4px;
+}
+
+.menu-trigger span:nth-of-type(1) {
+  top: 0;
+}
+
+.menu-trigger span:nth-of-type(2) {
+  top: 14px;
+}
+
+.menu-trigger span:nth-of-type(3) {
+  bottom: 0;
+}
+
+.menu-trigger.active span:nth-of-type(1) {
+  -webkit-transform: translateY(12px) rotate(-45deg);
+          transform: translateY(12px) rotate(-45deg);
+}
+
+.menu-trigger.active span:nth-of-type(2) {
+  opacity: 0;
+}
+
+.menu-trigger.active span:nth-of-type(3) {
+  -webkit-transform: translateY(-15px) rotate(45deg);
+          transform: translateY(-15px) rotate(45deg);
+}
+
 /*
 .cardのクラスがついたdivの中身が画面の高さを超える場合、card-overの方を適用させて
 中身がナビメニューとフッターにまではみ出ないようにする
@@ -471,6 +648,12 @@ textarea:focus {
 
 .card {
   width: 60%;
+}
+
+@media screen and (max-width: 414px) {
+  .card {
+    width: 90%;
+  }
 }
 
 .card-container {
@@ -493,11 +676,23 @@ textarea:focus {
   font-size: 18px;
 }
 
+@media screen and (max-width: 320px) {
+  .card-header {
+    padding: 10px;
+  }
+}
+
 .card-body {
   -webkit-box-flex: 1;
   flex: 1 1 auto;
   min-height: 1px;
   padding: 30px;
+}
+
+@media screen and (max-width: 320px) {
+  .card-body {
+    padding: 10px;
+  }
 }
 
 .card-footer {
@@ -509,7 +704,13 @@ textarea:focus {
 }
 
 .main {
-  padding: 40px;
+  padding: 70px 0;
+}
+
+@media screen and (max-width: 414px) {
+  .main {
+    padding: 35px 0;
+  }
 }
 
 .main .container {
@@ -524,6 +725,10 @@ textarea:focus {
 .form-group {
   margin-bottom: 15px;
   overflow: hidden;
+}
+
+.form-group:last-of-type {
+  margin-bottom: 0;
 }
 
 .form-control {
@@ -548,6 +753,12 @@ textarea:focus {
 .form-control-category {
   width: 30%;
   padding: 0 0 0 10px;
+}
+
+@media screen and (max-width: 414px) {
+  .form-control-category {
+    width: 60%;
+  }
 }
 
 .form-control-time {
@@ -595,12 +806,27 @@ textarea:focus {
           justify-content: space-between;
 }
 
+@media screen and (max-width: 768px) {
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    -webkit-box-pack: justify;
+            justify-content: space-between;
+  }
+}
+
 .footer {
   background-color: #000000b3;
   padding: 15px;
   text-align: center;
   width: 100%;
   margin-top: auto;
+}
+
+@media screen and (max-width: 414px) {
+  .footer {
+    font-size: 12px;
+  }
 }
 
 .alert {
@@ -630,6 +856,13 @@ textarea:focus {
   -webkit-transition: 1s;
 }
 
+@media screen and (max-width: 414px) {
+  .step {
+    margin: 0;
+    width: 80%;
+  }
+}
+
 .step:hover {
   opacity: 0.7;
 }
@@ -639,6 +872,13 @@ textarea:focus {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  text-align: center;
+}
+
+@media screen and (max-width: 414px) {
+  .step-group {
+    font-size: 14px;
+  }
 }
 
 .step-img {
@@ -648,17 +888,24 @@ textarea:focus {
 
 .step-body {
   padding: 10px;
-  min-height: 250px;
+  min-height: 180px;
+}
+
+@media screen and (max-width: 414px) {
+  .step-body {
+    margin: 0;
+    min-height: 200px;
+  }
 }
 
 .step-body-challenging {
   padding: 10px;
-  min-height: 340px;
+  min-height: 290px;
 }
 
 .step-body-cleared {
   padding: 10px;
-  min-height: 300px;
+  min-height: 245px;
 }
 
 .step-link {
@@ -668,27 +915,6 @@ textarea:focus {
 .step-link:hover {
   color: #000000e6;
   text-decoration: none;
-}
-
-.user {
-  text-align: center;
-  margin-bottom: 15px;
-  width: 980px;
-  margin: 0 auto;
-}
-
-.user-img {
-  height: 200px;
-  width: 200px;
-  border-radius: 100px;
-}
-
-.user-introduction {
-  display: inline-block;
-  text-align: left;
-  padding: 10px;
-  border-radius: 3px;
-  width: 80%;
 }
 
 /*/
@@ -706,9 +932,24 @@ STEPに適用させるスタイル
   margin: 0 10px;
 }
 
+@media screen and (max-width: 414px) {
+  .individual-step {
+    margin: 0;
+    width: 80%;
+  }
+}
+
 .individual-step:first-of-type {
   margin-left: 5px;
   margin-right: 10px;
+}
+
+@media screen and (max-width: 414px) {
+  .individual-step:first-of-type {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
 }
 
 .individual-step:nth-of-type(4n) {
@@ -716,9 +957,25 @@ STEPに適用させるスタイル
   margin-right: 5px;
 }
 
+@media screen and (max-width: 414px) {
+  .individual-step:nth-of-type(4n) {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+}
+
 .individual-step:nth-of-type(4n+1) {
   margin-left: 5px;
   margin-right: 10px;
+}
+
+@media screen and (max-width: 414px) {
+  .individual-step:nth-of-type(4n+1) {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
 }
 
 .individual-step-group {
@@ -728,6 +985,50 @@ STEPに適用させるスタイル
   -webkit-box-pack: start;
           justify-content: flex-start;
   flex-wrap: wrap;
+  text-align: center;
+}
+
+@media screen and (max-width: 414px) {
+  .individual-step-group {
+    font-size: 14px;
+    display: -webkit-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+}
+
+.user {
+  text-align: center;
+  margin-bottom: 15px;
+  width: 980px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 414px) {
+  .user {
+    width: 100%;
+  }
+}
+
+.user-img {
+  height: 200px;
+  width: 200px;
+  border-radius: 100px;
+}
+
+.user-introduction {
+  display: inline-block;
+  text-align: left;
+  padding: 10px;
+  border-radius: 3px;
+  width: 100%;
+}
+
+@media screen and (max-width: 414px) {
+  .user-introduction {
+    width: 100%;
+  }
 }
 
 .row {
@@ -794,6 +1095,12 @@ STEPに適用させるスタイル
   display: block;
 }
 
+@media screen and (max-width: 414px) {
+  .invalid-feedback {
+    font-size: 12px;
+  }
+}
+
 .is-invalid {
   border-color: red;
   padding-right: calc(1.6em + 0.75rem);
@@ -831,16 +1138,42 @@ STEPに適用させるスタイル
   -webkit-font-smoothing: subpixel-antialiased;
 }
 
+@media screen and (max-width: 414px) {
+  .content-center {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .content-center {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .content-center {
+    top: 52%;
+    width: 90%;
+  }
+}
+
 .underline-thin {
-  border-bottom: solid thin #ced4da;
+  border-bottom: solid thin #3490dc;
   display: inline-block;
 }
 
 .underline-bold {
-  border-bottom: groove 5px #ced4da;
+  border-bottom: groove 5px #3490dc;
 }
 
 .secondary-title {
+  margin-bottom: 15px;
   text-align: center;
+}
+
+@media screen and (max-width: 414px) {
+  .secondary-title {
+    margin-top: 15px;
+  }
 }
 

@@ -3,7 +3,7 @@
 @section('title', '新規登録')
 
 @section('content')
-    <div id="app" class="container">
+    <div id="app" class="container js-height-hold">
         <div class="card bg-white border-default">
             <div class="card-header">STEP新規登録</div>
 

@@ -3,17 +3,8 @@
 @section('title', 'プロフィール')
 
 @section('content')
-<h1 class="secondary-title margin-bottom-space_l">
+<div class="user  js-height-hold">
 
-  @if(($user->username)  != null)
-      {{$user->username}}さんのプロフィール
-  @else
-      [ユーザー名未設定]さんのプロフィール
-  @endif
-
-</h1>
-
-<div class="user margin-bottom-space_l">
 
       @if(($user->pic) != null)
           <img class="user-img margin-bottom-space_l" src="/{{ str_replace('public/', 'storage/', $user->pic) }}" alt="アイコン画像">
@@ -21,13 +12,24 @@
           <img class="user-img margin-bottom-space_l" src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし">
       @endif
 
-      <h2 class="margin-bottom-space_l">自己紹介</h2>
-      <p class="user-introduction bg-white">{{$user->introduction}}</p>
-
 </div>
 
 <div id="app" class="container">
     <div   class="row">
+
+      <h2 class="secondary-title margin-bottom-space_l">
+
+        @if(($user->username)  != null)
+            {{$user->username}}さんのプロフィール
+        @else
+            [ユーザー名未設定]さんのプロフィール
+        @endif
+
+      </h2>
+
+      <h2 class="secondary-title margin-bottom-space_l">自己紹介</h2>
+      <p class="user-introduction bg-white">{{$user->introduction}}</p>
+
 
       <h2 class="secondary-title margin-bottom-space_l">登録したSTEP一覧</h2>
         <div class="individual-step-group">

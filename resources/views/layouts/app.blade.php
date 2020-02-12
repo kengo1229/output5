@@ -17,78 +17,91 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-        <nav class="navbar   bg-white shadow-sm">
-            <div class="container">
+    <nav class="navbar bg-white shadow-sm  js-float-menu js-height-target">
+      <div class="container">
 
-              <div class="navbar-left">
+          <div class="navbar-left">
 
-                <img class="navbar-left-img"  src="{{ asset('/img/navbar_image.jpg') }}" alt="アイコン画像">
-                  <a class="navbar-brand" href="{{ url('/top') }}">
-                      {{ config('app.name') }}
-                  </a>
+            <img class="navbar-left-img"  src="{{ asset('/img/navbar_image.jpg') }}" alt="アイコン画像">
+              <a class="navbar-brand" href="{{ url('/top') }}">
+                  {{ config('app.name') }}
+              </a>
 
-              </div>
+          </div>
 
-                <ul class="navbar-nav">
+                @guest
+                <ul class="navbar-nav  js-toggle-sp-menu-target">
 
-                    @guest
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">ログイン</a>
+                    </li>
+                    @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">ログイン</a>
+                            <a class="nav-link" href="{{ route('register') }}">新規登録</a>
                         </li>
-                        @if (Route::has('register'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">新規登録</a>
-                            </li>
-                        @endif
-                    @else
-                        <li class="nav-item dropdown">
-                          <li class="nav-item">
-                              <a class="nav-link" href="/steps/new">STEP登録</a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link" href="/steps">STEP一覧</a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link" href="/profile/{{ Auth::id()}}/new">プロフィール登録(編集)</a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link" href="/mypage/{{ Auth::id()}}">マイページ</a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link" href="{{ route('logout') }}"
-                                 onclick="event.preventDefault();
-                                               document.getElementById('logout-form').submit();">
-                                  ログアウト
-                              </a>
-
-                              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                  @csrf
-                              </form>
-                              </li>
-                        </li>
-                    @endguest
+                    @endif
                 </ul>
-            </div>
-        </nav>
+                @else
 
-        @if (session('flash_message'))
-          <div class="alert alert-primary text-center" role="alert">
-            {{ session('flash_message') }}
-          </div>
-        @endif
+                  <div class="menu-trigger js-toggle-sp-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
 
-        @yield('top')
+                <ul class="navbar-nav nav-menu js-toggle-sp-menu-target">
 
-        <main class="main">
-            @yield('content')
-        </main>
+                  <div class="menu">
+                      <li class="nav-item menu-item">
+                          <a class="nav-link" href="/top">TOP</a>
+                      </li>
+                      <li class="nav-item menu-item">
+                          <a class="nav-link" href="/steps/new">STEP登録</a>
+                      </li>
+                      <li class="nav-item menu-item">
+                          <a class="nav-link" href="/steps">STEP一覧</a>
+                      </li>
+                      <li class="nav-item menu-item">
+                          <a class="nav-link" href="/profile/{{ Auth::id()}}/new">プロフィール登録(編集)</a>
+                      </li>
+                      <li class="nav-item menu-item">
+                          <a class="nav-link" href="/mypage/{{ Auth::id()}}">マイページ</a>
+                      </li>
+                      <li class="nav-item menu-item">
+                          <a class="nav-link" href="{{ route('logout') }}"
+                             onclick="event.preventDefault();
+                                           document.getElementById('logout-form').submit();">
+                              ログアウト
+                          </a>
 
-    <!-- footer -->
-        <footer class="footer">
-          <div class="container">
-            <span class="text-muted">Copyright 2020 STEP. All Rights Reserved.</span>
-          </div>
-        </footer>
+                          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                              @csrf
+                          </form>
+                      </li>
+                    </div>
+                  </ul>
+                @endguest
+        </div>
+    </nav>
+
+    @if (session('flash_message'))
+      <div class="alert alert-primary text-center" role="alert">
+        {{ session('flash_message') }}
+      </div>
+    @endif
+
+    @yield('top')
+
+    <main class="main">
+        @yield('content')
+    </main>
+
+<!-- footer -->
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted">Copyright 2020 STEP. All Rights Reserved.</span>
+      </div>
+    </footer>
     <script src="{{ asset('js/app.js') }}" defer></script>
-</body>
+  </body>
 </html>

@@ -3,7 +3,7 @@
 @section('title', 'STEP詳細')
 
 @section('content')
-    <div class="container">
+    <div class="container js-height-hold">
           <div id="app" class="card bg-white border-default">
               <div class="card-header">{{ __('STEP詳細') }}</div>
 
@@ -60,11 +60,11 @@
                 <div class="show-group row  underline-bold">
                     <div class="col-md-6">
 
-                      <span class="underline-thin">子STEP一覧（
+                      <span class="underline-thin">子STEP一覧
                         <a href="{{ action('StepsController@detail', $parent_step->id) }}">
                           子STEP詳細はこちら
                         </a>
-                      ）
+
                       </span>
                         @for ($i = 1; $i <= 5; $i++)
                         <div  class="show-control">
