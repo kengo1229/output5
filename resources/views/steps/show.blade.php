@@ -61,7 +61,7 @@
                     <div class="col-md-6">
 
                       <span class="underline-thin">子STEP一覧
-                        <a href="{{ action('StepsController@detail', $parent_step->id) }}">
+                        <a class="show-group-link" href="{{ action('StepsController@detail', $parent_step->id) }}">
                           子STEP詳細はこちら
                         </a>
 

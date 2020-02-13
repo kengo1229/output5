@@ -377,7 +377,7 @@ textarea:focus {
           align-items: flex-end;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 559px) {
   .post-user {
     -webkit-box-align: center;
             align-items: center;
@@ -397,12 +397,6 @@ br {
 }
 
 @media screen and (max-width: 959px) {
-  br {
-    display: block;
-  }
-}
-
-@media screen and (max-width: 320px) {
   br {
     display: block;
   }
@@ -439,7 +433,7 @@ br {
 
 @media screen and (max-width: 559px) {
   .hero {
-    height: 500px;
+    height: 300px;
   }
 }
 
@@ -464,7 +458,7 @@ br {
 
 @media screen and (max-width: 559px) {
   .hero-title {
-    font-size: 38px;
+    font-size: 30px;
   }
 }
 
@@ -506,6 +500,12 @@ br {
 @media screen and (max-width: 959px) {
   .navbar .container .navbar-brand {
     font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 559px) {
+  .navbar .container .navbar-brand {
+    font-size: 30px;
   }
 }
 
@@ -551,6 +551,13 @@ br {
   }
 }
 
+@media screen and (max-width: 559px) {
+  .navbar-left-img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
 .nav-item {
   list-style: none;
   padding-right: 15px;
@@ -560,6 +567,13 @@ br {
   .nav-item {
     font-size: 12px;
     padding-right: 5px;
+  }
+}
+
+@media screen and (max-width: 559px) {
+  .nav-item {
+    font-size: 16px;
+    padding-right: 15px;
   }
 }
 
@@ -606,6 +620,7 @@ br {
 @media screen and (max-width: 559px) {
   .menu {
     font-size: 30px;
+    margin-top: 100px;
   }
 }
 
@@ -615,9 +630,23 @@ br {
   }
 }
 
+.menu-item {
+  list-style: none;
+  padding-right: 15px;
+}
+
+@media screen and (max-width: 959px) {
+  .menu-item {
+    font-size: 12px;
+    padding-right: 5px;
+  }
+}
+
 @media screen and (max-width: 559px) {
   .menu-item {
-    margin: 50px 0;
+    font-size: 30px;
+    margin: 30px 0;
+    text-align: center;
   }
 }
 
@@ -625,6 +654,19 @@ br {
   .menu-item {
     margin: 40px 0;
   }
+}
+
+.menu-item:last-of-type {
+  padding-right: 0;
+}
+
+.menu-item .nav-link {
+  color: #00000080;
+}
+
+.menu-item .nav-link:hover {
+  color: #000000b3;
+  text-decoration: none;
 }
 
 .menu-trigger {
@@ -702,6 +744,7 @@ br {
 @media screen and (max-width: 559px) {
   .card {
     width: 100%;
+    margin-top: 0;
   }
 }
 
@@ -816,9 +859,9 @@ br {
   padding: 0 0 0 10px;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 559px) {
   .form-control-category {
-    width: 60%;
+    width: 80%;
   }
 }
 
@@ -849,6 +892,10 @@ br {
   margin-bottom: 15px;
   text-align: left;
   overflow: hidden;
+}
+
+.show-group-link {
+  font-size: 14px;
 }
 
 .show-control {
@@ -895,7 +942,7 @@ br {
   margin-top: auto;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 559px) {
   .footer {
     font-size: 12px;
   }
@@ -937,7 +984,7 @@ br {
 
 @media screen and (max-width: 559px) {
   .step {
-    width: 45%;
+    width: 90%;
   }
 }
 
@@ -966,8 +1013,10 @@ br {
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 559px) {
   .step-group {
+    -webkit-box-pack: center;
+            justify-content: center;
     font-size: 14px;
   }
 }
@@ -992,7 +1041,7 @@ br {
 @media screen and (max-width: 559px) {
   .step-body {
     margin: 0;
-    min-height: 225px;
+    min-height: 200px;
   }
 }
 
@@ -1015,7 +1064,7 @@ br {
 
 @media screen and (max-width: 559px) {
   .step-body-challenging {
-    min-height: 325px;
+    min-height: 290px;
   }
 }
 
@@ -1038,7 +1087,7 @@ br {
 
 @media screen and (max-width: 559px) {
   .step-body-cleared {
-    min-height: 280px;
+    min-height: 245px;
   }
 }
 
@@ -1084,8 +1133,7 @@ STEPに適用させるスタイル
 
 @media screen and (max-width: 559px) {
   .individual-step {
-    width: 48%;
-    margin: 0 0 15px;
+    width: 90%;
   }
 }
 
@@ -1108,12 +1156,6 @@ STEPに適用させるスタイル
   }
 }
 
-@media screen and (max-width: 559px) {
-  .individual-step:nth-of-type(4n) {
-    margin: 0 0 15px;
-  }
-}
-
 @media screen and (max-width: 320px) {
   .individual-step:nth-of-type(4n) {
     margin-left: 0;
@@ -1131,12 +1173,6 @@ STEPに適用させるスタイル
   .individual-step:nth-of-type(4n+1) {
     margin-left: 0;
     margin-right: 0;
-  }
-}
-
-@media screen and (max-width: 559px) {
-  .individual-step:nth-of-type(4n+1) {
-    margin: 0 0 15px;
   }
 }
 
@@ -1165,7 +1201,7 @@ STEPに適用させるスタイル
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 559px) {
   .individual-step-group {
     font-size: 14px;
     justify-content: space-around;
@@ -1336,9 +1372,9 @@ STEPに適用させるスタイル
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 559px) {
   .content-center {
-    width: 80%;
+    width: 90%;
   }
 }
 

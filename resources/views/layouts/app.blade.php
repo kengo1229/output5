@@ -52,22 +52,22 @@
                 <ul class="navbar-nav nav-menu js-toggle-sp-menu-target">
 
                   <div class="menu">
-                      <li class="nav-item menu-item">
+                      <li class="menu-item">
                           <a class="nav-link" href="/top">TOP</a>
                       </li>
-                      <li class="nav-item menu-item">
+                      <li class="menu-item">
                           <a class="nav-link" href="/steps/new">STEP登録</a>
                       </li>
-                      <li class="nav-item menu-item">
+                      <li class="menu-item">
                           <a class="nav-link" href="/steps">STEP一覧</a>
                       </li>
-                      <li class="nav-item menu-item">
+                      <li class="menu-item">
                           <a class="nav-link" href="/profile/{{ Auth::id()}}/new">プロフィール登録(編集)</a>
                       </li>
-                      <li class="nav-item menu-item">
+                      <li class="menu-item">
                           <a class="nav-link" href="/mypage/{{ Auth::id()}}">マイページ</a>
                       </li>
-                      <li class="nav-item menu-item">
+                      <li class="menu-item">
                           <a class="nav-link" href="{{ route('logout') }}"
                              onclick="event.preventDefault();
                                            document.getElementById('logout-form').submit();">

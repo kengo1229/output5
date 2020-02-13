@@ -404,7 +404,7 @@ textarea:focus {
 .post-user {
     display: flex;
     align-items: flex-end;
-    @include sm() {
+    @include md() {
         align-items: center;
         font-size: $font-size_s;
     }
@@ -420,9 +420,6 @@ textarea:focus {
 br {
     display: none;
     @include lg-side() {
-        display: block;
-    }
-    @include sm() {
         display: block;
     }
 }
@@ -449,7 +446,7 @@ br {
         background-attachment: scroll;
     }
     @include md() {
-        height: 500px;
+        height: 300px;
     }
     @include sm() {
         height: 280px;
@@ -464,7 +461,7 @@ br {
             font-size: 45px;
         }
         @include md() {
-            font-size: 38px;
+            font-size: $font-size_xl;
         }
         @include sm() {
             font-size: 25px;
@@ -495,6 +492,9 @@ br {
             letter-spacing: 2px;
             @include lg(){
               font-size: $font-size_l;
+            }
+            @include md(){
+              font-size: $font-size_xl;
             }
             &:hover {
                 color: $font-color_default;
@@ -527,6 +527,10 @@ br {
               width: 30px;
               height: 30px;
             }
+            @include md(){
+              width: 40px;
+              height: 40px;
+            }
         }
     }
 }
@@ -538,18 +542,22 @@ br {
       font-size: $font-size_xs;
       padding-right: $space_s;
     }
+    @include md() {
+      font-size: $font-size_default;
+      padding-right: $space_l;
+    }
     &:last-of-type {
         padding-right: 0;
     }
-
     .nav-link {
         color: $navbar-color;
 
-        &:hover {
-            color: $navbar-hover-color;
-            text-decoration: none;
-        }
+    &:hover {
+        color: $navbar-hover-color;
+        text-decoration: none;
     }
+}
+
 }
 // ==================================
 // menu（スマホ用ナビメニュー）
@@ -579,18 +587,38 @@ br {
     display: inherit;
     @include md() {
         font-size: $font-size_xl;
+        margin-top: 100px;
     }
     @include sm() {
         font-size: $font-size_l;
     }
 
     &-item {
+      list-style: none;
+      padding-right: $space_l;
+        @include lg() {
+          font-size: $font-size_xs;
+          padding-right: $space_s;
+        }
         @include md() {
-            margin: 50px 0;
+          font-size: $font-size_xl;
+          margin: 30px 0;
+          text-align: center;
         }
         @include sm() {
             margin: 40px 0;
         }
+        &:last-of-type {
+            padding-right: 0;
+        }
+        .nav-link {
+            color: $navbar-color;
+
+        &:hover {
+            color: $navbar-hover-color;
+            text-decoration: none;
+        }
+    }
     }
 }
 
@@ -657,6 +685,7 @@ br {
     }
     @include md() {
         width: 100%;
+        margin-top:0;
     }
     @include sm() {
         width: 90%;
@@ -756,8 +785,8 @@ br {
         &-category {
             width: 30%;
             padding: 0 0 0 $space_m;
-            @include sm() {
-                width: 60%;
+            @include md() {
+                width: 80%;
             }
         }
 
@@ -797,6 +826,9 @@ br {
         margin-bottom: $space_l;
         text-align: left;
         overflow: hidden;
+        &-link{
+            font-size: $font-size_s;
+        }
     }
 
     &-control {
@@ -837,7 +869,7 @@ br {
     text-align: center;
     width: 100%;
     margin-top: auto;
-    @include sm() {
+    @include md() {
         font-size: $font-size_xs;
     }
 }
@@ -878,7 +910,7 @@ br {
         width: 43%;
     }
     @include md() {
-        width: 45%;
+        width: 90%;
     }
     @include sm() {
         width: 80%;
@@ -896,8 +928,9 @@ br {
         @include lg() {
           justify-content: space-between;
         }
-        @include sm() {
-            font-size: $font-size_s;
+        @include md() {
+          justify-content: center;
+          font-size: $font-size_s;
         }
     }
 
@@ -915,7 +948,7 @@ br {
         }
         @include md() {
             margin: 0;
-            min-height: 225px;
+            min-height: 200px;
         }
         @include sm() {
             min-height: 200px;
@@ -928,7 +961,7 @@ br {
                 min-height: 330px;
             }
             @include md() {
-                min-height: 325px;
+                min-height: 290px;
             }
             @include sm() {
                 min-height: 290px;
@@ -942,7 +975,7 @@ br {
                 min-height: 275px;
             }
             @include md() {
-                min-height: 280px;
+                min-height: 245px;
             }
             @include sm() {
                 min-height: 245px;
@@ -979,8 +1012,7 @@ STEPに適用させるスタイル
         width: 43%;
     }
     @include md() {
-        width: 48%;;
-        margin: 0 0 $space_l;
+        width: 90%;;
     }
     @include sm() {
         margin: 0;
@@ -993,9 +1025,6 @@ STEPに適用させるスタイル
         @include lg() {
           margin-left:  0;
           margin-right: 0;
-        }
-        @include md() {
-            margin: 0 0 $space_l;
         }
         @include sm() {
             margin-left: 0;
@@ -1010,9 +1039,6 @@ STEPに適用させるスタイル
         @include lg() {
           margin-left:  0;
           margin-right: 0;
-        }
-        @include md() {
-            margin: 0 0 $space_l;
         }
         @include sm() {
             margin-left: 0;
@@ -1030,7 +1056,7 @@ STEPに適用させるスタイル
         @include lg() {
             justify-content: space-between;
         }
-        @include sm() {
+        @include md() {
             font-size: $font-size_s;
             justify-content: space-around;
         }
@@ -1189,8 +1215,8 @@ STEPに適用させるスタイル
     @include lg() {
         width: 70%;
     }
-    @include sm() {
-        width: 80%;
+    @include md() {
+        width: 90%;
     }
     @include sm() {
         top: 52%;

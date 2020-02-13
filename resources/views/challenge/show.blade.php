@@ -5,7 +5,7 @@
 @section('content')
     <div id="app" class="container js-height-hold">
 
-          <div class="card bg-white border-default js-content-center-target">
+          <div class="card bg-white border-default">
 
                 <div class="card-header">
                   子STEP{{ $challenge_child_step_info->num_child_step }}：{{ $challenge_child_step_info->childStep->step }}
