@@ -4,8 +4,8 @@
 
 @section('top')
 
-    <section class="hero js-float-menu-target">
-      <h2 class="hero-title js-float-menu-target">さぁ、あなたの人生の<br>STEPを共有しよう</h2>
+    <section class="hero js-float-menu-target js-height-hold">
+      <h2 class="hero-title js-float-menu-target ">さぁ、あなたの人生の<br>STEPを共有しよう</h2>
     </section>
 
 @endsection

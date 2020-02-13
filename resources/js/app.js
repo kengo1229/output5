@@ -68,7 +68,7 @@ $(function () {
 きしまっている。その高さ分をmargin-topで相殺する。
 */
 $(function() {
-    var height=$(".js-height-target").height();
+    let height=$(".js-height-target").height();
     $(".js-height-hold").css("margin-top", height );
 });
 
@@ -80,24 +80,14 @@ $(window).on('load resize', function(){
   let winWidth = $(window).width();
 
   let center = $('.js-content-center-target');
-  const smallWidth = 414;
-  const middleWidth = 768;
-  const largeWidth = 1024;
-  console.log(center);
-  if (smallWidth < winWidth  && winWidth <= largeWidth ) {
+  const smallWidth = 320;
+  const middleWidth = 560;
+  const largeWidth = 920;
+
+  if (largeWidth < winWidth ) {
     center.addClass('content-center');
   } else {
     center.removeClass('content-center');
-  }
-
-/*
-画面の横幅が768より広く、1024ピクセル以下の時に
-余白を足してコンテンツを真ん中に持ってくる
-*/
-  if (middleWidth < winWidth  && winWidth <= largeWidth ){
-
-    $(".js-margin-top-target").css("margin-top", 120 );
-
   }
 
 });

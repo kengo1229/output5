@@ -318,21 +318,15 @@ $space_m: 10px;
 $space_l: 15px;
 $space_xl: 20px;
 $space_xxl: 30px;
-$space_3l: 40px; // フォントスタイル
-$font-step: 'Anton', sans-serif; // 画面幅
+$space_3l: 40px;
+$font-step: 'Anton', sans-serif;
 $breakpoints: (
-    'xs': 'screen and (max-width: 320px)',
-    'sm': 'screen and (max-width: 414px)',
-    'md': 'screen and (max-width: 768px)',
-    'lg': 'screen and (max-width: 1024px)',
-    'xl': 'screen and (max-width: 1200px)',
+    'sm': 'screen and (max-width: 320px)',
+    'md': 'screen and (max-width: 559px)',
+    'lg-side': 'screen and (max-width: 959px) and (orientation: landscape) ', /*スマホ横向き*/
+    'lg': 'screen and (max-width: 959px)',
 )
 !default;
-@mixin xs($breakpoint: xs) {
-    @media #{map-get($breakpoints, $breakpoint)} {
-        @content;
-    }
-}
 @mixin sm($breakpoint: sm) {
     @media #{map-get($breakpoints, $breakpoint)} {
         @content;
@@ -343,12 +337,12 @@ $breakpoints: (
         @content;
     }
 }
-@mixin lg($breakpoint: lg) {
+@mixin lg-side($breakpoint: lg) {
     @media #{map-get($breakpoints, $breakpoint)} {
         @content;
     }
 }
-@mixin xl($breakpoint: xl) {
+@mixin lg($breakpoint: lg) {
     @media #{map-get($breakpoints, $breakpoint)} {
         @content;
     }
@@ -425,6 +419,9 @@ textarea:focus {
 
 br {
     display: none;
+    @include lg-side() {
+        display: block;
+    }
     @include sm() {
         display: block;
     }
@@ -443,16 +440,16 @@ br {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 68px;
     @include lg() {
         height: 550px;
         background-attachment: scroll;
     }
+    @include lg-side() {
+        height: 500px;
+        background-attachment: scroll;
+    }
     @include md() {
         height: 500px;
-    }
-    @include sm() {
-        height: 350px;
     }
     @include sm() {
         height: 280px;
@@ -460,7 +457,7 @@ br {
 
     &-title {
         text-align: center;
-        font-size: 55px;
+        font-size: 50px;
         color: #fff;
         text-shadow: 0 0 20px rgba(227, 123, 137, .4), 0 0 50px rgba(0, 0, 0, .8);
         @include lg() {
@@ -470,9 +467,6 @@ br {
             font-size: 38px;
         }
         @include sm() {
-            font-size: 35px;
-        }
-        @include xs() {
             font-size: 25px;
         }
     }
@@ -485,8 +479,6 @@ br {
     position: fixed;
     width: 100%;
     z-index: 2;
-    height: 68px;
-
     .container {
         display: flex;
         flex-direction: row;
@@ -501,7 +493,9 @@ br {
             font-size: $font-size_xl;
             font-family: $font-step;
             letter-spacing: 2px;
-
+            @include lg(){
+              font-size: $font-size_l;
+            }
             &:hover {
                 color: $font-color_default;
                 text-decoration: none;
@@ -529,6 +523,10 @@ br {
             width: 40px;
             height: 40px;
             margin-right: $space_m;
+            @include lg(){
+              width: 30px;
+              height: 30px;
+            }
         }
     }
 }
@@ -536,7 +534,10 @@ br {
 .nav-item {
     list-style: none;
     padding-right: $space_l;
-
+    @include lg() {
+      font-size: $font-size_xs;
+      padding-right: $space_s;
+    }
     &:last-of-type {
         padding-right: 0;
     }
@@ -577,27 +578,17 @@ br {
 .menu {
     display: inherit;
     @include md() {
-        display: flex;
-        font-size: $font-size_3l;
-        display: block;
-    }
-    @include sm() {
         font-size: $font-size_xl;
     }
-    @include xs() {
+    @include sm() {
         font-size: $font-size_l;
     }
 
     &-item {
         @include md() {
-            margin: 60px 0;
-            text-align: center;
-            padding-right: 0;
-        }
-        @include sm() {
             margin: 50px 0;
         }
-        @include xs() {
+        @include sm() {
             margin: 40px 0;
         }
     }
@@ -660,6 +651,10 @@ br {
     @include lg() {
         width: 80%;
     }
+    @include lg-side(){
+        width: 80%;
+        margin-top:50px;
+    }
     @include md() {
         width: 100%;
     }
@@ -684,7 +679,7 @@ br {
         background-color: $card-header-bg-color;
         border-bottom: 1px solid rgba(0, 0, 0, 0.125);
         font-size: $font-size_m;
-        @include xs() {
+        @include sm() {
             padding: $space_m;
         }
     }
@@ -694,7 +689,7 @@ br {
         flex: 1 1 auto;
         min-height: 1px;
         padding: $space_xxl;
-        @include xs() {
+        @include sm() {
             padding: $space_m;
         }
     }
@@ -713,6 +708,9 @@ br {
 
 .main {
     padding: 70px 0;
+    @include lg() {
+        padding: 58px 0;
+    }
     @include sm() {
         padding: 35px 0;
     }
@@ -770,7 +768,7 @@ br {
     }
 }
 //=======================
-//show
+//badge
 //=======================
 
 .badge {
@@ -818,12 +816,14 @@ br {
     width: $content-width;
     margin: 0 auto;
     justify-content: space-between;
+    @include lg() {
+      width: 100%;
+    }
     @include md() {
         width: 80%;
-        margin: 0 auto;
         justify-content: space-between;
     }
-    @include xs(){
+    @include sm(){
       width: 90%;
     }
 }
@@ -875,6 +875,7 @@ br {
     -webkit-transition: 1s;
     @include lg() {
         margin: 0;
+        width: 43%;
     }
     @include md() {
         width: 45%;
@@ -892,6 +893,9 @@ br {
         flex-wrap: wrap;
         justify-content: space-around;
         text-align: center;
+        @include lg() {
+          justify-content: space-between;
+        }
         @include sm() {
             font-size: $font-size_s;
         }
@@ -905,6 +909,10 @@ br {
     &-body {
         padding: $space_m;
         min-height: 250px;
+        @include lg() {
+            margin: 0;
+            min-height: 225px;
+        }
         @include md() {
             margin: 0;
             min-height: 225px;
@@ -916,6 +924,9 @@ br {
         &-challenging {
             padding: $space_m;
             min-height: 350px;
+            @include lg() {
+                min-height: 330px;
+            }
             @include md() {
                 min-height: 325px;
             }
@@ -927,6 +938,9 @@ br {
         &-cleared {
             padding: $space_m;
             min-height: 300px;
+            @include lg() {
+                min-height: 275px;
+            }
             @include md() {
                 min-height: 280px;
             }
@@ -956,12 +970,16 @@ STEPに適用させるスタイル
     width: 23%;
     transition: 1s;
     -webkit-transition: 1s;
-    margin: 0 $space_m;
+    margin-left:  $space_m;
+    margin-right: $space_m;
+    margin-bottom: $space_l;
     @include lg() {
-        margin: 0 $space_s;
+        margin-left:  0;
+        margin-right: 0;
+        width: 43%;
     }
     @include md() {
-        width: 48%;
+        width: 48%;;
         margin: 0 0 $space_l;
     }
     @include sm() {
@@ -973,8 +991,8 @@ STEPに適用させるスタイル
         margin-left: $space_m;
         margin-right: $space_s;
         @include lg() {
-            margin-left: $space_s;
-            margin-right: $space_m;
+          margin-left:  0;
+          margin-right: 0;
         }
         @include md() {
             margin: 0 0 $space_l;
@@ -990,8 +1008,8 @@ STEPに適用させるスタイル
         margin-left: $space_s;
         margin-right: $space_m;
         @include lg() {
-          margin-right: $space_s;
-          margin-left: $space_xl;
+          margin-left:  0;
+          margin-right: 0;
         }
         @include md() {
             margin: 0 0 $space_l;
@@ -1009,7 +1027,7 @@ STEPに適用させるスタイル
         justify-content: flex-start;
         flex-wrap: wrap;
         text-align: center;
-        @include md() {
+        @include lg() {
             justify-content: space-between;
         }
         @include sm() {
@@ -1027,7 +1045,7 @@ STEPに適用させるスタイル
     margin-bottom: $space_l;
     width: $content-width;
     margin: 0 auto;
-    @include md() {
+    @include lg() {
         width: 100%;
     }
 
@@ -1055,7 +1073,10 @@ STEPに適用させるスタイル
 .row {
     width: 100%;
     @include lg() {
-      width: 90%;
+      width: 70%;
+    }
+    @include lg-side() {
+      width: 80%;
     }
     @include md() {
       width: 100%;
@@ -1168,13 +1189,10 @@ STEPに適用させるスタイル
     @include lg() {
         width: 70%;
     }
-    @include md() {
-        width: 70%;
-    }
     @include sm() {
         width: 80%;
     }
-    @include xs() {
+    @include sm() {
         top: 52%;
         width: 90%;
     }
@@ -1190,9 +1208,6 @@ STEPに適用させるスタイル
 }
 
 .secondary-title {
-    margin-bottom: $space_l;
+    margin: $space_l 0;
     text-align: center;
-    @include lg() {
-        margin-top: $space_l;
-    }
 }

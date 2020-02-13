@@ -377,7 +377,7 @@ textarea:focus {
           align-items: flex-end;
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 320px) {
   .post-user {
     -webkit-box-align: center;
             align-items: center;
@@ -396,7 +396,13 @@ br {
   display: none;
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 959px) {
+  br {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 320px) {
   br {
     display: block;
   }
@@ -415,29 +421,29 @@ br {
           justify-content: center;
   -webkit-box-align: center;
           align-items: center;
-  margin-top: 68px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 959px) {
   .hero {
     height: 550px;
     background-attachment: scroll;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 959px) {
+  .hero {
+    height: 500px;
+    background-attachment: scroll;
+  }
+}
+
+@media screen and (max-width: 559px) {
   .hero {
     height: 500px;
   }
 }
 
-@media screen and (max-width: 414px) {
-  .hero {
-    height: 350px;
-  }
-}
-
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 320px) {
   .hero {
     height: 280px;
   }
@@ -445,26 +451,20 @@ br {
 
 .hero-title {
   text-align: center;
-  font-size: 55px;
+  font-size: 50px;
   color: #fff;
   text-shadow: 0 0 20px rgba(227, 123, 137, 0.4), 0 0 50px rgba(0, 0, 0, 0.8);
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 959px) {
   .hero-title {
     font-size: 45px;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 559px) {
   .hero-title {
     font-size: 38px;
-  }
-}
-
-@media screen and (max-width: 414px) {
-  .hero-title {
-    font-size: 35px;
   }
 }
 
@@ -478,7 +478,6 @@ br {
   position: fixed;
   width: 100%;
   z-index: 2;
-  height: 68px;
 }
 
 .navbar .container {
@@ -491,7 +490,7 @@ br {
   width: 90%;
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 320px) {
   .navbar .container {
     width: 90%;
   }
@@ -502,6 +501,12 @@ br {
   font-size: 30px;
   font-family: "Anton", sans-serif;
   letter-spacing: 2px;
+}
+
+@media screen and (max-width: 959px) {
+  .navbar .container .navbar-brand {
+    font-size: 24px;
+  }
 }
 
 .navbar .container .navbar-brand:hover {
@@ -539,9 +544,23 @@ br {
   margin-right: 10px;
 }
 
+@media screen and (max-width: 959px) {
+  .navbar-left-img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
 .nav-item {
   list-style: none;
   padding-right: 15px;
+}
+
+@media screen and (max-width: 959px) {
+  .nav-item {
+    font-size: 12px;
+    padding-right: 5px;
+  }
 }
 
 .nav-item:last-of-type {
@@ -557,7 +576,7 @@ br {
   text-decoration: none;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 559px) {
   .nav-menu {
     display: block;
     position: absolute;
@@ -584,16 +603,7 @@ br {
   display: inherit;
 }
 
-@media screen and (max-width: 768px) {
-  .menu {
-    display: -webkit-box;
-    display: flex;
-    font-size: 50px;
-    display: block;
-  }
-}
-
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 559px) {
   .menu {
     font-size: 30px;
   }
@@ -605,15 +615,7 @@ br {
   }
 }
 
-@media screen and (max-width: 768px) {
-  .menu-item {
-    margin: 60px 0;
-    text-align: center;
-    padding-right: 0;
-  }
-}
-
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 559px) {
   .menu-item {
     margin: 50px 0;
   }
@@ -635,7 +637,7 @@ br {
   z-index: 3;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 559px) {
   .menu-trigger {
     display: inline-block;
     margin-top: 8px;
@@ -684,19 +686,26 @@ br {
   width: 60%;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 959px) {
   .card {
     width: 80%;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 959px) {
+  .card {
+    width: 80%;
+    margin-top: 50px;
+  }
+}
+
+@media screen and (max-width: 559px) {
   .card {
     width: 100%;
   }
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 320px) {
   .card {
     width: 90%;
   }
@@ -753,7 +762,13 @@ br {
   padding: 70px 0;
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 959px) {
+  .main {
+    padding: 58px 0;
+  }
+}
+
+@media screen and (max-width: 320px) {
   .main {
     padding: 35px 0;
   }
@@ -801,7 +816,7 @@ br {
   padding: 0 0 0 10px;
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 320px) {
   .form-control-category {
     width: 60%;
   }
@@ -852,10 +867,15 @@ br {
           justify-content: space-between;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 959px) {
+  .container {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 559px) {
   .container {
     width: 80%;
-    margin: 0 auto;
     -webkit-box-pack: justify;
             justify-content: space-between;
   }
@@ -875,7 +895,7 @@ br {
   margin-top: auto;
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 320px) {
   .footer {
     font-size: 12px;
   }
@@ -908,19 +928,20 @@ br {
   -webkit-transition: 1s;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 959px) {
   .step {
     margin: 0;
+    width: 43%;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 559px) {
   .step {
     width: 45%;
   }
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 320px) {
   .step {
     width: 80%;
   }
@@ -938,7 +959,14 @@ br {
   text-align: center;
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 959px) {
+  .step-group {
+    -webkit-box-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 320px) {
   .step-group {
     font-size: 14px;
   }
@@ -954,14 +982,21 @@ br {
   min-height: 250px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 959px) {
   .step-body {
     margin: 0;
     min-height: 225px;
   }
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 559px) {
+  .step-body {
+    margin: 0;
+    min-height: 225px;
+  }
+}
+
+@media screen and (max-width: 320px) {
   .step-body {
     min-height: 200px;
   }
@@ -972,13 +1007,19 @@ br {
   min-height: 350px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 959px) {
+  .step-body-challenging {
+    min-height: 330px;
+  }
+}
+
+@media screen and (max-width: 559px) {
   .step-body-challenging {
     min-height: 325px;
   }
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 320px) {
   .step-body-challenging {
     min-height: 290px;
   }
@@ -989,13 +1030,19 @@ br {
   min-height: 300px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 959px) {
+  .step-body-cleared {
+    min-height: 275px;
+  }
+}
+
+@media screen and (max-width: 559px) {
   .step-body-cleared {
     min-height: 280px;
   }
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 320px) {
   .step-body-cleared {
     min-height: 245px;
   }
@@ -1022,23 +1069,27 @@ STEPに適用させるスタイル
   width: 23%;
   transition: 1s;
   -webkit-transition: 1s;
-  margin: 0 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 15px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 959px) {
   .individual-step {
-    margin: 0 5px;
+    margin-left: 0;
+    margin-right: 0;
+    width: 43%;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 559px) {
   .individual-step {
     width: 48%;
     margin: 0 0 15px;
   }
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 320px) {
   .individual-step {
     margin: 0;
     width: 80%;
@@ -1050,20 +1101,20 @@ STEPに適用させるスタイル
   margin-right: 5px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 959px) {
   .individual-step:nth-of-type(4n) {
-    margin-left: 5px;
-    margin-right: 10px;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 559px) {
   .individual-step:nth-of-type(4n) {
     margin: 0 0 15px;
   }
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 320px) {
   .individual-step:nth-of-type(4n) {
     margin-left: 0;
     margin-right: 0;
@@ -1076,20 +1127,20 @@ STEPに適用させるスタイル
   margin-right: 10px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 959px) {
   .individual-step:nth-of-type(4n+1) {
-    margin-right: 5px;
-    margin-left: 20px;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 559px) {
   .individual-step:nth-of-type(4n+1) {
     margin: 0 0 15px;
   }
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 320px) {
   .individual-step:nth-of-type(4n+1) {
     margin-left: 0;
     margin-right: 0;
@@ -1107,14 +1158,14 @@ STEPに適用させるスタイル
   text-align: center;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 959px) {
   .individual-step-group {
     -webkit-box-pack: justify;
             justify-content: space-between;
   }
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 320px) {
   .individual-step-group {
     font-size: 14px;
     justify-content: space-around;
@@ -1128,7 +1179,7 @@ STEPに適用させるスタイル
   margin: 0 auto;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 959px) {
   .user {
     width: 100%;
   }
@@ -1148,7 +1199,7 @@ STEPに適用させるスタイル
   width: 100%;
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 320px) {
   .user-introduction {
     width: 100%;
   }
@@ -1158,13 +1209,19 @@ STEPに適用させるスタイル
   width: 100%;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 959px) {
   .row {
-    width: 90%;
+    width: 70%;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 959px) {
+  .row {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 559px) {
   .row {
     width: 100%;
   }
@@ -1230,7 +1287,7 @@ STEPに適用させるスタイル
   display: block;
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 320px) {
   .invalid-feedback {
     font-size: 12px;
   }
@@ -1273,19 +1330,13 @@ STEPに適用させるスタイル
   -webkit-font-smoothing: subpixel-antialiased;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 959px) {
   .content-center {
     width: 70%;
   }
 }
 
-@media screen and (max-width: 768px) {
-  .content-center {
-    width: 70%;
-  }
-}
-
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 320px) {
   .content-center {
     width: 80%;
   }
@@ -1308,13 +1359,7 @@ STEPに適用させるスタイル
 }
 
 .secondary-title {
-  margin-bottom: 15px;
+  margin: 15px 0;
   text-align: center;
-}
-
-@media screen and (max-width: 1024px) {
-  .secondary-title {
-    margin-top: 15px;
-  }
 }
 

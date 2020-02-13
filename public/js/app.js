@@ -49774,24 +49774,14 @@ $(function () {
 $(window).on('load resize', function () {
   var winWidth = $(window).width();
   var center = $('.js-content-center-target');
-  var smallWidth = 414;
-  var middleWidth = 768;
-  var largeWidth = 1024;
-  console.log(center);
+  var smallWidth = 320;
+  var middleWidth = 560;
+  var largeWidth = 920;
 
-  if (smallWidth < winWidth && winWidth <= largeWidth) {
+  if (largeWidth < winWidth) {
     center.addClass('content-center');
   } else {
     center.removeClass('content-center');
-  }
-  /*
-  画面の横幅が768より広く、1024ピクセル以下の時に
-  余白を足してコンテンツを真ん中に持ってくる
-  */
-
-
-  if (middleWidth < winWidth && winWidth <= largeWidth) {
-    $(".js-margin-top-target").css("margin-top", 120);
   }
 });
 

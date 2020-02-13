@@ -4,14 +4,14 @@
 
 @section('content')
 <div id="app" class="container">
-  <div class="card content-center bg-white border-default">
+  <div class="card  bg-white border-default js-content-center-target">
       <div class="card-header">新規登録</div>
 
       <div class="card-body">
           <form class="form" method="POST" action="{{ route('register') }}">
               @csrf
 
-              <div class="form-">
+              <div class="form-group">
                   <label for="email" class="col-md-4">メールアドレス<span class="badge badge-secondary">必須</span></label>
 
                   <div class="col-md-6">
@@ -26,7 +26,7 @@
               </div>
 
               <div class="form-group">
-                  <label for="password" class="col-md-4">パスワード<br>(半角英数字6文字以上20文字以内)<span class="badge badge-secondary">必須</span></label>
+                  <label for="password" class="col-md-4">パスワード<span class="badge badge-secondary">必須</span><br>(半角英数字6文字以上20文字以内)</label>
 
                   <div class="col-md-6">
                       <input id="password" type="password" class="form-control js-count1 @error('password') is-invalid @enderror" name="password"  autocomplete="new-password">

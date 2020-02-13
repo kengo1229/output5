@@ -4,7 +4,7 @@
 
 @section('content')
 <div id="app" class="container">
-  <div class="card content-center bg-white border-default">
+  <div class="card  bg-white border-default  js-content-center-target">
       <div class="card-header">ログイン</div>
 
       <div class="card-body">

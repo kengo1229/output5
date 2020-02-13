@@ -32,7 +32,7 @@
 
             @foreach ($my_create_steps as $my_create_step)
 
-                  <div class="individual-step margin-bottom-space_l bg-white border-default">
+                  <div class="individual-step  bg-white border-default">
                       <a class="step-link" href="{{ action('StepsController@show', $my_create_step->id) }}">
                         @if(($my_create_step->pic) != null)
                           <div>

@@ -4,7 +4,7 @@
 
 @section('content')
 <div id="app" class="container">
-        <div class="card content-center bg-white border-default">
+        <div class="card  bg-white border-default js-content-center-target">
             <div class="card-header">パスワード再設定</div>
 
             <div class="card-body">
@@ -13,7 +13,7 @@
 
                     <input type="hidden" name="token" value="{{ $token }}">
 
-                    <div class="form-">
+                    <div class="form-group">
                         <label for="email" class="col-md-4">登録したメールアドレス<span class="badge badge-secondary">必須</span></label>
 
                         <div class="col-md-6">

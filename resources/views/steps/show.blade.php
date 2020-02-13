@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="container js-height-hold">
-          <div  class="card bg-white border-default js-margin-top-target">
+          <div  class="card bg-white border-default">
               <div class="card-header">{{ __('STEP詳細') }}</div>
 
 
@@ -29,35 +29,35 @@
 
                 <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-                <div class="show-group row">
+                <div class="show-group">
                     <div class="col-md-6 ">
                       <span class="underline-thin">タイトル</span>
                       <p class="show-control underline-bold">{{ $parent_step->title }}</p>
                     </div>
                 </div>
 
-                <div class="show-group row">
+                <div class="show-group">
                     <div class="col-md-6">
                       <span class="underline-thin">カテゴリー</span>
                       <p class="show-control underline-bold">{{ $parent_step->category->category_name }}</p>
                     </div>
                 </div>
 
-                <div class="show-group row">
+                <div class="show-group">
                     <div class="col-md-6">
                       <span class="underline-thin">達成目安時間</span>
                       <p class="show-control underline-bold">{{ $parent_step->goal_time }}時間</p>
                     </div>
                 </div>
 
-                <div class="show-group row">
+                <div class="show-group">
                     <div class="col-md-6">
                       <span class="underline-thin">内容</span>
                       <p class="show-control underline-bold">{{ $parent_step->description }}</p>
                     </div>
                 </div>
 
-                <div class="show-group row  underline-bold">
+                <div class="show-group  underline-bold">
                     <div class="col-md-6">
 
                       <span class="underline-thin">子STEP一覧
@@ -75,7 +75,7 @@
                     </div>
                 </div>
 
-                <div class="show-group row">
+                <div class="show-group">
                 <div class="col-md-6 offset-md-4">
                   <a href="{{ action('ChallengeController@create', $parent_step->id) }}">
                     <button type="submit" class="btn btn-primary float-right">
