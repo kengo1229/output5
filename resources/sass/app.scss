@@ -591,6 +591,7 @@ br {
     }
     @include sm() {
         font-size: $font-size_l;
+        margin-top: 50px;
     }
 
     &-item {
@@ -606,7 +607,7 @@ br {
           text-align: center;
         }
         @include sm() {
-            margin: 40px 0;
+          font-size: $font-size_l;
         }
         &:last-of-type {
             padding-right: 0;
