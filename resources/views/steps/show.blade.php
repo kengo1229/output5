@@ -4,17 +4,17 @@
 
 @section('content')
     <div class="main-container js-height-hold">
-          <div  class="c-card u-bg-white u-border-default">
-              <div class="c-card-header">{{ __('STEP詳細') }}</div>
+          <div  class="p-card u-bg-white u-border-default">
+              <div class="p-card__header">{{ __('STEP詳細') }}</div>
 
 
-              <div class="c-card-body">
+              <div class="p-card__body">
 
-                <div class="post-user u-margin-bottom-space_m">
+                <div class="c-post-user u-margin-bottom-space_m">
                   @if(($user->pic) != null)
-                    <img class="post-user-img" src="/{{ str_replace('public/', 'storage/', $user->pic) }}" alt="アイコン画像" width="200" height="130">
+                    <img class="c-post-user__img" src="/{{ str_replace('public/', 'storage/', $user->pic) }}" alt="アイコン画像" width="200" height="130">
                   @else
-                    <img class="post-user-img" src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし" width="200" height="130">
+                    <img class="c-post-user__img" src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし" width="200" height="130">
                   @endif
                   @if(($user->username)  != null)
                     <a href="{{ action('ProfileController@show', $user->id) }}">

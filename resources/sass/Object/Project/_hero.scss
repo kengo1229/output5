@@ -1,0 +1,41 @@
+.p-hero {
+    background-image: url("/img/top-page_image.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include lg() {
+        height: 550px;
+        background-attachment: scroll;
+    }
+    @include lg-side() {
+        height: 500px;
+        background-attachment: scroll;
+    }
+    @include md() {
+        height: 300px;
+    }
+    @include sm() {
+        height: 280px;
+    }
+
+    &__title {
+        text-align: center;
+        font-size: $font-size_3l;
+        color: #fff;
+        text-shadow: 0 0 20px rgba(227, 123, 137, .4), 0 0 50px rgba(0, 0, 0, .8);
+        @include lg() {
+            font-size: 45px;
+        }
+        @include md() {
+            font-size: $font-size_xl;
+        }
+        @include sm() {
+            font-size: 25px;
+        }
+    }
+}

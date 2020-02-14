@@ -4,19 +4,19 @@
 
 @section('content')
     <div id="app" class="main-container js-height-hold">
-        <div class="c-card u-bg-white u-border-default">
-            <div class="c-card-header">STEP新規登録</div>
+        <div class="p-card u-bg-white u-border-default">
+            <div class="p-card__header">STEP新規登録</div>
 
 
-            <div class="c-card-body">
+            <div class="p-card__body">
                 <form method="POST" action="{{ route('steps.create') }}" enctype="multipart/form-data">
                     @csrf
 
-                    <div class="form-group">
-                        <label for="title" class="col-md-4">タイトル(40文字以内)<span class="badge badge-secondary">必須</span></label>
+                    <div class="p-form__group">
+                        <label for="title" class="col-md-4">タイトル(40文字以内)<span class="c-badge ">必須</span></label>
 
                         <div class="col-md-6">
-                            <input id="title" type="text" class="form-control js-count1 @error('title') u-is-invalid @enderror" name="title" value="{{ old('title') }}" autocomplete="title" autofocus>
+                            <input id="title" type="text" class="p-form__control js-count1 @error('title') u-is-invalid @enderror" name="title" value="{{ old('title') }}" autocomplete="title" autofocus>
                             <p class="u-float-right"><span class="js-show1">0</span>/40</p>
 
                             @error('title')
@@ -27,11 +27,11 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label  for="category_id" class="col-md-4">カテゴリー<span class="badge badge-secondary">必須</span></label>
+                    <div class="p-form__group">
+                        <label  for="category_id" class="col-md-4">カテゴリー<span class="c-badge ">必須</span></label>
 
                         <div class="col-md-6">
-                            <select id="category_id" type="text" size="1"  class="form-control form-control-category @error('category_id') u-is-invalid @enderror" name="category_id"  autocomplete="category_id" autofocus>
+                            <select id="category_id" type="text" size="1"  class="p-form__control p-form__category @error('category_id') u-is-invalid @enderror" name="category_id"  autocomplete="category_id" autofocus>
                               <option  value="0">選択してください</option>
                               @foreach($categories as $category )
                               @if(old('category_id') == $category->id )
@@ -51,11 +51,11 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="goal_time" class="col-md-4">達成目安時間<span class="badge badge-secondary">必須</span></label>
+                    <div class="p-form__group">
+                        <label for="goal_time" class="col-md-4">達成目安時間<span class="c-badge ">必須</span></label>
 
                         <div class="col-md-6">
-                            <input id="goal_time" type="text" class="form-control js-count form-control-time @error('goal_time') u-is-invalid @enderror" name="goal_time" value="{{ old('goal_time') }}" autocomplete="goal_time" autofocus>時間
+                            <input id="goal_time" type="text" class="p-form__control js-count p-form__time @error('goal_time') u-is-invalid @enderror" name="goal_time" value="{{ old('goal_time') }}" autocomplete="goal_time" autofocus>時間
 
                             @error('goal_time')
                             <span class="u-invalid-feedback" role="alert">
@@ -65,11 +65,11 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="description" class="col-md-4">説明(200文字以内)<span class="badge badge-secondary">必須</span></label>
+                    <div class="p-form__group">
+                        <label for="description" class="col-md-4">説明(200文字以内)<span class="c-badge ">必須</span></label>
 
                         <div class="col-md-6">
-                            <textarea  id="description" class="form-control form-control-textarea js-count2 @error('description') u-is-invalid @enderror" name="description"  autocomplete="description" autofocus>{{ old('description') }}</textarea>
+                            <textarea  id="description" class="p-form__control p-form__textarea js-count2 @error('description') u-is-invalid @enderror" name="description"  autocomplete="description" autofocus>{{ old('description') }}</textarea>
                             <p class="u-float-right"><span class="js-show2">0</span>/200</p>
 
                             @error('description')
@@ -81,12 +81,12 @@
                     </div>
 
                   @for ($i = 1; $i <= 5; $i++)
-                    <div class="form-group">
+                    <div class="p-form__group">
 
-                      <label for="step{{$i - 1}}" class="col-md-4">{{ __('子STEP').$i }}(40文字以内)<span class="badge badge-secondary">必須</span></label>
+                      <label for="step{{$i - 1}}" class="col-md-4">{{ __('子STEP').$i }}(40文字以内)<span class="c-badge ">必須</span></label>
 
                       <div class="col-md-6">
-                        <input  id="step{{$i - 1}}" type="text" class="form-control js-count{{$i + 2}} @error('step'.($i - 1)) u-is-invalid @enderror" name="step{{$i - 1}}" value="{{old('step'.($i - 1))}} " autocomplete="step{{$i - 1}}" autofocus>
+                        <input  id="step{{$i - 1}}" type="text" class="p-form__control js-count{{$i + 2}} @error('step'.($i - 1)) u-is-invalid @enderror" name="step{{$i - 1}}" value="{{old('step'.($i - 1))}} " autocomplete="step{{$i - 1}}" autofocus>
                         <p class="u-float-right"><span class="js-show{{$i + 2}}">0</span>/40</p>
 
                         @error('step'.($i - 1))
@@ -97,12 +97,12 @@
                       </div>
                     </div>
 
-                    <div class="form-group">
+                    <div class="p-form__group">
 
-                      <label for="todo{{$i - 1}}" class="col-md-4">やること(100文字以内)<span class="badge badge-secondary">必須</span></label>
+                      <label for="todo{{$i - 1}}" class="col-md-4">やること(100文字以内)<span class="c-badge ">必須</span></label>
 
                       <div class="col-md-6">
-                          <textarea id="todo{{$i - 1}}" class="form-control form-control-textarea js-count{{$i + 7}} @error('todo'.($i - 1)) u-is-invalid @enderror" name="todo{{$i - 1}}"  autocomplete="todo{{$i - 1}}" autofocus>{{ old('todo'.($i - 1)) }}</textarea>
+                          <textarea id="todo{{$i - 1}}" class="p-form__control p-form__textarea js-count{{$i + 7}} @error('todo'.($i - 1)) u-is-invalid @enderror" name="todo{{$i - 1}}"  autocomplete="todo{{$i - 1}}" autofocus>{{ old('todo'.($i - 1)) }}</textarea>
                           <p class="u-float-right"><span class="js-show{{$i + 7}}">0</span>/100</p>
 
                           @error('todo'.($i - 1))
@@ -116,12 +116,12 @@
 
                   @endfor
 
-                    <div class="form-group">
-                        <label for="pic" class="col-md-4">画像<span class="badge badge-secondary">任意</span></label>
+                    <div class="p-form__group">
+                        <label for="pic" class="col-md-4">画像<span class="c-badge ">任意</span></label>
 
                         <div class="col-md-6">
 
-                            <input id="pic" type="file" class="form-control form-control-pic @error('category_name') u-is-invalid @enderror" name="pic" value="{{ old('pic') }}" autocomplete="pic" autofocus>
+                            <input id="pic" type="file" class="p-form__control p-form__pic @error('category_name') u-is-invalid @enderror" name="pic" value="{{ old('pic') }}" autocomplete="pic" autofocus>
 
                             @error('pic')
                             <span class="u-invalid-feedback" role="alert">
@@ -133,7 +133,7 @@
 
 
 
-                    <div class="form-group">
+                    <div class="p-form__group">
                         <div class="col-md-6 offset-md-4">
                             <button type="submit" class="c-btn c-btn--primary  u-float-right">
                                 登録

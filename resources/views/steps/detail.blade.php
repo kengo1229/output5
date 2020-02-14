@@ -5,10 +5,10 @@
 @section('content')
 
     <div id="app" class="main-container js-height-hold">
-        <div class="c-card u-bg-white u-border-default">
-            <div class="c-card-header">{{ __('子STEP詳細') }}</div>
+        <div class="p-card u-bg-white u-border-default">
+            <div class="p-card__header">{{ __('子STEP詳細') }}</div>
 
-            <div class="c-card-body">
+            <div class="p-card__body">
 
               @for ($i = 1; $i <= 5; $i++)
                 <div class="show-group  u-underline-bold">

@@ -4,8 +4,8 @@
 
 @section('top')
 
-    <section class="hero js-float-menu-target js-height-hold">
-      <h2 class="hero-title js-float-menu-target ">さぁ、あなたの人生の<br>STEPを共有しよう</h2>
+    <section class="p-hero js-float-menu-target js-height-hold">
+      <h2 class="p-hero__title js-float-menu-target ">さぁ、あなたの人生の<br>STEPを共有しよう</h2>
     </section>
 
 @endsection
@@ -13,23 +13,23 @@
 @section('content')
 
     <div class="container">
-       <div id="app" class="row">
+       <div id="app" class="c-row">
          <h2 class="u-secondary-title">新着STEP一覧</h2>
-            <div class="step-group">
+            <div class="p-step-group">
               @foreach ($latest_parent_steps as $latest_parent_step)
 
-                  <div class="step u-bg-white u-border-default u-margin-bottom-space_l">
-                      <a class="step-link" href="{{ action('StepsController@show', $latest_parent_step->id) }}">
+                  <div class="p-step u-bg-white u-border-default u-margin-bottom-space_l">
+                      <a class="p-step__link" href="{{ action('StepsController@show', $latest_parent_step->id) }}">
                         @if(($latest_parent_step->pic) != null)
                           <div>
-                            <img class="step-img" src="/{{ str_replace('public', 'storage', $latest_parent_step->pic) }}" alt="ステップ画像">
+                            <img class="p-step__img" src="/{{ str_replace('public', 'storage', $latest_parent_step->pic) }}" alt="ステップ画像">
                           </div>
                         @else
                           <div>
-                            <img class="step-img" src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし">
+                            <img class="p-step__img" src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし">
                           </div>
                         @endif
-                        <div class="step-body">
+                        <div class="p-step__body">
                             <span class="u-underline-thin">タイトル</span>
                             <p>{{ $latest_parent_step->title }}</p>
                             <span class="u-underline-thin">カテゴリー</span>

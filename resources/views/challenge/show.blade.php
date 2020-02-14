@@ -5,13 +5,13 @@
 @section('content')
     <div id="app" class="main-container js-height-hold">
 
-          <div class="c-card u-bg-white u-border-default">
+          <div class="p-card u-bg-white u-border-default">
 
-                <div class="c-card-header">
+                <div class="p-card__header">
                   子STEP{{ $challenge_child_step_info->num_child_step }}：{{ $challenge_child_step_info->childStep->step }}
                 </div>
 
-                <div class="c-card-body">
+                <div class="p-card__body">
                     <div class="show-group">
                         <div class="col-md-6">
                           <span class="u-underline-thin">やること</span>
@@ -26,11 +26,11 @@
                           @csrf
 
 
-                          <div class="form-group">
+                          <div class="p-form__group">
                             <label for="passed_time" class="col-md-4 col-form-label text-md-right">かかった時間</label>
 
                               <div class="col-md-6">
-                                  <input id="passed_time" type="text" class="form-control form-control-time  @error('passed_time') u-is-invalid @enderror" name="passed_time" value="{{ old('passed_time') }}" autocomplete="passed_time" autofocus>時間
+                                  <input id="passed_time" type="text" class="p-form__control p-form__time  @error('passed_time') u-is-invalid @enderror" name="passed_time" value="{{ old('passed_time') }}" autocomplete="passed_time" autofocus>時間
 
                                   @error('passed_time')
                                   <span class="u-invalid-feedback" role="alert">
@@ -40,7 +40,7 @@
                               </div>
                           </div>
 
-                          <div class="form-group">
+                          <div class="p-form__group">
                               <div class="col-md-6 offset-md-4">
                                   <button type="submit" class="c-btn c-btn--primary u-float-right">
                                       クリア
@@ -53,7 +53,7 @@
 
                 </div>
 
-                <div class="c-card-footer">
+                <div class="p-card__footer">
                   親STEP情報
                   <p><span class="u-underline-thin">タイトル</span>：{{ $parent_step_info->title }}</p>
                   <p><span class="u-underline-thin">カテゴリー</span>：{{ $parent_step_info->category->category_name }}</p>

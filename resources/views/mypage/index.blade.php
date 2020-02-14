@@ -5,17 +5,17 @@
 @section('content')
 
 
-<div class="user u-margin-bottom-space_l js-height-hold">
+<div class="p-user u-margin-bottom-space_l js-height-hold">
 
       @if(($user->pic) != null)
-          <img class="user-img" src="/{{ str_replace('public/', 'storage/', $user->pic) }}" alt="アイコン画像">
+          <img class="p-user__img" src="/{{ str_replace('public/', 'storage/', $user->pic) }}" alt="アイコン画像">
       @else
-          <img class="user-img" src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし">
+          <img class="p-user__img" src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし">
       @endif
 </div>
 
 <div id="app" class="container">
-    <div   class="row">
+    <div   class="c-row">
 
       <h2 class="u-secondary-title u-margin-bottom-space_l">
 
@@ -28,22 +28,22 @@
       </h2>
 
       <h2 class="u-secondary-title u-margin-bottom-space_l">登録したSTEP一覧</h2>
-        <div class="individual-step-group">
+        <div class="p-individual-step-group">
 
             @foreach ($my_create_steps as $my_create_step)
 
-                  <div class="individual-step  u-bg-white u-border-default">
-                      <a class="step-link" href="{{ action('StepsController@show', $my_create_step->id) }}">
+                  <div class="p-individual-step  u-bg-white u-border-default">
+                      <a class="p-step__link" href="{{ action('StepsController@show', $my_create_step->id) }}">
                         @if(($my_create_step->pic) != null)
                           <div>
-                            <img class="step-img" src="/{{ str_replace('public', 'storage', $my_create_step->pic) }}" alt="ステップ画像">
+                            <img class="p-step__img" src="/{{ str_replace('public', 'storage', $my_create_step->pic) }}" alt="ステップ画像">
                           </div>
                         @else
                           <div>
-                            <img class="step-img" src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし">
+                            <img class="p-step__img" src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし">
                           </div>
                         @endif
-                        <div class="step-body">
+                        <div class="p-step__body">
                             <span class="u-underline-thin">タイトル</span>
                             <p>{{ $my_create_step->title }}</p>
                             <span class="u-underline-thin">カテゴリー</span>
@@ -60,22 +60,22 @@
 
         <h2 class="u-secondary-title u-margin-bottom-space_l ">チャレンジ中STEP一覧</h2>
 
-        <div class="individual-step-group">
+        <div class="p-individual-step-group">
           @if(isset($my_challenge_steps[0]))
             @foreach ($my_challenge_steps as $my_challenge_step)
 
-              <div class="individual-step u-margin-bottom-space_l u-bg-white u-border-default">
-                  <a class="step-link" href="{{ action('ChallengeController@show', $my_challenge_step->id) }}">
+              <div class="p-individual-step u-margin-bottom-space_l u-bg-white u-border-default">
+                  <a class="p-step__link" href="{{ action('ChallengeController@show', $my_challenge_step->id) }}">
                     @if(($my_challenge_step->parentStep['pic']) != null)
                       <div>
-                        <img class="step-img" src="/{{ str_replace('public', 'storage', $my_challenge_step->parentStep['pic']) }}" alt="ステップ画像">
+                        <img class="p-step__img" src="/{{ str_replace('public', 'storage', $my_challenge_step->parentStep['pic']) }}" alt="ステップ画像">
                       </div>
                     @else
                       <div>
-                        <img class="step-img" src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし">
+                        <img class="p-step__img" src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし">
                       </div>
                     @endif
-                    <div class="step-body-challenging">
+                    <div class="p-step__body-challenging">
                         <span class="u-underline-thin">タイトル</span>
                         <p>{{ $my_challenge_step->parentStep['title']}}</p>
                         <span class="u-underline-thin">カテゴリー</span>
@@ -97,23 +97,23 @@
 
         <h2 class="u-secondary-title u-margin-bottom-space_l">クリアしたSTEP一覧</h2>
 
-        <div class="individual-step-group">
+        <div class="p-individual-step-group">
           @if(isset($my_finish_steps[0]))
             @foreach ($my_finish_steps as $my_finish_step)
 
-              <div class="individual-step  u-margin-bottom-space_l u-bg-white u-border-default">
-                <a class="step-link" href="{{ action('StepsController@show', $my_finish_step->parent_step_id) }}">
+              <div class="p-individual-step  u-margin-bottom-space_l u-bg-white u-border-default">
+                <a class="p-step__link" href="{{ action('StepsController@show', $my_finish_step->parent_step_id) }}">
 
                     @if(($my_finish_step->parentStep['pic']) != null)
                       <div>
-                        <img class="step-img" src="/{{ str_replace('public', 'storage', $my_finish_step->parentStep['pic']) }}" alt="ステップ画像">
+                        <img class="p-step__img" src="/{{ str_replace('public', 'storage', $my_finish_step->parentStep['pic']) }}" alt="ステップ画像">
                       </div>
                     @else
                       <div>
-                        <img class="step-img" src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし">
+                        <img class="p-step__img" src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし">
                       </div>
                     @endif
-                    <div class="step-body-cleared">
+                    <div class="p-step__body-cleared">
                         <span class="u-underline-thin">タイトル</span>
                         <p>{{ $my_finish_step->parentStep['title']}}</p>
                         <span class="u-underline-thin">カテゴリー</span>

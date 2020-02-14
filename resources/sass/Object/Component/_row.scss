@@ -1,0 +1,12 @@
+.c-row {
+    width: 100%;
+    @include lg() {
+      width: 70%;
+    }
+    @include lg-side() {
+      width: 80%;
+    }
+    @include md() {
+      width: 100%;
+    }
+}

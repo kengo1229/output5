@@ -85,7 +85,7 @@
     </nav>
 
     @if (session('flash_message'))
-      <div class="alert alert-primary u-text-center" role="alert">
+      <div class="c-alert  u-text-center" role="alert">
         {{ session('flash_message') }}
       </div>
     @endif

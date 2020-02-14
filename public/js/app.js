@@ -49770,21 +49770,19 @@ $(function () {
   $(".js-height-hold").css("margin-top", height);
 });
 /*
-画面の横幅が414px〜768pxとの場合、一部ページのフォームやコンテンツが上下中央寄せに
-ならないため画面の横幅に応じて上下中央寄せのクラスを付け外しする。
+上下中央寄せのクラスを付与
 */
 
 $(window).on('load resize', function () {
   var winWidth = $(window).width();
   var center = $('.js-content-center-target');
-  var smallWidth = 320;
   var middleWidth = 560;
   var largeWidth = 920;
 
   if (largeWidth < winWidth || winWidth < middleWidth) {
-    center.addClass('content-center');
+    center.addClass('c-content-center');
   } else {
-    center.removeClass('content-center');
+    center.removeClass('c-content-center');
   }
 });
 

@@ -73,21 +73,19 @@ $(function() {
 });
 
 /*
-画面の横幅が414px〜768pxとの場合、一部ページのフォームやコンテンツが上下中央寄せに
-ならないため画面の横幅に応じて上下中央寄せのクラスを付け外しする。
+上下中央寄せのクラスを付与
 */
 $(window).on('load resize', function(){
   let winWidth = $(window).width();
 
   let center = $('.js-content-center-target');
-  const smallWidth = 320;
   const middleWidth = 560;
   const largeWidth = 920;
 
   if (largeWidth < winWidth || winWidth < middleWidth ) {
-    center.addClass('content-center');
+    center.addClass('c-content-center');
   } else {
-    center.removeClass('content-center');
+    center.removeClass('c-content-center');
   }
 
 });

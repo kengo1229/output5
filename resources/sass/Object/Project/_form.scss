@@ -1,0 +1,43 @@
+.p-form {
+    &__group {
+        margin-bottom: $space_l;
+        overflow: hidden;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+
+    &__control {
+        width: 100%;
+        height: calc(1.6em + 0.75rem + 2px);
+        padding: $space_m;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        -webkit-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+    &__pic {
+        padding: $space_s;
+    }
+
+    &__textarea {
+        height: 100px;
+    }
+
+    &__category {
+        width: 30%;
+        padding: 0 0 0 $space_m;
+        @include md() {
+            width: 80%;
+        }
+    }
+
+    &__time {
+        width: 30%;
+        margin-right: $space_s;
+    }
+
+}

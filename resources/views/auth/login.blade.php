@@ -4,18 +4,18 @@
 
 @section('content')
 <div id="app" class="main-container">
-  <div class="c-card  u-bg-white u-border-default  js-content-center-target">
-      <div class="c-card-header">ログイン</div>
+  <div class="p-card  u-bg-white u-border-default  js-content-center-target">
+      <div class="p-card__header">ログイン</div>
 
-      <div class="c-card-body">
+      <div class="p-card__body">
           <form method="POST" action="{{ route('login') }}">
               @csrf
 
-              <div class="form-group">
+              <div class="p-form__group">
                   <label for="email" class="col-md-4">メールアドレス</label>
 
                   <div class="col-md-6">
-                      <input id="email" type="text" class="form-control @error('email') u-is-invalid @enderror" name="email" value="{{ old('email') }}"  autofocus>
+                      <input id="email" type="text" class="p-form__control @error('email') u-is-invalid @enderror" name="email" value="{{ old('email') }}"  autofocus>
 
                       @error('email')
                           <span class="u-invalid-feedback" role="alert">
@@ -25,11 +25,11 @@
                   </div>
               </div>
 
-              <div class="form-group">
+              <div class="p-form__group">
                   <label for="password" class="col-md-4">パスワード<br>(半角英数字6文字以上20文字以下)</label>
 
                   <div class="col-md-6">
-                      <input id="password" type="password" class="form-control @error('password') u-is-invalid @enderror" name="password">
+                      <input id="password" type="password" class="p-form__control @error('password') u-is-invalid @enderror" name="password">
 
                       @error('password')
                           <span class="u-invalid-feedback" role="alert">
@@ -39,7 +39,7 @@
                   </div>
               </div>
 
-              <div class="form-group">
+              <div class="p-form__group">
                   <div class="col-md-6 offset-md-4">
                     @if (Route::has('password.request'))
                         <a class=" btn__link" href="{{ route('password.request') }}">
@@ -60,7 +60,7 @@
 
               </div>
 
-              <div class="form-group">
+              <div class="p-form__group">
                   <div class="col-md-8 offset-md-4">
                       <button type="submit" class="c-btn c-btn--primary u-float-right">
                           ログイン

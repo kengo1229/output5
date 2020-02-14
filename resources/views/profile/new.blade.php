@@ -4,18 +4,18 @@
 
 @section('content')
     <div id="app" class="main-container  js-height-hold">
-        <div class="c-card  u-bg-white u-border-default ">
-            <div class="c-card-header">プロフィール登録</div>
+        <div class="p-card  u-bg-white u-border-default ">
+            <div class="p-card__header">プロフィール登録</div>
 
-            <div class="c-card-body">
+            <div class="p-card__body">
                 <form method="POST" action="{{ route('profile.create', $user->id) }}" enctype="multipart/form-data">
                     @csrf
 
-                    <div class="form-group">
-                        <label for="username" class="col-md-4">ユーザー名(20文字以内)<span class="badge badge-secondary">必須</span></label>
+                    <div class="p-form__group">
+                        <label for="username" class="col-md-4">ユーザー名(20文字以内)<span class="c-badge ">必須</span></label>
 
                         <div class="col-md-6">
-                            <input id="username" type="text" class="form-control js-count1 @error('username') u-is-invalid @enderror" name="username" value="{{ old('username') }}" autocomplete="username" autofocus>
+                            <input id="username" type="text" class="p-form__control js-count1 @error('username') u-is-invalid @enderror" name="username" value="{{ old('username') }}" autocomplete="username" autofocus>
                             <p class="u-float-right"><span class="js-show1">0</span>/20</p>
 
                             @error('username')
@@ -26,11 +26,11 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="email" class="col-md-4">メールアドレス<span class="badge badge-secondary">必須</span></label>
+                    <div class="p-form__group">
+                        <label for="email" class="col-md-4">メールアドレス<span class="c-badge ">必須</span></label>
 
                         <div class="col-md-6">
-                            <input id="email" type="text" class="form-control  @error('email') u-is-invalid @enderror" name="email" value="{{ old('email', $user->email) }}" autocomplete="title" autofocus>
+                            <input id="email" type="text" class="p-form__control  @error('email') u-is-invalid @enderror" name="email" value="{{ old('email', $user->email) }}" autocomplete="title" autofocus>
 
                             @error('email')
                             <span class="u-invalid-feedback" role="alert">
@@ -40,11 +40,11 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="introduction" class="col-md-4">自己紹介(200文字以内)<span class="badge badge-secondary">必須</span></label>
+                    <div class="p-form__group">
+                        <label for="introduction" class="col-md-4">自己紹介(200文字以内)<span class="c-badge ">必須</span></label>
 
                         <div class="col-md-6">
-                          <textarea id="introduction"  class="form-control form-control-textarea js-count2 @error('introduction') u-is-invalid @enderror" name="introduction" value="" autocomplete="introduction" autofocus>{{ old('introduction') }}</textarea>
+                          <textarea id="introduction"  class="p-form__control p-form__textarea js-count2 @error('introduction') u-is-invalid @enderror" name="introduction" value="" autocomplete="introduction" autofocus>{{ old('introduction') }}</textarea>
                           <p class="u-float-right"><span class="js-show2">0</span>/200</p>
 
                             @error('introduction')
@@ -56,12 +56,12 @@
                     </div>
 
 
-                    <div class="form-group">
-                        <label for="pic" class="col-md-4  ">アイコン画像<span class="badge badge-secondary">任意</span></label>
+                    <div class="p-form__group">
+                        <label for="pic" class="col-md-4  ">アイコン画像<span class="c-badge ">任意</span></label>
 
                         <div class="col-md-6">
 
-                            <input id="pic" type="file" class="form-control form-control-pic @error('pic') u-is-invalid @enderror" name="pic" value="{{ old('pic') }}" autocomplete="pic" autofocus>
+                            <input id="pic" type="file" class="p-form__control p-form__pic @error('pic') u-is-invalid @enderror" name="pic" value="{{ old('pic') }}" autocomplete="pic" autofocus>
 
                             @error('pic')
                             <span class="u-invalid-feedback" role="alert">
@@ -73,7 +73,7 @@
 
 
 
-                    <div class="form-group mb-0">
+                    <div class="p-form__group mb-0">
                         <div class="col-md-6 offset-md-4">
                             <button type="submit" class="c-btn c-btn--primary u-float-right">
                                 登録

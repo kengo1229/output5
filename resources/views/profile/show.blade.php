@@ -3,19 +3,19 @@
 @section('title', 'プロフィール')
 
 @section('content')
-<div class="user  js-height-hold">
+<div class="p-user  js-height-hold">
 
 
       @if(($user->pic) != null)
-          <img class="user-img u-margin-bottom-space_l" src="/{{ str_replace('public/', 'storage/', $user->pic) }}" alt="アイコン画像">
+          <img class="p-user__img u-margin-bottom-space_l" src="/{{ str_replace('public/', 'storage/', $user->pic) }}" alt="アイコン画像">
       @else
-          <img class="user-img u-margin-bottom-space_l" src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし">
+          <img class="p-user__img u-margin-bottom-space_l" src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし">
       @endif
 
 </div>
 
 <div id="app" class="container">
-    <div   class="row">
+    <div   class="c-row">
 
       <h2 class="u-secondary-title u-margin-bottom-space_l">
 
@@ -28,26 +28,26 @@
       </h2>
 
       <h2 class="u-secondary-title u-margin-bottom-space_l">自己紹介</h2>
-      <p class="user-introduction u-bg-white">{{$user->introduction}}</p>
+      <p class="p-user__introduction u-bg-white">{{$user->introduction}}</p>
 
 
       <h2 class="u-secondary-title u-margin-bottom-space_l">登録したSTEP一覧</h2>
-        <div class="individual-step-group">
+        <div class="p-individual-step-group">
 
             @foreach ($my_create_steps as $my_create_step)
 
-                  <div class="individual-step u-margin-bottom-space_l  u-bg-white u-border-default">
-                      <a class="step-link" href="{{ action('StepsController@show', $my_create_step->id) }}">
+                  <div class="p-individual-step u-margin-bottom-space_l  u-bg-white u-border-default">
+                      <a class="p-step__link" href="{{ action('StepsController@show', $my_create_step->id) }}">
                         @if(($my_create_step->pic) != null)
                           <div>
-                            <img class="step-img" src="/{{ str_replace('public', 'storage', $my_create_step->pic) }}" alt="ステップ画像">
+                            <img class="p-step__img" src="/{{ str_replace('public', 'storage', $my_create_step->pic) }}" alt="ステップ画像">
                           </div>
                         @else
                           <div>
-                            <img class="step-img" src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし">
+                            <img class="p-step__img" src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし">
                           </div>
                         @endif
-                        <div class="step-body">
+                        <div class="p-step__body">
                             <span class="u-underlineline-thin">タイトル</span>
                             <p>{{ $my_create_step->title }}</p>
                             <span class="u-underlineline-thin">カテゴリー</span>
