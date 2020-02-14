@@ -17,7 +17,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <nav class="p-navbar u-bg-white u-shadow-sm  js-float-menu js-height-target">
+    <nav class="p-navbar u-bg-white u-shadow-sm  js-float-menu">
       <div class="p-navbar__section">
 
           <div class="p-navbar-left">
@@ -30,7 +30,7 @@
           </div>
 
                 @guest
-                <ul class="nav  js-toggle-sp-menu-target">
+                <ul class="p-nav  js-toggle-sp-menu-target">
 
                     <li class="p-nav__item">
                         <a class="p-nav__link" href="{{ route('login') }}">ログイン</a>
@@ -98,7 +98,7 @@
 
 <!-- footer -->
     <footer class="l-footer">
-      <div class="container">
+      <div class="c-container">
         <span class="u-text-muted">Copyright 2020 STEP. All Rights Reserved.</span>
       </div>
     </footer>

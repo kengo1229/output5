@@ -6,11 +6,13 @@
 @import "Foundation/_mixin.scss";
 @import "Foundation/_base.scss";
 
+
 //=======================
 // Layout
 //=======================
 @import "Layout/_footer.scss";
 @import "Layout/_main.scss";
+
 
 //=======================
 // Object
@@ -19,15 +21,14 @@
 // Component
 //===========
 @import "Object/Component/_alert.scss";
+@import "Object/Component/_container.scss";
 @import "Object/Component/_content-center.scss";
 @import "Object/Component/_badge.scss";
 @import "Object/Component/_btn.scss";
 @import "Object/Component/_menu-trigger.scss";
 @import "Object/Component/_menu-window.scss";
 @import "Object/Component/_post-user.scss";
-
-
-
+@import "Object/Component/_row.scss";
 
 
 //===========
@@ -41,60 +42,21 @@
 @import "Object/Project/_nav.scss";
 @import "Object/Project/_navbar.scss";
 @import "Object/Project/_navbar-left.scss";
-@import "Object/Project/_step.scss";
 @import "Object/Project/_show.scss";
+@import "Object/Project/_step.scss";
 @import "Object/Project/_user.scss";
-
 
 
 //=======================
 // Utility
 //=======================
-@import "Utility/_underline.scss";
-@import "Utility/_margin.scss";
-@import "Utility/_text.scss";
-@import "Utility/_float-right.scss";
-@import "Utility/_border.scss";
-@import "Utility/_invalid.scss";
 @import "Utility/_background.scss";
+@import "Utility/_border.scss";
+@import "Utility/_display-flex-center.scss";
+@import "Utility/_float-right.scss";
+@import "Utility/_invalid.scss";
+@import "Utility/_margin.scss";
 @import "Utility/_shadow.scss";
+@import "Utility/_text.scss";
 @import "Utility/_title.scss";
-
-
-
-
-
-
-
-
-
-
-
-
-
-//=======================
-//container
-//=======================
-
-.container {
-    width: $content-width;
-    margin: 0 auto;
-    justify-content: space-between;
-    @include lg() {
-      width: 100%;
-    }
-    @include md() {
-        width: 80%;
-        justify-content: space-between;
-    }
-    @include sm(){
-      width: 90%;
-    }
-}
-
-
-.main-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+@import "Utility/_underline.scss";

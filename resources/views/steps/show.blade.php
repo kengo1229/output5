@@ -3,7 +3,7 @@
 @section('title', 'STEP詳細')
 
 @section('content')
-    <div class="main-container js-height-hold">
+    <div class="u-display-flex-center js-height-hold">
           <div  class="p-card u-bg-white u-border-default">
               <div class="p-card__header">{{ __('STEP詳細') }}</div>
 

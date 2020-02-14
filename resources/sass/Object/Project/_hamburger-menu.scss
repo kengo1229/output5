@@ -1,12 +1,16 @@
 .p-hamburger-menu {
-    display: inherit;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
     @include md() {
+        display: flex;
+        flex-direction: column;
         font-size: $font-size_xl;
-        margin-top: 100px;
     }
     @include sm() {
         font-size: $font-size_l;
-        margin-top: $font-size_3l;
     }
 
     &__item {
@@ -18,9 +22,8 @@
         }
         @include md() {
           font-size: $font-size_xl;
-          margin: $font-size_xl 0;
+          margin: $space_l 0;
           text-align: center;
-          display: block;
         }
         @include sm() {
           font-size: $font-size_l;

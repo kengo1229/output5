@@ -14,7 +14,7 @@
       @endif
 </div>
 
-<div id="app" class="container">
+<div id="app" class="c-container">
     <div   class="c-row">
 
       <h2 class="u-secondary-title u-margin-bottom-space_l">

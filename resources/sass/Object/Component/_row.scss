@@ -1,5 +1,6 @@
 .c-row {
     width: 100%;
+    margin: 0 auto;
     @include lg() {
       width: 70%;
     }

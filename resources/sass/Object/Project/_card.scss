@@ -1,5 +1,8 @@
 .p-card {
-    width: 60%;
+    width: 40%;
+    @include xlg() {
+      width: 60%;
+    }
     @include lg() {
         width: 80%;
     }
@@ -8,7 +11,7 @@
         margin-top: $font-size_3l;
     }
     @include md() {
-        width: 100%;
+        width: 85%;
         margin-top:0;
     }
     @include sm() {

@@ -3,7 +3,7 @@
 @section('title', 'STEP編集')
 
 @section('content')
-    <div class="main-container js-height-hold">
+    <div class="u-display-flex-center js-height-hold">
         <div class="p-card u-bg-white u-border-default">
             <div class="p-card__header">STEP編集</div>
 
@@ -85,7 +85,7 @@
                     </div>
 
                     <div class="p-form__group">
-                        <label for="description" class="col-md-4">説明(200文字以内)<span class="c-badge ">必須</span></label>
+                        <label for="description" class="col-md-4">内容(200文字以内)<span class="c-badge ">必須</span></label>
 
                         <div class="col-md-6">
                             <textarea id="description"  class="p-form__control p-form__textarea js-count2 @error('description') u-is-invalid @enderror" name="description"  autocomplete="description" autofocus>{{ old('description', $parent_step_info->description) }}</textarea>

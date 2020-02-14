@@ -68,8 +68,7 @@ $(function () {
 きしまっている。その高さ分をmargin-topで相殺する。
 */
 $(function() {
-    let height=$(".js-height-target").height();
-    $(".js-height-hold").css("margin-top", height );
+    $(".js-height-hold").css("margin-top", 58 );
 });
 
 /*

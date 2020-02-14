@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <div id="app" class="main-container js-height-hold">
+    <div id="app" class="u-display-flex-center js-height-hold">
         <div class="p-card u-bg-white u-border-default">
             <div class="p-card__header">{{ __('子STEP詳細') }}</div>
 

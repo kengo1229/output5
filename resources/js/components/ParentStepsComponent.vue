@@ -1,11 +1,11 @@
 <template>
-<div class="step-group">
+<div class="p-step-group">
 
-    <div class="step  u-bg-white u-border-default u-margin-bottom-space_l" v-for="step in steps">
-        <a class="step-link" :href="'/steps/' + step.id">
-            <img v-if="step.pic != null" class="step-img" :src="step.pic.replace('public/', 'storage/')" alt="ステップ画像">
-            <img v-else class="step-img" src="/img/no_image.jpg" alt="登録画像なし">
-            <div class="step-body">
+    <div class="p-step  u-bg-white u-border-default u-margin-bottom-space_l" v-for="step in steps">
+        <a class="p-step__link" :href="'/steps/' + step.id">
+            <img v-if="step.pic != null" class="p-step__img" :src="step.pic.replace('public/', 'storage/')" alt="ステップ画像">
+            <img v-else class="p-step__img" src="/img/no_image.jpg" alt="登録画像なし">
+            <div class="p-step__body">
                 <span class="u-underline-thin">タイトル</span>
                 <p>{{step.title}}</p>
                 <span class="u-underline-thin">カテゴリー</span>

@@ -3,7 +3,7 @@
 @section('title', 'パスワード再設定メール送信')
 
 @section('content')
-<div id="app" class="main-container">
+<div id="app" class="u-display-flex-center">
     <div class="p-card  u-bg-white u-border-default js-content-center-target">
         <div class="p-card__header">パスワード再設定メール送信</div>
 

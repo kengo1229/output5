@@ -4,15 +4,15 @@
 
 @section('top')
 
-    <section class="p-hero js-float-menu-target js-height-hold">
-      <h2 class="p-hero__title js-float-menu-target ">さぁ、あなたの人生の<br>STEPを共有しよう</h2>
+    <section class="p-hero js-float-menu-target">
+      <h2 class="p-hero__title js-height-hold js-float-menu-target ">さぁ、あなたの人生の<br>STEPを共有しよう</h2>
     </section>
 
 @endsection
 
 @section('content')
 
-    <div class="container">
+    <div class="c-container">
        <div id="app" class="c-row">
          <h2 class="u-secondary-title">新着STEP一覧</h2>
             <div class="p-step-group">

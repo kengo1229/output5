@@ -37397,33 +37397,36 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "step-group" },
+    { staticClass: "p-step-group" },
     _vm._l(_vm.steps, function(step) {
       return _c(
         "div",
         {
           staticClass:
-            "step  u-bg-white u-border-default u-margin-bottom-space_l"
+            "p-step  u-bg-white u-border-default u-margin-bottom-space_l"
         },
         [
           _c(
             "a",
-            { staticClass: "step-link", attrs: { href: "/steps/" + step.id } },
+            {
+              staticClass: "p-step__link",
+              attrs: { href: "/steps/" + step.id }
+            },
             [
               step.pic != null
                 ? _c("img", {
-                    staticClass: "step-img",
+                    staticClass: "p-step__img",
                     attrs: {
                       src: step.pic.replace("public/", "storage/"),
                       alt: "ステップ画像"
                     }
                   })
                 : _c("img", {
-                    staticClass: "step-img",
+                    staticClass: "p-step__img",
                     attrs: { src: "/img/no_image.jpg", alt: "登録画像なし" }
                   }),
               _vm._v(" "),
-              _c("div", { staticClass: "step-body" }, [
+              _c("div", { staticClass: "p-step__body" }, [
                 _c("span", { staticClass: "u-underline-thin" }, [
                   _vm._v("タイトル")
                 ]),
@@ -49766,8 +49769,7 @@ $(function () {
 */
 
 $(function () {
-  var height = $(".js-height-target").height();
-  $(".js-height-hold").css("margin-top", height);
+  $(".js-height-hold").css("margin-top", 58);
 });
 /*
 上下中央寄せのクラスを付与
