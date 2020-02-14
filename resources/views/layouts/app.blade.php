@@ -17,58 +17,58 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar u-bg-white u-shadow-sm  js-float-menu js-height-target">
-      <div class="container">
+    <nav class="p-navbar u-bg-white u-shadow-sm  js-float-menu js-height-target">
+      <div class="p-navbar__section">
 
-          <div class="navbar-left">
+          <div class="p-navbar-left">
 
-            <img class="navbar-left-img"  src="{{ asset('/img/navbar_image.jpg') }}" alt="アイコン画像">
-              <a class="navbar-brand" href="{{ url('/top') }}">
+            <img class="p-navbar-left__img"  src="{{ asset('/img/navbar_image.jpg') }}" alt="アイコン画像">
+              <a class="p-navbar-left__title" href="{{ url('/top') }}">
                   {{ config('app.name') }}
               </a>
 
           </div>
 
                 @guest
-                <ul class="navbar-nav  js-toggle-sp-menu-target">
+                <ul class="nav  js-toggle-sp-menu-target">
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">ログイン</a>
+                    <li class="p-nav__item">
+                        <a class="p-nav__link" href="{{ route('login') }}">ログイン</a>
                     </li>
                     @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">新規登録</a>
+                        <li class="p-nav__item">
+                            <a class="p-nav__link" href="{{ route('register') }}">新規登録</a>
                         </li>
                     @endif
                 </ul>
                 @else
 
-                  <div class="menu-trigger js-toggle-sp-menu">
+                  <div class="c-menu-trigger js-toggle-sp-menu">
                     <span></span>
                     <span></span>
                     <span></span>
                   </div>
 
-                <ul class="navbar-nav nav-menu js-toggle-sp-menu-target">
+                <ul class="p-nav c-menu-winow js-toggle-sp-menu-target">
 
-                  <div class="menu">
-                      <li class="menu-item">
-                          <a class="nav-link" href="/top">TOP</a>
+                  <div class="p-hamburger-menu">
+                      <li class="p-hamburger-menu__item">
+                          <a class="p-hamburger-menu__link" href="/top">TOP</a>
                       </li>
-                      <li class="menu-item">
-                          <a class="nav-link" href="/steps/new">STEP登録</a>
+                      <li class="p-hamburger-menu__item">
+                          <a class="p-hamburger-menu__link" href="/steps/new">STEP登録</a>
                       </li>
-                      <li class="menu-item">
-                          <a class="nav-link" href="/steps">STEP一覧</a>
+                      <li class="p-hamburger-menu__item">
+                          <a class="p-hamburger-menu__link" href="/steps">STEP一覧</a>
                       </li>
-                      <li class="menu-item">
-                          <a class="nav-link" href="/profile/{{ Auth::id()}}/new">プロフィール登録(編集)</a>
+                      <li class="p-hamburger-menu__item">
+                          <a class="p-hamburger-menu__link" href="/profile/{{ Auth::id()}}/new">プロフィール登録(編集)</a>
                       </li>
-                      <li class="menu-item">
-                          <a class="nav-link" href="/mypage/{{ Auth::id()}}">マイページ</a>
+                      <li class="p-hamburger-menu__item">
+                          <a class="p-hamburger-menu__link" href="/mypage/{{ Auth::id()}}">マイページ</a>
                       </li>
-                      <li class="menu-item">
-                          <a class="nav-link" href="{{ route('logout') }}"
+                      <li class="p-hamburger-menu__item">
+                          <a class="p-hamburger-menu__link" href="{{ route('logout') }}"
                              onclick="event.preventDefault();
                                            document.getElementById('logout-form').submit();">
                               ログアウト

@@ -22,6 +22,8 @@
 @import "Object/Component/_content-center.scss";
 @import "Object/Component/_badge.scss";
 @import "Object/Component/_btn.scss";
+@import "Object/Component/_menu-trigger.scss";
+@import "Object/Component/_menu-window.scss";
 @import "Object/Component/_post-user.scss";
 
 
@@ -33,9 +35,14 @@
 //===========
 @import "Object/Project/_card.scss";
 @import "Object/Project/_form.scss";
+@import "Object/Project/_hamburger-menu.scss";
 @import "Object/Project/_hero.scss";
 @import "Object/Project/_individual-step.scss";
+@import "Object/Project/_nav.scss";
+@import "Object/Project/_navbar.scss";
+@import "Object/Project/_navbar-left.scss";
 @import "Object/Project/_step.scss";
+@import "Object/Project/_show.scss";
 @import "Object/Project/_user.scss";
 
 
@@ -53,236 +60,18 @@
 @import "Utility/_shadow.scss";
 @import "Utility/_title.scss";
 
-//=======================
-//nav
-//=======================
-
-.navbar {
-    position: fixed;
-    width: 100%;
-    z-index: 2;
-    .container {
-        display: flex;
-        flex-direction: row;
-        padding: $space_m 0;
-        width: 90%;
-        @include sm() {
-            width: 90%;
-        }
-
-        .navbar-brand {
-            color: $font-color_default;
-            font-size: $font-size_xl;
-            font-family: $font-step;
-            letter-spacing: 2px;
-            @include lg(){
-              font-size: $font-size_l;
-            }
-            @include md(){
-              font-size: $font-size_xl;
-            }
-            &:hover {
-                color: $font-color_default;
-                text-decoration: none;
-            }
-        }
-    }
-
-    &.float-active {
-        transition: 0.3s;
-        background: rgba(255, 255, 255, 0.9);
-    }
-
-    &-nav {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-    }
-
-    &-left {
-        display: flex;
-        align-items: center;
-
-        &-img {
-            width: 40px;
-            height: 40px;
-            margin-right: $space_m;
-            @include lg(){
-              width: 30px;
-              height: 30px;
-            }
-            @include md(){
-              width: 40px;
-              height: 40px;
-            }
-        }
-    }
-}
-
-.nav-item {
-    list-style: none;
-    padding-right: $space_l;
-    @include lg() {
-      font-size: $font-size_xs;
-      padding-right: $space_s;
-    }
-    @include md() {
-      font-size: $font-size_default;
-      padding-right: $space_l;
-    }
-    &:last-of-type {
-        padding-right: 0;
-    }
-    .nav-link {
-        color: $navbar-color;
-
-    &:hover {
-        color: $navbar-hover-color;
-        text-decoration: none;
-    }
-}
-
-}
-// ==================================
-// menu（スマホ用ナビメニュー）
-// ==================================
-
-.nav-menu {
-    @include md() {
-        display: block;
-        position: absolute;
-        top: 0;
-        right: -100%;
-        background: rgba(255, 255, 255, .85);
-        width: 100%;
-        height: 100vh;
-        padding-top: $font-size_3l;
-        transition: 0.5s;
-
-        &.active {
-            transition: 0.5s;
-            transform: translateX(-100%);
-            z-index: 2;
-        }
-    }
-}
-
-.menu {
-    display: inherit;
-    @include md() {
-        font-size: $font-size_xl;
-        margin-top: 100px;
-    }
-    @include sm() {
-        font-size: $font-size_l;
-        margin-top: $font-size_3l;
-    }
-
-    &-item {
-      list-style: none;
-      padding-right: $space_l;
-        @include lg() {
-          font-size: $font-size_xs;
-          padding-right: $space_s;
-        }
-        @include md() {
-          font-size: $font-size_xl;
-          margin: $font-size_xl 0;
-          text-align: center;
-        }
-        @include sm() {
-          font-size: $font-size_l;
-        }
-        &:last-of-type {
-            padding-right: 0;
-        }
-        .nav-link {
-            color: $navbar-color;
-
-        &:hover {
-            color: $navbar-hover-color;
-            text-decoration: none;
-        }
-    }
-    }
-}
-
-.menu-trigger {
-    display: none;
-    @include md() {
-        display: inline-block;
-        margin-top: 8px;
-    }
-    transition: all 0.4s;
-    position: relative;
-    width: 40px;
-    height: 32px;
-    z-index: 3;
-
-    span {
-        display: inline-block;
-        transition: all 0.4s;
-        position: absolute;
-        left: 0;
-        width: 100%;
-        height: 4px;
-        background-color: $font-color_default;
-        border-radius: 4px;
-
-        &:nth-of-type(1) {
-            top: 0;
-        }
-
-        &:nth-of-type(2) {
-            top: 14px;
-        }
-
-        &:nth-of-type(3) {
-            bottom: 0;
-        }
-    }
-
-    &.active span {
-        &:nth-of-type(1) {
-            transform: translateY(12px) rotate(-45deg);
-        }
-
-        &:nth-of-type(2) {
-            opacity: 0;
-        }
-
-        &:nth-of-type(3) {
-            transform: translateY(-15px) rotate(45deg);
-        }
-    }
-}
 
 
 
-//=======================
-//show
-//=======================
 
-.show {
-    &-group {
-        margin-bottom: $space_l;
-        text-align: left;
-        overflow: hidden;
-        &-link{
-            font-size: $font-size_s;
-        }
-    }
 
-    &-control {
-        width: 100%;
-        background-clip: padding-box;
-        padding: $space_s 0;
-        border-radius: 0.25rem;
-        -webkit-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    }
-}
+
+
+
+
+
+
+
 //=======================
 //container
 //=======================

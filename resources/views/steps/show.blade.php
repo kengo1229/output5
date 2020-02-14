@@ -29,45 +29,45 @@
 
                 <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-                <div class="show-group">
+                <div class="p-show-group">
                     <div class="col-md-6 ">
                       <span class="u-underline-thin">タイトル</span>
-                      <p class="show-control u-underline-bold">{{ $parent_step->title }}</p>
+                      <p class="p-show__control u-underline-bold">{{ $parent_step->title }}</p>
                     </div>
                 </div>
 
-                <div class="show-group">
+                <div class="p-show-group">
                     <div class="col-md-6">
                       <span class="u-underline-thin">カテゴリー</span>
-                      <p class="show-control u-underline-bold">{{ $parent_step->category->category_name }}</p>
+                      <p class="p-show__control u-underline-bold">{{ $parent_step->category->category_name }}</p>
                     </div>
                 </div>
 
-                <div class="show-group">
+                <div class="p-show-group">
                     <div class="col-md-6">
                       <span class="u-underline-thin">達成目安時間</span>
-                      <p class="show-control u-underline-bold">{{ $parent_step->goal_time }}時間</p>
+                      <p class="p-show__control u-underline-bold">{{ $parent_step->goal_time }}時間</p>
                     </div>
                 </div>
 
-                <div class="show-group">
+                <div class="p-show-group">
                     <div class="col-md-6">
                       <span class="u-underline-thin">内容</span>
-                      <p class="show-control u-underline-bold">{{ $parent_step->description }}</p>
+                      <p class="p-show__control u-underline-bold">{{ $parent_step->description }}</p>
                     </div>
                 </div>
 
-                <div class="show-group  u-underline-bold">
+                <div class="p-show-group  u-underline-bold">
                     <div class="col-md-6">
 
                       <span class="u-underline-thin">子STEP一覧
-                        <a class="show-group-link" href="{{ action('StepsController@detail', $parent_step->id) }}">
+                        <a class="p-show-group__link" href="{{ action('StepsController@detail', $parent_step->id) }}">
                           子STEP詳細はこちら
                         </a>
 
                       </span>
                         @for ($i = 1; $i <= 5; $i++)
-                        <div  class="show-control">
+                        <div  class="p-show__control">
                           <div>子STEP{{ $i }}：{{ $child_step[$i - 1]['step']}}</div>
                         </div>
                         @endfor
@@ -75,7 +75,7 @@
                     </div>
                 </div>
 
-                <div class="show-group">
+                <div class="p-show-group">
                 <div class="col-md-6 offset-md-4">
                   <a href="{{ action('ChallengeController@create', $parent_step->id) }}">
                     <button type="submit" class="c-btn c-btn--primary u-float-right">

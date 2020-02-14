@@ -12,10 +12,10 @@
                 </div>
 
                 <div class="p-card__body">
-                    <div class="show-group">
+                    <div class="p-show-group">
                         <div class="col-md-6">
                           <span class="u-underline-thin">やること</span>
-                            <p id="title"  class="show-control u-underline-bold" >
+                            <p id="title"  class="p-show__control u-underline-bold" >
                               {{ $challenge_child_step_info->childStep->todo }}
                             </p>
                         </div>

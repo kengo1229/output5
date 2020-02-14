@@ -25,6 +25,10 @@ STEPに適用させるスタイル
         margin: 0;
         width: 80%;
     }
+    
+    &:hover {
+        opacity: 0.7;
+    }
 
     &:nth-of-type(4n) {
         margin-left: $space_m;
