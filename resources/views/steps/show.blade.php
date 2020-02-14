@@ -3,14 +3,14 @@
 @section('title', 'STEP詳細')
 
 @section('content')
-    <div class="container js-height-hold">
-          <div  class="card bg-white border-default">
-              <div class="card-header">{{ __('STEP詳細') }}</div>
+    <div class="main-container js-height-hold">
+          <div  class="c-card u-bg-white u-border-default">
+              <div class="c-card-header">{{ __('STEP詳細') }}</div>
 
 
-              <div class="card-body">
+              <div class="c-card-body">
 
-                <div class="post-user margin-bottom-space_m">
+                <div class="post-user u-margin-bottom-space_m">
                   @if(($user->pic) != null)
                     <img class="post-user-img" src="/{{ str_replace('public/', 'storage/', $user->pic) }}" alt="アイコン画像" width="200" height="130">
                   @else
@@ -31,36 +31,36 @@
 
                 <div class="show-group">
                     <div class="col-md-6 ">
-                      <span class="underline-thin">タイトル</span>
-                      <p class="show-control underline-bold">{{ $parent_step->title }}</p>
+                      <span class="u-underline-thin">タイトル</span>
+                      <p class="show-control u-underline-bold">{{ $parent_step->title }}</p>
                     </div>
                 </div>
 
                 <div class="show-group">
                     <div class="col-md-6">
-                      <span class="underline-thin">カテゴリー</span>
-                      <p class="show-control underline-bold">{{ $parent_step->category->category_name }}</p>
+                      <span class="u-underline-thin">カテゴリー</span>
+                      <p class="show-control u-underline-bold">{{ $parent_step->category->category_name }}</p>
                     </div>
                 </div>
 
                 <div class="show-group">
                     <div class="col-md-6">
-                      <span class="underline-thin">達成目安時間</span>
-                      <p class="show-control underline-bold">{{ $parent_step->goal_time }}時間</p>
+                      <span class="u-underline-thin">達成目安時間</span>
+                      <p class="show-control u-underline-bold">{{ $parent_step->goal_time }}時間</p>
                     </div>
                 </div>
 
                 <div class="show-group">
                     <div class="col-md-6">
-                      <span class="underline-thin">内容</span>
-                      <p class="show-control underline-bold">{{ $parent_step->description }}</p>
+                      <span class="u-underline-thin">内容</span>
+                      <p class="show-control u-underline-bold">{{ $parent_step->description }}</p>
                     </div>
                 </div>
 
-                <div class="show-group  underline-bold">
+                <div class="show-group  u-underline-bold">
                     <div class="col-md-6">
 
-                      <span class="underline-thin">子STEP一覧
+                      <span class="u-underline-thin">子STEP一覧
                         <a class="show-group-link" href="{{ action('StepsController@detail', $parent_step->id) }}">
                           子STEP詳細はこちら
                         </a>
@@ -78,7 +78,7 @@
                 <div class="show-group">
                 <div class="col-md-6 offset-md-4">
                   <a href="{{ action('ChallengeController@create', $parent_step->id) }}">
-                    <button type="submit" class="btn btn-primary float-right">
+                    <button type="submit" class="c-btn c-btn--primary u-float-right">
                         チャレンジ
                     </button>
                   </a>

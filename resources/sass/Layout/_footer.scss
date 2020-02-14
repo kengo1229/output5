@@ -1,0 +1,10 @@
+.l-footer {
+    background-color: $footer-color;
+    padding: $space_l;
+    text-align: center;
+    width: 100%;
+    margin-top: auto;
+    @include md() {
+        font-size: $font-size_xs;
+    }
+}

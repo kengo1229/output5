@@ -17,7 +17,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar bg-white shadow-sm  js-float-menu js-height-target">
+    <nav class="navbar u-bg-white u-shadow-sm  js-float-menu js-height-target">
       <div class="container">
 
           <div class="navbar-left">
@@ -85,21 +85,21 @@
     </nav>
 
     @if (session('flash_message'))
-      <div class="alert alert-primary text-center" role="alert">
+      <div class="alert alert-primary u-text-center" role="alert">
         {{ session('flash_message') }}
       </div>
     @endif
 
     @yield('top')
 
-    <main class="main">
+    <main class="l-main">
         @yield('content')
     </main>
 
 <!-- footer -->
-    <footer class="footer">
+    <footer class="l-footer">
       <div class="container">
-        <span class="text-muted">Copyright 2020 STEP. All Rights Reserved.</span>
+        <span class="u-text-muted">Copyright 2020 STEP. All Rights Reserved.</span>
       </div>
     </footer>
     <script src="{{ asset('js/app.js') }}" defer></script>

@@ -37401,7 +37401,10 @@ var render = function() {
     _vm._l(_vm.steps, function(step) {
       return _c(
         "div",
-        { staticClass: "step  bg-white border-default margin-bottom-space_l" },
+        {
+          staticClass:
+            "step  u-bg-white u-border-default u-margin-bottom-space_l"
+        },
         [
           _c(
             "a",
@@ -37421,19 +37424,19 @@ var render = function() {
                   }),
               _vm._v(" "),
               _c("div", { staticClass: "step-body" }, [
-                _c("span", { staticClass: "underline-thin" }, [
+                _c("span", { staticClass: "u-underline-thin" }, [
                   _vm._v("タイトル")
                 ]),
                 _vm._v(" "),
                 _c("p", [_vm._v(_vm._s(step.title))]),
                 _vm._v(" "),
-                _c("span", { staticClass: "underline-thin" }, [
+                _c("span", { staticClass: "u-underline-thin" }, [
                   _vm._v("カテゴリー")
                 ]),
                 _vm._v(" "),
                 _c("p", [_vm._v(_vm._s(step.category.category_name))]),
                 _vm._v(" "),
-                _c("span", { staticClass: "underline-thin" }, [
+                _c("span", { staticClass: "u-underline-thin" }, [
                   _vm._v("達成目安時間")
                 ]),
                 _vm._v(" "),

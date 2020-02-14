@@ -1,16 +1,16 @@
 <template>
 <div class="step-group">
 
-    <div class="step  bg-white border-default margin-bottom-space_l" v-for="step in steps">
+    <div class="step  u-bg-white u-border-default u-margin-bottom-space_l" v-for="step in steps">
         <a class="step-link" :href="'/steps/' + step.id">
             <img v-if="step.pic != null" class="step-img" :src="step.pic.replace('public/', 'storage/')" alt="ステップ画像">
             <img v-else class="step-img" src="/img/no_image.jpg" alt="登録画像なし">
             <div class="step-body">
-                <span class="underline-thin">タイトル</span>
+                <span class="u-underline-thin">タイトル</span>
                 <p>{{step.title}}</p>
-                <span class="underline-thin">カテゴリー</span>
+                <span class="u-underline-thin">カテゴリー</span>
                 <p>{{step.category.category_name}}</p>
-                <span class="underline-thin">達成目安時間</span>
+                <span class="u-underline-thin">達成目安時間</span>
                 <p>{{step.goal_time}}時間</p>
             </div>
         </a>

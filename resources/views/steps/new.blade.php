@@ -3,12 +3,12 @@
 @section('title', '新規登録')
 
 @section('content')
-    <div id="app" class="container js-height-hold">
-        <div class="card bg-white border-default">
-            <div class="card-header">STEP新規登録</div>
+    <div id="app" class="main-container js-height-hold">
+        <div class="c-card u-bg-white u-border-default">
+            <div class="c-card-header">STEP新規登録</div>
 
 
-            <div class="card-body">
+            <div class="c-card-body">
                 <form method="POST" action="{{ route('steps.create') }}" enctype="multipart/form-data">
                     @csrf
 
@@ -16,11 +16,11 @@
                         <label for="title" class="col-md-4">タイトル(40文字以内)<span class="badge badge-secondary">必須</span></label>
 
                         <div class="col-md-6">
-                            <input id="title" type="text" class="form-control js-count1 @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}" autocomplete="title" autofocus>
-                            <p class="float-right"><span class="js-show1">0</span>/40</p>
+                            <input id="title" type="text" class="form-control js-count1 @error('title') u-is-invalid @enderror" name="title" value="{{ old('title') }}" autocomplete="title" autofocus>
+                            <p class="u-float-right"><span class="js-show1">0</span>/40</p>
 
                             @error('title')
-                            <span class="invalid-feedback" role="alert">
+                            <span class="u-invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
@@ -31,7 +31,7 @@
                         <label  for="category_id" class="col-md-4">カテゴリー<span class="badge badge-secondary">必須</span></label>
 
                         <div class="col-md-6">
-                            <select id="category_id" type="text" size="1"  class="form-control form-control-category @error('category_id') is-invalid @enderror" name="category_id"  autocomplete="category_id" autofocus>
+                            <select id="category_id" type="text" size="1"  class="form-control form-control-category @error('category_id') u-is-invalid @enderror" name="category_id"  autocomplete="category_id" autofocus>
                               <option  value="0">選択してください</option>
                               @foreach($categories as $category )
                               @if(old('category_id') == $category->id )
@@ -44,7 +44,7 @@
 
 
                             @error('category_id')
-                            <span class="invalid-feedback" role="alert">
+                            <span class="u-invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
@@ -55,10 +55,10 @@
                         <label for="goal_time" class="col-md-4">達成目安時間<span class="badge badge-secondary">必須</span></label>
 
                         <div class="col-md-6">
-                            <input id="goal_time" type="text" class="form-control js-count form-control-time @error('goal_time') is-invalid @enderror" name="goal_time" value="{{ old('goal_time') }}" autocomplete="goal_time" autofocus>時間
+                            <input id="goal_time" type="text" class="form-control js-count form-control-time @error('goal_time') u-is-invalid @enderror" name="goal_time" value="{{ old('goal_time') }}" autocomplete="goal_time" autofocus>時間
 
                             @error('goal_time')
-                            <span class="invalid-feedback" role="alert">
+                            <span class="u-invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
@@ -69,11 +69,11 @@
                         <label for="description" class="col-md-4">説明(200文字以内)<span class="badge badge-secondary">必須</span></label>
 
                         <div class="col-md-6">
-                            <textarea  id="description" class="form-control form-control-textarea js-count2 @error('description') is-invalid @enderror" name="description"  autocomplete="description" autofocus>{{ old('description') }}</textarea>
-                            <p class="float-right"><span class="js-show2">0</span>/200</p>
+                            <textarea  id="description" class="form-control form-control-textarea js-count2 @error('description') u-is-invalid @enderror" name="description"  autocomplete="description" autofocus>{{ old('description') }}</textarea>
+                            <p class="u-float-right"><span class="js-show2">0</span>/200</p>
 
                             @error('description')
-                            <span class="invalid-feedback" role="alert">
+                            <span class="u-invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
@@ -86,11 +86,11 @@
                       <label for="step{{$i - 1}}" class="col-md-4">{{ __('子STEP').$i }}(40文字以内)<span class="badge badge-secondary">必須</span></label>
 
                       <div class="col-md-6">
-                        <input  id="step{{$i - 1}}" type="text" class="form-control js-count{{$i + 2}} @error('step'.($i - 1)) is-invalid @enderror" name="step{{$i - 1}}" value="{{old('step'.($i - 1))}} " autocomplete="step{{$i - 1}}" autofocus>
-                        <p class="float-right"><span class="js-show{{$i + 2}}">0</span>/40</p>
+                        <input  id="step{{$i - 1}}" type="text" class="form-control js-count{{$i + 2}} @error('step'.($i - 1)) u-is-invalid @enderror" name="step{{$i - 1}}" value="{{old('step'.($i - 1))}} " autocomplete="step{{$i - 1}}" autofocus>
+                        <p class="u-float-right"><span class="js-show{{$i + 2}}">0</span>/40</p>
 
                         @error('step'.($i - 1))
-                        <span class="invalid-feedback" role="alert">
+                        <span class="u-invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>
                         </span>
                         @enderror
@@ -102,11 +102,11 @@
                       <label for="todo{{$i - 1}}" class="col-md-4">やること(100文字以内)<span class="badge badge-secondary">必須</span></label>
 
                       <div class="col-md-6">
-                          <textarea id="todo{{$i - 1}}" class="form-control form-control-textarea js-count{{$i + 7}} @error('todo'.($i - 1)) is-invalid @enderror" name="todo{{$i - 1}}"  autocomplete="todo{{$i - 1}}" autofocus>{{ old('todo'.($i - 1)) }}</textarea>
-                          <p class="float-right"><span class="js-show{{$i + 7}}">0</span>/100</p>
+                          <textarea id="todo{{$i - 1}}" class="form-control form-control-textarea js-count{{$i + 7}} @error('todo'.($i - 1)) u-is-invalid @enderror" name="todo{{$i - 1}}"  autocomplete="todo{{$i - 1}}" autofocus>{{ old('todo'.($i - 1)) }}</textarea>
+                          <p class="u-float-right"><span class="js-show{{$i + 7}}">0</span>/100</p>
 
                           @error('todo'.($i - 1))
-                          <span class="invalid-feedback" role="alert">
+                          <span class="u-invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>
                           </span>
                           @enderror
@@ -121,10 +121,10 @@
 
                         <div class="col-md-6">
 
-                            <input id="pic" type="file" class="form-control form-control-pic @error('category_name') is-invalid @enderror" name="pic" value="{{ old('pic') }}" autocomplete="pic" autofocus>
+                            <input id="pic" type="file" class="form-control form-control-pic @error('category_name') u-is-invalid @enderror" name="pic" value="{{ old('pic') }}" autocomplete="pic" autofocus>
 
                             @error('pic')
-                            <span class="invalid-feedback" role="alert">
+                            <span class="u-invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
@@ -135,7 +135,7 @@
 
                     <div class="form-group">
                         <div class="col-md-6 offset-md-4">
-                            <button type="submit" class="btn btn-primary  float-right">
+                            <button type="submit" class="c-btn c-btn--primary  u-float-right">
                                 登録
                             </button>
                         </div>

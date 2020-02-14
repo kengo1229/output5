@@ -1,402 +1,50 @@
 //=======================
-//reset css  ress使用
+// Foundation
 //=======================
+@import "Foundation/_reset.scss";
+@import "Foundation/_variable.scss";
+@import "Foundation/_mixin.scss";
+@import "Foundation/_base.scss";
 
-html {
-    box-sizing: border-box;
-    -webkit-text-size-adjust: 100%;
-    /* Prevent adjustments of font size after orientation changes in iOS */
-    word-break: normal;
-    -moz-tab-size: 4;
-    tab-size: 4;
-}
-
-*,
-::after,
-::before {
-    background-repeat: no-repeat;
-    /* Set `background-repeat: no-repeat` to all elements and pseudo elements */
-    box-sizing: inherit;
-}
-
-::after,
-::before {
-    text-decoration: inherit;
-    /* Inherit text-decoration and vertical align to ::before and ::after pseudo elements */
-    vertical-align: inherit;
-}
-
-* {
-    padding: 0;
-    /* Reset `padding` and `margin` of all elements */
-    margin: 0;
-}
-/* # =================================================================
-   # General elements
-   # ================================================================= */
-hr {
-    overflow: visible;
-    /* Show the overflow in Edge and IE */
-    height: 0;
-    /* Add the correct box sizing in Firefox */
-}
-
-details,
-main {
-    display: block;
-    /* Render the `main` element consistently in IE. */
-}
-
-summary {
-    display: list-item;
-    /* Add the correct display in all browsers */
-}
-
-small {
-    font-size: 80%;
-    /* Set font-size to 80% in `small` elements */
-}
-
-[hidden] {
-    display: none;
-    /* Add the correct display in IE */
-}
-
-abbr[title] {
-    border-bottom: none;
-    /* Remove the bottom border in Chrome 57 */
-    /* Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari */
-    text-decoration: underline;
-    text-decoration: underline dotted;
-}
-
-a {
-    background-color: transparent;
-    /* Remove the gray background on active links in IE 10 */
-}
-
-a:active,
-a:hover {
-    outline-width: 0;
-    /* Remove the outline when hovering in all browsers */
-}
-
-code,
-kbd,
-pre,
-samp {
-    font-family: monospace, monospace;
-    /* Specify the font family of code elements */
-}
-
-pre {
-    font-size: 1em;
-    /* Correct the odd `em` font sizing in all browsers */
-}
-
-b,
-strong {
-    font-weight: bolder;
-    /* Add the correct font weight in Chrome, Edge, and Safari */
-}
-/* https://gist.github.com/unruthless/413930 */
-sub,
-sup {
-    font-size: 75%;
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
-}
-
-sub {
-    bottom: -0.25em;
-}
-
-sup {
-    top: -0.5em;
-}
-/* # =================================================================
-   # Forms
-   # ================================================================= */
-input {
-    border-radius: 0;
-}
-/* Replace pointer cursor in disabled elements */
-[disabled] {
-    cursor: default;
-}
-
-[type="number"]::-webkit-inner-spin-button,
-[type="number"]::-webkit-outer-spin-button {
-    height: auto;
-    /* Correct the cursor style of increment and decrement buttons in Chrome */
-}
-
-[type="search"] {
-    -webkit-appearance: textfield;
-    /* Correct the odd appearance in Chrome and Safari */
-    outline-offset: -2px;
-    /* Correct the outline style in Safari */
-}
-
-[type="search"]::-webkit-search-decoration {
-    -webkit-appearance: none;
-    /* Remove the inner padding in Chrome and Safari on macOS */
-}
-
-textarea {
-    overflow: auto;
-    /* Internet Explorer 11+ */
-    resize: none;
-    /* Specify textarea resizability */
-}
-
-button,
-input,
-optgroup,
-select,
-textarea {
-    font: inherit;
-    /* Specify font inheritance of form elements */
-}
-
-optgroup {
-    font-weight: bold;
-    /* Restore the font weight unset by the previous rule */
-}
-
-button {
-    overflow: visible;
-    /* Address `overflow` set to `hidden` in IE 8/9/10/11 */
-}
-
-button,
-select {
-    text-transform: none;
-    /* Firefox 40+, Internet Explorer 11- */
-}
-/* Apply cursor pointer to button elements */
-[type="button"],
-[type="reset"],
-[type="submit"],
-[role="button"],
-button {
-    cursor: pointer;
-    color: inherit;
-}
-/* Remove inner padding and border in Firefox 4+ */
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner,
-button::-moz-focus-inner {
-    border-style: none;
-    padding: 0;
-}
-/* Replace focus style removed in the border reset above */
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner,
-button:-moz-focusring {
-    outline: 1px dotted ButtonText;
-}
-button, html [type="button"],
-/* Prevent a WebKit bug where (2) destroys native `audio` and `video`controls in Android 4 */
-[type="reset"],
-[type="submit"] {
-    -webkit-appearance: button;
-    /* Correct the inability to style clickable types in iOS */
-}
-/* Remove the default button styling in all browsers */
-button,
-input,
-select,
-textarea {
-    background-color: transparent;
-    border-style: none;
-}
-
-select::-ms-expand {
-    display: none;
-    /* Internet Explorer 11+ */
-}
-
-select::-ms-value {
-    color: currentColor;
-    /* Internet Explorer 11+ */
-}
-
-legend {
-    border: 0;
-    /* Correct `color` not being inherited in IE 8/9/10/11 */
-    color: inherit;
-    /* Correct the color inheritance from `fieldset` elements in IE */
-    display: table;
-    /* Correct the text wrapping in Edge and IE */
-    max-width: 100%;
-    /* Correct the text wrapping in Edge and IE */
-    white-space: normal;
-    /* Correct the text wrapping in Edge and IE */
-    max-width: 100%;
-    /* Correct the text wrapping in Edge 18- and IE */
-}
-
-::-webkit-file-upload-button {
-    /* Correct the inability to style clickable types in iOS and Safari */
-    -webkit-appearance: button;
-    color: inherit;
-    font: inherit;
-    /* Change font properties to `inherit` in Chrome and Safari */
-}
-/* # =================================================================
-   # Specify media element style
-   # ================================================================= */
-img {
-    border-style: none;
-    /* Remove border when inside `a` element in IE 8/9/10 */
-}
-/* Add the correct vertical alignment in Chrome, Firefox, and Opera */
-progress {
-    vertical-align: baseline;
-}
-
-svg:not([fill]) {
-    fill: currentColor;
-}
-/* # =================================================================
-   # Accessibility
-   # ================================================================= */
-/* Hide content from screens but not screenreaders */
-@media screen {
-    [hidden~="screen"] {
-        display: inherit;
-    }
-
-    [hidden~="screen"]:not(:active):not(:focus):not(:target) {
-        position: absolute !important;
-        clip: rect(0 0 0 0) !important;
-    }
-}
-/* Specify the progress cursor of updating elements */
-[aria-busy="true"] {
-    cursor: progress;
-}
-/* Specify the pointer cursor of trigger elements */
-[aria-controls] {
-    cursor: pointer;
-}
-/* Specify the unstyled cursor of disabled, not-editable, or otherwise inoperable elements */
-[aria-disabled] {
-    cursor: default;
-}
 //=======================
-//変数
+// Layout
 //=======================
-// 色
-$font-color_default: #000000e6;
-$background-color_default: #f8f7fc;
-$border-color_default: #43424826;
-$link-color_default: #3490dc;
-$link-hover-color_default: #1d68a7;
-$card-header-bg-color: #00000008;
-$card-footer-bg-color: #00000008;
-$navbar-color: #00000080;
-$navbar-hover-color: #000000b3;
-$text-muted-color: #fff;
-$footer-color: #000000b3; // 横幅
-$content-width: 980px;
-$navbar-width: 1080px; // 文字サイズ
-$font-size_xs: 12px;
-$font-size_s: 14px;
-$font-size_default: 16px;
-$font-size_m: 18px;
-$font-size_l: 24px;
-$font-size_xl: 30px;
-$font-size_xxl: 40px;
-$font-size_3l: 50px; // 余白
-$space_s: 5px;
-$space_m: 10px;
-$space_l: 15px;
-$space_xl: 20px;
-$space_xxl: 30px;
-$space_3l: 40px;
-$font-step: 'Anton', sans-serif;
-$breakpoints: (
-    'sm': 'screen and (max-width: 320px)',
-    'md': 'screen and (max-width: 559px)',
-    'lg-side': 'screen and (max-width: 959px) and (orientation: landscape) ', /*スマホ横向き*/
-    'lg': 'screen and (max-width: 959px)',
-)
-!default;
-@mixin sm($breakpoint: sm) {
-    @media #{map-get($breakpoints, $breakpoint)} {
-        @content;
-    }
-}
-@mixin md($breakpoint: md) {
-    @media #{map-get($breakpoints, $breakpoint)} {
-        @content;
-    }
-}
-@mixin lg-side($breakpoint: lg) {
-    @media #{map-get($breakpoints, $breakpoint)} {
-        @content;
-    }
-}
-@mixin lg($breakpoint: lg) {
-    @media #{map-get($breakpoints, $breakpoint)} {
-        @content;
-    }
-}
+@import "Layout/_footer.scss";
+@import "Layout/_main.scss";
+
 //=======================
-//base
+// Object
 //=======================
+//===========
+// Component
+//===========
+@import "Object/Component/_btn.scss";
+@import "Object/Component/_card.scss";
 
-body,
-html {
-    font-family: "Nunito", sans-serif;
-    font-size: $font-size_default;
-    font-weight: 400;
-    line-height: 1.6;
-    color: $font-color_default;
-    background-color: $background-color_default;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
 
-a {
-    color: $link-color_default;
-    text-decoration: none;
-    background-color: transparent;
 
-    &:hover {
-        color: $link-hover-color_default;
-        text-decoration: underline;
-    }
-}
 
-input[type="text"],
-[type="password"],
-[type="file"],
-select,
-button,
-textarea:focus {
-    outline: 0;
-}
-@-webkit-keyframes fadeout {
-    0% {
-        opacity: 1;
-    }
 
-    50% {
-        opacity: 0.5;
-    }
+//===========
+// Project
+//===========
 
-    100% {
-        opacity: 0;
-    }
-}
+
+
+
+
+//=======================
+// Utility
+//=======================
+@import "Utility/_underline.scss";
+@import "Utility/_margin.scss";
+@import "Utility/_text.scss";
+@import "Utility/_float-right.scss";
+@import "Utility/_border.scss";
+@import "Utility/_invalid.scss";
+@import "Utility/_background.scss";
+@import "Utility/_shadow.scss";
+@import "Utility/_title.scss";
 //=======================
 //post-user
 //=======================
@@ -417,12 +65,6 @@ textarea:focus {
     }
 }
 
-br {
-    display: none;
-    @include lg-side() {
-        display: block;
-    }
-}
 // ==================================
 // hero
 // ==================================
@@ -454,7 +96,7 @@ br {
 
     &-title {
         text-align: center;
-        font-size: 50px;
+        font-size: $font-size_3l;
         color: #fff;
         text-shadow: 0 0 20px rgba(227, 123, 137, .4), 0 0 50px rgba(0, 0, 0, .8);
         @include lg() {
@@ -572,7 +214,7 @@ br {
         background: rgba(255, 255, 255, .85);
         width: 100%;
         height: 100vh;
-        padding-top: 50px;
+        padding-top: $font-size_3l;
         transition: 0.5s;
 
         &.active {
@@ -591,7 +233,7 @@ br {
     }
     @include sm() {
         font-size: $font-size_l;
-        margin-top: 50px;
+        margin-top: $font-size_3l;
     }
 
     &-item {
@@ -603,7 +245,7 @@ br {
         }
         @include md() {
           font-size: $font-size_xl;
-          margin: 30px 0;
+          margin: $font-size_xl 0;
           text-align: center;
         }
         @include sm() {
@@ -675,82 +317,7 @@ br {
 //=======================
 //card
 //=======================
-.card {
-    width: 60%;
-    @include lg() {
-        width: 80%;
-    }
-    @include lg-side(){
-        width: 80%;
-        margin-top:50px;
-    }
-    @include md() {
-        width: 100%;
-        margin-top:0;
-    }
-    @include sm() {
-        width: 90%;
-    }
 
-    &-container {
-        width: 40%;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        -webkit-font-smoothing: none;
-        -webkit-font-smoothing: antialiased;
-        -webkit-font-smoothing: subpixel-antialiased;
-    }
-
-    &-header {
-        padding: $space_m $space_xxl;
-        margin-bottom: 0;
-        background-color: $card-header-bg-color;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.125);
-        font-size: $font-size_m;
-        @include sm() {
-            padding: $space_m;
-        }
-    }
-
-    &-body {
-        -webkit-box-flex: 1;
-        flex: 1 1 auto;
-        min-height: 1px;
-        padding: $space_xxl;
-        @include sm() {
-            padding: $space_m;
-        }
-    }
-
-    &-footer {
-        padding: $space_m $space_xxl;
-        margin-bottom: 0;
-        background-color: $card-footer-bg-color;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.125);
-        font-size: $font-size_m;
-    }
-}
-//=======================
-//main
-//=======================
-
-.main {
-    padding: 70px 0;
-    @include lg() {
-        padding: 58px 0;
-    }
-    @include sm() {
-        padding: 35px 0;
-    }
-
-    .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-}
 //=======================
 //form
 //=======================
@@ -804,7 +371,7 @@ br {
 .badge {
     display: inline-block;
     padding: $space_m $space_s;
-    margin-left: 5px;
+    margin-left: $space_s;
     font-size: $font-size_default;
     font-weight: bold;
     line-height: 0;
@@ -814,8 +381,8 @@ br {
     border-radius: 3px;
 
     &-secondary {
-        background-color: #4fc353;
-        color: white;
+        background-color: $badge-bg-color;
+        color: $font-color-white;
     }
 }
 //=======================
@@ -860,20 +427,18 @@ br {
       width: 90%;
     }
 }
+
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 //=======================
 //footer
 //=======================
 
-.footer {
-    background-color: $footer-color;
-    padding: $space_l;
-    text-align: center;
-    width: 100%;
-    margin-top: auto;
-    @include md() {
-        font-size: $font-size_xs;
-    }
-}
 //=======================
 //alert
 //=======================
@@ -951,9 +516,6 @@ br {
             margin: 0;
             min-height: 200px;
         }
-        @include sm() {
-            min-height: 200px;
-        }
 
         &-challenging {
             padding: $space_m;
@@ -962,9 +524,6 @@ br {
                 min-height: 330px;
             }
             @include md() {
-                min-height: 290px;
-            }
-            @include sm() {
                 min-height: 290px;
             }
         }
@@ -976,9 +535,6 @@ br {
                 min-height: 275px;
             }
             @include md() {
-                min-height: 245px;
-            }
-            @include sm() {
                 min-height: 245px;
             }
         }
@@ -1113,97 +669,9 @@ STEPに適用させるスタイル
 //button
 //=======================
 
-.btn {
-    display: inline-block;
-    color: #212529;
-    text-align: center;
-    vertical-align: middle;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-color: transparent;
-    border: 1px solid transparent;
-    padding: 0.375rem 0.75rem;
-    border-radius: 0.25rem;
-    -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-
-    &-link {
-        font-weight: 400;
-        color: #3490dc;
-        text-decoration: none;
-        padding: $space_s 0;
-    }
-
-    &-primary {
-        color: #fff;
-        background-color: #3490dc;
-        border-color: #3490dc;
-
-        &:hover {
-            color: #fff;
-            background-color: #227dc7;
-            border-color: #2176bd;
-        }
-    }
-}
 //=======================
 //utility
 //=======================
-
-.shadow-sm {
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
-}
-
-.bg-white {
-    background-color: #fff;
-}
-
-.border-default {
-    border-radius: 3px;
-    border: solid 1px #00000020;
-}
-
-.text-muted {
-    color: $text-muted-color;
-}
-
-.invalid-feedback {
-    color: red;
-    font-size: $font-size_s;
-    display: block;
-    @include sm() {
-        font-size: $font-size_xs;
-    }
-}
-
-.is-invalid {
-    border-color: red;
-    padding-right: calc(1.6em + 0.75rem);
-}
-
-.float-right {
-    float: right;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.margin-bottom-space_l {
-    margin-bottom: $space_l;
-}
-
-.margin-bottom-space_m {
-    margin-bottom: $space_m;
-}
-
-.margin-right-space_m {
-    margin-right: $space_m;
-}
-
 .content-center {
     width: 40%;
     position: fixed;
@@ -1223,18 +691,4 @@ STEPに適用させるスタイル
         top: 52%;
         width: 90%;
     }
-}
-
-.underline-thin {
-    border-bottom: solid thin #3490dc;
-    display: inline-block;
-}
-
-.underline-bold {
-    border-bottom: groove 5px #3490dc;
-}
-
-.secondary-title {
-    margin: $space_l 0;
-    text-align: center;
 }

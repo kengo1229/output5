@@ -14,11 +14,11 @@
 
     <div class="container">
        <div id="app" class="row">
-         <h2 class="secondary-title">新着STEP一覧</h2>
+         <h2 class="u-secondary-title">新着STEP一覧</h2>
             <div class="step-group">
               @foreach ($latest_parent_steps as $latest_parent_step)
 
-                  <div class="step bg-white border-default margin-bottom-space_l">
+                  <div class="step u-bg-white u-border-default u-margin-bottom-space_l">
                       <a class="step-link" href="{{ action('StepsController@show', $latest_parent_step->id) }}">
                         @if(($latest_parent_step->pic) != null)
                           <div>
@@ -30,11 +30,11 @@
                           </div>
                         @endif
                         <div class="step-body">
-                            <span class="underline-thin">タイトル</span>
+                            <span class="u-underline-thin">タイトル</span>
                             <p>{{ $latest_parent_step->title }}</p>
-                            <span class="underline-thin">カテゴリー</span>
+                            <span class="u-underline-thin">カテゴリー</span>
                             <p>{{ $latest_parent_step->category->category_name }}</p>
-                            <span class="underline-thin">達成目安時間</span>
+                            <span class="u-underline-thin">達成目安時間</span>
                             <p>{{ $latest_parent_step->goal_time }}時間</p>
                         </div>
                       </a>

@@ -1,0 +1,59 @@
+//=======================
+//base
+//=======================
+
+body,
+html {
+    font-family: "Nunito", sans-serif;
+    font-size: $font-size_default;
+    font-weight: $font-weight_default;
+    line-height: 1.6;
+    color: $font-color_default;
+    background-color: $background-color_default;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    color: $link-color_default;
+    text-decoration: none;
+    background-color: transparent;
+
+    &:hover {
+        color: $link-hover-color_default;
+        text-decoration: underline;
+    }
+}
+
+input[type="text"],
+[type="password"],
+[type="file"],
+select,
+button,
+textarea:focus {
+    outline: 0;
+}
+
+br {
+    display: none;
+    @include lg-side() {
+        display: block;
+    }
+}
+
+
+@-webkit-keyframes fadeout {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

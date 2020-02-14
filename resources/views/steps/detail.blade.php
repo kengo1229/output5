@@ -4,18 +4,18 @@
 
 @section('content')
 
-    <div id="app" class="container js-height-hold">
-        <div class="card bg-white border-default">
-            <div class="card-header">{{ __('子STEP詳細') }}</div>
+    <div id="app" class="main-container js-height-hold">
+        <div class="c-card u-bg-white u-border-default">
+            <div class="c-card-header">{{ __('子STEP詳細') }}</div>
 
-            <div class="card-body">
+            <div class="c-card-body">
 
               @for ($i = 1; $i <= 5; $i++)
-                <div class="show-group  underline-bold">
+                <div class="show-group  u-underline-bold">
                     <div class="col-md-6">
-                      <span class="underline-thin">子STEP{{ $i }}</span>
+                      <span class="u-underline-thin">子STEP{{ $i }}</span>
                         <div class="show-control">{{ $child_step[$i - 1]['step']}}</div>
-                      <span class="underline-thin">やること</span>
+                      <span class="u-underline-thin">やること</span>
                         <div class="show-control">{{ $child_step[$i - 1]['todo']}}</div>
                     </div>
                 </div>
