@@ -14,11 +14,11 @@ class CreatechildStepTable extends Migration
      */
     public function up()
     {
-        Schema::create('child_step', function (Blueprint $table) {
+        Schema::create('child_steps', function (Blueprint $table) {
           $table->bigIncrements('id');
-          $table->string('title',255);
-          $table->text('description');
-          $table->integer('parent_step_id');
+          $table->string('step',255)->default(0);
+          $table->string('todo',255)->default(0);
+          $table->unsignedBigInteger('parent_step_id');
           $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreatechildStepTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('child_step');
+        Schema::dropIfExists('child_steps');
     }
 }

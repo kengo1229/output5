@@ -14,10 +14,12 @@ class CreateChallengeParentTable extends Migration
      */
     public function up()
     {
-        Schema::create('challenge_parent', function (Blueprint $table) {
+        Schema::create('challenge_parent_steps', function (Blueprint $table) {
           $table->bigIncrements('id');
-          $table->integer('user_id');
-          $table->integer('parent_step_id');
+          $table->unsignedBigInteger('user_id');
+          $table->unsignedBigInteger('parent_step_id');
+          $table->integer('total_time')->nullable(false)->default(0);
+          $table->integer('num_clear_child_step')->nullable(false)->default(0);
           $table->tinyInteger('end_flg')->default(0);
           $table->timestamps();
         });
@@ -30,6 +32,6 @@ class CreateChallengeParentTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('challenge_parent');
+        Schema::dropIfExists('challenge_parent_steps');
     }
 }
