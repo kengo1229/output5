@@ -10,10 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+// TOP（初期画面）表示のルーティング
+Route::get('/', 'TopController@index')->name('top');
 // 認証関係のルーティング
 Auth::routes();
 
@@ -48,8 +46,6 @@ Route::group(['middleware' => 'auth'], function() {
 
 });
 
-// トップページ表示のルーティング
-Route::get('/top', 'TopController@index')->name('top');
 // STEP一覧表示機能のルーティング
 Route::get('/steps', 'StepsController@index')->name('steps');
 // ajaxでjsonにアクセスするためのルーティング

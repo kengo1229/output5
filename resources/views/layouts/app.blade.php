@@ -23,7 +23,7 @@
           <div class="p-navbar-left">
 
             <img class="p-navbar-left__img"  src="{{ asset('/img/navbar_image.jpg') }}" alt="アイコン画像">
-              <a class="p-navbar-left__title" href="{{ url('/top') }}">
+              <a class="p-navbar-left__title" href="{{ url('/') }}">
                   {{ config('app.name') }}
               </a>
 
