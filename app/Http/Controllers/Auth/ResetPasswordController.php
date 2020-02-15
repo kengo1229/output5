@@ -28,7 +28,7 @@ class ResetPasswordController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/top';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -39,7 +39,7 @@ class ResetPasswordController extends Controller
     {
         $this->middleware('guest');
     }
-    
+
     // パスワード再設定完了後にメッセージを表示したいので、sendResetResponseメソッドをオーバーライド
     protected function sendResetResponse(Request $request, $response)
     {
