@@ -14,7 +14,7 @@ class ChangeChallengeParentIdTable extends Migration
     public function up()
     {
         Schema::table('challenge_child_steps', function (Blueprint $table) {
-          $table->unsignedBigInteger('challenge_parent_id')->change();
+          $table->unsignedBigInteger('challenge_parent_step_id')->change();
         });
     }
 
@@ -26,7 +26,7 @@ class ChangeChallengeParentIdTable extends Migration
     public function down()
     {
         Schema::table('challenge_child_steps', function (Blueprint $table) {
-          $table->Integer('challenge_parent_id')->nullable(false)->change();
+          $table->Integer('challenge_parent_step_id')->nullable(false)->change();
         });
     }
 }

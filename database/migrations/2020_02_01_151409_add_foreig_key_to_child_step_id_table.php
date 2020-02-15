@@ -15,7 +15,7 @@ class AddForeigKeyToChildStepIdTable extends Migration
     public function up()
     {
         Schema::table('challenge_child_steps', function (Blueprint $table) {
-          $table->foreign('challenge_parent_id')->references('id')->on('challenge_parent_steps');
+          $table->foreign('challenge_parent_step_id')->references('id')->on('challenge_parent_steps');
         });
     }
 
@@ -27,7 +27,7 @@ class AddForeigKeyToChildStepIdTable extends Migration
     public function down()
     {
         Schema::table('challenge_child_steps', function (Blueprint $table) {
-          $table->dropForeign(['challenge_parent_id']);
+          $table->dropForeign(['challenge_parent_step_id']);
         });
     }
 }

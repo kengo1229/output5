@@ -16,7 +16,7 @@ class CreateChallengeChildTable extends Migration
     {
         Schema::create('challenge_child', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('challenge_parent_id');
+            $table->integer('challenge_parent_step_id');
             $table->integer('child_step_id');
             $table->tinyInteger('end_flg')->default(0);
             $table->timestamps();
