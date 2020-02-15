@@ -19,7 +19,7 @@ class CreateParentStepTable extends Migration
           $table->string('title',255);
           $table->integer('goal_time');
           $table->integer('category_id');
-          $table->text('description');
+          $table->string('description',255);
           $table->string('pic')->nullable();
           $table->integer('user_id');
           $table->timestamps();
