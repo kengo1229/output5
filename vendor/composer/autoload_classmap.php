@@ -90,6 +90,7 @@ return array(
     'Carbon\\Traits\\Units' => $vendorDir . '/nesbot/carbon/src/Carbon/Traits/Units.php',
     'Carbon\\Traits\\Week' => $vendorDir . '/nesbot/carbon/src/Carbon/Traits/Week.php',
     'Carbon\\Translator' => $vendorDir . '/nesbot/carbon/src/Carbon/Translator.php',
+    'CategoriesTableSeeder' => $baseDir . '/database/seeds/CategoriesTableSeeder.php',
     'Composer\\Semver\\Comparator' => $vendorDir . '/composer/semver/src/Comparator.php',
     'Composer\\Semver\\Constraint\\AbstractConstraint' => $vendorDir . '/composer/semver/src/Constraint/AbstractConstraint.php',
     'Composer\\Semver\\Constraint\\Constraint' => $vendorDir . '/composer/semver/src/Constraint/Constraint.php',
