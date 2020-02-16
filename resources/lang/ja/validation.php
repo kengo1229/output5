@@ -150,7 +150,7 @@ return [
       'category_id' => 'カテゴリー',
       "title"=>"タイトル",
       "goal_time"=>"達成目安時間",
-      "description"=>"説明",
+      "description"=>"内容",
       "pic"=>"画像",
       "step0"=>"子STEP1",
       "todo0"=>"やること",
