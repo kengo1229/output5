@@ -13,7 +13,7 @@
                     @csrf
 
                     <div class="p-form__group">
-                        <label for="title" class="col-md-4">タイトル(40文字以内)<span class="c-badge ">必須</span></label>
+                        <label for="title" class="col-md-4">タイトル(40文字以下)<span class="c-badge ">必須</span></label>
 
                         <div class="col-md-6">
                             <input id="title" type="text" class="p-form__control js-count1 @error('title') u-is-invalid @enderror" name="title" value="{{ old('title') }}" autocomplete="title" autofocus>
@@ -66,7 +66,7 @@
                     </div>
 
                     <div class="p-form__group">
-                        <label for="description" class="col-md-4">内容(200文字以内)<span class="c-badge ">必須</span></label>
+                        <label for="description" class="col-md-4">内容(200文字以下)<span class="c-badge ">必須</span></label>
 
                         <div class="col-md-6">
                             <textarea  id="description" class="p-form__control p-form__textarea js-count2 @error('description') u-is-invalid @enderror" name="description"  autocomplete="description" autofocus>{{ old('description') }}</textarea>
@@ -83,7 +83,7 @@
                   @for ($i = 1; $i <= 5; $i++)
                     <div class="p-form__group">
 
-                      <label for="step{{$i - 1}}" class="col-md-4">{{ __('子STEP').$i }}(40文字以内)<span class="c-badge ">必須</span></label>
+                      <label for="step{{$i - 1}}" class="col-md-4">{{ __('子STEP').$i }}(40文字以下)<span class="c-badge ">必須</span></label>
 
                       <div class="col-md-6">
                         <input  id="step{{$i - 1}}" type="text" class="p-form__control js-count{{$i + 2}} @error('step'.($i - 1)) u-is-invalid @enderror" name="step{{$i - 1}}" value="{{old('step'.($i - 1))}} " autocomplete="step{{$i - 1}}" autofocus>
@@ -99,7 +99,7 @@
 
                     <div class="p-form__group">
 
-                      <label for="todo{{$i - 1}}" class="col-md-4">やること(100文字以内)<span class="c-badge ">必須</span></label>
+                      <label for="todo{{$i - 1}}" class="col-md-4">やること(100文字以下)<span class="c-badge ">必須</span></label>
 
                       <div class="col-md-6">
                           <textarea id="todo{{$i - 1}}" class="p-form__control p-form__textarea js-count{{$i + 7}} @error('todo'.($i - 1)) u-is-invalid @enderror" name="todo{{$i - 1}}"  autocomplete="todo{{$i - 1}}" autofocus>{{ old('todo'.($i - 1)) }}</textarea>

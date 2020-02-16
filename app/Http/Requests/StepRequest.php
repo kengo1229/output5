@@ -39,7 +39,7 @@ class StepRequest extends FormRequest
             'todo3' => 'required|string|max:100',
             'step4' => 'required|string|max:40',
             'todo4' => 'required|string|max:100',
-            'pic' => 'file|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'pic' => 'file|image|mimes:jpeg,png,jpg|max:2048'
         ];
     }
 }

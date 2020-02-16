@@ -16,7 +16,7 @@ class ProfileController extends Controller
   {
     // GETパラメータがログインユーザーのidと同一かチェックする
     if($id != Auth::id()){
-        return redirect('/top')->with('flash_message', __('不正な操作が行われました。'));
+        return redirect('/')->with('flash_message', __('不正な操作が行われました。'));
     }
 
     // プロフィールが既に登録済みの場合、編集画面に飛ばす(ユーザー名があったら、既に登録済みと判断)
@@ -33,7 +33,7 @@ class ProfileController extends Controller
   {
     // GETパラメータがログインユーザーのidと同一かチェックする
     if($id != Auth::id()){
-        return redirect('/top')->with('flash_message', __('不正な操作が行われました。'));
+        return redirect('/')->with('flash_message', __('不正な操作が行われました。'));
     }
 
     $user =  Auth::user();
@@ -58,7 +58,7 @@ class ProfileController extends Controller
   {
     // GETパラメータがログインユーザーのidと同一かチェックする
     if($id != Auth::id()){
-        return redirect('/top')->with('flash_message', __('不正な操作が行われました。'));
+        return redirect('/')->with('flash_message', __('不正な操作が行われました。'));
     }
 
     $user = Auth::user();
@@ -79,7 +79,7 @@ class ProfileController extends Controller
   {
 
     if($id != Auth::id()){
-        return redirect('/top')->with('flash_message', __('不正な操作が行われました。'));
+        return redirect('/')->with('flash_message', __('不正な操作が行われました。'));
     }
 
     $user =  Auth::user();
@@ -104,7 +104,7 @@ class ProfileController extends Controller
 
     // GETパラメータが数字かどうかをチェックする
     if(!ctype_digit($id)){
-      return redirect('/top')->with('flash_message', __('不正な操作が行われました。'));
+      return redirect('/')->with('flash_message', __('不正な操作が行われました。'));
     }
     // パラメーターから渡ってきた$idを元にしてユーザー情報の取得
     // 中に入っているのは親STEP詳細画面から渡ってきたSTEP投稿者のユーザーid

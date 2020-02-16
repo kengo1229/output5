@@ -53,7 +53,7 @@
 
                   <div class="p-hamburger-menu">
                       <li class="p-hamburger-menu__item">
-                          <a class="p-hamburger-menu__link" href="/top">TOP</a>
+                          <a class="p-hamburger-menu__link" href="/">TOP</a>
                       </li>
                       <li class="p-hamburger-menu__item">
                           <a class="p-hamburger-menu__link" href="/steps/new">STEP登録</a>

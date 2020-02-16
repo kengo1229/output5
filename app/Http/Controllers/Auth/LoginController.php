@@ -42,7 +42,7 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
         // ログインしたら、ユーザー自身のプロフィールページへ移動
-        return redirect('/top')->with('flash_message', __('ログインしました。'));
+        return redirect('/')->with('flash_message', __('ログインしました。'));
     }
 
     // ログアウト後の遷移先をトップ画面に変更
@@ -55,6 +55,6 @@ class LoginController extends Controller
         $request->session()->invalidate();
 
         // /homeに変更
-        return $this->loggedOut($request) ?: redirect('/top')->with('flash_message', __('ログアウトしました。'));
+        return $this->loggedOut($request) ?: redirect('/')->with('flash_message', __('ログアウトしました。'));
     }
 }

@@ -12,7 +12,7 @@
                     @csrf
 
                     <div class="p-form__group">
-                        <label for="username" class="col-md-4">ユーザー名(20文字以内)<span class="c-badge ">必須</span></label>
+                        <label for="username" class="col-md-4">ユーザー名(20文字以下)<span class="c-badge ">必須</span></label>
 
                         <div class="col-md-6">
                             <input id="username" type="text" class="p-form__control js-count1 @error('username') u-is-invalid @enderror" name="username" value="{{ old('username') }}" autocomplete="username" autofocus>
@@ -41,7 +41,7 @@
                     </div>
 
                     <div class="p-form__group">
-                        <label for="introduction" class="col-md-4">自己紹介(200文字以内)<span class="c-badge ">必須</span></label>
+                        <label for="introduction" class="col-md-4">自己紹介(200文字以下)<span class="c-badge ">必須</span></label>
 
                         <div class="col-md-6">
                           <textarea id="introduction"  class="p-form__control p-form__textarea js-count2 @error('introduction') u-is-invalid @enderror" name="introduction" value="" autocomplete="introduction" autofocus>{{ old('introduction') }}</textarea>

@@ -36,11 +36,10 @@ class ProfileRequest extends FormRequest
                     'required',
                     'email',
                     'max:255',
-                    'string',
                   Rule::unique('users')->ignore($this->user()->id),
                 ],
             'introduction' => 'required|string|max:200',
-            'pic' => 'file|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'pic' => 'file|image|mimes:jpeg,png,jpg|max:2048',
         ];
     }
 }

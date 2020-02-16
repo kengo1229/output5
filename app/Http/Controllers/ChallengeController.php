@@ -19,7 +19,7 @@ class ChallengeController extends Controller
   {
     // GETパラメータが数字かどうかをチェックする
     if(!ctype_digit($id)){
-      return redirect('/top')->with('flash_message', __('不正な操作が行われました。'));
+      return redirect('/')->with('flash_message', __('不正な操作が行われました。'));
     }
 
     $parent_step = ParentStep::with('category')->find($id);
@@ -71,7 +71,7 @@ class ChallengeController extends Controller
 
       // GETパラメータが数字かどうかをチェックする
       if(!ctype_digit($id)){
-        return redirect('/top')->with('flash_message', __('不正な操作が行われました。'));
+        return redirect('/')->with('flash_message', __('不正な操作が行われました。'));
       }
 
 
@@ -117,7 +117,7 @@ class ChallengeController extends Controller
   {
     // GETパラメータが数字かどうかをチェックする
     if(!ctype_digit($id)){
-      return redirect('/top')->with('flash_message', __('不正な操作が行われました。'));
+      return redirect('/')->with('flash_message', __('不正な操作が行われました。'));
     }
 
     // challenge_child_stepから$idを元に該当のレコードを検索する

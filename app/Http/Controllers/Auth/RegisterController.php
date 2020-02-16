@@ -72,7 +72,7 @@ class RegisterController extends Controller
         ]);
     }
 
-    // ユーザー登録完了後のリダイレクト先を変更する
+    // 新規登録完了後のリダイレクト先を変更する
     public function register(Request $request)
     {
         $this->validator($request->all())->validate();
@@ -81,7 +81,7 @@ class RegisterController extends Controller
 
         $this->guard()->login($user);
 
-        return redirect( 'profile/'  . $user->id . '/new' )->with( 'flash_message', 'ユーザー登録が完了しました。続いてプロフィールを登録しましょう!' );
+        return redirect( 'profile/'  . $user->id . '/new' )->with( 'flash_message', '新規登録が完了しました。続いてプロフィールを登録しましょう!' );
 
     }
 
