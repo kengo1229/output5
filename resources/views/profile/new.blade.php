@@ -57,7 +57,7 @@
 
 
                     <div class="p-form__group">
-                        <label for="pic" class="col-md-4  ">アイコン画像<span class="c-badge ">任意</span></label>
+                        <label for="pic" class="col-md-4  ">アイコン画像（jpg/jpeg/png）<span class="c-badge ">任意</span></label>
 
                         <div class="col-md-6">
 

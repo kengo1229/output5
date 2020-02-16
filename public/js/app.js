@@ -49742,11 +49742,8 @@ var app = new Vue({
 $(function () {
   $('.js-count1, .js-count2, .js-count3, .js-count4, .js-count5, .js-count6, .js-count7, .js-count8, .js-count9, .js-count10, .js-count11, .js-count12').bind('keyup', function () {
     for (num = 1; num <= 12; num++) {
-      if ($((".js-count" + num).length) !== undefined) {
-        console.log($((".js-count" + num)[num - 1].length));
-        var thisValueLength = $(".js-count" + num).val().replace(/\s+/g, '').length;
-        $(".js-show" + num).html(thisValueLength);
-      }
+      var thisValueLength = $(".js-count" + num).val().replace(/\s+/g, '').length;
+      $(".js-show" + num).html(thisValueLength);
     }
   });
 }); // ナビメニュー

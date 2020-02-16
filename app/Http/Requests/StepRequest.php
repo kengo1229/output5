@@ -20,7 +20,7 @@ class StepRequest extends FormRequest
      * Get the validation rules that apply to the request.
      *
      * @return array
-     *親step新規登録時のバリデーション
+     *親step新規登録・編集時のバリデーション
      */
     public function rules()
     {
