@@ -36,7 +36,7 @@
                       <a class="p-step__link" href="{{ action('StepsController@show', $my_create_step->id) }}">
                         @if(($my_create_step->pic) != null)
                           <div>
-                            <img class="p-step__img" src="data:image/png;base64,{{ $my_create_step->pic }}" alt="ステップ画像">
+                            <img class="p-step__img" src="{{ $my_create_step->pic }}" alt="ステップ画像">
                           </div>
                         @else
                           <div>
@@ -68,7 +68,7 @@
                   <a class="p-step__link" href="{{ action('ChallengeController@show', $my_challenge_step->id) }}">
                     @if(($my_challenge_step->parentStep['pic']) != null)
                       <div>
-                        <img class="p-step__img" src="data:image/png;base64,{{ $my_challenge_step->parentStep['pic'] }}" alt="ステップ画像">
+                        <img class="p-step__img" src="{{ $my_challenge_step->parentStep['pic'] }}" alt="ステップ画像">
                       </div>
                     @else
                       <div>
@@ -106,7 +106,7 @@
 
                     @if(($my_finish_step->parentStep['pic']) != null)
                       <div>
-                        <img class="p-step__img" src="data:image/png;base64,{{ $my_finish_step->parentStep['pic'] }}" alt="ステップ画像">
+                        <img class="p-step__img" src="{{ $my_finish_step->parentStep['pic'] }}" alt="ステップ画像">
                       </div>
                     @else
                       <div>

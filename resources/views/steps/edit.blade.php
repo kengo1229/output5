@@ -12,7 +12,7 @@
 
               <div class="c-post-user u-margin-bottom-space_m">
                 @if(($user->pic) != null)
-                  <img class="c-post-user__img" src="data:image/png;base64,{{ $user->pic }}" alt="アイコン画像" width="200" height="130">
+                  <img class="c-post-user__img" src="{{ $user->pic }}" alt="アイコン画像" width="200" height="130">
                 @else
                   <img class="c-post-user__img" src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし" width="200" height="130">
                 @endif
@@ -142,7 +142,7 @@
 
                           @if(($parent_step_info->pic) != null)
                             <div>
-                              <img src="($parent_step_info->pic" alt="ステップ画像">
+                              <img src="{{ $parent_step_info->pic }}" alt="ステップ画像">
                             </div>
                           @else
                             <div>

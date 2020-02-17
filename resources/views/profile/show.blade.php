@@ -7,7 +7,7 @@
 
 
       @if(($user->pic) != null)
-          <img class="p-user__img u-margin-bottom-space_l" src="/{{ str_replace('public/', 'storage/', $user->pic) }}" alt="アイコン画像">
+          <img class="p-user__img u-margin-bottom-space_l" src="{{ $user->pic }}" alt="アイコン画像">
       @else
           <img class="p-user__img u-margin-bottom-space_l" src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし">
       @endif
@@ -40,7 +40,7 @@
                       <a class="p-step__link" href="{{ action('StepsController@show', $my_create_step->id) }}">
                         @if(($my_create_step->pic) != null)
                           <div>
-                            <img class="p-step__img" src="/{{ str_replace('public', 'storage', $my_create_step->pic) }}" alt="ステップ画像">
+                            <img class="p-step__img" src="{{ $my_create_step->pic }}" alt="ステップ画像">
                           </div>
                         @else
                           <div>

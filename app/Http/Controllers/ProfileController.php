@@ -38,6 +38,7 @@ class ProfileController extends Controller
     }
 
     $user =  Auth::user();
+
     // 画像を登録した場合、AWSのs3に作ったフォルダに保存する
     // herokuのDBにはフォルダへのリンクを保存する
     if(!empty($request->pic)){
@@ -45,6 +46,7 @@ class ProfileController extends Controller
       $uploadImg = $user->pic = $request->file('pic');
         $path = Storage::disk('s3')->putFile('/profile_img', $uploadImg, 'public');
         $user->pic = Storage::disk('s3')->url($path);
+
     }
 
     // フォームに入力された値をusersテーブルに登録する
@@ -83,8 +85,14 @@ class ProfileController extends Controller
 
     $user =  Auth::user();
 
+    // 画像を登録した場合、AWSのs3に作ったフォルダに保存する
+    // herokuのDBにはフォルダへのリンクを保存する
     if(!empty($request->pic)){
-      $user->pic = base64_encode(file_get_contents($request->pic->getRealPath()));
+
+      $uploadImg = $user->pic = $request->file('pic');
+        $path = Storage::disk('s3')->putFile('/profile_img', $uploadImg, 'public');
+        $user->pic = Storage::disk('s3')->url($path);
+
     }
 
     // フォームに入力された値をusersテーブルに登録する

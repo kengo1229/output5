@@ -63,7 +63,7 @@
 
                           @if(($user->pic) != null )
                             <div>
-                              <img src="data:image/png;base64,{{ $user->pic }}" alt="アイコン画像">
+                              <img src="{{ $user->pic }}" alt="アイコン画像">
                             </div>
                           @else
                             <div>

@@ -30,8 +30,14 @@ class StepsController extends Controller
 
     $parent_step->user_id = Auth::user()->id;
 
+    // 画像を登録した場合、AWSのs3に作ったフォルダに保存する
+    // herokuのDBにはフォルダへのリンクを保存する
     if(!empty($request->pic)){
-    $parent_step->pic = base64_encode(file_get_contents($request->pic->getRealPath()));
+
+    $uploadImg = $parent_step->pic = $request->file('pic');
+      $path = Storage::disk('s3')->putFile('/profile_img', $uploadImg, 'public');
+      $parent_step->pic = Storage::disk('s3')->url($path);
+
     }
 
     // フォームに入力された値をparent_stepsテーブルに登録する
@@ -72,7 +78,7 @@ class StepsController extends Controller
     $parent_step_info = $user->parent_steps()->find($id);
 
     // ログインユーザーのidがSTEP登録者のuser_idと一致する場合のみマイページを表示する
-    //他人がSTEPの編集を勝手にできないようにする 
+    //他人がSTEPの編集を勝手にできないようにする
     if($parent_step_info->user_id != Auth::id()){
         return redirect('/')->with('flash_message', __('不正な操作が行われました。'));
     }
@@ -96,8 +102,14 @@ class StepsController extends Controller
       // parent_stepsテーブルの更新
       $parent_step = Auth::user()->parent_steps()->find($id);
 
+      // 画像を登録した場合、AWSのs3に作ったフォルダに保存する
+      // herokuのDBにはフォルダへのリンクを保存する
       if(!empty($request->pic)){
-        $parent_step->pic = base64_encode(file_get_contents($request->pic->getRealPath()));
+
+        $uploadImg = $parent_step->pic = $request->file('pic');
+          $path = Storage::disk('s3')->putFile('/profile_img', $uploadImg, 'public');
+          $parent_step->pic = Storage::disk('s3')->url($path);
+
       }
 
       $parent_step->fill($request->all())->save();

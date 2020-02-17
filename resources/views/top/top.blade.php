@@ -22,7 +22,7 @@
                       <a class="p-step__link" href="{{ action('StepsController@show', $latest_parent_step->id) }}">
                         @if(($latest_parent_step->pic) != null)
                           <div>
-                            <img class="p-step__img" src="$latest_parent_step->pic" alt="ステップ画像">
+                            <img class="p-step__img" src="{{ $latest_parent_step->pic }}" alt="ステップ画像">
                           </div>
                         @else
                           <div>
