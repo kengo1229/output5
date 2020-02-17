@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\ProfileRequest;
 use Illuminate\Support\Facades\Auth;
 use App\User;
@@ -37,9 +38,14 @@ class ProfileController extends Controller
     }
 
     $user =  Auth::user();
-
+    // 画像を登録した場合、AWSのs3に作ったフォルダに保存する
+    // herokuのDBにはフォルダへのリンクを保存する
     if(!empty($request->pic)){
-      $user->pic = base64_encode(file_get_contents($request->pic->getRealPath()));
+
+      $uploadImg = $user->pic = $request->file('pic');
+        $path = Storage::disk('s3')->putFile('/profile_img', $uploadImg, 'public');
+        $image->image = Storage::disk('s3')->url($path);
+
     }
 
     // フォームに入力された値をusersテーブルに登録する

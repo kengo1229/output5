@@ -8,7 +8,7 @@
 <div class="p-user u-margin-bottom-space_l js-height-hold">
 
       @if(($user->pic) != null)
-          <img class="p-user__img" src="data:image/png;base64,{{ $user->pic }}" alt="アイコン画像">
+          <img class="p-user__img" src="{{ $user->pic }}" alt="アイコン画像">
       @else
           <img class="p-user__img" src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし">
       @endif
