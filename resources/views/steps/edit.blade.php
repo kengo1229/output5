@@ -12,9 +12,9 @@
 
               <div class="c-post-user u-margin-bottom-space_m">
                 @if(($user->pic) != null)
-                  <img class="c-post-user__img" src="{{ $user->pic }}" alt="アイコン画像" width="200" height="130">
+                  <img class="c-post-user__img" src="{{ $user->pic }}" alt="アイコン画像">
                 @else
-                  <img class="c-post-user__img" src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし" width="200" height="130">
+                  <img class="c-post-user__img" src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし">
                 @endif
                 @if(($user->username)  != null)
                   <a href="{{ action('ProfileController@show', $user->id) }}" class="c-post-user-name">
@@ -102,10 +102,10 @@
                     @for ($i = 1; $i <= 5; $i++)
                       <div class="p-form__group">
 
-                        <label for="step{{$i - 1}}" class="col-md-4">{{ __('子STEP').$i }}<span class="c-badge ">必須</span></label>
+                        <label for="step{{$i - 1}}" class="col-md-4">{{__('子STEP').$i}}<span class="c-badge">必須</span></label>
 
                         <div class="col-md-6">
-                          <input id="step{{$i - 1}}" type="text" class="p-form__control js-count{{$i + 2}}  @error('step'.($i - 1)) u-is-invalid @enderror" name="step{{$i - 1}}" value="{{ old('step'.($i - 1), $child_step_info[$i - 1]['step']) }} " autocomplete="step{{$i - 1}}" autofocus>
+                          <input id="step{{$i - 1}}" type="text" class="p-form__control js-count{{$i + 2}} @error('step'.($i - 1)) u-is-invalid @enderror" name="step{{$i - 1}}" value="{{old('step'.($i - 1),$child_step_info[$i - 1]['step'])}}" autocomplete="step{{$i - 1}}" autofocus>
                           <p class="u-float-right"><span class="js-show{{$i + 2}}">0</span>/40</p>
 
                           @error('step'.($i - 1))

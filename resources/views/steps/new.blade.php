@@ -83,10 +83,10 @@
                   @for ($i = 1; $i <= 5; $i++)
                     <div class="p-form__group">
 
-                      <label for="step{{$i - 1}}" class="col-md-4">{{ __('子STEP').$i }}(40文字以下)<span class="c-badge ">必須</span></label>
+                      <label for="step{{$i - 1}}" class="col-md-4">{{__('子STEP').$i }}(40文字以下)<span class="c-badge">必須</span></label>
 
                       <div class="col-md-6">
-                        <input  id="step{{$i - 1}}" type="text" class="p-form__control js-count{{$i + 2}} @error('step'.($i - 1)) u-is-invalid @enderror" name="step{{$i - 1}}" value="{{old('step'.($i - 1))}} " autocomplete="step{{$i - 1}}" autofocus>
+                        <input id="step{{$i - 1}}" type="text" class="p-form__control js-count{{$i + 2}} @error('step'.($i - 1)) u-is-invalid @enderror" name="step{{$i - 1}}" value="{{old('step'.($i - 1))}}" autocomplete="step{{$i - 1}}" autofocus>
                         <p class="u-float-right"><span class="js-show{{$i + 2}}">0</span>/40</p>
 
                         @error('step'.($i - 1))

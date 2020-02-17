@@ -12,9 +12,9 @@
 
                 <div class="c-post-user u-margin-bottom-space_m">
                   @if(($user->pic) != null)
-                    <img class="c-post-user__img" src="{{ $user->pic }}" alt="アイコン画像" width="200" height="130">
+                    <img class="c-post-user__img" src="{{ $user->pic }}" alt="アイコン画像">
                   @else
-                    <img class="c-post-user__img" src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし" width="200" height="130">
+                    <img class="c-post-user__img" src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし">
                   @endif
                   @if(($user->username)  != null)
                     <a href="{{ action('ProfileController@show', $user->id) }}">
