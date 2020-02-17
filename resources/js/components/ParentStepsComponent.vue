@@ -30,7 +30,7 @@ export default {
     methods: {
         getSteps() {
 
-            let url = '/ajax/steps/?page=' + this.page;
+            let url = '/ajax/steps';
 
             axios.get(url).then(({
                 data
