@@ -63,11 +63,11 @@
 
                           @if(($user->pic) != null )
                             <div>
-                              <img src="{{ $user->pic }}" alt="アイコン画像">
+                              <img src="{{ $user->pic }}" class="p-form__img" alt="アイコン画像">
                             </div>
                           @else
                             <div>
-                              <img src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし"
+                              <img src="{{ asset('/img/no_image.jpg') }}" class="p-form__img" alt="登録画像なし"
                             </div>
                           @endif
                         </div>

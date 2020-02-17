@@ -759,6 +759,11 @@ br {
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
+.p-form__img {
+  width: 200px;
+  height: 130px;
+}
+
 .p-form__pic {
   padding: 5px;
 }

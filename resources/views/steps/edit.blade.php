@@ -142,11 +142,11 @@
 
                           @if(($parent_step_info->pic) != null)
                             <div>
-                              <img src="{{ $parent_step_info->pic }}" alt="ステップ画像">
+                              <img src="{{ $parent_step_info->pic }}" class="p-form__img" alt="ステップ画像">
                             </div>
                           @else
                             <div>
-                              <img src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし">
+                              <img src="{{ asset('/img/no_image.jpg') }}" class="p-form__img" alt="登録画像なし">
                             </div>
                           @endif
                         </div>
