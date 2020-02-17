@@ -78,12 +78,6 @@ class StepsController extends Controller
     // $idを元にparent_stepテーブルに登録されたデータを格納
     $parent_step_info = $user->parent_steps()->find($id);
 
-    // ログインユーザーのidがSTEP登録者のuser_idと一致する場合のみマイページを表示する
-    //他人がSTEPの編集を勝手にできないようにする
-    if($parent_step_info->user_id != Auth::id()){
-        return redirect('/')->with('flash_message', __('不正な操作が行われました。'));
-    }
-
     // $idを元にchild_stepテーブルに登録されたデータを格納
     $child_step_info  = ChildStep::where('parent_step_id', $id)->get();
 
