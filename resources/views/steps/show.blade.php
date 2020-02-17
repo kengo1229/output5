@@ -53,7 +53,7 @@
                 <div class="p-show-group">
                     <div class="col-md-6">
                       <span class="u-underline-thin">内容</span>
-                      <p class="p-show__control u-underline-bold">{{ $parent_step->description }}</p>
+                      <div class="p-show__control u-underline-bold">{{ $parent_step->description }}</div>
                     </div>
                 </div>
 

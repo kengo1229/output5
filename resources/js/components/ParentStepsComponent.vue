@@ -1,6 +1,6 @@
 <template>
 <div class="p-step-group">
-
+サボテン
     <div class="p-step  u-bg-white u-border-default u-margin-bottom-space_l" v-for="step in steps">
         <a class="p-step__link" :href="'/steps/' + step.id">
             <img v-if="step.pic != null" class="p-step__img" :src="step.pic.replace('public/', 'storage/')" alt="ステップ画像">

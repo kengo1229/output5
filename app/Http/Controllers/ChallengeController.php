@@ -52,11 +52,16 @@ class ChallengeController extends Controller
     $child_step_id =  ChildStep::where('parent_step_id', $id)->get('id');
     // challenge_child_stepsにチャレンジ中の子STEP情報を登録する
     ChallengeChildStep::insert([
-      ['challenge_parent_step_id' => $challenge_parent_step_id,  'child_step_id' => $child_step_id[0]['id'], 'num_child_step' =>'1'],
-      ['challenge_parent_step_id' => $challenge_parent_step_id,  'child_step_id' => $child_step_id[1]['id'], 'num_child_step' =>'2'],
-      ['challenge_parent_step_id' => $challenge_parent_step_id,  'child_step_id' => $child_step_id[2]['id'], 'num_child_step' =>'3' ],
-      ['challenge_parent_step_id' => $challenge_parent_step_id,  'child_step_id' => $child_step_id[3]['id'], 'num_child_step' =>'4' ],
-      ['challenge_parent_step_id' => $challenge_parent_step_id,  'child_step_id' => $child_step_id[4]['id'], 'num_child_step' =>'5' ]
+      ['challenge_parent_step_id' => $challenge_parent_step_id,  'child_step_id' => $child_step_id[0]['id'],
+       'num_child_step' =>'1', 'created_at' => now(), 'updated_at' => now() ],
+      ['challenge_parent_step_id' => $challenge_parent_step_id,  'child_step_id' => $child_step_id[1]['id'],
+       'num_child_step' =>'2', 'created_at' => now(), 'updated_at' => now() ],
+      ['challenge_parent_step_id' => $challenge_parent_step_id,  'child_step_id' => $child_step_id[2]['id'],
+       'num_child_step' =>'3', 'created_at' => now(), 'updated_at' => now()  ],
+      ['challenge_parent_step_id' => $challenge_parent_step_id,  'child_step_id' => $child_step_id[3]['id'],
+       'num_child_step' =>'4', 'created_at' => now(), 'updated_at' => now()  ],
+      ['challenge_parent_step_id' => $challenge_parent_step_id,  'child_step_id' => $child_step_id[4]['id'],
+       'num_child_step' =>'5', 'created_at' => now(), 'updated_at' => now()  ]
     ]);
 
   // 登録が完了したら、challenge_parent_stepのidを渡してチャレンジ画面に飛ばす
@@ -87,8 +92,8 @@ class ChallengeController extends Controller
         ->where('id', $parent_step_id['parent_step_id'])->first();
 
         /*
-        $idを元にしてチャレンジ中の親STEPに紐づく子STEPのend_flgが全て1なら
-        親STEPのend_flgも1にする
+        $idを元にしてチャレンジ中の親STEPに紐づく子STEPのend_flgが
+        全て1(全クリア)なら親STEPのend_flgも1にする
         */
         if(ChallengeChildStep::where('challenge_parent_step_id', $id)->where('end_flg', '0')->first() === null){
           $challenge_parent_step = ChallengeParentStep::where('id', $id)->first();

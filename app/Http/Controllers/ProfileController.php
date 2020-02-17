@@ -38,11 +38,8 @@ class ProfileController extends Controller
 
     $user =  Auth::user();
 
-    //アップロードされた画像をstoreAsメソッドで保存場所とファイル名を指定して保存
-    // 画像を登録しない場合、storeAsにエラーが出るため条件をつける
     if(!empty($request->pic)){
-      $time = date("Ymdhis");
-      $user->pic = $request->pic->storeAs('public/profile_images', $time.'_'.Auth::user()->id . '.jpg');
+      $user->pic = base64_encode(file_get_contents($request->pic->getRealPath()));
     }
 
     // フォームに入力された値をusersテーブルに登録する
@@ -68,9 +65,6 @@ class ProfileController extends Controller
       return redirect('profile/' . $id . '/new');
     }
 
-    // 登録された画像を表示するためにパスを変更する
-    $user->pic = str_replace( 'public' , 'storage' , $user->pic);
-
     return view('profile.edit', compact('user'));
   }
 
@@ -84,10 +78,8 @@ class ProfileController extends Controller
 
     $user =  Auth::user();
 
-    // 画像を変更しない場合、storeAsにエラーが出るため条件をつける
     if(!empty($request->pic)){
-      $time = date("Ymdhis");
-      $user->pic = $request->pic->storeAs('public/profile_images', $time.'_'.Auth::user()->id . '.jpg');
+      $user->pic = base64_encode(file_get_contents($request->pic->getRealPath()));
     }
 
     // フォームに入力された値をusersテーブルに登録する

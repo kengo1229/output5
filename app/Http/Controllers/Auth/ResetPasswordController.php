@@ -55,7 +55,7 @@ class ResetPasswordController extends Controller
         $broker = Password::broker();
         $broker->validator(function(array $credentials) { return true; });
         return $broker;
- 
+
     }
 
 }

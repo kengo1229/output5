@@ -63,11 +63,11 @@
 
                           @if(($user->pic) != null )
                             <div>
-                              <img src="/{{ $user->pic }}" alt="アイコン画像" width="200" height="130">
+                              <img src="data:image/png;base64,{{ $user->pic }}" alt="アイコン画像">
                             </div>
                           @else
                             <div>
-                              <img src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし" width="200" height="130">
+                              <img src="{{ asset('/img/no_image.jpg') }}" alt="登録画像なし"
                             </div>
                           @endif
                         </div>

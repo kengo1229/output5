@@ -29,11 +29,9 @@ class StepsController extends Controller
     $parent_step = new ParentStep;
 
     $parent_step->user_id = Auth::user()->id;
-    //アップロードされた画像をstoreAsメソッドで保存場所とファイル名を指定して保存
-    // 画像を登録しない場合、storeAsにエラーが出るため条件分岐させる
+
     if(!empty($request->pic)){
-    $time = date("Ymdhis");
-    $parent_step->pic = $request->pic->storeAs('public/step_images', $time.'_'.Auth::user()->id . '.jpg');
+    $parent_step->pic = base64_encode(file_get_contents($request->pic->getRealPath()));
     }
 
     // フォームに入力された値をparent_stepsテーブルに登録する
@@ -45,11 +43,16 @@ class StepsController extends Controller
     // child_stepsテーブルにフォームに入力された情報とparent_step_idを登録する
     // 各stepとtodoに入力された値を配列形式で一気に登録する
     ChildStep::insert([
-    ['parent_step_id' => $parent_step->id,  'step' => $request->step0, 'todo' =>  $request->todo0 ],
-    ['parent_step_id' => $parent_step->id,  'step' => $request->step1, 'todo' =>  $request->todo1 ],
-    ['parent_step_id' => $parent_step->id,  'step' => $request->step2, 'todo' =>  $request->todo2 ],
-    ['parent_step_id' => $parent_step->id,  'step' => $request->step3, 'todo' =>  $request->todo3 ],
-    ['parent_step_id' => $parent_step->id,  'step' => $request->step4, 'todo' =>  $request->todo4 ]
+    ['parent_step_id' => $parent_step->id,  'step' => $request->step0, 'todo' =>  $request->todo0,
+     'created_at' => now(), 'updated_at' => now() ],
+    ['parent_step_id' => $parent_step->id,  'step' => $request->step1, 'todo' =>  $request->todo1,
+     'created_at' => now(), 'updated_at' => now() ],
+    ['parent_step_id' => $parent_step->id,  'step' => $request->step2, 'todo' =>  $request->todo2,
+    'created_at' => now(), 'updated_at' => now()  ],
+    ['parent_step_id' => $parent_step->id,  'step' => $request->step3, 'todo' =>  $request->todo3,
+     'created_at' => now(), 'updated_at' => now()  ],
+    ['parent_step_id' => $parent_step->id,  'step' => $request->step4, 'todo' =>  $request->todo4,
+     'created_at' => now(), 'updated_at' => now()  ]
 ]);
 
     return redirect('/steps')->with('flash_message', '登録が完了しました!');
@@ -67,8 +70,13 @@ class StepsController extends Controller
     $categories = Category::get();
     // $idを元にparent_stepテーブルに登録されたデータを格納
     $parent_step_info = $user->parent_steps()->find($id);
-    // 登録された画像を表示するためにパスを変更する
-    $parent_step_info->pic = str_replace( 'public' , 'storage' , $parent_step_info->pic);
+
+    // ログインユーザーのidがSTEP登録者のuser_idと一致する場合のみマイページを表示する
+    //他人がSTEPの編集を勝手にできないようにする 
+    if($parent_step_info->user_id != Auth::id()){
+        return redirect('/')->with('flash_message', __('不正な操作が行われました。'));
+    }
+
     // $idを元にchild_stepテーブルに登録されたデータを格納
     $child_step_info  = ChildStep::where('parent_step_id', $id)->get();
 
@@ -88,10 +96,8 @@ class StepsController extends Controller
       // parent_stepsテーブルの更新
       $parent_step = Auth::user()->parent_steps()->find($id);
 
-      // 画像を変更しない場合、storeAsにエラーが出るため条件分岐させる
       if(!empty($request->pic)){
-        $time = date("Ymdhis");
-        $parent_step->pic = $request->pic->storeAs('public/step_images', $time.'_'.Auth::user()->id . '.jpg');
+        $parent_step->pic = base64_encode(file_get_contents($request->pic->getRealPath()));
       }
 
       $parent_step->fill($request->all())->save();

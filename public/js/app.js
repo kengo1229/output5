@@ -37398,59 +37398,62 @@ var render = function() {
   return _c(
     "div",
     { staticClass: "p-step-group" },
-    _vm._l(_vm.steps, function(step) {
-      return _c(
-        "div",
-        {
-          staticClass:
-            "p-step  u-bg-white u-border-default u-margin-bottom-space_l"
-        },
-        [
-          _c(
-            "a",
-            {
-              staticClass: "p-step__link",
-              attrs: { href: "/steps/" + step.id }
-            },
-            [
-              step.pic != null
-                ? _c("img", {
-                    staticClass: "p-step__img",
-                    attrs: {
-                      src: step.pic.replace("public/", "storage/"),
-                      alt: "ステップ画像"
-                    }
-                  })
-                : _c("img", {
-                    staticClass: "p-step__img",
-                    attrs: { src: "/img/no_image.jpg", alt: "登録画像なし" }
-                  }),
-              _vm._v(" "),
-              _c("div", { staticClass: "p-step__body" }, [
-                _c("span", { staticClass: "u-underline-thin" }, [
-                  _vm._v("タイトル")
-                ]),
+    [
+      _vm._v("\nサボテン\n    "),
+      _vm._l(_vm.steps, function(step) {
+        return _c(
+          "div",
+          {
+            staticClass:
+              "p-step  u-bg-white u-border-default u-margin-bottom-space_l"
+          },
+          [
+            _c(
+              "a",
+              {
+                staticClass: "p-step__link",
+                attrs: { href: "/steps/" + step.id }
+              },
+              [
+                step.pic != null
+                  ? _c("img", {
+                      staticClass: "p-step__img",
+                      attrs: {
+                        src: step.pic.replace("public/", "storage/"),
+                        alt: "ステップ画像"
+                      }
+                    })
+                  : _c("img", {
+                      staticClass: "p-step__img",
+                      attrs: { src: "/img/no_image.jpg", alt: "登録画像なし" }
+                    }),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(step.title))]),
-                _vm._v(" "),
-                _c("span", { staticClass: "u-underline-thin" }, [
-                  _vm._v("カテゴリー")
-                ]),
-                _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(step.category.category_name))]),
-                _vm._v(" "),
-                _c("span", { staticClass: "u-underline-thin" }, [
-                  _vm._v("達成目安時間")
-                ]),
-                _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(step.goal_time) + "時間")])
-              ])
-            ]
-          )
-        ]
-      )
-    }),
-    0
+                _c("div", { staticClass: "p-step__body" }, [
+                  _c("span", { staticClass: "u-underline-thin" }, [
+                    _vm._v("タイトル")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v(_vm._s(step.title))]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "u-underline-thin" }, [
+                    _vm._v("カテゴリー")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v(_vm._s(step.category.category_name))]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "u-underline-thin" }, [
+                    _vm._v("達成目安時間")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v(_vm._s(step.goal_time) + "時間")])
+                ])
+              ]
+            )
+          ]
+        )
+      })
+    ],
+    2
   )
 }
 var staticRenderFns = []
@@ -49742,7 +49745,7 @@ var app = new Vue({
 $(function () {
   $('.js-count1, .js-count2, .js-count3, .js-count4, .js-count5, .js-count6, .js-count7, .js-count8, .js-count9, .js-count10, .js-count11, .js-count12').bind('keyup', function () {
     for (num = 1; num <= 12; num++) {
-      var thisValueLength = $(".js-count" + num).val().replace(/\s+/g, '').length;
+      var thisValueLength = $(".js-count" + num).val().length;
       $(".js-show" + num).html(thisValueLength);
     }
   });
