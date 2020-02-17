@@ -44,8 +44,7 @@ class ProfileController extends Controller
 
       $uploadImg = $user->pic = $request->file('pic');
         $path = Storage::disk('s3')->putFile('/profile_img', $uploadImg, 'public');
-        $image->image = Storage::disk('s3')->url($path);
-
+        $user->pic = Storage::disk('s3')->url($path);
     }
 
     // フォームに入力された値をusersテーブルに登録する
