@@ -1073,7 +1073,7 @@ STEPに適用させるスタイル
 .p-navbar {
   position: fixed;
   width: 100%;
-  z-index: 2;
+  z-index: 40;
 }
 
 .p-navbar__section {
