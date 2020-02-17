@@ -23,32 +23,16 @@
 export default {
     data: function() {
         return {
-            page: 1,
             steps: []
         }
     },
-    methods: {
-        getSteps() {
-
-            let url = '/ajax/steps';
-
-            axios.get(url).then(({
-                data
-            }) => (this.steps = data.data));
-        },
-
-
-        movePage(page) {
-
-            this.page = page;
-            this.getSteps();
-
-        }
-
-    },
     mounted() {
 
-        this.getSteps();
+      let url = 'https://webukatustep.herokuapp.com/ajax/steps';
+
+      axios.get(url).then(({
+          data
+      }) => (this.steps = data.data));
 
     }
 }

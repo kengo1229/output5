@@ -1932,27 +1932,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      page: 1,
       steps: []
     };
   },
-  methods: {
-    getSteps: function getSteps() {
-      var _this = this;
-
-      var url = '/ajax/steps';
-      axios.get(url).then(function (_ref) {
-        var data = _ref.data;
-        return _this.steps = data.data;
-      });
-    },
-    movePage: function movePage(page) {
-      this.page = page;
-      this.getSteps();
-    }
-  },
   mounted: function mounted() {
-    this.getSteps();
+    var _this = this;
+
+    var url = 'https://webukatustep.herokuapp.com/ajax/steps';
+    axios.get(url).then(function (_ref) {
+      var data = _ref.data;
+      return _this.steps = data.data;
+    });
   }
 });
 
