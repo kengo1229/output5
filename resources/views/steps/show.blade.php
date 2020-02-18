@@ -27,7 +27,10 @@
                   @endif
                 </div>
 
-                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <a href="https://twitter.com/share?url=https://webukatustep.herokuapp.com/steps/{{ $parent_step->id }}&text=注目のSTEP%0a&hashtags=あなたの人生のSTEPを共有しよう" data-show-count="false" target="_blank">
+                <span class="u-twitter-share-button"><i class="fab fa-twitter"></i>  Tweet</span>
+
+                </a>
 
                 <div class="p-show-group">
                     <div class="col-md-6 ">

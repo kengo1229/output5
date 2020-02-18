@@ -13,6 +13,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -31,15 +32,20 @@
 
                 @guest
                 <ul class="p-nav  js-toggle-sp-menu-target">
+                  @if (Route::has('register'))
+                    <li class="p-nav__item">
+                        <a class="p-nav__link" href="{{ route('register') }}">新規登録</a>
+                    </li>
+                  @endif
 
                     <li class="p-nav__item">
                         <a class="p-nav__link" href="{{ route('login') }}">ログイン</a>
                     </li>
-                    @if (Route::has('register'))
-                        <li class="p-nav__item">
-                            <a class="p-nav__link" href="{{ route('register') }}">新規登録</a>
-                        </li>
-                    @endif
+
+                    <li class="p-nav__item">
+                      <a class="p-hamburger-menu__link" href="/steps">STEP一覧</a>
+                    </li>
+
                 </ul>
                 @else
 

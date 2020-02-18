@@ -1,9 +1,9 @@
 <template>
 <div class="p-step-group">
-サボテン
-    <div class="p-step  u-bg-white u-border-default u-margin-bottom-space_l" v-for="step in steps">
+
+    <div class="p-step  u-bg-white u-border-default" v-for="step in steps">
         <a class="p-step__link" :href="'/steps/' + step.id">
-            <img v-if="step.pic != null" class="p-step__img" :src="step.pic.replace('public/', 'storage/')" alt="ステップ画像">
+            <img v-if="step.pic != null" class="p-step__img" :src="step.pic" alt="ステップ画像">
             <img v-else class="p-step__img" src="/img/no_image.jpg" alt="登録画像なし">
             <div class="p-step__body">
                 <span class="u-underline-thin">タイトル</span>
@@ -28,7 +28,7 @@ export default {
     },
     mounted() {
 
-      let url = 'https://webukatustep.herokuapp.com/ajax/steps';
+      let url = 'ajax/steps';
 
       axios.get(url).then(({
           data

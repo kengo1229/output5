@@ -1,10 +1,13 @@
 .p-step {
-    margin: 0 $space_s;
     width: 23%;
     transition: 1s;
     -webkit-transition: 1s;
+    margin-left:  $space_m;
+    margin-right: $space_m;
+    margin-bottom: $space_l;
     @include lg() {
-        margin: 0;
+      margin-left:  0;
+      margin-right: 0;
         width: 43%;
     }
     @include md() {
@@ -18,17 +21,48 @@
         opacity: 0.7;
     }
 
+    &:nth-of-type(4n) {
+        margin-left: $space_m;
+        margin-right: $space_s;
+        @include lg() {
+          margin-left:  0;
+          margin-right: 0;
+        }
+        @include sm() {
+            margin-left: 0;
+            margin-right: 0;
+            margin-bottom: $space_l;
+        }
+    }
+
+    &:nth-of-type(4n+1) {
+        margin-left: $space_s;
+        margin-right: $space_m;
+        @include lg() {
+          margin-left:  0;
+          margin-right: 0;
+        }
+        @include sm() {
+            margin-left: 0;
+            margin-right: 0;
+            margin-bottom: $space_l;
+        }
+    }
+
     &-group {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-around;
+        justify-content: flex-start;
         text-align: center;
         @include lg() {
           justify-content: space-between;
         }
         @include md() {
-          justify-content: center;
+          justify-content: space-around;
           font-size: $font-size_s;
+        }
+        &--min-height{
+          min-height: 200px;
         }
     }
 

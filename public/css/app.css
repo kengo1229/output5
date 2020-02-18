@@ -1,5 +1,3 @@
-@charset "UTF-8";
-
 html {
   box-sizing: border-box;
   -webkit-text-size-adjust: 100%;
@@ -921,112 +919,6 @@ br {
   }
 }
 
-/*/
-=======================
-individual
-マイページやプロフィールの
-STEPに適用させるスタイル
-=======================
-/*/
-
-.p-individual-step {
-  width: 23%;
-  transition: 1s;
-  -webkit-transition: 1s;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-bottom: 15px;
-}
-
-@media screen and (max-width: 959px) {
-  .p-individual-step {
-    margin-left: 0;
-    margin-right: 0;
-    width: 43%;
-  }
-}
-
-@media screen and (max-width: 559px) {
-  .p-individual-step {
-    width: 90%;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .p-individual-step {
-    margin: 0;
-    width: 80%;
-  }
-}
-
-.p-individual-step:hover {
-  opacity: 0.7;
-}
-
-.p-individual-step:nth-of-type(4n) {
-  margin-left: 10px;
-  margin-right: 5px;
-}
-
-@media screen and (max-width: 959px) {
-  .p-individual-step:nth-of-type(4n) {
-    margin-left: 0;
-    margin-right: 0;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .p-individual-step:nth-of-type(4n) {
-    margin-left: 0;
-    margin-right: 0;
-    margin-bottom: 15px;
-  }
-}
-
-.p-individual-step:nth-of-type(4n+1) {
-  margin-left: 5px;
-  margin-right: 10px;
-}
-
-@media screen and (max-width: 959px) {
-  .p-individual-step:nth-of-type(4n+1) {
-    margin-left: 0;
-    margin-right: 0;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .p-individual-step:nth-of-type(4n+1) {
-    margin-left: 0;
-    margin-right: 0;
-    margin-bottom: 15px;
-  }
-}
-
-.p-individual-step-group {
-  display: -webkit-box;
-  display: flex;
-  min-height: 200px;
-  -webkit-box-pack: start;
-          justify-content: flex-start;
-  flex-wrap: wrap;
-  text-align: center;
-}
-
-@media screen and (max-width: 959px) {
-  .p-individual-step-group {
-    -webkit-box-pack: justify;
-            justify-content: space-between;
-  }
-}
-
-@media screen and (max-width: 559px) {
-  .p-individual-step-group {
-    font-size: 14px;
-    justify-content: space-around;
-  }
-}
-
 .p-nav {
   display: -webkit-box;
   display: flex;
@@ -1166,15 +1058,18 @@ STEPに適用させるスタイル
 }
 
 .p-step {
-  margin: 0 5px;
   width: 23%;
   transition: 1s;
   -webkit-transition: 1s;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 15px;
 }
 
 @media screen and (max-width: 959px) {
   .p-step {
-    margin: 0;
+    margin-left: 0;
+    margin-right: 0;
     width: 43%;
   }
 }
@@ -1195,11 +1090,52 @@ STEPに適用させるスタイル
   opacity: 0.7;
 }
 
+.p-step:nth-of-type(4n) {
+  margin-left: 10px;
+  margin-right: 5px;
+}
+
+@media screen and (max-width: 959px) {
+  .p-step:nth-of-type(4n) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .p-step:nth-of-type(4n) {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+}
+
+.p-step:nth-of-type(4n+1) {
+  margin-left: 5px;
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 959px) {
+  .p-step:nth-of-type(4n+1) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .p-step:nth-of-type(4n+1) {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+}
+
 .p-step-group {
   display: -webkit-box;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  -webkit-box-pack: start;
+          justify-content: flex-start;
   text-align: center;
 }
 
@@ -1212,10 +1148,13 @@ STEPに適用させるスタイル
 
 @media screen and (max-width: 559px) {
   .p-step-group {
-    -webkit-box-pack: center;
-            justify-content: center;
+    justify-content: space-around;
     font-size: 14px;
   }
+}
+
+.p-step-group--min-height {
+  min-height: 200px;
 }
 
 .p-step__img {
@@ -1375,6 +1314,23 @@ STEPに適用させるスタイル
 
 .u-text-muted {
   color: #fff;
+}
+
+.u-twitter-share-button {
+  background-color: #55acee;
+  color: #fff;
+  display: inline-block;
+  padding: 5px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+.u-twitter-share-button:hover {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  background-color: #55acee;
+  color: #fff;
+  opacity: 0.7;
 }
 
 .u-secondary-title {

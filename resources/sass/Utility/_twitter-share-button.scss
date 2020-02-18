@@ -1,0 +1,14 @@
+.u-twitter-share-button{
+  background-color: #55acee;
+  color: #fff;
+  display: inline-block;
+  padding: $space_s;
+  border-radius: 3px;
+  margin-bottom: $space_m;
+  &:hover{
+    transition: 0.5s;
+    background-color: #55acee;
+    color: #fff;
+    opacity:0.7;
+  }
+}

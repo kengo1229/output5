@@ -18,7 +18,7 @@
             <div class="p-step-group">
               @foreach ($latest_parent_steps as $latest_parent_step)
 
-                  <div class="p-step u-bg-white u-border-default u-margin-bottom-space_l">
+                  <div class="p-step u-bg-white u-border-default ">
                       <a class="p-step__link" href="{{ action('StepsController@show', $latest_parent_step->id) }}">
                         @if(($latest_parent_step->pic) != null)
                           <div>
