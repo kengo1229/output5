@@ -677,7 +677,7 @@ br {
 
 @media screen and (max-width: 559px) {
   .p-card {
-    width: 85%;
+    width: 90%;
     margin-top: 0;
   }
 }
@@ -963,6 +963,12 @@ br {
   position: fixed;
   width: 100%;
   z-index: 40;
+}
+
+@media screen and (max-width: 959px) {
+  .p-navbar {
+    position: static;
+  }
 }
 
 .p-navbar__section {
