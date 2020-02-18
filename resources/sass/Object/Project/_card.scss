@@ -46,10 +46,7 @@
         min-height: 1px;
         padding: $space_xxl;
         @include md() {
-          padding: $space_l;
-        }
-        @include sm() {
-            padding: $space_m;
+          padding: $space_m;
         }
     }
 

@@ -729,12 +729,6 @@ br {
 
 @media screen and (max-width: 559px) {
   .p-card__body {
-    padding: 15px;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .p-card__body {
     padding: 10px;
   }
 }
