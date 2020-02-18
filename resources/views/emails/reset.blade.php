@@ -3,7 +3,7 @@
 <p>※有効期限は30分となります</p>
 <p>もし心当たりがない場合は、本メッセージは破棄してください。</p>
 <h3>
-    <a href="{{ config('app.url') }}">パスワード再設定</a>
+    <a href="{{ $actionUrl }}">パスワード再設定</a>
 </h3>
 
 <p><a href="{{ $actionUrl }}">{{ $actionUrl }}</a></p>
