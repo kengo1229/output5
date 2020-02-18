@@ -57,7 +57,7 @@
                     </div>
 
                     <div class="p-form__group">
-                        <p  class="col-md-4  ">登録したアイコン画像</p>
+                        <p  class="col-md-4">登録したアイコン画像</p>
 
                         <div class="col-md-6">
 
@@ -67,14 +67,14 @@
                             </div>
                           @else
                             <div>
-                              <img src="{{ asset('/img/no_image.jpg') }}" class="p-form__img" alt="登録画像なし"
+                              <img src="{{asset('/img/no_image.jpg')}}" class="p-form__img" alt="登録画像なし">
                             </div>
                           @endif
                         </div>
                     </div>
 
                     <div class="p-form__group">
-                        <label for="pic" class="col-md-4  ">新しい画像（jpg/jpeg/png）<span class="c-badge ">任意</span></label>
+                        <label for="pic" class="col-md-4">新しい画像（jpg/jpeg/png）<span class="c-badge ">任意</span></label>
 
                         <div class="col-md-6">
 
