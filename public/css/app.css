@@ -612,14 +612,12 @@ br {
 .c-post-user {
   display: -webkit-box;
   display: flex;
-  -webkit-box-align: end;
-          align-items: flex-end;
+  -webkit-box-align: center;
+          align-items: center;
 }
 
 @media screen and (max-width: 559px) {
   .c-post-user {
-    -webkit-box-align: center;
-            align-items: center;
     font-size: 14px;
   }
 }

@@ -1,8 +1,7 @@
 .c-post-user {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     @include md() {
-        align-items: center;
         font-size: $font-size_s;
     }
 
