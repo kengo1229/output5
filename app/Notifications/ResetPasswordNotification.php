@@ -44,7 +44,7 @@ class ResetPasswordNotification extends Notification
         ->from('admin@example.com', config('app.name'))
         ->subject('パスワード再設定｜STEP')
         ->view('emails.reset')
-        ->action('パスワード再設定', url('https://webukatustep.herokuapp.com'.route('password.reset', $this->token, false)))
+        ->action('パスワード再設定', url('https://webukatustep.herokuapp.com'.route('password.reset', $this->token, false)));
     }
 
     /**
