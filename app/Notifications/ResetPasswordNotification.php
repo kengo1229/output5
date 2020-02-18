@@ -43,11 +43,8 @@ class ResetPasswordNotification extends Notification
         return (new MailMessage)
         ->from('admin@example.com', config('app.name'))
         ->subject('パスワード再設定｜STEP')
-        ->line('パスワード再設定リクエストがありましたので、メッセージを送信しました。')
-        ->line('下記の「パスワード再設定」ボタンもしくはURLをクリックいただくと、パスワード再設定ページに移ります。')
-        ->line('※有効期限は30分となります')
+        ->view('emails.reset')
         ->action('パスワード再設定', url('https://webukatustep.herokuapp.com'.route('password.reset', $this->token, false)))
-        ->line('もし心当たりがない場合は、本メッセージは破棄してください。');
     }
 
     /**
