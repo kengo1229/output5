@@ -13,4 +13,9 @@
     color: #1b4b72;
     background-color: #d6e9f8;
     border-color: #c6e0f5;
+// スマホが横向きの時フラッシュメッセージを表示する位置を10px分上に
+// ずらさないと隙間が空くため58pxで指定
+    @include lg-side(){
+      top: 58px;
+    }
 }

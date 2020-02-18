@@ -3,7 +3,6 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-
     @include md() {
         display: flex;
         flex-direction: column;

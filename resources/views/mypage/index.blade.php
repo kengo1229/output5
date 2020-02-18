@@ -85,7 +85,7 @@
                         <span class="u-underline-thin">かかった時間</span>
                         <p>{{ $my_challenge_step['total_time'] }}時間</p>
                         <span class="u-underline-thin">進捗状況</span>
-                        <p>全5STEP中{{$my_challenge_step['num_clear_child_step']}}STEPクリア！</p>
+                        <p>5STEP中{{$my_challenge_step['num_clear_child_step']}}STEPクリア</p>
                     </div>
                   </a>
               </div>

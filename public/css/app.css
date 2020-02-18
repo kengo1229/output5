@@ -425,6 +425,12 @@ br {
   border-color: #c6e0f5;
 }
 
+@media screen and (max-width: 959px) {
+  .c-alert {
+    top: 58px;
+  }
+}
+
 .c-container {
   width: 980px;
   margin: 0 auto;
@@ -677,7 +683,7 @@ br {
 
 @media screen and (max-width: 559px) {
   .p-card {
-    width: 85%;
+    width: 90%;
     margin-top: 0;
   }
 }
@@ -976,6 +982,18 @@ br {
   margin: 0 auto;
   -webkit-box-pack: justify;
   justify-content: space-between;
+}
+
+@media screen and (max-width: 959px) {
+  .p-navbar {
+    position: static;
+  }
+}
+
+@media screen and (max-width: 559px) {
+  .p-navbar {
+    position: fixed;
+  }
 }
 
 .p-navbar.is-float-active {

@@ -3,15 +3,22 @@
     width: 100%;
     z-index: 40;
     &__section {
-        display: flex;
-        flex-direction: row;
-        padding: $space_m 0;
-        width: 90%;
-        margin: 0 auto;
-        -webkit-box-pack: justify;
-        justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    padding: $space_m 0;
+    width: 90%;
+    margin: 0 auto;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+  }
+// スマホを横向きにした時ナビバーの位置を固定していると文字入力の際に見える範囲が極端に狭くなるため、
+// 限定でfixedを解除する
+    @include lg-side() {
+      position: static;
     }
-
+    @include md() {
+      position: fixed;
+    }
     &.is-float-active {
         transition: 0.3s;
         background: rgba(255, 255, 255, 0.9);

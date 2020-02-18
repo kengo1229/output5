@@ -18,8 +18,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <nav class="p-navbar u-bg-white u-shadow-sm  js-float-menu">
-      <div class="p-navbar__section">
+  <nav class="p-navbar u-bg-white u-shadow-sm  js-float-menu">
+    <div class="p-navbar__section">
 
           <div class="p-navbar-left">
 
@@ -87,7 +87,7 @@
                     </div>
                   </ul>
                 @endguest
-        </div>
+      </div>
     </nav>
 
     @if (session('flash_message'))
