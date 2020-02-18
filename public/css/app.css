@@ -971,6 +971,12 @@ br {
   z-index: 40;
 }
 
+@media screen and (max-width: 959px) {
+  .p-navbar {
+    position: static;
+  }
+}
+
 .p-navbar__section {
   display: -webkit-box;
   display: flex;
