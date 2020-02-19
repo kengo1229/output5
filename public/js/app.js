@@ -49755,7 +49755,7 @@ $(window).on('load resize', function () {
   var middleWidth = 560;
   var largeWidth = 920;
 
-  if (largeWidth < winWidth || winWidth < middleWidth) {
+  if (largeWidth < winWidth) {
     center.addClass('c-content-center');
   } else {
     center.removeClass('c-content-center');

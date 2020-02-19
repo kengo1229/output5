@@ -4,7 +4,7 @@
 
 @section('content')
 <div id="app" class="u-display-flex-center">
-        <div class="p-card p-card--margin-top  u-bg-white u-border-default js-content-center-target">
+        <div class="p-card p-card--margin-top60  u-bg-white u-border-default js-content-center-target">
             <div class="p-card__header">パスワード再設定</div>
 
             <div class="p-card__body">

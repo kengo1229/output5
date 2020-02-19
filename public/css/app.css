@@ -694,8 +694,8 @@ br {
 }
 
 @media screen and (max-width: 559px) {
-  .p-card--margin-top {
-    margin-top: 10px;
+  .p-card--margin-top60 {
+    margin-top: 60px;
   }
 }
 
