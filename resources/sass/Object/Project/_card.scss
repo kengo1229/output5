@@ -17,7 +17,11 @@
     @include sm() {
         width: 90%;
     }
-
+    &--margin-top{
+      @include md() {
+        margin-top: 10px;
+      }
+    }
     &__container {
         width: 40%;
         position: fixed;

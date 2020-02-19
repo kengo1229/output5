@@ -4,7 +4,7 @@
 
 @section('content')
 <div id="app" class="u-display-flex-center">
-  <div class="p-card  u-bg-white u-border-default  js-content-center-target">
+  <div class="p-card p-card--margin-top u-bg-white u-border-default  js-content-center-target">
       <div class="p-card__header">ログイン</div>
 
       <div class="p-card__body">

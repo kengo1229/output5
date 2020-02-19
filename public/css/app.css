@@ -693,6 +693,12 @@ br {
   }
 }
 
+@media screen and (max-width: 559px) {
+  .p-card--margin-top {
+    margin-top: 10px;
+  }
+}
+
 .p-card__container {
   width: 40%;
   position: fixed;
@@ -831,7 +837,7 @@ br {
 @media screen and (max-width: 559px) {
   .p-hamburger-menu__item {
     font-size: 30px;
-    margin: 15px 0;
+    margin: 10px 0;
     text-align: center;
   }
 }
