@@ -17,7 +17,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body class="js-page-top">
+<body id="js-position-top">
   <nav class="p-navbar u-bg-white u-shadow-sm  js-float-menu">
     <div class="p-navbar__section">
 

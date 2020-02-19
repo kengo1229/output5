@@ -49714,6 +49714,16 @@ Vue.component('steps-pagination-component', __webpack_require__(/*! ./components
 
 var app = new Vue({
   el: '#app'
+});
+/*
+ブラウザがsafariの時、一部ページがトップから表示されないため、
+ページ表示時にトップに来るようにする
+*/
+
+$(function () {
+  $('html,body').animate({
+    scrollTop: $('#js-position-top').offset().top
+  }, 0, 'swing');
 }); // 入力フォームの文字数カウンター
 
 $(function () {
@@ -49759,16 +49769,6 @@ $(window).on('load resize', function () {
   } else {
     center.removeClass('c-content-center');
   }
-});
-/*
-ブラウザがsafariの時、一部ページがトップから表示されないため、
-ページリロード時にトップに来るようにする
-*/
-
-$(function () {
-  $('.js-page-top').animate({
-    scrollTop: 0
-  }, '1');
 });
 
 /***/ }),
