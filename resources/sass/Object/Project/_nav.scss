@@ -14,7 +14,7 @@
           font-size: $font-size_default;
           padding-right: $space_s;
         }
-        @include md() {
+        @include sm() {
           font-size: $font-size_xs;
         }
         &:last-of-type {
