@@ -43,12 +43,33 @@ $(function() {
 });
 
 
-// 入力フォームの文字数カウンター
+/*
+入力フォームの文字数カウンター
+js-countをまとめてforでまわすと、入力フォームが12個ないページでエラーが出るため、
+分ける
+*/
+
 $(function(){
-    $('.js-count1, .js-count2, .js-count3, .js-count4, .js-count5, .js-count6, .js-count7, .js-count8, .js-count9, .js-count10, .js-count11, .js-count12').bind('keyup',function() {
-        for ( num=1; num<=12; num++ ) {
+
+  $('.js-count1').bind('keyup',function() {
+
+            let thisValueLength = $(".js-count1").val().length;
+              $(".js-show1").html(thisValueLength);
+
+  });
+
+  $('.js-count2').bind('keyup',function() {
+
+            let thisValueLength = $(".js-count2").val().length;
+              $(".js-show2").html(thisValueLength);
+
+  });
+
+
+    $('.js-count3, .js-count4, .js-count5, .js-count6, .js-count7, .js-count8, .js-count9, .js-count10, .js-count11, .js-count12').bind('keyup',function() {
+        for ( num=3; num<=12; num++ ) {
               let thisValueLength = $(".js-count" + num).val().length;
-              $(".js-show" + num).html(thisValueLength);
+                $(".js-show" + num).html(thisValueLength);
         }
     });
 });
