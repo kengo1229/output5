@@ -49752,7 +49752,6 @@ $(function () {
 $(window).on('load resize', function () {
   var winWidth = $(window).width();
   var center = $('.js-content-center-target');
-  var middleWidth = 560;
   var largeWidth = 920;
 
   if (largeWidth < winWidth) {
@@ -49760,6 +49759,16 @@ $(window).on('load resize', function () {
   } else {
     center.removeClass('c-content-center');
   }
+});
+/*
+ブラウザがsafariの時、一部ページがトップから表示されないため、
+ページリロード時にトップに来るようにする
+*/
+
+$(function () {
+  $('.js-page-top').animate({
+    scrollTop: 0
+  }, '1');
 });
 
 /***/ }),

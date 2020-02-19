@@ -3,7 +3,7 @@
 @section('title', 'STEP編集')
 
 @section('content')
-    <div class="u-display-flex-center js-height-hold">
+    <div id="app" class="u-display-flex-center js-height-hold">
         <div class="p-card u-bg-white u-border-default">
             <div class="p-card__header">STEP編集</div>
 

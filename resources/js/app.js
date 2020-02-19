@@ -34,6 +34,7 @@ const app = new Vue({
     el: '#app',
 });
 
+
 // 入力フォームの文字数カウンター
 $(function(){
     $('.js-count1, .js-count2, .js-count3, .js-count4, .js-count5, .js-count6, .js-count7, .js-count8, .js-count9, .js-count10, .js-count11, .js-count12').bind('keyup',function() {
@@ -75,7 +76,6 @@ $(window).on('load resize', function(){
   let winWidth = $(window).width();
 
   let center = $('.js-content-center-target');
-  const middleWidth = 560;
   const largeWidth = 920;
 
   if (largeWidth < winWidth) {
@@ -84,4 +84,12 @@ $(window).on('load resize', function(){
     center.removeClass('c-content-center');
   }
 
+});
+
+/*
+ブラウザがsafariの時、一部ページがトップから表示されないため、
+ページリロード時にトップに来るようにする
+*/
+$(function() {
+    $('.js-page-top').animate({ scrollTop: 0 }, '1');
 });

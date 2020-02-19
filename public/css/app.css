@@ -963,6 +963,12 @@ br {
   }
 }
 
+@media screen and (max-width: 559px) {
+  .p-nav__item {
+    font-size: 12px;
+  }
+}
+
 .p-nav__item:last-of-type {
   padding-right: 0;
 }
