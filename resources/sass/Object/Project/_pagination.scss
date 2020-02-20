@@ -1,0 +1,64 @@
+.p-pagination {
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: $space_3l;
+  padding-left: 0;
+  list-style: none;
+  border-radius: 0.25rem;
+}
+
+.u-page-link {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: $page-link-color;
+  background-color: $color-white;
+  border: 1px solid $page-link-hover-border-color;
+
+  &:hover {
+    z-index: 2;
+    color: $page-link-hover-color;
+    text-decoration: none;
+    background-color: $page-link-hover-bg-color;
+    border-color: $page-link-hover-border-color;
+  }
+
+  &:focus {
+    z-index: 3;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+}
+
+.p-page-item {
+  &:first-child {
+    .page-link {
+      margin-left: 0;
+      border-top-left-radius: 0.25rem;
+      border-bottom-left-radius: 0.25rem;
+    }
+  }
+  &:last-child {
+    .u-page-link {
+      border-top-right-radius: 0.25rem;
+      border-bottom-right-radius: 0.25rem;
+    }
+  }
+
+  &.active .u-page-link {
+    z-index: 3;
+    color: $font-color-white;
+    background-color: $page-link-active-bg-color;
+    border-color: $page-link-active-border-color;
+  }
+
+  &.disabled .u-page-link {
+    color: $page-link-disabled-color;
+    pointer-events: none;
+    cursor: auto;
+    background-color: $color-white;
+    border-color: $page-link-disabled-bg-color;
+  }
+}

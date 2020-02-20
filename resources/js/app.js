@@ -21,7 +21,6 @@ window.Vue = require('vue');
 
 // コンポーネントの登録
 Vue.component('parent-steps-component', require('./components/ParentStepsComponent.vue').default);
-Vue.component('steps-pagination-component', require('./components/StepsPaginationComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
