@@ -31,7 +31,7 @@
                         @endif
                         <div class="p-step__body">
                             <span class="u-underline-thin">タイトル</span>
-                            <p>{{ $latest_parent_step->title }}</p>
+                            <p>{{ str_limit( $latest_parent_step->title, 46) }}</p>
                             <span class="u-underline-thin">カテゴリー</span>
                             <p>{{ $latest_parent_step->category->category_name }}</p>
                             <span class="u-underline-thin">達成目安時間</span>

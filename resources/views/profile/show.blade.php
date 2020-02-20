@@ -49,7 +49,7 @@
                         @endif
                         <div class="p-step__body">
                             <span class="u-underlineline-thin">タイトル</span>
-                            <p>{{ $my_create_step->title }}</p>
+                            <p>{{ str_limit( $my_create_step->title, 46) }}</p>
                             <span class="u-underlineline-thin">カテゴリー</span>
                             <p>{{ $my_create_step->category->category_name }}</p>
                             <span class="u-underlineline-thin">達成目安時間</span>

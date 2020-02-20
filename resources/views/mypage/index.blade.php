@@ -45,7 +45,7 @@
                         @endif
                         <div class="p-step__body">
                             <span class="u-underline-thin">タイトル</span>
-                            <p>{{ $my_create_step->title }}</p>
+                            <p>{{ str_limit( $my_create_step->title, 46) }}</p>
                             <span class="u-underline-thin">カテゴリー</span>
                             <p>{{ $my_create_step->category->category_name }}</p>
                             <span class="u-underline-thin">達成目安時間</span>
@@ -77,7 +77,7 @@
                     @endif
                     <div class="p-step__body-challenging">
                         <span class="u-underline-thin">タイトル</span>
-                        <p>{{ $my_challenge_step->parentStep['title']}}</p>
+                        <p>{{ str_limit( $my_challenge_step->parentStep['title'], 46) }}</p>
                         <span class="u-underline-thin">カテゴリー</span>
                         <p>{{ $my_challenge_step->parentStep->category['category_name'] }}</p>
                         <span class="u-underline-thin">達成目安時間</span>
@@ -115,7 +115,7 @@
                     @endif
                     <div class="p-step__body-cleared">
                         <span class="u-underline-thin">タイトル</span>
-                        <p>{{ $my_finish_step->parentStep['title']}}</p>
+                        <p>{{ str_limit( $my_finish_step->parentStep['title'], 46) }}</p>
                         <span class="u-underline-thin">カテゴリー</span>
                         <p>{{ $my_finish_step->parentStep->category['category_name'] }}</p>
                         <span class="u-underline-thin">達成目安時間</span>

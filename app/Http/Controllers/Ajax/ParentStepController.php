@@ -11,8 +11,7 @@ class ParentStepController extends Controller
 {
   public function index() {
 
-    // parent_stepsテーブルの情報を20件ずつ取得してjson形式でreturnする
-    return ParentStep::with('category')->latest()->paginate(20);
+    return ParentStep::with('category')->latest()->get();
 
     }
 

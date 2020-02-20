@@ -7,7 +7,7 @@
             <img v-else class="p-step__img" src="/img/no_image.jpg" alt="登録画像なし">
             <div class="p-step__body">
                 <span class="u-underline-thin">タイトル</span>
-                <p>{{step.title}}</p>
+                <p>{{ step.title.substr(0,23) }}</p>
                 <span class="u-underline-thin">カテゴリー</span>
                 <p>{{step.category.category_name}}</p>
                 <span class="u-underline-thin">達成目安時間</span>
@@ -32,7 +32,7 @@ export default {
 
       axios.get(url).then(({
           data
-      }) => (this.steps = data.data));
+      }) => (this.steps = data));
 
     }
 }

@@ -1941,7 +1941,7 @@ __webpack_require__.r(__webpack_exports__);
     var url = 'ajax/steps';
     axios.get(url).then(function (_ref) {
       var data = _ref.data;
-      return _this.steps = data.data;
+      return _this.steps = data;
     });
   }
 });
@@ -37342,7 +37342,7 @@ var render = function() {
                 _vm._v("タイトル")
               ]),
               _vm._v(" "),
-              _c("p", [_vm._v(_vm._s(step.title))]),
+              _c("p", [_vm._v(_vm._s(step.title.substr(0, 23)))]),
               _vm._v(" "),
               _c("span", { staticClass: "u-underline-thin" }, [
                 _vm._v("カテゴリー")
