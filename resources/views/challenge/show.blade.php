@@ -58,7 +58,7 @@
                   <p><span class="u-underline-thin">タイトル</span>：{{ $parent_step_info->title }}</p>
                   <p><span class="u-underline-thin">カテゴリー</span>：{{ $parent_step_info->category->category_name }}</p>
                   <p><span class="u-underline-thin">投稿者</span>：{{ $parent_step_info->user->username }}</p>
-                  <p><span class="u-underline-thin">達成目標時間</span>：{{ $parent_step_info->goal_time }}</p>
+                  <p><span class="u-underline-thin">達成目安時間</span>：{{ $parent_step_info->goal_time }}</p>
                   <p><span class="u-underline-thin">内容</span>：{{ $parent_step_info->description }}</p>
 
                 </div>

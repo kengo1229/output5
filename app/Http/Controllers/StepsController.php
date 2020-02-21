@@ -36,7 +36,7 @@ class StepsController extends Controller
     if(!empty($request->pic)){
 
     $uploadImg = $parent_step->pic = $request->file('pic');
-      $path = Storage::disk('s3')->putFile('/profile_img', $uploadImg, 'public');
+      $path = Storage::disk('s3')->putFile('/step_img', $uploadImg, 'public');
       $parent_step->pic = Storage::disk('s3')->url($path);
 
     }
@@ -102,7 +102,7 @@ class StepsController extends Controller
       if(!empty($request->pic)){
 
         $uploadImg = $parent_step->pic = $request->file('pic');
-          $path = Storage::disk('s3')->putFile('/profile_img', $uploadImg, 'public');
+          $path = Storage::disk('s3')->putFile('/step_img', $uploadImg, 'public');
           $parent_step->pic = Storage::disk('s3')->url($path);
 
       }

@@ -16,10 +16,10 @@ class CreateParentStepTable extends Migration
     {
         Schema::create('parent_steps', function (Blueprint $table) {
           $table->bigIncrements('id');
-          $table->string('title',255);
+          $table->string('title',40);
           $table->integer('goal_time');
           $table->integer('category_id');
-          $table->string('description',255);
+          $table->string('description',200);
           $table->string('pic')->nullable();
           $table->unsignedBigInteger('user_id');
           $table->timestamps();
