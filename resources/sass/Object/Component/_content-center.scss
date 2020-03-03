@@ -7,12 +7,15 @@
     -webkit-font-smoothing: none;
     -webkit-font-smoothing: antialiased;
     -webkit-font-smoothing: subpixel-antialiased;
+
     @include lg() {
         width: 70%;
     }
+
     @include md() {
         width: 90%;
     }
+
     @include sm() {
         top: 52%;
         width: 90%;

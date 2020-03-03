@@ -2,15 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Category;
 use App\ParentStep;
 use App\ChildStep;
 use App\ChallengeParentStep;
 use App\ChallengeChildStep;
 use App\Http\Requests\ChallengeRequest;
-use App\User;
 
 class ChallengeController extends Controller
 {

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use App\Http\Controllers\Controller;
 use App\Rules\AlphaNumHalf;
+use App\Rules\EmailCheck;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -51,9 +52,10 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-      // パスワードに半角英数字用のバリデーション追加
+      // メールアドレスに形式チェック用のバリデーション追加
+      // パスワードに半角英数字形式チェック用のバリデーション追加
         return Validator::make($data, [
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', new EmailCheck, 'max:255', 'unique:users'],
             'password' => ['required', 'string', new AlphaNumHalf, 'min:6','max:20', 'confirmed'],
         ]);
     }

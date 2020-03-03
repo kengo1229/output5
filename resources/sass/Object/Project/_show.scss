@@ -1,11 +1,12 @@
 .p-show {
-    &-group {
+    &__group {
         margin-bottom: $space_l;
         text-align: left;
         overflow: hidden;
-        &__link{
-            font-size: $font-size_s;
-        }
+    }
+    
+    &__link {
+        font-size: $font-size_s;
     }
 
     &__control {

@@ -2,17 +2,20 @@
     width: 23%;
     transition: 1s;
     -webkit-transition: 1s;
-    margin-left:  $space_m;
+    margin-left: $space_m;
     margin-right: $space_m;
     margin-bottom: $space_l;
+
     @include lg() {
-      margin-left:  0;
-      margin-right: 0;
+        margin-left: 0;
+        margin-right: 0;
         width: 43%;
     }
+
     @include md() {
         width: 90%;
     }
+
     @include sm() {
         width: 80%;
     }
@@ -24,10 +27,12 @@
     &:nth-of-type(4n) {
         margin-left: $space_m;
         margin-right: $space_s;
+
         @include lg() {
-          margin-left:  0;
-          margin-right: 0;
+            margin-left: 0;
+            margin-right: 0;
         }
+
         @include sm() {
             margin-left: 0;
             margin-right: 0;
@@ -38,31 +43,16 @@
     &:nth-of-type(4n+1) {
         margin-left: $space_s;
         margin-right: $space_m;
+
         @include lg() {
-          margin-left:  0;
-          margin-right: 0;
+            margin-left: 0;
+            margin-right: 0;
         }
+
         @include sm() {
             margin-left: 0;
             margin-right: 0;
             margin-bottom: $space_l;
-        }
-    }
-
-    &-group {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        text-align: center;
-        @include lg() {
-          justify-content: space-between;
-        }
-        @include md() {
-          justify-content: space-around;
-          font-size: $font-size_s;
-        }
-        &--min-height{
-          min-height: 200px;
         }
     }
 
@@ -74,6 +64,7 @@
     &__body {
         padding: $space_m;
         min-height: 200px;
+
         @include md() {
             margin: 0;
             min-height: 180px;
@@ -82,6 +73,7 @@
         &-challenging {
             padding: $space_m;
             min-height: 300px;
+
             @include md() {
                 min-height: 270px;
             }
@@ -90,6 +82,7 @@
         &-cleared {
             padding: $space_m;
             min-height: 250px;
+
             @include md() {
                 min-height: 225px;
             }

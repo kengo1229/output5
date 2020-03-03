@@ -39,7 +39,6 @@ return array(
     'App\\Http\\Requests\\StepRequest' => $baseDir . '/app/Http/Requests/StepRequest.php',
     'App\\Notifications\\ResetPasswordNotification' => $baseDir . '/app/Notifications/ResetPasswordNotification.php',
     'App\\ParentStep' => $baseDir . '/app/ParentStep.php',
-    'App\\Policies\\ChallengeParentStepPolicy' => $baseDir . '/app/Policies/ChallengeParentStepPolicy.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',

@@ -4,8 +4,8 @@ namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
-// 半角英数字入力チェック用のバリデーション
-class AlphaNumHalf implements Rule
+// メールアドレスの形式チェック
+class EmailCheck implements Rule
 {
     /**
      * Create a new rule instance.
@@ -26,7 +26,7 @@ class AlphaNumHalf implements Rule
      */
     public function passes($attribute, $value)
     {
-        return preg_match('/^[a-zA-Z0-9]+$/', $value);
+        return preg_match('/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/', $value);
     }
 
     /**
@@ -36,6 +36,6 @@ class AlphaNumHalf implements Rule
      */
     public function message()
     {
-        return trans('validation.alpha_num_half');
+        return trans('validation.email_check');
     }
 }

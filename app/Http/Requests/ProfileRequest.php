@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use App\Rules\EmailCheck;
 use App\User;
 
 class ProfileRequest extends FormRequest
@@ -36,6 +37,7 @@ class ProfileRequest extends FormRequest
                     'required',
                     'email',
                     'max:255',
+                    new EmailCheck,
                   Rule::unique('users')->ignore($this->user()->id),
                 ],
             'introduction' => 'required|string|max:200',

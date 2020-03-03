@@ -1,32 +1,40 @@
 .p-card {
     width: 40%;
+
     @include xlg() {
-      width: 60%;
+        width: 60%;
     }
+
     @include lg() {
         width: 80%;
     }
-    @include lg-side(){
+
+    @include lg-side() {
         width: 80%;
         margin-top: $font-size_3l;
     }
+
     @include md() {
         width: 90%;
-        margin-top:0;
+        margin-top: 0;
     }
+
     @include sm() {
         width: 90%;
     }
-    &--margin-top60{
-      @include md() {
-        margin-top: 60px;
-      }
+
+    &--margin-top60 {
+        @include md() {
+            margin-top: 60px;
+        }
     }
-    &--margin-top120{
-      @include md() {
-        margin-top: 120px;
-      }
+
+    &--margin-top120 {
+        @include md() {
+            margin-top: 120px;
+        }
     }
+
     &__container {
         width: 40%;
         position: fixed;
@@ -42,8 +50,9 @@
         padding: $space_m $space_xxl;
         margin-bottom: 0;
         background-color: $card-header-bg-color;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+        border-bottom: 1px solid $card-header-shadow;
         font-size: $font-size_m;
+
         @include sm() {
             padding: $space_m;
         }
@@ -54,8 +63,9 @@
         flex: 1 1 auto;
         min-height: 1px;
         padding: $space_xxl;
+
         @include md() {
-          padding: $space_m;
+            padding: $space_m;
         }
     }
 
@@ -63,7 +73,7 @@
         padding: $space_m $space_xxl;
         margin-bottom: 0;
         background-color: $card-footer-bg-color;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+        border-bottom: 1px solid $card-footer-shadow;
         font-size: $font-size_m;
     }
 }

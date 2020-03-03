@@ -3,13 +3,15 @@
     margin: 0 auto;
 
     @include lg() {
-      width: 100%;
+        width: 100%;
     }
+
     @include md() {
         width: 80%;
         justify-content: space-between;
     }
-    @include sm(){
-      width: 90%;
+
+    @include sm() {
+        width: 90%;
     }
 }

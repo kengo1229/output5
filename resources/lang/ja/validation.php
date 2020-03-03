@@ -41,6 +41,7 @@ return [
     'dimensions'           => ':attributeの図形サイズが正しくありません。',
     'distinct'             => ':attributeには異なった値を指定してください。',
     'email'                => '有効なメールアドレスを入力してください。',
+    'email_check'          => 'Emailの形式で入力してください。',
     'exists'               => '選択された:attributeは正しくありません。',
     'file'                 => ':attributeにはファイルを指定してください。',
     'filled'               => ':attributeに値を指定してください。',

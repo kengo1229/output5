@@ -8,29 +8,25 @@
         <div class="p-card__header">パスワード再設定メール送信</div>
 
         <div class="p-card__body">
-            <form method="POST" action="{{ route('password.email') }}">
+            <form class="p-form" method="POST" action="{{ route('password.email') }}">
                 @csrf
 
                 <div class="p-form__group">
-                    <label for="email" class="col-md-4">登録したメールアドレス<span class="c-badge ">必須</span></label>
+                    <label for="email">登録したメールアドレス<span class="c-badge">必須</span></label>
 
-                    <div class="col-md-6">
-                        <input id="email" type="text" class="p-form__control @error('email') u-is-invalid @enderror" name="email" value="{{ old('email') }}"  autocomplete="email" autofocus>
+                    <input id="email" type="text" class="p-form__control @error('email') u-is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email" autofocus>
 
-                        @error('email')
-                            <span class="u-invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
+                    @error('email')
+                    <p class="u-invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </p>
+                    @enderror
                 </div>
 
                 <div class="p-form__group">
-                    <div class="col-md-6 offset-md-4">
-                        <button type="submit" class="c-btn c-btn--primary u-float-right">
-                            送信
-                        </button>
-                    </div>
+                    <button type="submit" class="c-btn u-float-right">
+                        送信
+                    </button>
                 </div>
             </form>
         </div>

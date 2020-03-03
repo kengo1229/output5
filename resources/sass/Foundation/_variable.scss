@@ -4,30 +4,56 @@
 
 // 文字色
 $font-color_default: #000000e6;
-$background-color_default: #f8f7fc;
+$alert-color: #1b4b72;
+$font-color-white: #fff;
+$footer-color: #000000b3;
+$hero-title-color: #fff;
+$invalid-feedback-color: #F00;
 $navbar-color: #00000080;
 $navbar-hover-color: #000000b3;
-$u-text-muted-color: #fff;
-$footer-color: #000000b3;
-$font-color-white: #fff;
+$twitter-share-btn-color: #fff;
+$text-muted-color: #fff;
 
 // 下線色
 $link-color_default: #3490dc;
 $link-hover-color_default: #1d68a7;
 
+// 枠線色
+$border-color_default: #00000020;
+$alert-border-color: #c6e0f5;
+$btn-border-color: #3490dc;
+$btn-hover-border-color: #2176bd;
+$form-control-border-color: #ced4da;
+$invalid-border-color: #F00;
+
 // 背景色
-$card-header-bg-color: #00000008;
-$card-footer-bg-color: #00000008;
+$bg-color_default: #f8f7fc;
+$alert-bg-color: #d6e9f8;
 $badge-bg-color: #4fc353;
+$btn-bg-color: #3490dc;
+$btn-hover-bg-color: #227dc7;
+$card-footer-bg-color: #00000008;
+$card-header-bg-color: #00000008;
+$menu-trigger-bg-color: #000000e6;
+$nav-bar-float-bg-color: rgba(255, 255, 255, 0.9);
+$twitter-share-btn-bg-color: #55acee;
+
+
+//影
+$shadow_default: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+$card-footer-shadow: rgba(0, 0, 0, 0.125);
+$card-header-shadow: rgba(0, 0, 0, 0.125);
+$hero-title-shadow: 0 0 20px rgba(227, 123, 137, .4), 0 0 50px rgba(0, 0, 0, .8);
+
 
 //横幅
 $content-width: 980px;
 $navbar-width: 1080px;
 
 // 文字サイズ
+$font-size_default: 16px;
 $font-size_xs: 12px;
 $font-size_s: 14px;
-$font-size_default: 16px;
 $font-size_m: 18px;
 $font-size_l: 24px;
 $font-size_xl: 30px;
@@ -46,4 +72,5 @@ $space_3l: 40px;
 // 太さ
 $font-weight_default: 400;
 
-$font-step: 'Anton', sans-serif;
+// フォント
+$font-step: 'Anton',sans-serif;

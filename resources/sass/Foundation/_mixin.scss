@@ -1,33 +1,36 @@
 // mixin（レスポンシブのブレークポイント）
 
-$breakpoints: (
-    'sm': 'screen and (max-width: 320px)',
+$breakpoints: ('sm': 'screen and (max-width: 320px)',
     'md': 'screen and (max-width: 559px)',
-    'lg-side': 'screen and (max-width: 959px) and (orientation: landscape) ', /*スマホ横向き*/
+    'lg-side': 'screen and (max-width: 959px) and (orientation: landscape) ',/*スマホ横向き*/
     'lg': 'screen and (max-width: 959px)',
     'xlg': 'screen and (max-width: 1200px)',
-)
-!default;
+) !default;
+
 @mixin sm($breakpoint: sm) {
     @media #{map-get($breakpoints, $breakpoint)} {
         @content;
     }
 }
+
 @mixin md($breakpoint: md) {
     @media #{map-get($breakpoints, $breakpoint)} {
         @content;
     }
 }
+
 @mixin lg-side($breakpoint: lg) {
     @media #{map-get($breakpoints, $breakpoint)} {
         @content;
     }
 }
+
 @mixin lg($breakpoint: lg) {
     @media #{map-get($breakpoints, $breakpoint)} {
         @content;
     }
 }
+
 @mixin xlg($breakpoint: xlg) {
     @media #{map-get($breakpoints, $breakpoint)} {
         @content;

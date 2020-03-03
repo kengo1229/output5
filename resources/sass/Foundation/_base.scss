@@ -9,7 +9,7 @@ html {
     font-weight: $font-weight_default;
     line-height: 1.6;
     color: $font-color_default;
-    background-color: $background-color_default;
+    background-color: $bg-color_default;
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -38,6 +38,7 @@ textarea:focus {
 
 br {
     display: none;
+
     @include lg-side() {
         display: block;
     }

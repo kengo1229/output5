@@ -2,13 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Category;
 use App\ParentStep;
-use App\ChildStep;
 use App\ChallengeParentStep;
-use App\ChallengeChildStep;
 
 class MypageController extends Controller
 {

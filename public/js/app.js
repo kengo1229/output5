@@ -37320,45 +37320,52 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "p-step-group" },
+    { staticClass: "c-step-group" },
     _vm._l(_vm.steps, function(step) {
-      return _c("div", { staticClass: "p-step  u-bg-white u-border-default" }, [
-        _c(
-          "a",
-          { staticClass: "p-step__link", attrs: { href: "/steps/" + step.id } },
-          [
-            step.pic != null
-              ? _c("img", {
-                  staticClass: "p-step__img",
-                  attrs: { src: step.pic, alt: "ステップ画像" }
-                })
-              : _c("img", {
-                  staticClass: "p-step__img",
-                  attrs: { src: "/img/no_image.jpg", alt: "登録画像なし" }
-                }),
-            _vm._v(" "),
-            _c("div", { staticClass: "p-step__body" }, [
-              _c("span", { staticClass: "u-underline-thin" }, [
-                _vm._v("タイトル")
-              ]),
+      return _c(
+        "div",
+        { key: step.id, staticClass: "p-step  u-bg-white u-border-default" },
+        [
+          _c(
+            "a",
+            {
+              staticClass: "p-step__link",
+              attrs: { href: "/steps/" + step.id }
+            },
+            [
+              step.pic != null
+                ? _c("img", {
+                    staticClass: "p-step__img",
+                    attrs: { src: step.pic, alt: "ステップ画像" }
+                  })
+                : _c("img", {
+                    staticClass: "p-step__img",
+                    attrs: { src: "/img/no_image.jpg", alt: "登録画像なし" }
+                  }),
               _vm._v(" "),
-              _c("p", [_vm._v(_vm._s(step.title.substr(0, 23)))]),
-              _vm._v(" "),
-              _c("span", { staticClass: "u-underline-thin" }, [
-                _vm._v("カテゴリー")
-              ]),
-              _vm._v(" "),
-              _c("p", [_vm._v(_vm._s(step.category.category_name))]),
-              _vm._v(" "),
-              _c("span", { staticClass: "u-underline-thin" }, [
-                _vm._v("達成目安時間")
-              ]),
-              _vm._v(" "),
-              _c("p", [_vm._v(_vm._s(step.goal_time) + "時間")])
-            ])
-          ]
-        )
-      ])
+              _c("div", { staticClass: "p-step__body" }, [
+                _c("p", { staticClass: "u-underline-thin" }, [
+                  _vm._v("タイトル")
+                ]),
+                _vm._v(" "),
+                _c("p", [_vm._v(_vm._s(step.title.substr(0, 23)))]),
+                _vm._v(" "),
+                _c("p", { staticClass: "u-underline-thin" }, [
+                  _vm._v("カテゴリー")
+                ]),
+                _vm._v(" "),
+                _c("p", [_vm._v(_vm._s(step.category.category_name))]),
+                _vm._v(" "),
+                _c("p", { staticClass: "u-underline-thin" }, [
+                  _vm._v("達成目安時間")
+                ]),
+                _vm._v(" "),
+                _c("p", [_vm._v(_vm._s(step.goal_time) + "時間")])
+              ])
+            ]
+          )
+        ]
+      )
     }),
     0
   )

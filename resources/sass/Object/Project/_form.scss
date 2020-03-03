@@ -12,7 +12,7 @@
         width: 100%;
         padding: $space_m;
         background-clip: padding-box;
-        border: 1px solid #ced4da;
+        border: 1px solid $form-control-border-color;
         border-radius: 0.25rem;
         -webkit-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
         transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -34,6 +34,7 @@
     &__category {
         width: 40%;
         padding: 0 0 0 $space_m;
+
         @include md() {
             width: 80%;
         }
