@@ -143,9 +143,12 @@ class ChallengeController extends Controller
     $challenge_parent_step->save();
 
 
-
     return redirect()->route('challenge.show', ['id' => $challenge_parent_step_id]);
   }
 
+// チャレンジの中断（フラッシュメッセージ付きでマイページに飛ばす）
+  public function stop() {
+    return redirect()->route('mypage.index', ['id' => Auth::id() ])->with('flash_message', __('チャレンジを中断しました。再チャレンジをお待ちしています！！'));
+  }
 
 }

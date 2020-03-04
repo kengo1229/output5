@@ -39,6 +39,8 @@ Route::group(['middleware' => 'auth'], function() {
   Route::get('/challenge/{id}/create', 'ChallengeController@create')->name('challenge.create');
   // STEPチャレンジ画面表示のルーティング
   Route::get('/challenge/{id}/show', 'ChallengeController@show')->name('challenge.show');
+  // STEPチャレンジ中断のルーティング
+  Route::get('/challenge/stop', 'ChallengeController@stop')->name('challenge.stop');
   // STEPクリア機能のルーティング
   Route::post('/challenge/{id}/clear', 'ChallengeController@clear')->name('challenge.clear');
   // マイページ画面表示のルーティング

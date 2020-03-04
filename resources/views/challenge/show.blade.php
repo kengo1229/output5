@@ -40,9 +40,18 @@
                 </div>
 
                 <div class="p-form__group">
-                    <button type="submit" class="c-btn u-float-right">
+
+                  <div class=" u-float-right">
+
+                    <button type="submit" class="c-btn">
                         クリア
                     </button>
+
+                    <a href="{{ action('ChallengeController@stop') }}" class="c-btn ">
+                        中断する
+                    </a>
+                  </div>
+
                 </div>
 
             </form>
