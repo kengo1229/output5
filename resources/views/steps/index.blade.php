@@ -1,6 +1,8 @@
-@extends('layouts.app')
+@php
+$title = 'STEP一覧';
+@endphp
 
-@section('title', 'STEP一覧')
+@extends('layouts.app')
 
 @section('content')
 <div class="c-container">

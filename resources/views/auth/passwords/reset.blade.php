@@ -1,3 +1,7 @@
+@php
+$title = 'パスワード再設定';
+@endphp
+
 @extends('layouts.app')
 
 @section('title', 'パスワード再設定')

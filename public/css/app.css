@@ -792,20 +792,37 @@ br {
   }
 }
 
-.p-error__message {
+.p-error__main-message {
   text-align: center;
   font-size: 30px;
 }
 
 @media screen and (max-width: 959px) {
-  .p-error__message {
+  .p-error__main-message {
     font-size: 24px;
   }
 }
 
 @media screen and (max-width: 559px) {
-  .p-error__message {
+  .p-error__main-message {
     font-size: 18px;
+  }
+}
+
+.p-error__sub-message {
+  text-align: center;
+  font-size: 18px;
+}
+
+@media screen and (max-width: 959px) {
+  .p-error__sub-message {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 559px) {
+  .p-error__sub-message {
+    font-size: 12px;
   }
 }
 

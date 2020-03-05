@@ -168,7 +168,7 @@ class StepsController extends Controller
       // 親STEPに紐づいた子STEPのデータを格納
       $child_step  = ChildStep::where('parent_step_id', $id)->get();
 
-      return view('steps.detail', compact( 'child_step'));
+      return view('steps.detail', compact( 'parent_step', 'child_step'));
     }
 
 }

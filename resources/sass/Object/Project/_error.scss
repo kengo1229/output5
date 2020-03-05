@@ -13,7 +13,7 @@
 
 
 
-  &__message{
+  &__main-message{
     text-align: center;
     font-size: $font-size_xl;
 
@@ -23,6 +23,19 @@
 
     @include md() {
       font-size: $font-size_m;
+    }
+  }
+
+  &__sub-message{
+    text-align: center;
+    font-size: $font-size_m;
+
+    @include lg() {
+      font-size: $font-size_s;
+    }
+
+    @include md() {
+      font-size: $font-size_xs;
     }
   }
 

@@ -1,6 +1,8 @@
-@extends('layouts.app')
+@php
+$title = 'パスワード再設定メール送信';
+@endphp
 
-@section('title', 'パスワード再設定メール送信')
+@extends('layouts.app')
 
 @section('content')
 <div id="app" class="u-display-flex-center">

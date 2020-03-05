@@ -1,6 +1,8 @@
-@extends('layouts.app')
+@php
+$title = 'プロフィール登録';
+@endphp
 
-@section('title', 'プロフィール登録')
+@extends('layouts.app')
 
 @section('content')
 <div id="app" class="u-display-flex-center  js-height-hold">

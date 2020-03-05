@@ -1,6 +1,18 @@
-@extends('layouts.app')
+@if(($user->username) != null)
 
-@section('title', 'プロフィール')
+@php
+$title = $user->username.'さんのプロフィール';
+@endphp
+
+@else
+
+@php
+$title = '[ユーザー名未設定]さんのプロフィール;'
+@endphp
+
+@endif
+
+@extends('layouts.app')
 
 @section('content')
 <div class="p-user  js-height-hold">

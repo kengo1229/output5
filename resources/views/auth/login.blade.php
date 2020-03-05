@@ -1,6 +1,8 @@
-@extends('layouts.app')
+@php
+$title = 'ログイン';
+@endphp
 
-@section('title', 'ログイン')
+@extends('layouts.app')
 
 @section('content')
 <div id="app" class="u-display-flex-center">

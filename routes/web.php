@@ -12,10 +12,18 @@
 */
 // TOP（初期画面）表示のルーティング
 Route::get('/', 'TopController@index')->name('top');
+
+/*
+存在しないURLを入力した場合、特定のファイルを返す。
+「Route::fallback」を用いなくても存在しないURLを入力した場合、「errors.404」ファイルを表示させることは可能だが
+認証機能が働かないため、ナビメニューをログインの有無で動的に変化させることができなかった。
+*/
+Route::fallback(function () {
+    return view('errors.404');
+});
+
 // 認証関係のルーティング
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 // ログインしていないと機能しないルーティング
 Route::group(['middleware' => 'auth'], function() {

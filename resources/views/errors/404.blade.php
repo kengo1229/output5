@@ -1,14 +1,17 @@
-@extends('layouts.app')
+@php
+$title = '404エラー';
+@endphp
 
-@section('title', '404エラー')
+@extends('layouts.app')
 
 
 @section('content')
 
 <div class="p-error">
 
-    <p class="p-error__message">ページが見つかりませんでした。</p>
-    <p class="p-error__message">お探しのページはアドレスが間違っている可能性があります。</p>
+  <p class="p-error__main-message">ページが見つかりませんでした。</p>
+  <p class="p-error__sub-message">お探しのページはアドレスが間違っているか、</p>
+  <p class="p-error__sub-message">削除された可能性があります。</p>
 
 </div>
 

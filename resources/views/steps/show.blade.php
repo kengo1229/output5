@@ -1,11 +1,17 @@
+@php
+$title = $parent_step->title.'の親STEP詳細';
+@endphp
+
 @extends('layouts.app')
 
-@section('title', 'STEP詳細')
+<!-- @section('title')
+{{ $parent_step->title }}の親STEP詳細
+@endsection -->
 
 @section('content')
     <div class="u-display-flex-center js-height-hold">
         <div class="p-card u-bg-white u-border-default">
-            <div class="p-card__header">{{ __('STEP詳細') }}</div>
+            <div class="p-card__header">{{ __('親STEP詳細') }}</div>
 
             <div class="p-card__body">
 

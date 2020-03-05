@@ -1,11 +1,13 @@
-@extends('layouts.app')
+@php
+$title = 'あなたの人生のSTEPを共有しよう';
+@endphp
 
-@section('title', 'TOP')
+@extends('layouts.app')
 
 @section('top')
 
 <section class="p-hero js-float-menu-target">
-    <h2 class="p-hero__title js-height-hold js-float-menu-target ">さぁ、あなたの人生の<br>STEPを共有しよう</h2>
+    <h2 class="p-hero__title js-height-hold js-float-menu-target ">あなたの人生の<br>STEPを共有しよう</h2>
 </section>
 
 @endsection

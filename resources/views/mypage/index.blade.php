@@ -1,3 +1,18 @@
+@if(($user->username) != null)
+
+@php
+$title = $user->username.'さんのマイページ';
+@endphp
+
+@else
+
+@php
+$title = '[ユーザー名未設定]さんのマイページ;'
+@endphp
+
+@endif
+
+
 @extends('layouts.app')
 
 @section('title', 'マイページ')

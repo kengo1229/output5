@@ -1,6 +1,8 @@
-@extends('layouts.app')
+@php
+$title = $parent_step_info->title.'のチャレンジページ';
+@endphp
 
-@section('title', 'チャレンジ')
+@extends('layouts.app')
 
 @section('content')
 <div id="app" class="u-display-flex-center js-height-hold">

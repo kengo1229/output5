@@ -3,13 +3,35 @@
 
   <head>
       <meta charset="utf-8">
+
+      <!-- ==============================================
+    	  サイトタイトル
+    	=============================================== -->
+    	<title>@php echo $title  @endphp  | 共有型学習支援サービス「STEP」</title>
+
+    	<!-- ==============================================
+    		metaタグ
+    	=============================================== -->
+    	<meta name="author" content="STEP" />
+      <meta name="description" content="学習や成長に必要な【これが良かった】という【順番】と【方法】を【STEP】で共有し、他の人はその【STEP】を元に学習を進めて成長していけるサービスです。" />
+      <meta name="keywords" content="学習,方法,やり方,順番,共有" />
+      <meta name="application-name" content="STEP - 最良の学びや成長の方法が共有できる学習支援サービス" />
+
+      <!-- ==============================================
+    		OGPタグ(本番環境で実行できなかったら無駄なコードなので消す)
+    	=============================================== -->
+      <meta property="og:title" content="共有型学習支援サービス" />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://webukatustep.herokuapp.com/" />
+      <meta property="og:image" content="https://webukatustep.herokuapp.com/img/navbar_image.jpg" />
+      <meta property="og:site_name" content="共有型学習支援サービス「STEP」" />
+      <meta property="og:description" content="学習や成長に必要な最良の【順番】と【方法】を【STEP】で共有し、その【STEP】を元に成長していける共有型学習支援サービス" />
+      <meta name="twitter:card" content="summary_large_image" />
+
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- CSRF Token -->
       <meta name="csrf-token" content="{{ csrf_token() }}">
-
-      <title>@yield('title') | {{ config('app.name') }}</title>
-
       <!-- Fonts -->
       <link rel="dns-prefetch" href="//fonts.gstatic.com">
       <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">

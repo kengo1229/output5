@@ -1,3 +1,7 @@
+@php
+$title = $parent_step->title.'の子STEP詳細';
+@endphp
+
 @extends('layouts.app')
 
 @section('title', '子STEP詳細')

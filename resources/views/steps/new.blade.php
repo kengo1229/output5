@@ -1,6 +1,8 @@
-@extends('layouts.app')
+@php
+$title = 'STEP新規登録';
+@endphp
 
-@section('title', '新規登録')
+@extends('layouts.app')
 
 @section('content')
 <div id="app" class="u-display-flex-center js-height-hold">
