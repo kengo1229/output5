@@ -774,6 +774,41 @@ br {
   font-size: 18px;
 }
 
+.p-error {
+  margin-top: 60px;
+}
+
+@media screen and (max-width: 959px) {
+  .p-error {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 559px) {
+  .p-error {
+    width: 90%;
+    margin-top: 60px;
+  }
+}
+
+.p-error__message {
+  text-align: center;
+  font-size: 30px;
+}
+
+@media screen and (max-width: 959px) {
+  .p-error__message {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 559px) {
+  .p-error__message {
+    font-size: 18px;
+  }
+}
+
 .p-form__group {
   margin-bottom: 15px;
   overflow: hidden;

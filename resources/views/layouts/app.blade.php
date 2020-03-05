@@ -33,7 +33,7 @@
               </div>
 
               @guest
-              <ul class="p-nav  js-toggle-sp-menu-target">
+              <ul class="p-nav js-toggle-sp-menu-target">
                   @if (Route::has('register'))
                   <li class="p-nav__item">
                       <a class="p-nav__link" href="{{ route('register') }}">新規登録</a>
@@ -49,8 +49,9 @@
                   </li>
 
               </ul>
-              @else
+              @endguest
 
+              @auth
               <div class="c-menu-trigger js-toggle-sp-menu">
                   <span></span>
                   <span></span>
@@ -87,7 +88,7 @@
                       </li>
                   </div>
               </ul>
-              @endguest
+              @endauth
           </div>
       </nav>
 

@@ -4,7 +4,6 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Illuminate\Session\TokenMismatchException;
 
 class Handler extends ExceptionHandler
 {
@@ -46,21 +45,8 @@ class Handler extends ExceptionHandler
      * @return \Illuminate\Http\Response
      */
 
-     //ログイン有効期限切れの場合、ログイン画面に遷移させてフラッシュメッセージを表示する
-     public function render($request, Exception $e)
+     public function render($request, Exception $exception)
      {
-         if ($e instanceof TokenMismatchException) {
-
-             \Session::flash('flash_message', 'ログイン有効期限が切れました。ログインし直してください。');
-             return redirect()->route('login');
-         }
-
-         return parent::render($request, $e);
+         return parent::render($request, $exception);
      }
 }
-
-// もしダメだったら元のコードに帰る
-// public function render($request, Exception $exception)
-// {
-//     return parent::render($request, $exception);
-// }
