@@ -115,3 +115,58 @@ $(window).on('load resize', function () {
     }
 
 });
+
+/*
+トップ画面でスクロールするとコンテンツが下からフェードインする
+*/
+$(function(){
+  function animation(){
+    $('.js-fadeInUp').each(function(){
+      //ターゲットの位置を取得
+      var target = $(this).offset().top;
+      //スクロール量を取得
+      var scroll = $(window).scrollTop();
+      //ウィンドウの高さを取得
+      var windowHeight = $(window).height();
+      //ターゲットまでスクロールするとフェードインする
+      if (scroll > target - windowHeight){
+        $(this).css('opacity','1');
+        $(this).css('transform','translateY(0)');
+      }
+    });
+  }
+  animation();
+  $(window).scroll(function (){
+    animation();
+  });
+});
+
+/*
+トップ画面でスクロールするとコンテンツが順番に時間差で表示される
+*/
+$(function(){
+  $('.js-showDelay').css("opacity","0"); 
+  function animation(){
+    $('.js-showDelay').each(function(){
+      //ターゲットの位置を取得
+      var target = $(this).offset().top;
+      //スクロール量を取得
+      var scroll = $(window).scrollTop();
+      //ウィンドウの高さを取得
+      var windowHeight = $(window).height();
+      //ターゲットまでスクロールするとフェードインする
+      if (scroll > target - windowHeight){
+      $(function(){
+        $('.js-showDelay').each(function(i){
+           $(this).delay(700*i).animate({opacity:1}, 1500);
+          });
+       });
+      }
+    });
+  }
+  animation();
+  $(window).scroll(function (){
+    animation();
+  });
+
+});

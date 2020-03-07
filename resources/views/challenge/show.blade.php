@@ -49,7 +49,7 @@ $title = $parent_step_info->title.'のチャレンジページ';
                         クリア
                     </button>
 
-                    <a href="{{ action('ChallengeController@stop') }}" class="c-btn ">
+                    <a href="{{ action('ChallengeController@stop') }}" class="c-btn">
                         中断する
                     </a>
                   </div>

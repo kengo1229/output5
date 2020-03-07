@@ -1,0 +1,125 @@
+.p-about {
+  background-color: $about-bg-color;
+  padding: $space_l;
+  margin-bottom: $space_3l;
+  padding-bottom: $space_xxl;
+  border-radius: 3px;
+  opacity : 0;
+  transform: translateY(20px);
+  transition: 2s;
+  &:first-child {
+    margin-top: 70px;
+    @include md() {
+      margin-top: $space_3l;
+    }
+  }
+
+  &__main-title {
+    margin: $space_l 0;
+    font-weight: bold;
+    text-align: left;
+    font-size: $font-size_xl;
+    line-height: 2.0;
+    letter-spacing: 1.2px;
+    @include lg() {
+      font-size: $font-size_l;
+    }
+    @include md() {
+      font-size: $font-size_default;
+      letter-spacing: 0.9px;
+    }
+    @include sm() {
+      text-align: center;
+    }
+
+    &--text-right {
+      margin: $space_l 0;
+      font-weight: bold;
+      text-align: right;
+      font-size: $font-size_xl;
+      line-height: 2.0;
+      letter-spacing: 1.2px;
+      @include lg() {
+        font-size: $font-size_l;
+      }
+      @include md() {
+        font-size: $font-size_default ;
+        letter-spacing: 0.9px;
+      }
+      @include sm() {
+        text-align: center;
+      }
+    }
+  }
+  &__sub-title {
+    margin: $space_l 0;
+    font-weight: bold;
+    text-align: center;
+    color: $about-color;
+    font-size: $font-size_l;
+    line-height: 2.0;
+    letter-spacing: 1.2px;
+    @include lg() {
+      font-size: $font-size_m;
+    }
+    @include lg-side() {
+      font-size: $font-size_default;
+    }
+    @include md() {
+      font-size: $font-size_s;
+    }
+  }
+
+  &__content {
+    font-size: $font-size_m;
+    line-height: 2.0;
+    letter-spacing: 1.2px;
+    @include lg() {
+      font-size: $font-size_s;
+    }
+    @include md() {
+      font-size: $font-size_xs;
+    }
+  }
+
+  &__button {
+    width: 40%;
+    color: $font-color-white;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: $btn-bg-color;
+    border: 1px solid $btn-border-color;
+    margin-top: $space_l;
+    margin-bottom: $space_l;
+    margin-left: auto;
+    margin-right: auto;
+    padding: $space_m;
+    border-radius: 0.25rem;
+    -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    @include lg-side() {
+      width: 50%;
+    }
+    @include md() {
+      width: 70%;
+    }
+        &:hover {
+            color: $font-color-white;
+            background-color: $btn-hover-bg-color;
+            border-color: $btn-hover-border-color;
+            text-decoration: none;
+        }
+  }
+
+  &__link {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+}

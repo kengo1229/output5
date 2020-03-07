@@ -364,7 +364,7 @@ br {
   }
 }
 
-@-webkit-keyframes fadeout {
+@-webkit-keyframes fadeOut {
   0% {
     opacity: 1;
   }
@@ -414,7 +414,7 @@ br {
   margin-bottom: 1rem;
   border: 1px solid transparent;
   border-radius: 0.25rem;
-  -webkit-animation: fadeout 3s;
+  -webkit-animation: fadeOut 3s;
   position: absolute;
   opacity: 0;
   top: 68px;
@@ -677,6 +677,176 @@ br {
 
 .c-step-group--min-height {
   min-height: 200px;
+}
+
+.p-about {
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+  border-radius: 3px;
+  opacity: 0;
+  -webkit-transform: translateY(20px);
+          transform: translateY(20px);
+  -webkit-transition: 2s;
+  transition: 2s;
+}
+
+.p-about:first-child {
+  margin-top: 70px;
+}
+
+@media screen and (max-width: 559px) {
+  .p-about:first-child {
+    margin-top: 40px;
+  }
+}
+
+.p-about__main-title {
+  margin: 15px 0;
+  font-weight: bold;
+  text-align: left;
+  font-size: 30px;
+  line-height: 2;
+  letter-spacing: 1.2px;
+}
+
+@media screen and (max-width: 959px) {
+  .p-about__main-title {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 559px) {
+  .p-about__main-title {
+    font-size: 16px;
+    letter-spacing: 0.9px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .p-about__main-title {
+    text-align: center;
+  }
+}
+
+.p-about__main-title--text-right {
+  margin: 15px 0;
+  font-weight: bold;
+  text-align: right;
+  font-size: 30px;
+  line-height: 2;
+  letter-spacing: 1.2px;
+}
+
+@media screen and (max-width: 959px) {
+  .p-about__main-title--text-right {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 559px) {
+  .p-about__main-title--text-right {
+    font-size: 16px;
+    letter-spacing: 0.9px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .p-about__main-title--text-right {
+    text-align: center;
+  }
+}
+
+.p-about__sub-title {
+  margin: 15px 0;
+  font-weight: bold;
+  text-align: center;
+  color: #3b91d88f;
+  font-size: 24px;
+  line-height: 2;
+  letter-spacing: 1.2px;
+}
+
+@media screen and (max-width: 959px) {
+  .p-about__sub-title {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 959px) {
+  .p-about__sub-title {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 559px) {
+  .p-about__sub-title {
+    font-size: 14px;
+  }
+}
+
+.p-about__content {
+  font-size: 18px;
+  line-height: 2;
+  letter-spacing: 1.2px;
+}
+
+@media screen and (max-width: 959px) {
+  .p-about__content {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 559px) {
+  .p-about__content {
+    font-size: 12px;
+  }
+}
+
+.p-about__button {
+  width: 40%;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: #3490dc;
+  border: 1px solid #3490dc;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  border-radius: 0.25rem;
+  -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+@media screen and (max-width: 959px) {
+  .p-about__button {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 559px) {
+  .p-about__button {
+    width: 70%;
+  }
+}
+
+.p-about__button:hover {
+  color: #fff;
+  background-color: #227dc7;
+  border-color: #2176bd;
+  text-decoration: none;
+}
+
+.p-about__link:hover {
+  text-decoration: none;
 }
 
 .p-card {
@@ -956,7 +1126,7 @@ br {
           align-items: center;
 }
 
-@media screen and (max-width: 959px) {
+@media screen and (max-width: 1200px) {
   .p-hero {
     height: 550px;
     background-attachment: scroll;
@@ -986,7 +1156,7 @@ br {
   text-align: center;
   font-size: 50px;
   color: #fff;
-  text-shadow: 0 0 20px rgba(227, 123, 137, 0.4), 0 0 50px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 0 20px rgba(59, 145, 216, 0.56), 0 0 50px rgba(0, 0, 0, 0.8);
 }
 
 @media screen and (max-width: 959px) {
@@ -1330,6 +1500,11 @@ br {
 .u-border-default {
   border-radius: 3px;
   border: solid 1px #00000020;
+}
+
+.u-color-accent {
+  color: #3b91d88f;
+  font-weight: bold;
 }
 
 .u-display-flex-center {
