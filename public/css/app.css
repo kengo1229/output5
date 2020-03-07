@@ -1487,6 +1487,7 @@ br {
   min-height: 100px;
 }
 
+
 @media screen and (max-width: 320px) {
   .p-user__introduction {
     width: 100%;
@@ -1584,4 +1585,3 @@ br {
 .u-underline-bold {
   border-bottom: groove 5px #3490dc;
 }
-
