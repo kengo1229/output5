@@ -38,7 +38,11 @@
       <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
       <!-- Styles -->
+      @if(app('env') == 'production')
+      <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+      @else
       <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+      @endif
   </head>
 
   <body id="js-position-top">
