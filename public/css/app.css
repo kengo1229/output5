@@ -230,11 +230,6 @@ textarea {
   border-style: none;
 }
 
-select::-ms-expand {
-  display: none;
-  /* Internet Explorer 11+ */
-}
-
 select::-ms-value {
   color: currentColor;
   /* Internet Explorer 11+ */
@@ -443,12 +438,12 @@ br {
   vertical-align: top;
   border-radius: 3px;
   background-color: #4fc353;
-  color: #fff;
+  color: white;
 }
 
 .c-btn {
   display: inline-block;
-  color: #fff;
+  color: white;
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
@@ -465,7 +460,7 @@ br {
 }
 
 .c-btn:hover {
-  color: #fff;
+  color: white;
   background-color: #227dc7;
   border-color: #2176bd;
   text-decoration: none;
@@ -680,7 +675,7 @@ br {
 }
 
 .p-about {
-  background-color: #fff;
+  background-color: white;
   padding: 15px;
   margin-bottom: 40px;
   padding-bottom: 30px;
@@ -806,7 +801,7 @@ br {
 
 .p-about__button {
   width: 40%;
-  color: #fff;
+  color: white;
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
@@ -839,7 +834,7 @@ br {
 }
 
 .p-about__button:hover {
-  color: #fff;
+  color: white;
   background-color: #227dc7;
   border-color: #2176bd;
   text-decoration: none;
@@ -1155,7 +1150,7 @@ br {
 .p-hero__title {
   text-align: center;
   font-size: 50px;
-  color: #fff;
+  color: white;
   text-shadow: 0 0 20px rgba(59, 145, 216, 0.56), 0 0 50px rgba(0, 0, 0, 0.8);
 }
 
@@ -1494,7 +1489,7 @@ br {
 }
 
 .u-bg-white {
-  background-color: #fff;
+  background-color: white;
 }
 
 .u-border-default {
@@ -1521,11 +1516,11 @@ br {
 }
 
 .u-is-invalid {
-  border-color: #F00;
+  border-color: red;
 }
 
 .u-invalid-feedback {
-  color: #F00;
+  color: red;
   font-size: 14px;
   display: block;
 }
@@ -1553,7 +1548,7 @@ br {
 }
 
 .u-text-muted {
-  color: #fff;
+  color: white;
 }
 
 .u-secondary-title {
@@ -1563,7 +1558,7 @@ br {
 
 .u-twitter-share-btn {
   background-color: #55acee;
-  color: #fff;
+  color: white;
   display: inline-block;
   padding: 5px;
   border-radius: 3px;

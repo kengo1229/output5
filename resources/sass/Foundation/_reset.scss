@@ -195,10 +195,6 @@ textarea {
   border-style: none;
 }
 
-select::-ms-expand {
-  display: none; /* Internet Explorer 11+ */
-}
-
 select::-ms-value {
   color: currentColor; /* Internet Explorer 11+ */
 }
