@@ -5,6 +5,8 @@
     border: 1px solid transparent;
     border-radius: 0.25rem;
     animation: fadeOut 3s;
+    -webkit-animation: fadeOut 3s;
+    -ms-animation: fadeOut 3s;
     position: absolute;
     opacity: 0;
     top: 68px;

@@ -44,7 +44,21 @@ br {
     }
 }
 
-@keyframes fadeOut {
+@-webkit-keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@-ms-keyframes fadeOut {
     0% {
         opacity: 1;
     }

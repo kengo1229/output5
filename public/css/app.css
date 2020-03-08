@@ -373,20 +373,6 @@ br {
   }
 }
 
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0.5;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
 .l-footer {
   background-color: rgba(0, 0, 0, 0.701);
   padding: 15px;
@@ -423,8 +409,9 @@ br {
   margin-bottom: 1rem;
   border: 1px solid transparent;
   border-radius: 0.25rem;
+  animation: fadeOut 3s;
   -webkit-animation: fadeOut 3s;
-          animation: fadeOut 3s;
+  -ms-animation: fadeOut 3s;
   position: absolute;
   opacity: 0;
   top: 68px;
