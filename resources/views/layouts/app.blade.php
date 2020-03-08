@@ -28,6 +28,10 @@
       <meta property="og:description" content="学習や成長に必要な最良の【順番】と【方法】を【STEP】で共有し、その【STEP】を元に成長していける共有型学習支援サービス" />
       <meta name="twitter:card" content="summary_large_image" />
 
+      <!-- IE8+に対して「IE=edge」と指定することで、利用できる最も互換性の高い最新のエンジンを使用するよう指示できる -->
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+      <!-- モバイル端末への対応。ビューポートの幅に合わせてレンダリングする -->
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- CSRF Token -->
