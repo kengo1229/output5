@@ -360,20 +360,6 @@ br {
   }
 }
 
-@-webkit-keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0.5;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
 .l-footer {
   background-color: rgba(0, 0, 0, 0.701);
   padding: 15px;
@@ -426,6 +412,20 @@ br {
 @media screen and (max-width: 959px) {
   .c-alert {
     top: 58px;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 0;
   }
 }
 
