@@ -45,7 +45,10 @@ $(function () {
     }, 0, 'swing');
 });
 
-
+/*
+ブラウザがIEの時にスムーススクロールのせいで
+position:fixedしたTOP画像がガクつくのを防ぐ
+*/
 if(navigator.userAgent.match(/MSIE 10/i) || navigator.userAgent.match(/Trident\/7\./) || navigator.userAgent.match(/Edge\/12\./)) {
     $('body').on("mousewheel", function () {
         event.preventDefault();
