@@ -410,6 +410,7 @@ br {
   border: 1px solid transparent;
   border-radius: 0.25rem;
   -webkit-animation: fadeOut 3s;
+          animation: fadeOut 3s;
   position: absolute;
   opacity: 0;
   top: 68px;
