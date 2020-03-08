@@ -46,6 +46,16 @@ $(function () {
 });
 
 
+if(navigator.userAgent.match(/MSIE 10/i) || navigator.userAgent.match(/Trident\/7\./) || navigator.userAgent.match(/Edge\/12\./)) {
+    $('body').on("mousewheel", function () {
+        event.preventDefault();
+        let wd = event.wheelDelta;
+        let csp = window.pageYOffset;
+        window.scrollTo(0, csp - wd);
+    });
+ }
+
+
 /*
 入力フォームの文字数カウンター
 js-countをまとめてforでまわすと、入力フォームが12個ないページでエラーが出るため、
@@ -125,11 +135,11 @@ $(function(){
   function animation(){
     $('.js-fadeInUp').each(function(){
       //ターゲットの位置を取得
-      var target = $(this).offset().top;
+      let target = $(this).offset().top;
       //スクロール量を取得
-      var scroll = $(window).scrollTop();
+      let scroll = $(window).scrollTop();
       //ウィンドウの高さを取得
-      var windowHeight = $(window).height();
+      let windowHeight = $(window).height();
       //ターゲットまでスクロールするとフェードインする
       if (scroll > target - windowHeight){
         $(this).css('opacity','1');
@@ -151,11 +161,11 @@ $(function(){
   function animation(){
     $('.js-showDelay').each(function(){
       //ターゲットの位置を取得
-      var target = $(this).offset().top;
+      let target = $(this).offset().top;
       //スクロール量を取得
-      var scroll = $(window).scrollTop();
+      let scroll = $(window).scrollTop();
       //ウィンドウの高さを取得
-      var windowHeight = $(window).height();
+      let windowHeight = $(window).height();
       //ターゲットまでスクロールするとフェードインする
       if (scroll > target - windowHeight){
       $(function(){
