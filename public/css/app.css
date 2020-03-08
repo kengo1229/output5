@@ -373,6 +373,20 @@ br {
   }
 }
 
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
 .l-footer {
   background-color: rgba(0, 0, 0, 0.701);
   padding: 15px;
