@@ -32,7 +32,7 @@ $title = $parent_step->title.'の親STEP詳細';
                     @endif
                 </div>
 
-                <a href="https://twitter.com/share?url=https://webukatustep.herokuapp.com/steps/{{ $parent_step->id }}&text={{ $parent_step->title }}@php echo urlencode('| 共有型学習支援サービス「STEP」')@endphp%0a&hashtags=@php echo urlencode('あなたの人生のSTEPを共有しよう,共有,学習, STEP')@endphp" data-show-count="false" target="_blank">
+                <a href="https://twitter.com/share?url=https://webukatustep.herokuapp.com/steps/{{ $parent_step->id }}&text={{ $parent_step->title }}%0a&hashtags=@php echo urlencode('あなたの人生のSTEPを共有しよう,共有,学習, STEP')@endphp" data-show-count="false" target="_blank">
                   <span class="u-twitter-share-btn"><i class="fab fa-twitter"></i> Tweet</span>
                 </a>
 
