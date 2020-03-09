@@ -4,9 +4,8 @@
     margin-bottom: 1rem;
     border: 1px solid transparent;
     border-radius: 0.25rem;
-    animation: fadeOut 3s;
     -webkit-animation: fadeOut 3s;
-    -ms-animation: fadeOut 3s;
+    animation: fadeOut 3s;
     position: absolute;
     opacity: 0;
     top: 68px;
@@ -20,33 +19,5 @@
     // ずらさないと隙間が空くため58pxで指定
     @include lg-side() {
         top: 58px;
-    }
-}
-
-@-webkit-keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0.5;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
-
-@-ms-keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0.5;
-    }
-
-    100% {
-        opacity: 0;
     }
 }
