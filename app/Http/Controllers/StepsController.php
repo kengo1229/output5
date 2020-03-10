@@ -45,20 +45,39 @@ class StepsController extends Controller
     // parent_stepsテーブルから最新のidを変数に格納
     $parent_step_id = ParentStep::latest('id')->first()->id;
 
-    // child_stepsテーブルにフォームに入力された情報とparent_step_idを登録する
-    // 各stepとtodoに入力された値を配列形式で一気に登録する
-    ChildStep::insert([
-    ['parent_step_id' => $parent_step->id,  'step' => $request->step0, 'todo' =>  $request->todo0,
-     'created_at' => now(), 'updated_at' => now() ],
-    ['parent_step_id' => $parent_step->id,  'step' => $request->step1, 'todo' =>  $request->todo1,
-     'created_at' => now(), 'updated_at' => now() ],
-    ['parent_step_id' => $parent_step->id,  'step' => $request->step2, 'todo' =>  $request->todo2,
-    'created_at' => now(), 'updated_at' => now()  ],
-    ['parent_step_id' => $parent_step->id,  'step' => $request->step3, 'todo' =>  $request->todo3,
-     'created_at' => now(), 'updated_at' => now()  ],
-    ['parent_step_id' => $parent_step->id,  'step' => $request->step4, 'todo' =>  $request->todo4,
-     'created_at' => now(), 'updated_at' => now()  ]
-]);
+    /*
+    child_stepsテーブルにフォームに入力された情報とparent_step_idを登録する
+    入力フォームの子STEPとやることは子STEP2以降が任意入力になっているので、両方の入力が確認できたら
+    配列形式で大本の配列である$child_step_arrayに追加して、最後にinsertで一気にDBに挿入する
+    */
+    //
+
+    $child_step_array = [];
+
+    $child_step_array[0] = array('parent_step_id' => $parent_step->id,  'step' => $request->step0, 'todo' =>  $request->todo0,
+     'created_at' => now(), 'updated_at' => now());
+
+     if($request->step1 != null && $request->todo1 != null){
+       $child_step_array[1] = array('parent_step_id' => $parent_step->id,  'step' => $request->step1, 'todo' =>  $request->todo1,
+        'created_at' => now(), 'updated_at' => now());
+     }
+
+     if($request->step2 != null && $request->todo2 != null){
+       $child_step_array[2] = array('parent_step_id' => $parent_step->id,  'step' => $request->step2, 'todo' =>  $request->todo2,
+        'created_at' => now(), 'updated_at' => now());
+     }
+
+     if($request->step3 != null && $request->todo3 != null){
+       $child_step_array[3] = array('parent_step_id' => $parent_step->id,  'step' => $request->step3, 'todo' =>  $request->todo3,
+        'created_at' => now(), 'updated_at' => now());
+     }
+
+     if($request->step4 != null && $request->todo4 != null){
+       $child_step_array[4] = array('parent_step_id' => $parent_step->id,  'step' => $request->step4, 'todo' =>  $request->todo4,
+        'created_at' => now(), 'updated_at' => now());
+     }
+
+    ChildStep::insert($child_step_array);
 
     return redirect('/steps')->with('flash_message', '登録が完了しました!');
   }

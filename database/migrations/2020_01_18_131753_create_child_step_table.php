@@ -16,8 +16,8 @@ class CreatechildStepTable extends Migration
     {
         Schema::create('child_steps', function (Blueprint $table) {
           $table->bigIncrements('id');
-          $table->string('step',40)->default(0);
-          $table->string('todo',100)->default(0);
+          $table->string('step',40)->nullable();
+          $table->string('todo',100)->nullable();
           $table->unsignedBigInteger('parent_step_id');
           $table->timestamps();
         });
