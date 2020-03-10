@@ -97,7 +97,7 @@ class StepsController extends Controller
 
     // $idを元にchild_stepテーブルに登録されたデータを格納
     $child_step_info  = ChildStep::where('parent_step_id', $id)->get();
-
+    \Log::info('ログ出力テスト'.$child_step_info);
 
     return view('steps.edit', compact('user', 'parent_step_info', 'child_step_info', 'categories'));
 
