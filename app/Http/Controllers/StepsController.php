@@ -164,9 +164,9 @@ class StepsController extends Controller
       $user = User::find($parent_step->user_id);
 
       // 親STEPに紐づいた子STEPのデータを格納
-      $child_step  = ChildStep::where('parent_step_id', $id)->get();
+      $child_steps  = ChildStep::where('parent_step_id', $id)->get();
 
-      return view('steps.show', compact('parent_step', 'child_step', 'user'));
+      return view('steps.show', compact('parent_step', 'child_steps', 'user'));
     }
 
     // 子STEP詳細表示機能
@@ -185,9 +185,9 @@ class StepsController extends Controller
       }
 
       // 親STEPに紐づいた子STEPのデータを格納
-      $child_step  = ChildStep::where('parent_step_id', $id)->get();
+      $child_steps  = ChildStep::where('parent_step_id', $id)->get();
 
-      return view('steps.detail', compact( 'parent_step', 'child_step'));
+      return view('steps.detail', compact( 'parent_step', 'child_steps'));
     }
 
 }

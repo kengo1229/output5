@@ -64,11 +64,11 @@ $title = $parent_step->title.'の親STEP詳細';
                           </a>
 
                         </p>
-                        @for ($i = 1; $i <= 5; $i++)
+                        @foreach($child_steps as $index => $child_step)
                         <div class="p-show__control">
-                            <div>子STEP{{ $i }}：{{ $child_step[$i - 1]['step']}}</div>
+                            <div>子STEP{{ $index + 1 }}：{{ $child_step['step']}}</div>
                         </div>
-                        @endfor
+                        @endforeach
                     </div>
                 </div>
 

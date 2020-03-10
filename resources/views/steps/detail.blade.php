@@ -14,20 +14,20 @@ $title = $parent_step->title.'の子STEP詳細';
 
             <div class="p-card__body">
                 <div class="p-show">
-                    @for ($i = 1; $i <= 5; $i++)
+                    @foreach($child_steps as $index => $child_step)
                     <div class="p-show__group  u-underline-bold">
                         <div>
-                            <p class="u-underline-thin">子STEP{{ $i }}</p>
-                            <div class="p-show__control">{{ $child_step[$i - 1]['step']}}</div>
+                            <p class="u-underline-thin">子STEP{{ $index + 1 }}</p>
+                            <div class="p-show__control">{{ $child_step['step']}}</div>
                             <p class="u-underline-thin">やること</p>
-                            <div class="p-show__control">{{ $child_step[$i - 1]['todo']}}</div>
+                            <div class="p-show__control">{{ $child_step['todo']}}</div>
                         </div>
                     </div>
-                    @endfor
+                    @endforeach
                 </div>
 
             <!-- 親STEPに紐づいた子STEPのparent_step_idは全て同一なので配列の0番目から取得 -->
-            <a href="{{ action('StepsController@show', $child_step[0]->parent_step_id) }}">
+            <a href="{{ action('StepsController@show', $child_steps[0]->parent_step_id) }}">
             STEP詳細に戻る
             </a>
             </div>

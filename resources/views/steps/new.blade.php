@@ -84,7 +84,7 @@ $title = 'STEP新規登録';
                 @for ($i = 1; $i <= 5; $i++)
                 <div class="p-form__group">
 
-                    <label for="step{{$i - 1}}">{{__('子STEP').$i }}(40文字以下)<span class="c-badge">必須</span></label>
+                    <label for="step{{$i - 1}}">{{__('子STEP').$i }}(40文字以下)<span class="c-badge">@if($i === 1)必須@else任意@endif</span></label>
 
                     <input id="step{{$i - 1}}" type="text" class="p-form__control js-count{{$i + 2}} @error('step'.($i - 1)) u-is-invalid @enderror" name="step{{$i - 1}}" value="{{old('step'.($i - 1))}}" autocomplete="step{{$i - 1}}" autofocus>
                     <p class="u-float-right"><span class="js-show{{$i + 2}}">0</span>/40</p>
@@ -98,7 +98,7 @@ $title = 'STEP新規登録';
 
                 <div class="p-form__group">
 
-                    <label for="todo{{$i - 1}}">やること(100文字以下)<span class="c-badge">必須</span></label>
+                    <label for="todo{{$i - 1}}">やること(100文字以下)<span class="c-badge">@if($i === 1)必須@else任意@endif</span></label>
 
                     <textarea id="todo{{$i - 1}}" class="p-form__control p-form__textarea js-count{{$i + 7}} @error('todo'.($i - 1)) u-is-invalid @enderror" name="todo{{$i - 1}}" autocomplete="todo{{$i - 1}}" autofocus>{{ old('todo'.($i - 1)) }}</textarea>
                     <p class="u-float-right"><span class="js-show{{$i + 7}}">0</span>/100</p>
