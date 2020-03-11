@@ -112,8 +112,11 @@ class StepsController extends Controller
 
       $parent_step->fill($request->all())->save();
 
-      // child_stepsテーブルの更新
-      // 入力フォームにstep・todoが5つずつ入力箇所があるのでfor文使用して更新処理を5回行う
+      /*
+      child_stepsテーブルの更新
+      子STEP2以降は任意入力のため、$idに対応する子STEPで既に挿入されているものについては更新をして
+      新たに追加される子STEPについては配列形式で一気に挿入する
+      */
       $child_steps = ChildStep::where('parent_step_id', $id)->get();
       $child_step_array = [];
 

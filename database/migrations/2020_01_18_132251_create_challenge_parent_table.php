@@ -19,6 +19,7 @@ class CreateChallengeParentTable extends Migration
           $table->unsignedBigInteger('user_id');
           $table->unsignedBigInteger('parent_step_id');
           $table->integer('total_time')->nullable(false)->default(0);
+          $table->integer('total_child_step')->nullable(false)->default(0);
           $table->integer('num_clear_child_step')->nullable(false)->default(0);
           $table->tinyInteger('end_flg')->default(0);
           $table->timestamps();

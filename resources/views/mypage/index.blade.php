@@ -99,7 +99,7 @@ $title = '[ユーザー名未設定]さんのマイページ;'
                         <p class="u-underline-thin">かかった時間</p>
                         <p>{{ $my_challenge_step['total_time'] }}時間</p>
                         <p class="u-underline-thin">進捗状況</p>
-                        <p>5STEP中{{$my_challenge_step['num_clear_child_step']}}STEPクリア</p>
+                        <p>{{$my_challenge_step['total_child_step']}}STEP中{{$my_challenge_step['num_clear_child_step']}}STEPクリア</p>
                     </div>
                 </a>
             </div>

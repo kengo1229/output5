@@ -38,28 +38,39 @@ class ChallengeController extends Controller
       ->with('flash_message', 'このSTEPは既にチャレンジ中です。');;
     }
 
-
-
     // challenge_parent_stepsテーブルにチャレンジするユーザーと親STEPの情報を登録する
     ChallengeParentStep::create(['user_id' => Auth::id(), 'parent_step_id' => $parent_step->id]);
     // challenge_parent_stepsテーブルから最新のidを変数に格納
     $challenge_parent_step_id = ChallengeParentStep::latest('id')->first()->id;
 
     // 親STEPに紐づいた子STEPのidを$idでまとめて取得する
-    $child_step_id =  ChildStep::where('parent_step_id', $id)->get('id');
-    // challenge_child_stepsにチャレンジ中の子STEP情報を登録する
-    ChallengeChildStep::insert([
-      ['challenge_parent_step_id' => $challenge_parent_step_id,  'child_step_id' => $child_step_id[0]['id'],
-       'num_child_step' =>'1', 'created_at' => now(), 'updated_at' => now() ],
-      ['challenge_parent_step_id' => $challenge_parent_step_id,  'child_step_id' => $child_step_id[1]['id'],
-       'num_child_step' =>'2', 'created_at' => now(), 'updated_at' => now() ],
-      ['challenge_parent_step_id' => $challenge_parent_step_id,  'child_step_id' => $child_step_id[2]['id'],
-       'num_child_step' =>'3', 'created_at' => now(), 'updated_at' => now()  ],
-      ['challenge_parent_step_id' => $challenge_parent_step_id,  'child_step_id' => $child_step_id[3]['id'],
-       'num_child_step' =>'4', 'created_at' => now(), 'updated_at' => now()  ],
-      ['challenge_parent_step_id' => $challenge_parent_step_id,  'child_step_id' => $child_step_id[4]['id'],
-       'num_child_step' =>'5', 'created_at' => now(), 'updated_at' => now()  ]
-    ]);
+    $child_steps =  ChildStep::where('parent_step_id', $id)->get();
+
+    /*
+    challenge_child_step_arrayにチャレンジ中の子STEP情報を登録する
+    */
+    $challenge_child_step_array = [];
+
+    $challenge_child_step_array[0] = array('challenge_parent_step_id' => $challenge_parent_step_id,  'child_step_id' => $child_steps[0]['id'],
+     'num_child_step' =>'1', 'created_at' => now(), 'updated_at' => now());
+
+     /*
+     子STEP２以降は任意入力のため、空かどうかを判定した上で配列に追加していく。
+     */
+     for($i = 1; $i <= 4; $i++) {
+       if(isset($child_steps[$i]['step'])){
+         $challenge_child_step_array[$i] = array('challenge_parent_step_id' => $challenge_parent_step_id,  'child_step_id' => $child_steps[$i]['id'],
+          'num_child_step' =>($i + 1), 'created_at' => now(), 'updated_at' => now());
+       }
+     }
+
+    // チャレンジする親STEPに、紐づく子STEPの総数を挿入する
+    $challenge_parent_step = ChallengeParentStep::find($challenge_parent_step_id);
+    $challenge_parent_step->total_child_step = count($challenge_child_step_array);
+    $challenge_parent_step->save();
+
+    // 配列を一気にDBに挿入する
+    ChallengeChildStep::insert($challenge_child_step_array);
 
   // 登録が完了したら、challenge_parent_stepのidを渡してチャレンジ画面に飛ばす
   return redirect()->route('challenge.show', ['id' => $challenge_parent_step_id])
