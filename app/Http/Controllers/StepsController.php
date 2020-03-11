@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Category;
 use App\ParentStep;
+use App\ChallengeParentStep;
 use App\ChildStep;
 use App\Http\Requests\StepRequest;
 use App\User;
@@ -77,6 +78,20 @@ class StepsController extends Controller
         return redirect('/steps')->with('flash_message', __('不正な操作が行われました。'));
     }
 
+    /*
+    編集しようとしているSTEPがチャレンジ中の場合、編集できないようにしたいので判定用の変数を用意して
+    変数の中身を変える
+    */
+    $end_flg = ChallengeParentStep::select('end_flg')->where('parent_step_id', $id)->first();
+
+    \Log::info('ログ出力テスト'.$end_flg);
+
+    if($end_flg['end_flg'] === 0) {
+      $challenge_flg = true;
+    }else{
+      $challenge_flg = false;
+    }
+
     $user = Auth::user();
     $categories = Category::get();
     // $idを元にparent_stepテーブルに登録されたデータを格納
@@ -85,7 +100,7 @@ class StepsController extends Controller
     // $idを元にchild_stepテーブルに登録されたデータを格納
     $child_step_info  = ChildStep::where('parent_step_id', $id)->get();
 
-    return view('steps.edit', compact('user', 'parent_step_info', 'child_step_info', 'categories'));
+    return view('steps.edit', compact('user', 'parent_step_info', 'child_step_info', 'categories', 'challenge_flg'));
 
     }
 

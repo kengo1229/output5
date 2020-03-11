@@ -7,7 +7,7 @@ $title = 'STEP編集';
 @section('content')
     <div id="app" class="u-display-flex-center js-height-hold">
         <div class="p-card u-bg-white u-border-default">
-            <div class="p-card__header">STEP編集</div>
+            <div class="p-card__header">STEP編集@if($challenge_flg)（チャレンジ中のため編集できません。）@endif</div>
 
             <div class="p-card__body">
 
@@ -154,9 +154,14 @@ $title = 'STEP編集';
                     </div>
 
                     <div class="p-form__group">
+                      @if($challenge_flg)
+                        <p>チャレンジ中のため編集できません。</p>
+                      @else
                         <button type="submit" class="c-btn u-float-right">
                           編集
                         </button>
+                      @endif
+
                     </div>
                 </form>
             </div>
