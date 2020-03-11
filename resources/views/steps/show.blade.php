@@ -65,9 +65,11 @@ $title = $parent_step->title.'の親STEP詳細';
 
                         </p>
                         @foreach($child_steps as $index => $child_step)
+                        @if($child_step['step'] !=null)
                         <div class="p-show__control">
                             <div>子STEP{{ $index + 1 }}：{{ $child_step['step']}}</div>
                         </div>
+                        @endif
                         @endforeach
                     </div>
                 </div>

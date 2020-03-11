@@ -57,24 +57,11 @@ class StepsController extends Controller
     $child_step_array[0] = array('parent_step_id' => $parent_step->id,  'step' => $request->step0, 'todo' =>  $request->todo0,
      'created_at' => now(), 'updated_at' => now());
 
-     if($request->step1 != null && $request->todo1 != null){
-       $child_step_array[1] = array('parent_step_id' => $parent_step->id,  'step' => $request->step1, 'todo' =>  $request->todo1,
-        'created_at' => now(), 'updated_at' => now());
-     }
-
-     if($request->step2 != null && $request->todo2 != null){
-       $child_step_array[2] = array('parent_step_id' => $parent_step->id,  'step' => $request->step2, 'todo' =>  $request->todo2,
-        'created_at' => now(), 'updated_at' => now());
-     }
-
-     if($request->step3 != null && $request->todo3 != null){
-       $child_step_array[3] = array('parent_step_id' => $parent_step->id,  'step' => $request->step3, 'todo' =>  $request->todo3,
-        'created_at' => now(), 'updated_at' => now());
-     }
-
-     if($request->step4 != null && $request->todo4 != null){
-       $child_step_array[4] = array('parent_step_id' => $parent_step->id,  'step' => $request->step4, 'todo' =>  $request->todo4,
-        'created_at' => now(), 'updated_at' => now());
+     for($i = 1; $i <= 4; $i++) {
+       if($request->input('step'.$i) != null && $request->input('todo'.$i) != null){
+         $child_step_array[$i] = array('parent_step_id' => $parent_step->id,  'step' => $request->input('step'.$i), 'todo' =>  $request->input('todo'.$i),
+          'created_at' => now(), 'updated_at' => now());
+       }
      }
 
     ChildStep::insert($child_step_array);
@@ -97,7 +84,6 @@ class StepsController extends Controller
 
     // $idを元にchild_stepテーブルに登録されたデータを格納
     $child_step_info  = ChildStep::where('parent_step_id', $id)->get();
-    \Log::info('ログ出力テスト'.$child_step_info);
 
     return view('steps.edit', compact('user', 'parent_step_info', 'child_step_info', 'categories'));
 
@@ -128,13 +114,24 @@ class StepsController extends Controller
 
       // child_stepsテーブルの更新
       // 入力フォームにstep・todoが5つずつ入力箇所があるのでfor文使用して更新処理を5回行う
+      $child_steps = ChildStep::where('parent_step_id', $id)->get();
+      $child_step_array = [];
+
       for ($i = 0; $i <= 4; $i++){
-       $child_step = ChildStep::where('parent_step_id', $id)->get();
-       $child_step = ChildStep::find($child_step[$i]->id);
-       $child_step->step = $request->input('step'.$i);
-       $child_step->todo = $request->input('todo'.$i);
-       $child_step->save();
+        if(isset($child_steps[$i])){
+          ChildStep::updateOrInsert(
+            ['id' => $child_steps[$i]->id],
+            ['parent_step_id' => $id, 'step' => $request->input('step'.$i), 'todo' => $request->input('todo'.$i)]
+        );
+      }else{
+        if($request->input('step'.$i) != null && $request->input('todo'.$i) != null){
+          $child_step_array[$i] = array('parent_step_id' => $parent_step->id,  'step' => $request->input('step'.$i), 'todo' =>  $request->input('todo'.$i),
+           'created_at' => now(), 'updated_at' => now());
+        }
+      }
    }
+
+      ChildStep::insert($child_step_array);
 
       return redirect('/steps')->with('flash_message', __('編集が完了しました!'));
     }
