@@ -32,21 +32,27 @@ $title = 'STEP編集';
                   @csrf
 
                     <div class="p-form__group">
+                        @if($challenge_flg)
+                        <p>タイトル</p>
+                        <div id="title" type="text" class="p-form__control">{{ $parent_step_info->title }}</div>
+                        @else
                         <label for="title">タイトル(40文字以下)<span class="c-badge">必須</span></label>
-
                         <input id="title" type="text" class="p-form__control js-count1 @error('title') u-is-invalid @enderror" name="title" value="{{ old('title', $parent_step_info->title) }}" autocomplete="title" autofocus>
                         <p class="u-float-right"><span class="js-show1">0</span>/40</p>
-
                         @error('title')
                         <p class="u-invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </p>
                         @enderror
+                        @endif
                     </div>
 
                     <div class="p-form__group">
+                        @if($challenge_flg)
+                        <p>カテゴリー</p>
+                        <div class="p-form__control p-form__category">{{ $parent_step_info->category->category_name }}</div>
+                        @else
                         <label for="category_id">カテゴリー<span class="c-badge">必須</span></label>
-
                         <div>
                             <select id="category_id" type="text" class="p-form__control p-form__category @error('category_id') u-is-invalid @enderror" name="category_id" autocomplete="category_id" autofocus>
                             @foreach($categories as $category )
@@ -59,20 +65,23 @@ $title = 'STEP編集';
                                 @endif
                             @endforeach
                             </select>
-
                             @error('category_id')
                             <p class="u-invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </p>
                             @enderror
                         </div>
+                        @endif
                     </div>
 
                     <div class="p-form__group">
+                        @if($challenge_flg)
+                        <p>達成目安時間</p>
+                        <div class="p-form__control p-form__time">{{ $parent_step_info->goal_time }}</div>
+                        @else
                         <label for="goal_time">達成目安時間<span class="c-badge">必須</span></label>
-
                         <div>
-                            <input id="goal_time" type="text" class="p-form__control  p-form__time @error('goal_time') u-is-invalid @enderror" name="goal_time" value="{{ old('goal_time', $parent_step_info->goal_time) }}" autocomplete="goal_time" autofocus>時間
+                            <input id="goal_time" type="text" class="p-form__control p-form__time @error('goal_time') u-is-invalid @enderror" name="goal_time" value="{{ old('goal_time', $parent_step_info->goal_time) }}" autocomplete="goal_time" autofocus>時間
 
                             @error('goal_time')
                             <p class="u-invalid-feedback" role="alert">
@@ -80,9 +89,14 @@ $title = 'STEP編集';
                             </p>
                             @enderror
                         </div>
+                        @endif
                     </div>
 
                     <div class="p-form__group">
+                        @if($challenge_flg)
+                        <p>内容</p>
+                        <div class="p-form__control p-form__textarea">{{ $parent_step_info->description }}</div>
+                        @else
                         <label for="description">内容(200文字以下)<span class="c-badge">必須</span></label>
 
                         <textarea id="description" class="p-form__control p-form__textarea js-count2 @error('description') u-is-invalid @enderror" name="description" autocomplete="description" autofocus>{{ old('description', $parent_step_info->description) }}</textarea>
@@ -93,11 +107,15 @@ $title = 'STEP編集';
                           <strong>{{ $message }}</strong>
                         </p>
                         @enderror
+                        @endif
                     </div>
 
                     @for ($i = 1; $i <= 5; $i++)
                     <div class="p-form__group">
-
+                        @if($challenge_flg)
+                        <p>{{__('子STEP').$i}}</p>
+                        <div class="p-form__control">{{ $child_step_info[$i - 1]['step'] }}</div>
+                        @else
                         <label for="step{{$i - 1}}">{{__('子STEP').$i}}<span class="c-badge">@if($i === 1)必須@else任意@endif</span></label>
 
                         <input id="step{{$i - 1}}" type="text" class="p-form__control js-count{{$i + 2}} @error('step'.($i - 1)) u-is-invalid @enderror" name="step{{$i - 1}}" value="@if(isset($child_step_info[$i - 1]['step'])){{old('step'.($i - 1),$child_step_info[$i - 1]['step'])}}@else{{old('step'.($i - 1))}}@endif" autocomplete="step{{$i - 1}}" autofocus>
@@ -108,10 +126,15 @@ $title = 'STEP編集';
                             <strong>{{ $message }}</strong>
                         </p>
                         @enderror
+                        @endif
+
                     </div>
 
                     <div class="p-form__group">
-
+                        @if($challenge_flg)
+                        <p>やること</p>
+                        <div class="p-form__control p-form__textarea">{{ $child_step_info[$i - 1]['todo'] }}</div>
+                        @else
                         <label for="todo{{$i - 1}}">やること(100文字以下)<span class="c-badge">@if($i === 1)必須@else任意@endif</span></label>
 
                         <textarea id="todo{{$i - 1}}" class="p-form__control p-form__textarea js-count{{$i + 7}} @error('todo'.($i - 1)) u-is-invalid @enderror" name="todo{{$i - 1}}" autocomplete="todo{{$i - 1}}" autofocus>@if(isset($child_step_info[$i - 1]['todo'])){{ old('todo'.($i - 1), $child_step_info[$i - 1]['todo']) }}@else{{ old('todo'.($i - 1)) }}@endif</textarea>
@@ -122,7 +145,7 @@ $title = 'STEP編集';
                             <strong>{{ $message }}</strong>
                         </p>
                         @enderror
-
+                        @endif
                     </div>
 
                     @endfor
@@ -142,6 +165,8 @@ $title = 'STEP編集';
                     </div>
 
                     <div class="p-form__group">
+                        @if($challenge_flg)
+                        @else
                         <label for="pic">新しい画像（jpg/jpeg/png）<span class="c-badge">任意</span></label>
 
                         <input id="pic" type="file" class="p-form__control p-form__pic @error('pic') u-is-invalid @enderror" name="pic" value="{{ old('pic') }}" autocomplete="pic" autofocus>
@@ -151,11 +176,12 @@ $title = 'STEP編集';
                             <strong>{{ $message }}</strong>
                         </p>
                         @enderror
+                        @endif
                     </div>
 
                     <div class="p-form__group">
                       @if($challenge_flg)
-                        <p>チャレンジ中のため編集できません。</p>
+                        <p>他ユーザーがチャレンジ中のため編集できません。</p>
                       @else
                         <button type="submit" class="c-btn u-float-right">
                           編集

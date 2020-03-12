@@ -15,7 +15,7 @@ class ChallengeParentStep extends Model
       {
           return $this->belongsTo('App\ParentStep');
       }
-
+  // challenge_child_stepsテーブルとのリレーション
   public function challengeChildSteps()
     {
         return $this->hasMany('App\ChallengeChildStep');

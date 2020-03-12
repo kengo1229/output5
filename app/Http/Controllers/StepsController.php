@@ -84,7 +84,6 @@ class StepsController extends Controller
     */
     $end_flg = ChallengeParentStep::select('end_flg')->where('parent_step_id', $id)->first();
 
-    \Log::info('ログ出力テスト'.$end_flg);
 
     if($end_flg['end_flg'] === 0) {
       $challenge_flg = true;
@@ -95,7 +94,7 @@ class StepsController extends Controller
     $user = Auth::user();
     $categories = Category::get();
     // $idを元にparent_stepテーブルに登録されたデータを格納
-    $parent_step_info = $user->parent_steps()->find($id);
+    $parent_step_info = $user->parent_steps()->with('category')->find($id);
 
     // $idを元にchild_stepテーブルに登録されたデータを格納
     $child_step_info  = ChildStep::where('parent_step_id', $id)->get();
