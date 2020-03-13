@@ -6,10 +6,12 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Category;
 use App\ParentStep;
-use App\ChallengeParentStep;
 use App\ChildStep;
-use App\Http\Requests\StepRequest;
+use App\ChallengeParentStep;
+use App\FinishParentStep;
+use App\FinishChildStep;
 use App\User;
+use App\Http\Requests\StepRequest;
 
 class StepsController extends Controller
 {
@@ -202,6 +204,29 @@ class StepsController extends Controller
       $child_steps  = ChildStep::where('parent_step_id', $id)->get();
 
       return view('steps.detail', compact( 'parent_step', 'child_steps'));
+    }
+
+    // チャレンジが終了したSTEPの詳細表示機能
+    public function record($id)
+    {
+      // GETパラメータが数字かどうかをチェックする
+      if(!ctype_digit($id)){
+        return redirect('/steps')->with('flash_message', __('不正な操作が行われました。'));
+      }
+
+      /*
+      STEPにチャレンジしていたユーザーとログインユーザーが一致する場合のみ、表示する
+      */
+      $finish_parent_step = FinishParentStep::find($id)->with(['user', 'category'])->first();
+      \Log::info('ログ出力テスト '.$finish_parent_step);
+      if(($finish_parent_step['challenge_user_id']) !== Auth::id()){
+        return redirect('/steps')->with('flash_message', __('不正な操作が行われました。'));
+      }
+
+      // 親STEPに紐づいた子STEPのデータを格納
+      $finish_child_step  = FinishChildStep::where('finish_parent_step_id', $id)->get();
+
+      return view('steps.record', compact( 'finish_parent_step', 'finish_child_step'));
     }
 
 }

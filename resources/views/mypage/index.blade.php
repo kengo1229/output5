@@ -116,11 +116,11 @@ $title = '[ユーザー名未設定]さんのマイページ;'
             @foreach ($my_finish_steps as $my_finish_step)
 
             <div class="p-step  u-margin-bottom-space_l u-bg-white u-border-default">
-                <a class="p-step__link" href="{{ action('StepsController@show', $my_finish_step->parent_step_id) }}">
+                <a class="p-step__link" href="{{ action('StepsController@record', $my_finish_step['id']) }}">
 
-                    @if(($my_finish_step->parentStep['pic']) != null)
+                    @if(($my_finish_step['pic']) != null)
                     <div>
-                        <img class="p-step__img" src="{{ $my_finish_step->parentStep['pic'] }}" alt="ステップ画像">
+                        <img class="p-step__img" src="{{ $my_finish_step['pic'] }}" alt="ステップ画像">
                     </div>
                     @else
                     <div>
@@ -129,11 +129,11 @@ $title = '[ユーザー名未設定]さんのマイページ;'
                     @endif
                     <div class="p-step__body-cleared">
                         <p class="u-underline-thin">タイトル</p>
-                        <p>{{ str_limit( $my_finish_step->parentStep['title'], 46) }}</p>
+                        <p>{{ str_limit( $my_finish_step['title'], 46) }}</p>
                         <p class="u-underline-thin">カテゴリー</p>
-                        <p>{{ $my_finish_step->parentStep->category['category_name'] }}</p>
+                        <p>{{ $my_finish_step->category['category_name'] }}</p>
                         <p class="u-underline-thin">達成目安時間</p>
-                        <p>{{ $my_finish_step->parentStep['goal_time'] }}時間</p>
+                        <p>{{ $my_finish_step['goal_time'] }}時間</p>
                         <p class="u-underline-thin">かかった時間</p>
                         <p>{{ $my_finish_step['total_time'] }}時間</p>
                     </div>

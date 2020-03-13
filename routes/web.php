@@ -35,6 +35,8 @@ Route::group(['middleware' => 'auth'], function() {
   Route::get('/steps/{id}/edit', 'StepsController@edit')->name('steps.edit');
   // step編集機能のルーティング
   Route::post('/steps/{id}', 'StepsController@update')->name('steps.update');
+  // チャレンジが終了したSTEPの詳細表示ルーティング
+  Route::get('/steps/{id}/record', 'StepsController@record')->name('steps.record');
   // プロフィール登録画面表示のルーティング
   Route::get('/profile/{id}/new', 'ProfileController@new')->name('profile.new');
   // プロフィール登録機能のルーティング

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\ParentStep;
 use App\ChallengeParentStep;
+use App\FinishParentStep;
+use App\FinishChildStep;
 
 class MypageController extends Controller
 {
@@ -28,9 +30,8 @@ class MypageController extends Controller
     $query->with('category');}])->where('user_id', $id)->where('end_flg', 0)->latest()->get();
 
     // 自分がチャレンジを終えたSTEPを最新のものから順に取得する
-    $my_finish_steps = ChallengeParentStep::with(['parentStep' => function($query){
-      $query->with('category');}])->where('user_id', $id)->where('end_flg', 1)->latest()->get();
-
+    $my_finish_steps = FinishParentStep::where('challenge_user_id', $id)->latest()->get();
+      \Log::info('ログ出力テスト'.$my_finish_steps);
     return view('mypage.index',compact('user', 'my_create_steps', 'my_challenge_steps', 'my_finish_steps'));
   }
 
