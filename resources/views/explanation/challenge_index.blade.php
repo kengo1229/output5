@@ -17,7 +17,7 @@ $title = 'STEPチャレンジ説明';
                   <img  class="p-howTo__img" src="{{ asset('/img/howTo10.png') }}" alt="STEPチャレンジ方法01">
                   <img  class="p-howTo__img" src="{{ asset('/img/howTo11.png') }}" alt="STEPチャレンジ方法02">
                   <p class="p-howTo__sentence">チャレンジしたいSTEPは「STEP一覧」から選んでください</p>
-                  <p class="p-howTo__sentence">※自分が登録したSTEPにはチャレンジできません</p>
+                  <p class="p-howTo__sentence">※自分が登録したSTEPにはチャレンジできません(編集ページに移ります)</p>
               </div>
               <div class="p-howTo">
                   <h2 class="p-howTo__head">② 親STEP詳細画面の「チャレンジ」をクリックする</h2>
