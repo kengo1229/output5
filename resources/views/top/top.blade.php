@@ -29,50 +29,84 @@ $title = 'あなたの人生のSTEPを共有しよう';
                 <p>あなたはSTEPの「チャレンジ」を通して<span class="u-color-accent">効率的</span>かつ<span class="u-color-accent">無駄なく</span>学習を進め、<span class="u-color-accent">成長</span>していくことができます。</p>
             </div>
 
+            @guest
             <a class="p-about__link" href="/register">
                 <div class="p-about__button">STEPに新規登録する</div>
             </a>
+            @endguest
 
         </div>
 
         <div class="p-about js-fadeInUp">
-          <h1 class="p-about__main-title--text-right">【Merit】 STEPの４つのメリット</h1>
-            <div class="p-about__content js-showDelay">
-                <h2 class="p-about__sub-title">１. 体験に基づいた学習方法</h2>
-                <p>STEPでは<span class="u-color-accent">「この順番でこういったものを学んでいったのが良かった」</span>という体験に基づいた学習方法が投稿がされています。</p>
-                <p>そのため、学習の順番とやることがしっかり決められています。</p>
-                <p>1つのSTEPにはそれを達成するための子STEPが設定されていて、達成目安時間も設けられています。</p>
-                <p>この通りに学習していけば、あなたは成長できます。</p>
-            </div>
-            <div class="p-about__content js-showDelay">
-                <h2 class="p-about__sub-title">２. 幅広い投稿</h2>
-                <p>プログラミングや外国語習得といったいわゆる「スキルアップ」系のジャンル、スポーツ、筋トレといった「肉体」系、お金、
-                  恋愛、人間関係といった「お悩み解決」系のジャンルまで幅広く投稿されています。
-                </p>
-                <p>この他にも様々な投稿があり、<span class="u-color-accent">あなたの悩みや不安を解決するSTEPがきっと見つかります。</span></p>
-            </div>
-            <div class="p-about__content js-showDelay">
-                <h2 class="p-about__sub-title">３. モチベーションの維持</h2>
-                <p>STEPでは新規登録（無料）後にマイページが閲覧できるようになります。</p>
-                <p>マイページでは現在自分が「チャレンジ」中のSTEPが一覧で見れるようになっていて、進捗状況が一目でわかります。</p>
-                <p>また、過去にクリアしてきたSTEPも一覧表示されているので自分がどれだけ成長してきたのかがわかります。</p>
-                <p><span class="u-color-accent">この見える化によってあなたの学習に対するモチベーションを維持します。</span></p>
-            </div>
-            <div class="p-about__content js-showDelay">
-                <h2 class="p-about__sub-title">４. STEPの共有</h2>
-                <p>「過去に自分はこのやり方と順番でこんなことができるようになった」 そんな体験を人に知ってもらって、できればやってみてもらいたくなる時ってありますよね。</p>
-                <p>「STEP新規登録機能」を使えば自分のSTEPを投稿できます。投稿されたSTEPは他の人の学習を手助けします。</p>
-                <p>さぁ、あなたの<span class="u-color-accent">人生</span>のSTEPを<span class="u-color-accent">共有</span>しましょう。</p>
-            </div>
+            <h1 class="p-about__main-title--text-right">【Merit】 STEPの４つのメリット</h1>
+                <div class="p-about__content js-showDelay">
+                    <h2 class="p-about__sub-title">１. 体験に基づいた学習方法</h2>
+                    <p>STEPでは<span class="u-color-accent">「この順番でこういったものを学んでいったのが良かった」</span>という体験に基づいた学習方法が投稿がされています。</p>
+                    <p>そのため、学習の順番とやることがしっかり決められています。</p>
+                    <p>1つのSTEPにはそれを達成するための子STEPが設定されていて、達成目安時間も設けられています。</p>
+                    <p>この通りに学習していけば、あなたは成長できます。</p>
+                </div>
+                <div class="p-about__content js-showDelay">
+                    <h2 class="p-about__sub-title">２. 幅広い投稿</h2>
+                    <p>プログラミングや外国語習得といったいわゆる「スキルアップ」系のジャンル、スポーツ、筋トレといった「肉体」系、お金、
+                      恋愛、人間関係といった「お悩み解決」系のジャンルまで幅広く投稿されています。
+                    </p>
+                    <p>この他にも様々な投稿があり、<span class="u-color-accent">あなたの悩みや不安を解決するSTEPがきっと見つかります。</span></p>
+                </div>
+                <div class="p-about__content js-showDelay">
+                    <h2 class="p-about__sub-title">３. モチベーションの維持</h2>
+                    <p>STEPでは新規登録（無料）後にマイページが閲覧できるようになります。</p>
+                    <p>マイページでは現在自分が「チャレンジ」中のSTEPが一覧で見れるようになっていて、進捗状況が一目でわかります。</p>
+                    <p>また、過去にクリアしてきたSTEPも一覧表示されているので自分がどれだけ成長してきたのかがわかります。</p>
+                    <p><span class="u-color-accent">この見える化によってあなたの学習に対するモチベーションを維持します。</span></p>
+                </div>
+                <div class="p-about__content js-showDelay">
+                    <h2 class="p-about__sub-title">４. STEPの共有</h2>
+                    <p>「過去に自分はこのやり方と順番でこんなことができるようになった」 そんな体験を人に知ってもらって、できればやってみてもらいたくなる時ってありますよね。</p>
+                    <p>「STEP新規登録機能」を使えば自分のSTEPを投稿できます。投稿されたSTEPは他の人の学習を手助けします。</p>
+                    <p>さぁ、あなたの<span class="u-color-accent">人生</span>のSTEPを<span class="u-color-accent">共有</span>しましょう。</p>
+                </div>
 
+            @guest
             <a class="p-about__link" href="/register">
                 <div class="p-about__button js-showDelay">STEPに新規登録する</div>
             </a>
+            @endguest
 
         </div>
 
         <div class="p-about js-fadeInUp">
+            <h1 class="p-about__main-title">【HowTo】 STEPの使い方</h1>
+            <div class="p-about__content js-showDelay">
+                <h2 class="p-about__sub-title">登録するときの3STEP</h2>
+                <div class="p-about__sentence">
+                    <p>①ナビメニューの「STEP登録」をクリック</p>
+                    <p>②登録内容を入力</p>
+                    <p>③「登録」をクリック</p>
+                </div>
+                <a class="u-float-right" href="/explanation/post">詳しい登録方法はこちら</a>
+            </div>
+            <div class="p-about__content js-showDelay">
+                <h2 class="p-about__sub-title">チャレンジするときの3STEP</h2>
+                <div class="p-about__sentence">
+                    <p>①チャレンジしたい「STEP」をクリック</p>
+                    <p>②子STEPの「かかった時間」を入力</p>
+                    <p>③「クリア」をクリック</p>
+                </div>
+                <a class="u-float-right" href="/explanation/challenge">詳しいチャレンジ方法はこちら</a>
+            </div>
 
+            @guest
+            <a class="p-about__link" href="/register">
+                <div class="p-about__button js-showDelay">STEPに新規登録する</div>
+            </a>
+            @endguest
+
+        </div>
+
+
+        <div class="p-about js-fadeInUp">
+            <h1 class="p-about__main-title--text-right">【Sample】 実際のSTEPって？</h1>
             <h2 class="p-about__sub-title">新着STEP一覧</h2>
             <div class="c-step-group">
                 @foreach ($latest_parent_steps as $latest_parent_step)

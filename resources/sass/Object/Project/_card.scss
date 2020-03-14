@@ -1,6 +1,6 @@
 .p-card {
     width: 40%;
-
+    overflow: hidden;
     @include xlg() {
         width: 60%;
     }
@@ -63,7 +63,6 @@
         flex: 1 1 auto;
         min-height: 1px;
         padding: $space_xxl;
-
         @include md() {
             padding: $space_m;
         }

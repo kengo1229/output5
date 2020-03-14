@@ -16,6 +16,8 @@ $title = $parent_step_info->title.'のチャレンジページ';
         <div class="p-card__body">
           <div class="p-show">
 
+            <a href="/explanation/challenge">チャレンジ方法はこちら</a>
+
             <div class="p-show__group">
                 <p class="u-underline-thin">やること</p>
                 <p id="title" class="p-show__control u-underline-bold">

@@ -31,6 +31,8 @@ $title = 'STEP編集';
                 <form class="p-form" method="POST" action="{{ route('steps.update', $parent_step_info->id) }}" enctype="multipart/form-data">
                   @csrf
 
+                    <a href="/explanation/post">編集方法はこちら</a>
+
                     <div class="p-form__group">
                         @if($challenge_flg)
                         <p>タイトル</p>

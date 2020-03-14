@@ -801,6 +801,7 @@ br {
   font-size: 18px;
   line-height: 2;
   letter-spacing: 1.2px;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 959px) {
@@ -812,6 +813,25 @@ br {
 @media screen and (max-width: 559px) {
   .p-about__content {
     font-size: 12px;
+  }
+}
+
+.p-about__sentence {
+  text-align: left;
+  font-weight: bold;
+  width: 50%;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 959px) {
+  .p-about__sentence {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 559px) {
+  .p-about__sentence {
+    width: 90%;
   }
 }
 
@@ -862,6 +882,7 @@ br {
 
 .p-card {
   width: 40%;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 1200px) {
@@ -1005,6 +1026,113 @@ br {
   .p-error__sub-message {
     font-size: 12px;
   }
+}
+
+.p-explanation {
+  background-color: white;
+  padding: 15px;
+  margin-top: 80px;
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+  border-radius: 3px;
+}
+
+.p-explanation__main-title {
+  margin: 15px 0;
+  font-weight: bold;
+  text-align: center;
+  font-size: 30px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
+}
+
+@media screen and (max-width: 959px) {
+  .p-explanation__main-title {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 559px) {
+  .p-explanation__main-title {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .p-explanation__main-title {
+    font-size: 18px;
+    text-align: center;
+  }
+}
+
+.p-explanation__content {
+  font-size: 18px;
+  line-height: 1.6;
+  letter-spacing: 1.2px;
+  overflow: hidden;
+  text-align: center;
+}
+
+@media screen and (max-width: 959px) {
+  .p-explanation__content {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 559px) {
+  .p-explanation__content {
+    font-size: 12px;
+    text-align: left;
+  }
+}
+
+.p-explanation__button {
+  width: 40%;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: #3490dc;
+  border: 1px solid #3490dc;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  border-radius: 0.25rem;
+  -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+@media screen and (max-width: 959px) {
+  .p-explanation__button {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 559px) {
+  .p-explanation__button {
+    width: 80%;
+  }
+}
+
+.p-explanation__button:hover {
+  color: white;
+  background-color: #227dc7;
+  border-color: #2176bd;
+  text-decoration: none;
+}
+
+.p-explanation__link:hover {
+  text-decoration: none;
+}
+
+.p-form {
+  overflow: hidden;
 }
 
 .p-form__group {
@@ -1185,6 +1313,68 @@ br {
 @media screen and (max-width: 320px) {
   .p-hero__title {
     font-size: 25px;
+  }
+}
+
+.p-howTo {
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  padding: 10px;
+  border-radius: 3px;
+  border-color: #ced4da;
+  border: solid 1px;
+  min-height: 40px;
+}
+
+@media screen and (max-width: 559px) {
+  .p-howTo {
+    width: 100%;
+  }
+}
+
+.p-howTo__head {
+  font-size: 24px;
+  margin: 10px 0;
+  margin-right: auto;
+  margin-left: auto;
+  width: 80%;
+  text-align: left;
+}
+
+@media screen and (max-width: 959px) {
+  .p-howTo__head {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 559px) {
+  .p-howTo__head {
+    width: 100%;
+    font-size: 18px;
+  }
+}
+
+.p-howTo__sentence {
+  width: 80%;
+  text-align: left;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 559px) {
+  .p-howTo__sentence {
+    width: 100%;
+  }
+}
+
+.p-howTo__img {
+  width: 80%;
+  margin-bottom: 15px;
+}
+
+@media screen and (max-width: 559px) {
+  .p-howTo__img {
+    width: 100%;
   }
 }
 

@@ -68,3 +68,7 @@ Route::get('/steps/{id}', 'StepsController@show')->name('steps.show');
 Route::get('/detail/{id}', 'StepsController@detail')->name('steps.detail');
 // プロフィール画面表示のルーティング
 Route::get('/profile/{id}/show', 'ProfileController@show')->name('profile.show');
+// STEP投稿説明画面表示のルーティング
+Route::get('/explanation/post', 'ExplanationController@postIndex')->name('explanation.post');
+// STEPチャレンジ説明画面表示のルーティング
+Route::get('/explanation/challenge', 'ExplanationController@challengeIndex')->name('explanation.challenge');
