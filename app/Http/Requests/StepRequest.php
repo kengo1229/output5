@@ -84,7 +84,7 @@ class StepRequest extends FormRequest
             return $input->todo4 != null;
         });
 
-        $validator->sometimes('todo4', 'required|string|max:40', function ($input) {
+        $validator->sometimes('todo4', 'required|string|max:100', function ($input) {
             return $input->step4 != null;
         });
 

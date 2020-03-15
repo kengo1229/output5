@@ -31,7 +31,7 @@ class MypageController extends Controller
 
     // 自分がチャレンジを終えたSTEPを最新のものから順に取得する
     $my_finish_steps = FinishParentStep::where('challenge_user_id', $id)->latest()->get();
-      \Log::info('ログ出力テスト'.$my_finish_steps);
+
     return view('mypage.index',compact('user', 'my_create_steps', 'my_challenge_steps', 'my_finish_steps'));
   }
 
