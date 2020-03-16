@@ -84,7 +84,7 @@ class StepsController extends Controller
     編集しようとしているSTEPがチャレンジ中の場合、編集できないようにしたいので判定用の変数を用意して
     変数の中身を変える
     */
-    $end_flg = ChallengeParentStep::select('end_flg')->where('parent_step_id', $id)->first();
+    $end_flg = ChallengeParentStep::select('end_flg')->where('parent_step_id', $id)->first() ?? '' ;
 
     \Log::info('$end_flgの中身'.$end_flg);
     \Log::info('$end_flg$end_flg[end_flg]の中身'.$end_flg['end_flg']);
