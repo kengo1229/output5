@@ -1163,6 +1163,10 @@ br {
   padding: 5px;
 }
 
+.p-form__input {
+  min-height: 47px;
+}
+
 .p-form__textarea {
   height: 100px;
 }

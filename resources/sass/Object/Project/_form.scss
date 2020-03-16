@@ -28,6 +28,10 @@
         padding: $space_s;
     }
 
+    &__input {
+        min-height: 47px;
+    }
+
     &__textarea {
         height: 100px;
     }
