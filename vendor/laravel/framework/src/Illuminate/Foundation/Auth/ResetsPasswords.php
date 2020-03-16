@@ -2,14 +2,12 @@
 
 namespace Illuminate\Foundation\Auth;
 
-use Illuminate\Support\Str;
+use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
-use Illuminate\Auth\Events\PasswordReset;
-use App\Rules\AlphaNumHalf;
-
+use Illuminate\Support\Str;
 
 trait ResetsPasswords
 {
@@ -63,13 +61,12 @@ trait ResetsPasswords
      *
      * @return array
      */
-     // パスワードのバリデーションの変更。最低文字数6文字、最大文字数20文字、半角英数字チェック追加
     protected function rules()
     {
         return [
             'token' => 'required',
             'email' => 'required|email',
-            'password' => ['required', new AlphaNumHalf, 'confirmed', 'min:6','max:20'],
+            'password' => 'required|confirmed|min:8',
         ];
     }
 
@@ -105,7 +102,7 @@ trait ResetsPasswords
      */
     protected function resetPassword($user, $password)
     {
-        $user->password = Hash::make($password);
+        $this->setUserPassword($user, $password);
 
         $user->setRememberToken(Str::random(60));
 
@@ -114,6 +111,18 @@ trait ResetsPasswords
         event(new PasswordReset($user));
 
         $this->guard()->login($user);
+    }
+
+    /**
+     * Set the user's password.
+     *
+     * @param  \Illuminate\Contracts\Auth\CanResetPassword  $user
+     * @param  string  $password
+     * @return void
+     */
+    protected function setUserPassword($user, $password)
+    {
+        $user->password = Hash::make($password);
     }
 
     /**
