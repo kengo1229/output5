@@ -8,7 +8,7 @@ $title = 'STEP編集';
     <div id="app" class="u-display-flex-center js-height-hold">
         <div class="p-card u-bg-white u-border-default">
             <div class="p-card__header">STEP編集@if($challenge_flg)（チャレンジ中のため編集できません。）@endif</div>
-            <?php var_dump($challenge_flg) ?>
+
             <div class="p-card__body">
 
                 <div class="c-post-user u-margin-bottom-space_m">

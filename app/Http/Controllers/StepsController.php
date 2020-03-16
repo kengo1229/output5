@@ -83,6 +83,8 @@ class StepsController extends Controller
     /*
     編集しようとしているSTEPがチャレンジ中の場合、編集できないようにしたいので判定用の変数を用意して
     変数の中身を変える
+    herokuがphp7.4になったため、DBに存在しない値を取得しようとするとエラーを吐き出すようになった。
+    そのため、一度exist()で存在するかどうかをチェックする。
     */
     $exist = ChallengeParentStep::select('end_flg')->where('parent_step_id', $id)->exists();
 
