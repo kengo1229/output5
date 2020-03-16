@@ -7,8 +7,8 @@ $title = 'STEP編集';
 @section('content')
     <div id="app" class="u-display-flex-center js-height-hold">
         <div class="p-card u-bg-white u-border-default">
-            <div class="p-card__header">STEP編集@if(isset($challenge_flg))（チャレンジ中のため編集できません。）@endif</div>
-
+            <div class="p-card__header">STEP編集@if($challenge_flg)（チャレンジ中のため編集できません。）@endif</div>
+            <?php var_dump($challenge_flg) ?>
             <div class="p-card__body">
 
                 <div class="c-post-user u-margin-bottom-space_m">
@@ -34,7 +34,7 @@ $title = 'STEP編集';
                     <a href="/explanation/post">編集方法はこちら</a>
 
                     <div class="p-form__group">
-                        @if(isset($challenge_flg))
+                        @if($challenge_flg)
                         <p>タイトル</p>
                         <div id="title" type="text" class="p-form__control">{{ $parent_step_info->title }}</div>
                         @else
@@ -50,7 +50,7 @@ $title = 'STEP編集';
                     </div>
 
                     <div class="p-form__group">
-                        @if(isset($challenge_flg))
+                        @if($challenge_flg)
                         <p>カテゴリー</p>
                         <div class="p-form__control p-form__category">{{ $parent_step_info->category->category_name }}</div>
                         @else
@@ -77,7 +77,7 @@ $title = 'STEP編集';
                     </div>
 
                     <div class="p-form__group">
-                        @if(isset($challenge_flg))
+                        @if($challenge_flg)
                         <p>達成目安時間</p>
                         <div class="p-form__control p-form__time">{{ $parent_step_info->goal_time }}</div>
                         @else
@@ -95,7 +95,7 @@ $title = 'STEP編集';
                     </div>
 
                     <div class="p-form__group">
-                        @if(isset($challenge_flg))
+                        @if($challenge_flg)
                         <p>内容</p>
                         <div class="p-form__control p-form__textarea">{{ $parent_step_info->description }}</div>
                         @else
@@ -114,7 +114,7 @@ $title = 'STEP編集';
 
                     @for ($i = 1; $i <= 5; $i++)
                     <div class="p-form__group">
-                        @if(isset($challenge_flg))
+                        @if($challenge_flg)
                         <p>{{__('子STEP').$i}}</p>
                         <div class="p-form__control">{{ $child_step_info[$i - 1]['step'] }}</div>
                         @else
@@ -133,7 +133,7 @@ $title = 'STEP編集';
                     </div>
 
                     <div class="p-form__group">
-                        @if(isset($challenge_flg))
+                        @if($challenge_flg)
                         <p>やること</p>
                         <div class="p-form__control p-form__textarea">{{ $child_step_info[$i - 1]['todo'] }}</div>
                         @else
@@ -167,7 +167,7 @@ $title = 'STEP編集';
                     </div>
 
                     <div class="p-form__group">
-                        @if(isset($challenge_flg))
+                        @if($challenge_flg)
                         @else
                         <label for="pic">新しい画像（jpg/jpeg/png）<span class="c-badge">任意</span></label>
 
@@ -182,7 +182,7 @@ $title = 'STEP編集';
                     </div>
 
                     <div class="p-form__group">
-                      @if(isset($challenge_flg))
+                      @if($challenge_flg)
                         <p>他ユーザーがチャレンジ中のため編集できません。</p>
                       @else
                         <button type="submit" class="c-btn u-float-right">

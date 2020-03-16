@@ -84,7 +84,19 @@ class StepsController extends Controller
     編集しようとしているSTEPがチャレンジ中の場合、編集できないようにしたいので判定用の変数を用意して
     変数の中身を変える
     */
-    $challenge_flg = '1';
+    $exist = ChallengeParentStep::select('end_flg')->where('parent_step_id', $id)->exists();
+
+    if($exist) {
+      $end_flg = ChallengeParentStep::select('end_flg')->where('parent_step_id', $id)->first();
+
+      if ($end_flg['end_flg'] === 0) {
+        $challenge_flg = true;
+      }elseif($end_flg['end_flg'] === 1) {
+        $challenge_flg = '';
+      }
+    }else{
+      $challenge_flg = '';
+    }
 
     $user = Auth::user();
     $categories = Category::get();
