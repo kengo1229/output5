@@ -13,6 +13,11 @@ class ProfileController extends Controller
   // プロフィール登録画面の表示機能
   public function new($id)
   {
+    // GETパラメータが数字かどうかをチェックする
+    if(!ctype_digit($id)){
+      return redirect('/')->with('flash_message', __('不正な操作が行われました。'));
+    }
+
     // GETパラメータがログインユーザーのidと同一かチェックする
     if($id != Auth::id()){
         return redirect('/')->with('flash_message', __('不正な操作が行われました。'));
@@ -58,6 +63,12 @@ class ProfileController extends Controller
   // プロフィール編集画面の表示機能
   public function edit($id)
   {
+
+    // GETパラメータが数字かどうかをチェックする
+    if(!ctype_digit($id)){
+      return redirect('/')->with('flash_message', __('不正な操作が行われました。'));
+    }
+
     // GETパラメータがログインユーザーのidと同一かチェックする
     if($id != Auth::id()){
         return redirect('/')->with('flash_message', __('不正な操作が行われました。'));

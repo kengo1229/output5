@@ -14,6 +14,11 @@ class MypageController extends Controller
   // マイページ表示機能
   public function index($id) {
 
+    // GETパラメータが数字かどうかをチェックする
+    if(!ctype_digit($id)){
+      return redirect('/')->with('flash_message', __('不正な操作が行われました。'));
+    }
+
     // ログインユーザーのidがGETパラメーターの数字と一致する場合のみマイページを表示する
     if($id != Auth::id()){
         return redirect('/')->with('flash_message', __('不正な操作が行われました。'));
