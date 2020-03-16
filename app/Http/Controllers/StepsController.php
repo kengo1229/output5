@@ -81,21 +81,13 @@ class StepsController extends Controller
     }
 
     /*
-    編集しようとしているSTEPがチャレンジ中の場合、編集できないようにしたいので判定用の変数を用意して
-    変数の中身を変える
-    herokuがphp7.4になったため、DBに存在しない値を取得しようとするとエラーを吐き出すようになった。
-    そのため、一度exist()で存在するかどうかをチェックする。
+    編集しようとしているSTEPがチャレンジ中の場合、編集できないようにしたいので判定用の変数を用意する。
+    end_flgがあるかどうかを判定してそれを元に判定用変数の中身を変える
     */
-    $exist = ChallengeParentStep::select('end_flg')->where('parent_step_id', $id)->exists();
+    $exist = ChallengeParentStep::where('parent_step_id', $id)->where('end_flg', 0)->exists();
 
     if($exist) {
-      $end_flg = ChallengeParentStep::select('end_flg')->where('parent_step_id', $id)->first();
-
-      if ($end_flg['end_flg'] === 0) {
-        $challenge_flg = true;
-      }elseif($end_flg['end_flg'] === 1) {
-        $challenge_flg = '';
-      }
+      $challenge_flg = true;
     }else{
       $challenge_flg = '';
     }

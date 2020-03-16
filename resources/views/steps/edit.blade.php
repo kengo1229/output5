@@ -116,7 +116,7 @@ $title = 'STEP編集';
                     <div class="p-form__group">
                         @if($challenge_flg)
                         <p>{{__('子STEP').$i}}</p>
-                        <div class="p-form__control">{{ $child_step_info[$i - 1]['step'] }}</div>
+                        <div class="p-form__control">@if(isset($child_step_info[$i - 1]['step'])){{ $child_step_info[$i - 1]['step'] }}@endif</div>
                         @else
                         <label for="step{{$i - 1}}">{{__('子STEP').$i}}<span class="c-badge">@if($i === 1)必須@else任意@endif</span></label>
 
@@ -135,7 +135,7 @@ $title = 'STEP編集';
                     <div class="p-form__group">
                         @if($challenge_flg)
                         <p>やること</p>
-                        <div class="p-form__control p-form__textarea">{{ $child_step_info[$i - 1]['todo'] }}</div>
+                        <div class="p-form__control p-form__textarea">@if(isset($child_step_info[$i - 1]['todo'])){{ $child_step_info[$i - 1]['todo'] }}@endif</div>
                         @else
                         <label for="todo{{$i - 1}}">やること(100文字以下)<span class="c-badge">@if($i === 1)必須@else任意@endif</span></label>
 
