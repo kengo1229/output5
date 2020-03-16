@@ -46,8 +46,9 @@ $title = '[ユーザー名未設定]さんのマイページ;'
         <div class="c-step-group  c-step-group--min-height">
 
             @foreach ($my_create_steps as $my_create_step)
-
             <div class="p-step  u-bg-white u-border-default">
+              <?php print_r($my_create_step['id']) ?>
+
                 <a class="p-step__link" href="{{ action('StepsController@edit', $my_create_step->id) }}">
                     @if(($my_create_step->pic) != null)
                     <div>

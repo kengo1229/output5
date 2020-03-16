@@ -86,12 +86,20 @@ class StepsController extends Controller
     */
     $end_flg = ChallengeParentStep::select('end_flg')->where('parent_step_id', $id)->first();
 
+    \Log::info('$end_flgの中身'.$end_flg);
+    \Log::info('$end_flg$end_flg[end_flg]の中身'.$end_flg['end_flg']);
 
-    if($end_flg['end_flg'] === 0) {
-      $challenge_flg = true;
+    if(isset($end_flg)) {
+      if ($end_flg['end_flg'] === 0) {
+        $challenge_flg = '1';
+      }elseif($end_flg['end_flg'] === 1) {
+        $challenge_flg = '';
+      }
     }else{
-      $challenge_flg = false;
+      $challenge_flg = '';
     }
+
+    \Log::info('$challenge_flgの中身'.$challenge_flg);
 
     $user = Auth::user();
     $categories = Category::get();
