@@ -209,6 +209,7 @@ class StepsController extends Controller
     // チャレンジが終了したSTEPの詳細表示機能
     public function record($id)
     {
+
       // GETパラメータが数字かどうかをチェックする
       if(!ctype_digit($id)){
         return redirect('/steps')->with('flash_message', __('不正な操作が行われました。'));
@@ -217,8 +218,8 @@ class StepsController extends Controller
       /*
       STEPにチャレンジしていたユーザーとログインユーザーが一致する場合のみ、表示する
       */
-      $finish_parent_step = FinishParentStep::find($id)->with(['user', 'category'])->first();
-      \Log::info('ログ出力テスト '.$finish_parent_step);
+      $finish_parent_step = FinishParentStep::with(['user', 'category'])->find($id);
+
       if(($finish_parent_step['challenge_user_id']) !== Auth::id()){
         return redirect('/steps')->with('flash_message', __('不正な操作が行われました。'));
       }

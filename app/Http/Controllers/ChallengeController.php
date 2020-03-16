@@ -133,7 +133,7 @@ class ChallengeController extends Controller
         */
         $finish_parent_step_id = $finish_parent_step::latest('id')->first()->id;
         $finish_child_step = $challenge_child_step::where('challenge_parent_step_id', $id)->where('end_flg', '1')->with('childStep')->get();
-        \Log::info('ログ出力テスト '.$finish_child_step);
+
         /*
         クリアした子STEPの情報をfinish_child_stepsテーブルに保存する
         クリアした子STEPの情報を別テーブルに保存するのはクリア後の編集によって影響を受けないようにするため。
