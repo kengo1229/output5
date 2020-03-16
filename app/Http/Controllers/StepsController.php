@@ -84,7 +84,7 @@ class StepsController extends Controller
     編集しようとしているSTEPがチャレンジ中の場合、編集できないようにしたいので判定用の変数を用意して
     変数の中身を変える
     */
-    $challenge_flg = '1'
+    $challenge_flg = '1';
 
     $user = Auth::user();
     $categories = Category::get();
