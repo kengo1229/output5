@@ -57,7 +57,7 @@ $title = $parent_step->title.'の親STEP詳細';
                         <div class="p-show__control u-underline-bold">{{ $parent_step->description }}</div>
                     </div>
 
-                    <div class="p-show__group  u-underline-bold">
+                    <div class="p-show__group u-underline-bold">
                         <p class="u-underline-thin">子STEP一覧
                           <a class="p-show__link" href="{{ action('StepsController@detail', $parent_step->id) }}">
                             子STEP詳細はこちら

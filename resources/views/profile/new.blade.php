@@ -6,7 +6,7 @@ $title = 'プロフィール登録';
 
 @section('content')
 <div id="app" class="u-display-flex-center  js-height-hold">
-    <div class="p-card  u-bg-white u-border-default ">
+    <div class="p-card u-bg-white u-border-default ">
         <div class="p-card__header">プロフィール登録</div>
 
         <div class="p-card__body">
@@ -29,7 +29,7 @@ $title = 'プロフィール登録';
                 <div class="p-form__group">
                     <label for="email">メールアドレス<span class="c-badge">必須</span></label>
 
-                    <input id="email" type="text" class="p-form__control  @error('email') u-is-invalid @enderror" name="email" value="{{ old('email', $user->email) }}" autocomplete="title" autofocus>
+                    <input id="email" type="text" class="p-form__control @error('email') u-is-invalid @enderror" name="email" value="{{ old('email', $user->email) }}" autocomplete="title" autofocus>
 
                     @error('email')
                     <p class="u-invalid-feedback" role="alert">

@@ -49,7 +49,7 @@ $title = 'パスワード再設定';
                 </div>
 
                 <div class="p-form__group">
-                    <button type="submit" class="c-btn  u-float-right">
+                    <button type="submit" class="c-btn u-float-right">
                         再設定
                     </button>
                 </div>

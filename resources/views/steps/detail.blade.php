@@ -16,7 +16,7 @@ $title = $parent_step->title.'の子STEP詳細';
                 <div class="p-show">
                     @foreach($child_steps as $index => $child_step)
                     @if($child_step['step'] !=null && $child_step['todo'] !=null)
-                    <div class="p-show__group  u-underline-bold">
+                    <div class="p-show__group u-underline-bold">
                         <div>
                             <p class="u-underline-thin">子STEP{{ $index + 1 }}</p>
                             <div class="p-show__control">{{ $child_step['step']}}</div>

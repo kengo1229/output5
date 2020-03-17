@@ -43,10 +43,10 @@ $title = '[ユーザー名未設定]さんのマイページ;'
         </h2>
 
         <h2 class="u-secondary-title u-margin-bottom-space_l">登録したSTEP一覧</h2>
-        <div class="c-step-group  c-step-group--min-height">
+        <div class="c-step-group c-step-group--min-height">
 
             @foreach ($my_create_steps as $my_create_step)
-            <div class="p-step  u-bg-white u-border-default">
+            <div class="p-step u-bg-white u-border-default">
 
                 <a class="p-step__link" href="{{ action('StepsController@edit', $my_create_step->id) }}">
                     @if(($my_create_step->pic) != null)
@@ -72,7 +72,7 @@ $title = '[ユーザー名未設定]さんのマイページ;'
             @endforeach
         </div>
 
-        <h2 class="u-secondary-title u-margin-bottom-space_l ">チャレンジ中STEP一覧</h2>
+        <h2 class="u-secondary-title u-margin-bottom-space_l">チャレンジ中STEP一覧</h2>
 
         <div class="c-step-group c-step-group--min-height">
             @if(isset($my_challenge_steps[0]))
@@ -115,7 +115,7 @@ $title = '[ユーザー名未設定]さんのマイページ;'
             @if(isset($my_finish_steps[0]))
             @foreach ($my_finish_steps as $my_finish_step)
 
-            <div class="p-step  u-margin-bottom-space_l u-bg-white u-border-default">
+            <div class="p-step u-margin-bottom-space_l u-bg-white u-border-default">
                 <a class="p-step__link" href="{{ action('StepsController@record', $my_finish_step['id']) }}">
 
                     @if(($my_finish_step['pic']) != null)

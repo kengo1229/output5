@@ -7,7 +7,7 @@ $title = 'あなたの人生のSTEPを共有しよう';
 @section('top')
 
 <section class="p-hero js-float-menu-target">
-    <h1 class="p-hero__title js-height-hold js-float-menu-target ">あなたの人生の<br>STEPを共有しよう</h1>
+    <h1 class="p-hero__title js-height-hold js-float-menu-target">あなたの人生の<br>STEPを共有しよう</h1>
 </section>
 
 @endsection

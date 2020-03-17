@@ -42,7 +42,7 @@ $title = 'プロフィール編集';
                 <div class="p-form__group">
                     <label for="introduction">自己紹介（200文字以下）<span class="c-badge">必須</span></label>
 
-                    <textarea id="introduction" class="p-form__control p-form__textarea js-count2  @error('introduction') u-is-invalid @enderror" name="introduction" autocomplete="introduction" autofocus>{{ old('introduction', $user->introduction) }}</textarea>
+                    <textarea id="introduction" class="p-form__control p-form__textarea js-count2 @error('introduction') u-is-invalid @enderror" name="introduction" autocomplete="introduction" autofocus>{{ old('introduction', $user->introduction) }}</textarea>
                     <p class="u-float-right"><span class="js-show2">0</span>/200</p>
 
                     @error('introduction')

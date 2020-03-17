@@ -18,7 +18,7 @@
       <meta name="application-name" content="STEP - 最良の学びや成長の方法が共有できる学習支援サービス" />
 
       <!-- ==============================================
-    		OGPタグ(本番環境で実行できなかったら無駄なコードなので消す)
+    		OGPタグ
     	=============================================== -->
       <meta property="og:title" content="共有型学習支援サービス" />
       <meta property="og:type" content="website" />
@@ -50,7 +50,7 @@
   </head>
 
   <body id="js-position-top">
-      <nav class="p-navbar u-bg-white u-shadow-sm  js-float-menu">
+      <nav class="p-navbar u-bg-white u-shadow-sm js-float-menu">
           <div class="p-navbar__section">
 
               <div class="p-navbar-left">
@@ -123,7 +123,7 @@
       </nav>
 
       @if (session('flash_message'))
-      <div class="c-alert  u-text-center" role="alert">
+      <div class="c-alert u-text-center" role="alert">
           {{ session('flash_message') }}
       </div>
       @endif

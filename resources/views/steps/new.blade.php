@@ -129,7 +129,7 @@ $title = 'STEP新規登録';
                 </div>
 
                 <div class="p-form__group">
-                    <button type="submit" class="c-btn  u-float-right">
+                    <button type="submit" class="c-btn u-float-right">
                       登録
                     </button>
                 </div>

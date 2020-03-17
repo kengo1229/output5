@@ -14,16 +14,16 @@ $title = $parent_step_info->title.'のチャレンジページ';
         </div>
 
         <div class="p-card__body">
-          <div class="p-show">
+            <div class="p-show">
 
-            <a href="/explanation/challenge">チャレンジ方法はこちら</a>
+                <a href="/explanation/challenge">チャレンジ方法はこちら</a>
 
-            <div class="p-show__group">
-                <p class="u-underline-thin">やること</p>
-                <p id="title" class="p-show__control u-underline-bold">
-                    {{ $challenge_child_step_info->childStep->todo }}
-                </p>
-            </div>
+                <div class="p-show__group">
+                    <p class="u-underline-thin">やること</p>
+                    <p id="title" class="p-show__control u-underline-bold">
+                        {{ $challenge_child_step_info->childStep->todo }}
+                    </p>
+                </div>
 
           </div>
             <!-- クリアボタンが押されたら現在表示されている子ステップのidを渡す -->
@@ -45,16 +45,16 @@ $title = $parent_step_info->title.'のチャレンジページ';
 
                 <div class="p-form__group">
 
-                  <div class=" u-float-right">
+                    <div class="u-float-right">
 
-                    <button type="submit" class="c-btn">
-                        クリア
-                    </button>
+                        <button type="submit" class="c-btn">
+                            クリア
+                        </button>
 
-                    <a href="{{ action('ChallengeController@stop') }}" class="c-btn">
-                        中断する
-                    </a>
-                  </div>
+                        <a href="{{ action('ChallengeController@stop') }}" class="c-btn">
+                            中断する
+                        </a>
+                    </div>
 
                 </div>
 

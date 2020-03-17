@@ -58,7 +58,7 @@ $title = 'STEP編集';
                         <div>
                             <select id="category_id" type="text" class="p-form__control p-form__category @error('category_id') u-is-invalid @enderror" name="category_id" autocomplete="category_id" autofocus>
                             @foreach($categories as $category )
-                                @if($category->id == $parent_step_info->category_id )
+                                @if($category->id == $parent_step_info->category_id)
                                     <option value="{{ $category->id }}" selected="selcted"> {{ $category->category_name}} </option>
                                 @elseif(old('category_id') == $category->id )
                                     <option value="{{$category->id}}" selected="selcted"> {{ $category->category_name}} </option>
