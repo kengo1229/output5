@@ -1168,7 +1168,7 @@ br {
 }
 
 .p-form__textarea {
-  min-height: 120px;
+  min-height: 100px;
 }
 
 .p-form__category {
