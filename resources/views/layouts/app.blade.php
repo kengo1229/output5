@@ -20,7 +20,7 @@
       <!-- ==============================================
     		OGPタグ
     	=============================================== -->
-      <meta property="og:title" content="共有型学習支援サービス" />
+      <meta property="og:title" content="共有型学習支援サービス「STEP」" />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://webukatustep.herokuapp.com/" />
       <meta property="og:image" content="https://webukatustep.herokuapp.com/img/navbar_image.jpg" />
