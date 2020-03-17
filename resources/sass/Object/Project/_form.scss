@@ -1,0 +1,53 @@
+.p-form {
+  overflow: hidden;
+    &__group {
+        margin-bottom: $space_l;
+        overflow: hidden;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+
+    &__control {
+        width: 100%;
+        padding: $space_m;
+        background-clip: padding-box;
+        border: 1px solid $form-control-border-color;
+        border-radius: 0.25rem;
+        -webkit-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+    &__img {
+        width: 200px;
+        height: 130px;
+    }
+
+    &__pic {
+        padding: $space_s;
+    }
+
+    &__input {
+        min-height: 47px;
+    }
+
+    &__textarea {
+        min-height: 120px;
+    }
+
+    &__category {
+        width: 40%;
+        padding: 0 0 0 $space_m;
+
+        @include md() {
+            width: 80%;
+        }
+    }
+
+    &__time {
+        width: 30%;
+        margin-right: $space_s;
+    }
+
+}

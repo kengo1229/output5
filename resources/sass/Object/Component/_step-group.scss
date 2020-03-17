@@ -1,0 +1,19 @@
+.c-step-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    text-align: center;
+
+    @include lg() {
+        justify-content: space-between;
+    }
+
+    @include md() {
+        justify-content: space-around;
+        font-size: $font-size_s;
+    }
+
+    &--min-height {
+        min-height: 200px;
+    }
+}

@@ -1,0 +1,14 @@
+.c-badge{
+    display: inline-block;
+    padding: 11px $space_s;
+    margin-left: $space_s;
+    font-size: $font-size_default;
+    font-weight: bold;
+    line-height: 0;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: top;
+    border-radius: 3px;
+    background-color: $badge-bg-color;
+    color: $font-color-white;
+}

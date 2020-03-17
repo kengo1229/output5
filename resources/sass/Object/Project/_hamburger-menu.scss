@@ -1,0 +1,50 @@
+.p-hamburger-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    @include md() {
+        display: flex;
+        flex-direction: column;
+        font-size: $font-size_xl;
+    }
+
+    @include sm() {
+        font-size: $font-size_l;
+    }
+
+    &__item {
+        list-style: none;
+        padding-right: $space_l;
+
+        @include lg() {
+            font-size: $font-size_xs;
+            padding-right: $space_s;
+        }
+
+        @include md() {
+            font-size: $font-size_xl;
+            margin: $space_m 0;
+            text-align: center;
+        }
+
+        @include sm() {
+            font-size: $font-size_l;
+        }
+
+        &:last-of-type {
+            padding-right: 0;
+        }
+    }
+
+    &__link {
+        color: $navbar-color;
+
+        &:hover {
+            color: $navbar-hover-color;
+            text-decoration: none;
+        }
+    }
+
+}

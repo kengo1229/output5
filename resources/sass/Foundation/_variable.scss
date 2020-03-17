@@ -1,0 +1,81 @@
+//=======================
+//変数
+//=======================
+
+// 文字色(カラーコードを8桁で指定した場合、IEやEdgeでは適用されないため、rgbとrgbaで表記)
+$font-color_default: rgba(0,0,0,0.901);
+$about-color: rgba(59,145,216,0.56);
+$accent-color: rgba(59,145,216,0.56);
+$alert-color: rgb(27,75,114);
+$explanation-color: rgba(59,145,216,0.56);
+$font-color-white: rgb(255,255,255);
+$footer-color: rgba(0,0,0,0.701);
+$hero-title-color: rgb(255,255,255);
+$invalid-feedback-color: rgb(255,0,0);
+$navbar-color: rgba(0,0,0,0.501);
+$navbar-hover-color: rgba(0,0,0,0.701);
+$twitter-share-btn-color: rgb(255,255,255);
+$text-muted-color: rgb(255,255,255);
+
+// 下線色(HEX8桁で指定した場合、IEやEdgeでは適用されないため、rgbとrgbaで表記)
+$link-color_default: rgb(52,144,220);
+$link-hover-color_default: rgb(29,104,167);
+
+// 枠線色(HEX8桁で指定した場合、IEやEdgeでは適用されないため、rgbとrgbaで表記)
+$border-color_default: rgba(0,0,0,0.125);
+$alert-border-color: rgb(198,224,245);
+$btn-border-color: rgb(52,144,220);
+$btn-hover-border-color: rgb(33,118,189);
+$form-control-border-color: rgb(206,212,218);
+$invalid-border-color: rgb(255,0,0);
+
+// 背景色(HEX8桁で指定した場合、IEやEdgeでは適用されないため、rgbとrgbaで表記)
+$bg-color_default: rgb(248,247,252);
+$about-bg-color: rgb(255,255,255);
+$alert-bg-color: rgb(214,233,248);
+$badge-bg-color: rgb(79,195,83);
+$btn-bg-color: rgb(52,144,220);
+$btn-hover-bg-color: rgb(34,125,199);
+$card-footer-bg-color: rgba(0,0,0,0.031);
+$card-header-bg-color: rgba(0,0,0,0.031);
+$explanation-bg-color: rgb(255,255,255);
+$menu-trigger-bg-color: rgba(0,0,0,0.901);
+$nav-bar-float-bg-color: rgba(255, 255, 255, 0.9);
+$twitter-share-btn-bg-color: rgb(85,172,238);
+
+
+//影
+$shadow_default: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+$card-footer-shadow: rgba(0, 0, 0, 0.125);
+$card-header-shadow: rgba(0, 0, 0, 0.125);
+$hero-title-shadow: 0 0 20px rgba(59, 145, 216, .56), 0 0 50px rgba(0, 0, 0, .8);
+
+
+//横幅
+$content-width: 980px;
+$navbar-width: 1080px;
+
+// 文字サイズ
+$font-size_default: 16px;
+$font-size_xs: 12px;
+$font-size_s: 14px;
+$font-size_m: 18px;
+$font-size_l: 24px;
+$font-size_xl: 30px;
+$font-size_xxl: 40px;
+$font-size_3l: 50px;
+
+
+// 余白
+$space_s: 5px;
+$space_m: 10px;
+$space_l: 15px;
+$space_xl: 20px;
+$space_xxl: 30px;
+$space_3l: 40px;
+
+// 太さ
+$font-weight_default: 400;
+
+// フォント
+$font-step: 'Anton',sans-serif;

@@ -1,0 +1,11 @@
+.l-main {
+    padding: 70px 0;
+
+    @include lg() {
+        padding: 58px 0;
+    }
+
+    @include sm() {
+        padding: 35px 0;
+    }
+}
