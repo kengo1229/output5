@@ -2,12 +2,13 @@
 
 namespace Illuminate\Foundation\Auth;
 
-use Illuminate\Auth\Events\PasswordReset;
+use App\Rules\AlphaNumHalf;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
-use Illuminate\Support\Str;
+use Illuminate\Auth\Events\PasswordReset;
 
 trait ResetsPasswords
 {
@@ -66,7 +67,7 @@ trait ResetsPasswords
         return [
             'token' => 'required',
             'email' => 'required|email',
-            'password' => 'required|confirmed|min:8',
+            'password' => ['required', new AlphaNumHalf, 'min:6','max:20', 'confirmed'],
         ];
     }
 
