@@ -97,7 +97,7 @@ $title = 'STEP編集';
                     <div class="p-form__group">
                         @if($challenge_flg)
                         <p>内容</p>
-                        <div class="p-form__control">{{ $parent_step_info->description }}</div>
+                        <div class="p-form__control p-form__textarea">{{ $parent_step_info->description }}</div>
                         @else
                         <label for="description">内容(200文字以下)<span class="c-badge">必須</span></label>
 
